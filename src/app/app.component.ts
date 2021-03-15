@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IconService } from './core/services/icon/icon.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'kdz-portal';
+  constructor (readonly iconService: IconService) {
+    iconService.init();
+  }
 }

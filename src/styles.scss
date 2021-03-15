@@ -1,4 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import './app/core/scss/bootstrap.scss';
+@import './app/core/scss/spacing.scss';
+@import './app/core/scss/float.scss';
+@import './app/core/scss/loading-spinner.scss';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$custom-typography: mat-typography-config($font-family: 'Vazir FD,Roboto, tahoma;');
+@include mat-core($custom-typography);
+
+.text-center {
+    text-align: center !important;
+}
+
+.el-center {
+    margin-right: auto;
+    margin-left: auto;
+}

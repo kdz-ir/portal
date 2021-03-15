@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url: 'http://localhost:5000',
+  hcaptcha: '10000000-ffff-ffff-ffff-000000000001',
+  accessToken: 'access_token',
+  refreshToken: 'refresh_token',
+  vapid_key: '',
+  version: 'DEV',
+  name: 'زندگی زیباست؟',
 };
 
 /*
