@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'tracker-auth-page',
+  selector: 'karafza-auth-page',
   templateUrl: './auth-page.component.html',
   styleUrls: ['./auth-page.component.scss']
 })
-export class AuthPageComponent implements OnInit {
+export class AuthPageComponent implements OnInit
+{
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
   }
 
 }

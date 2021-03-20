@@ -3,12 +3,12 @@
       fxLayout="column"
       fxLayoutAlign="center center">
     <mat-form-field>
-        <mat-label>شماره موبایل</mat-label>
+        <mat-label>کد ملی</mat-label>
         <input type="tel"
-               formControlName="phoneNumber"
+               formControlName="nationalCode"
                matInput>
         <mat-error>
-            {{validatorCoreService.GetMessage(loginForm.get('phoneNumber'))}}</mat-error>
+            {{validatorCoreService.GetMessage(loginForm.get('nationalCode'))}}</mat-error>
     </mat-form-field>
     <mat-form-field>
         <input type="password"
@@ -18,18 +18,18 @@
         <mat-error>{{validatorCoreService.GetMessage(loginForm.get('password'))}}
         </mat-error>
     </mat-form-field>
-    <ng-hcaptcha formControlName="captcha"
-                 [theme]="'dark'"></ng-hcaptcha>
+    <ng-hcaptcha formControlName="captcha"></ng-hcaptcha>
     <div fxLayout="column"
          fxLayoutGap="20px">
         <button mat-raised-button
                 [loading]="isLoading"
                 color="primary"
+                [disabled]="loginForm.invalid"
                 type="submit">
             ورود
         </button>
         <button mat-raised-button
-                [disabled]="isLoading"
+                [loading]="isLoading"
                 routerLink="forget">
             فراموشی رمز عبور
         </button>

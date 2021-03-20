@@ -10,37 +10,29 @@ import { tap } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
 
 @Injectable()
-export class RepositoryService
-{
-  readonly url = `${environment.url}/api`;
-  constructor(private readonly _httpClient: HttpClient, private readonly _authService: AuthenticationService) { }
-  Login(loginInfo: { phoneNumber: string, password: string; }): Observable<TokenResultDto>
-  {
+export class RepositoryService {
+  readonly url = `${environment.url}/api/v1/account`;
+  constructor (private readonly _httpClient: HttpClient, private readonly _authService: AuthenticationService) { }
+  Login(loginInfo: { nationalCode: string, password: string, token: string; }): Observable<TokenResultDto> {
     return this._httpClient.post<TokenResultDto>(`${this.url}/login`, loginInfo)
       .pipe(tap(trd => this._authService.setTokens(trd.refreshToken, trd.accessToken)));
   }
-  sendSms(phoneNumber: number)
-  {
-    return this._httpClient.post(`${this.url}/register/checkphone`, { phoneNumber: `${phoneNumber}` });
+  sendSms(mobile: string, token: string) {
+    return this._httpClient.post(`${this.url}/register/mobile`, { mobile, token });
   }
-  checkCode(phoneNumber: number, code: number): Observable<CheckCode>
-  {
-    return this._httpClient.post<CheckCode>(`${this.url}/register/checkphone/validate`, { phoneNumber: `${phoneNumber}`, code: code });
+  checkCode(phoneNumber: number, code: number, token: string): Observable<CheckCode> {
+    return this._httpClient.post<CheckCode>(`${this.url}/register/verify`, { mobile: phoneNumber, otp: code, token });
   }
-  createUser(userData: CreateUserInfo): Observable<TokenResultDto>
-  {
-    userData.phoneNumber = `${userData.phoneNumber}`;
-    return this._httpClient.post<TokenResultDto>(`${this.url}/register`, userData)
+  createUser(userData: CreateUserInfo): Observable<TokenResultDto> {
+    return this._httpClient.post<TokenResultDto>(`${this.url}/register/create`, userData)
       .pipe(tap(trd => this._authService.setTokens(trd.refreshToken, trd.accessToken)));
   }
-  sendSmsForgetPassword(phoneNumber: number)
-  {
-    return this._httpClient.post(`${this.url}/ForgetPassword/checkphone`, { phoneNumber: `${phoneNumber}` });
+  sendSmsForgetPassword(mobile: string, nationalCode: string, token: string) {
+    return this._httpClient.post(`${this.url}/ForgetPassword/checkphone`, { mobile, nationalCode, token });
   }
-  forgetPassword(forgetPasswordinfo: ForgetPasswordInfo)
-  {
-    forgetPasswordinfo.phoneNumber = `${forgetPasswordinfo.phoneNumber}`;
-    return this._httpClient.post<TokenResultDto>(`${this.url}/ForgetPassword/ChangePassword`, forgetPasswordinfo)
+  forgetPassword(forgetPasswordinfo: ForgetPasswordInfo) {
+    return this._httpClient.post<TokenResultDto>(`${this.url}/submitPasswordForForgetPassword`, forgetPasswordinfo)
       .pipe(tap(trd => this._authService.setTokens(trd.refreshToken, trd.accessToken)));
   }
+
 }

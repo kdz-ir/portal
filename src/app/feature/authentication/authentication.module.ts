@@ -15,9 +15,10 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, AuthPageComponent, ForgetPasswordComponent],
   imports: [
+    CommonModule,
     AuthenticationRoutingModule,
     SharedModule,
-    NgHcaptchaModule.forRoot({ languageCode: 'fa', siteKey: environment.hcaptcha }),
+    NgHcaptchaModule.forRoot({ siteKey: environment.hcaptcha }),
     MatStepperModule,
     MatTabsModule
   ],

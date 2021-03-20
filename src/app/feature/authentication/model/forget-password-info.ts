@@ -1,7 +1,7 @@
-export interface ForgetPasswordInfo
-{
-    phoneNumber: string;
-    code: number;
+export interface ForgetPasswordInfo {
+    mobile: string;
+    otp: number;
+    nationalCode: string;
+    token: string;
     password: string;
-    confirmPassword: string;
 }

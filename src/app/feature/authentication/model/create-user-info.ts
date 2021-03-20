@@ -1,9 +1,7 @@
-export interface CreateUserInfo
-{
-    email: string;
+export interface CreateUserInfo {
     password: string;
-    phoneNumber: string;
-    code: number;
-    fullName: string;
-    newsSubscription: boolean;
+    mobile: string;
+    otp: number;
+    nationalCode: string;
+    token: string;
 }

@@ -6,9 +6,8 @@ import { Router } from '@angular/router';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { MatDialog } from '@angular/material/dialog';
 
-
 @Component({
-  selector: 'tracker-login',
+  selector: 'karafza-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -19,10 +18,10 @@ export class LoginComponent implements OnInit {
     private readonly _repositoryService: RepositoryService,
     private readonly _authService: AuthenticationService,
     public readonly validatorCoreService: ValidatorCoreService,
-    private readonly _router: Router, private _dialog: MatDialog) {
+    private readonly _router: Router) {
     this.loginForm = fb.group({
-      phoneNumber: [, [Validators.required, ValidatorCoreService.PhoneNumber]],
-      password: [, [Validators.required, Validators.minLength(6)]],
+      nationalCode: [, [Validators.required, ValidatorCoreService.nationalCodeChecker]],
+      password: [, [Validators.minLength(6)]],
       captcha: [, [Validators.required]]
     });
   }
@@ -30,14 +29,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit() {
-
-    //TODO: Remove when catpcha active
-    if (this.loginForm.invalid) {
-      return;
-    }
     const formValue = this.loginForm.value;
     this.isLoading = true;
-    this._repositoryService.Login({ natinoal: formValue.phoneNumber, password: formValue.password, token: })
+    this._repositoryService.Login({ nationalCode: formValue.nationalCode, password: formValue.password, token: formValue.captcha })
       .subscribe(t => {
         this._router.navigate(['/']);
       }, () => this.isLoading = false);

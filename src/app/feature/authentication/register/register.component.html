@@ -16,8 +16,7 @@
                     {{validatorCoreService.GetMessage(sendSmsForm.controls.phoneNumber)}}
                 </mat-error>
             </mat-form-field>
-            <ng-hcaptcha formControlName="captcha"
-                         [theme]="'dark'"></ng-hcaptcha>
+            <ng-hcaptcha formControlName="captcha"></ng-hcaptcha>
             <button mat-raised-button
                     [loading]="isloading"
                     color="primary"
@@ -47,7 +46,6 @@
 
             <button mat-raised-button
                     [loading]="isloading"
-                    [disabled]="checkCodeForm.invalid"
                     color="primary"
                     fxFlex="1"
                     type="submit">بررسی</button>
@@ -65,21 +63,12 @@
               fxLayoutAlign="center center">
             <mat-form-field>
                 <mat-label>
-                    نام و نام خانوادگی
+                    نام
                 </mat-label>
                 <input matInput
-                       formControlName="fullName">
-                <mat-error *ngIf="userInformationForm.get('fullName').invalid">
-                    {{validatorCoreService.GetMessage(userInformationForm.controls.fullName)}}
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>ایمیل</mat-label>
-                <input matInput
-                       formControlName="email"
-                       type="email">
-                <mat-error *ngIf="userInformationForm.get('email').invalid">
-                    {{validatorCoreService.GetMessage(userInformationForm.controls.email)}}
+                       formControlName="nationalCode">
+                <mat-error *ngIf="userInformationForm.get('nationalCode').invalid">
+                    {{validatorCoreService.GetMessage(userInformationForm.controls.nationalCode)}}
                 </mat-error>
             </mat-form-field>
             <mat-form-field>
@@ -93,11 +82,9 @@
                     {{validatorCoreService.GetMessage(userInformationForm.controls.password)}}
                 </mat-error>
             </mat-form-field>
-            <mat-checkbox formControlName="newsSubscription"
-                          checked>چیز های تازه رو بهم بگو</mat-checkbox>
             <button mat-raised-button
-                    [loading]="isloading"
                     [disabled]="userInformationForm.invalid"
+                    [loading]="isloading"
                     type="submit">ثبت</button>
         </form>
     </mat-step>
