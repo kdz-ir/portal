@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://localhost:5000',
+  url: 'http://api.portal.kdz.ir',
   hcaptcha: '10000000-ffff-ffff-ffff-000000000001',
   accessToken: 'access_token',
   refreshToken: 'refresh_token',

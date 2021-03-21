@@ -4,31 +4,55 @@ import { AbstractControl, FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
-export class ValidatorCoreService
-{
-  static PhoneNumber(control: AbstractControl)
-  {
+export class ValidatorCoreService {
+  static nationalCodeChecker(control: AbstractControl) {
+    if (!new RegExp('[0-9]{10}$').test(control.value)) {
+      return {
+        'national': true
+      };
+    }
+    if (control.value === '0123456789') {
+      return {
+        'national': true
+      };
+    }
+    for (let i = 0; i < 10; i++) {
+      if (new RegExp(i + '{10}$').test(control.value)) {
+        return {
+          'national': true
+        };
+      }
+    }
+    let sum = 0;
+    for (let i = 0; i < 9; i++) {
+      sum += ((10 - i) * +(control.value as string).substr(i, 1));
+    }
+    const ret = sum % 11, parity = +(<string>control.value).substr(9, 1);
+    if ((ret < 2 && ret === parity) || (ret >= 2 && ret === 11 - parity)) {
+      return null;
+    }
+    return {
+      'national': true
+    };
+  }
+  static PhoneNumber(control: AbstractControl) {
     if (/(0|\+98)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}/ig.test(control.value)
-      && control.value?.length === 11)
-    {
+      && control.value?.length === 11) {
       return null;
     }
     return { phoneNumber: true };
   }
-  static checkPasswords(group: FormGroup)
-  {
+  static checkPasswords(group: FormGroup) {
     const pass = group.get('password')?.value;
     const confirmPass = group.get('confirmPassword')?.value;
 
     return pass === confirmPass ? null : { confirmPassword: true };
   }
-  constructor() { }
-  SetStatus(control: AbstractControl)
-  {
+  constructor () { }
+  SetStatus(control: AbstractControl) {
     return (control.valid) ? 'success' : 'error';
   }
-  GetMessage(control: AbstractControl): string
-  {
+  GetMessage(control: AbstractControl): string {
     return control.getError('required') ? 'این فیلدالزامی میباشد.' :
       control.getError('national') ? 'کد ملی شما درست نمی باشد.' :
         control.getError('email') ? 'ایمیل شما درست نمی باشد.' :

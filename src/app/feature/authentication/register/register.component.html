@@ -1,0 +1,91 @@
+<mat-horizontal-stepper labelPosition="bottom"
+                        linear="true"
+                        #stepper>
+    <mat-step label="مرحله اول"
+              [stepControl]="sendSmsForm">
+        <form fxLayout="column"
+              fxLayoutAlign="center center"
+              (submit)="onSendSms()"
+              [formGroup]="sendSmsForm">
+            <mat-form-field>
+                <mat-label>شماره موبایل</mat-label>
+                <input matInput
+                       formControlName="phoneNumber"
+                       type="tel">
+                <mat-error>
+                    {{validatorCoreService.GetMessage(sendSmsForm.controls.phoneNumber)}}
+                </mat-error>
+            </mat-form-field>
+            <ng-hcaptcha formControlName="captcha"></ng-hcaptcha>
+            <button mat-raised-button
+                    [loading]="isloading"
+                    color="primary"
+                    matStepperNext
+                    type="submit"
+                    [disabled]="sendSmsForm.invalid">ثبت</button>
+        </form>
+    </mat-step>
+    <mat-step label="مرحله دوم"
+              editable="false"
+              [stepControl]="checkCodeForm">
+        <form fxLayout="column"
+              [formGroup]="checkCodeForm"
+              (submit)="onCheckCodeFromSubmit(stepper)"
+              fxLayoutAlign="center center">
+            <mat-form-field>
+                <mat-label>
+                    کد
+                </mat-label>
+                <input matInput
+                       formControlName="code"
+                       type="number">
+                <mat-error>
+                    {{validatorCoreService.GetMessage(checkCodeForm.controls.code)}}
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button
+                    [loading]="isloading"
+                    color="primary"
+                    fxFlex="1"
+                    type="submit">بررسی</button>
+            <button mat-raised-button
+                    color="warn"
+                    matStepperPrevious
+                    type="reset">برگشت</button>
+        </form>
+    </mat-step>
+    <mat-step label="مرحله سوم"
+              [stepControl]="userInformationForm">
+        <form [formGroup]="userInformationForm"
+              fxLayout="column"
+              (submit)="onUserInformationSubmit()"
+              fxLayoutAlign="center center">
+            <mat-form-field>
+                <mat-label>
+                    نام
+                </mat-label>
+                <input matInput
+                       formControlName="nationalCode">
+                <mat-error *ngIf="userInformationForm.get('nationalCode').invalid">
+                    {{validatorCoreService.GetMessage(userInformationForm.controls.nationalCode)}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>
+                    پسورد
+                </mat-label>
+                <input matInput
+                       formControlName="password"
+                       type="password">
+                <mat-error *ngIf="userInformationForm.get('password').invalid">
+                    {{validatorCoreService.GetMessage(userInformationForm.controls.password)}}
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button
+                    [disabled]="userInformationForm.invalid"
+                    [loading]="isloading"
+                    type="submit">ثبت</button>
+        </form>
+    </mat-step>
+</mat-horizontal-stepper>
