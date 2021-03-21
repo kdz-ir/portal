@@ -17,8 +17,8 @@ export class RepositoryService {
     return this._httpClient.post<TokenResultDto>(`${this.url}/login`, loginInfo)
       .pipe(tap(trd => this._authService.setTokens(trd.refreshToken, trd.accessToken)));
   }
-  sendSms(mobile: string, token: string) {
-    return this._httpClient.post(`${this.url}/register/mobile`, { mobile, token });
+  sendSms(mobile: string, captcha: string) {
+    return this._httpClient.post(`${this.url}/register/mobile`, { mobile, token: captcha });
   }
   checkCode(phoneNumber: number, code: number, token: string): Observable<CheckCode> {
     return this._httpClient.post<CheckCode>(`${this.url}/register/verify`, { mobile: phoneNumber, otp: code, token });

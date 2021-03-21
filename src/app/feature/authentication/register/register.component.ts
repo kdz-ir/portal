@@ -37,6 +37,9 @@ export class RegisterComponent {
   }
   onSendSms() {
     this.isloading = true;
+    console.log(this.sendSmsForm);
+    console.log(this.sendSmsForm.value.captcha);
+
     this._repository.sendSms(this.sendSmsForm.value.phoneNumber, this.sendSmsForm.value.captcha).subscribe(() => this._setIsloadingFalse(), () => this._setIsloadingFalse());
   }
   onCheckCodeFromSubmit(stepper: MatStepper) {
