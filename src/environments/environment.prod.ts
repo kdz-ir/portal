@@ -1,7 +1,7 @@
 import { version } from '../../package.json';
 export const environment = {
   production: true,
-  hcaptcha: '2c3b1556-e962-4db6-8faa-94655c7bc2d2',
+  recaptcha: '6Ld4QIoaAAAAAHuPD4u18Ht4-tH0gMourrcHbdiv',
   accessToken: 'access_token',
   refreshToken: 'refresh_token',
   url: 'https://api.portal.kdz.ir',

@@ -26,7 +26,7 @@
     "@auth0/angular-jwt": "^5.0.1",
     "jalali-moment": "^3.3.8",
     "lodash-es": "^4.17.15",
-    "ng-hcaptcha": "^1.0.0-beta.3",
+    "ng-recaptcha": "^7.0.1",
     "rxjs": "~6.6.6",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

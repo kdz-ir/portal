@@ -18,7 +18,7 @@
         <mat-error>{{validatorCoreService.GetMessage(loginForm.get('password'))}}
         </mat-error>
     </mat-form-field>
-    <ng-hcaptcha formControlName="captcha"></ng-hcaptcha>
+    <re-captcha formControlName="captcha"></re-captcha>
     <div fxLayout="column"
          fxLayoutGap="20px">
         <button mat-raised-button
