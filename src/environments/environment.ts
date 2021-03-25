@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url: 'http://api.portal.kdz.ir',
-  recaptcha: '6Ld4QIoaAAAAAHuPD4u18Ht4-tH0gMourrcHbdiv',
+  recaptcha: '6LesRooaAAAAAKSQA79sbAru2ZaEaEuf99FOS5OZ',
   accessToken: 'access_token',
   refreshToken: 'refresh_token',
   vapid_key: '',

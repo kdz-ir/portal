@@ -26,7 +26,9 @@ import { RecaptchaModule, RecaptchaFormsModule, RecaptchaSettings, RECAPTCHA_SET
     RepositoryService,
     {
       provide: RECAPTCHA_SETTINGS,
-      useValue: { siteKey: environment.recaptcha } as RecaptchaSettings,
+      useValue: {
+        siteKey: environment.recaptcha,
+      } as RecaptchaSettings,
     },
     {
       provide: RECAPTCHA_LANGUAGE,

@@ -5,7 +5,7 @@ import { AuthenticationService } from 'src/app/core/services/authentication/auth
 import { Router } from '@angular/router';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { MatDialog } from '@angular/material/dialog';
-
+import { environment } from '../../../../environments/environment';
 @Component({
   selector: 'karafza-login',
   templateUrl: './login.component.html',
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = fb.group({
       nationalCode: [, [Validators.required, ValidatorCoreService.nationalCodeChecker]],
       password: [, [Validators.minLength(6)]],
-      captcha: [, [Validators.required]]
+      captcha: []
     });
   }
 

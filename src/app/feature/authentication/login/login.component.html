@@ -1,5 +1,4 @@
 <form [formGroup]="loginForm"
-      (submit)="onSubmit()"
       fxLayout="column"
       fxLayoutAlign="center center">
     <mat-form-field>
@@ -18,14 +17,18 @@
         <mat-error>{{validatorCoreService.GetMessage(loginForm.get('password'))}}
         </mat-error>
     </mat-form-field>
-    <re-captcha formControlName="captcha"></re-captcha>
+    <re-captcha size="invisible"
+                #captchaRef="reCaptcha"
+                (resolved)="onSubmit()"
+                formControlName="captcha"></re-captcha>
     <div fxLayout="column"
          fxLayoutGap="20px">
         <button mat-raised-button
                 [loading]="isLoading"
                 color="primary"
+                (click)="captchaRef.execute()"
                 [disabled]="loginForm.invalid"
-                type="submit">
+                type="button">
             ورود
         </button>
         <button mat-raised-button

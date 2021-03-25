@@ -25,7 +25,7 @@ export class RegisterComponent {
   ) {
     this.sendSmsForm = fb.group({
       phoneNumber: [, [Validators.required, Validators.minLength(11), ValidatorCoreService.PhoneNumber]],
-      captcha: [, [Validators.required]]
+      captcha: []
     });
     this.checkCodeForm = fb.group({
       code: [, Validators.required]
@@ -37,9 +37,6 @@ export class RegisterComponent {
   }
   onSendSms() {
     this.isloading = true;
-    console.log(this.sendSmsForm);
-    console.log(this.sendSmsForm.value.captcha);
-
     this._repository.sendSms(this.sendSmsForm.value.phoneNumber, this.sendSmsForm.value.captcha).subscribe(() => this._setIsloadingFalse(), () => this._setIsloadingFalse());
   }
   onCheckCodeFromSubmit(stepper: MatStepper) {

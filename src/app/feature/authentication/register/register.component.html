@@ -16,12 +16,17 @@
                     {{validatorCoreService.GetMessage(sendSmsForm.controls.phoneNumber)}}
                 </mat-error>
             </mat-form-field>
-            <re-captcha formControlName="captcha"></re-captcha>
+            <re-captcha size="invisible"
+                        #captchaRef="reCaptcha"
+                        (resolved)="onSendSms()"
+                        (error)="stepper.reset()"
+                        formControlName="captcha"></re-captcha>
             <button mat-raised-button
                     [loading]="isloading"
                     color="primary"
                     matStepperNext
-                    type="submit"
+                    type="button"
+                    (click)="captchaRef.execute()"
                     [disabled]="sendSmsForm.invalid">ثبت</button>
         </form>
     </mat-step>
