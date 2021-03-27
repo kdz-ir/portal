@@ -27,8 +27,10 @@ export class ErrorInterceptor implements HttpInterceptor {
               break;
             case 422:
               this._snackBar.open(err.error);
-              Array(err.error.entity).forEach(c => {
-                console.log(c);
+              Array(err.error.entity).forEach((c) => {
+                Array(c).forEach(
+                  x => console.log(x)
+                );
 
               });
 
