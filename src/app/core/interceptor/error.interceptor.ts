@@ -26,13 +26,13 @@ export class ErrorInterceptor implements HttpInterceptor {
               this._snackBar.open(err.error);
               break;
             case 422:
-              this._snackBar.open(err.error);
-              Array(err.error.entity).forEach((c) => {
-                Array(c).forEach(
-                  x => console.log(x)
-                );
-
+              const entityError = err.error.entity;
+              Object.getOwnPropertyNames(entityError).forEach(pr => {
+                entityError[pr].forEach(mess => {
+                  this._snackBar.open(mess);
+                });
               });
+
 
               break;
             case 500:
