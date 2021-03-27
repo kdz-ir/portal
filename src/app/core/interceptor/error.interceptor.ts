@@ -1,30 +1,24 @@
 import { Injectable } from '@angular/core';
-import
-{
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor,
-  HttpErrorResponse
+import {
+HttpRequest,
+HttpHandler,
+HttpEvent,
+HttpInterceptor,
+HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable()
-export class ErrorInterceptor implements HttpInterceptor
-{
+export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor(private readonly _snackBar: MatSnackBar) { }
+  constructor (private readonly _snackBar: MatSnackBar) { }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>>
-  {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request)
-      .pipe(catchError((err: any) =>
-      {
-        if (err instanceof HttpErrorResponse)
-        {
-          switch ((err as HttpErrorResponse).status)
-          {
+      .pipe(catchError((err: any) => {
+        if (err instanceof HttpErrorResponse) {
+          switch ((err as HttpErrorResponse).status) {
             case 0:
               this._snackBar.open('دسترسی به اینترنت ممکن نیست.');
               break;
@@ -33,13 +27,14 @@ export class ErrorInterceptor implements HttpInterceptor
               break;
             case 422:
               this._snackBar.open(err.error);
+              console.log(err);
+
               break;
             case 500:
               this._snackBar.open('سامانه قطع است شکیبا باشید ');
               break;
             case 504:
-              if (navigator.onLine)
-              {
+              if (navigator.onLine) {
                 this._snackBar.open('سامانه قطع است شکیبا باشید ');
               }
               break;
