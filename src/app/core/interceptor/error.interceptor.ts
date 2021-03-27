@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {
-HttpRequest,
-HttpHandler,
-HttpEvent,
-HttpInterceptor,
-HttpErrorResponse
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -27,7 +27,10 @@ export class ErrorInterceptor implements HttpInterceptor {
               break;
             case 422:
               this._snackBar.open(err.error);
-              console.log(err);
+              Array(err.error.entity).forEach(c => {
+                console.log(c);
+
+              });
 
               break;
             case 500:
