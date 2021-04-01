@@ -17,16 +17,15 @@
                 </mat-error>
             </mat-form-field>
             <re-captcha size="invisible"
-                        #captchaRef="reCaptcha"
+                        #captchaRefSendSms="reCaptcha"
                         (resolved)="onSendSms()"
                         (error)="stepper.reset()"
                         formControlName="captcha"></re-captcha>
             <button mat-raised-button
                     [loading]="isloading"
                     color="primary"
-                    matStepperNext
                     type="button"
-                    (click)="captchaRef.execute()"
+                    (click)="captchaRefSendSms.execute()"
                     [disabled]="sendSmsForm.invalid">ثبت</button>
         </form>
     </mat-step>
@@ -48,13 +47,17 @@
                     {{validatorCoreService.GetMessage(checkCodeForm.controls.code)}}
                 </mat-error>
             </mat-form-field>
-
+            <re-captcha size="invisible"
+                        #captchaRefValidate="reCaptcha"
+                        (resolved)="onCheckCodeFromSubmit(stepper)"
+                        (error)="stepper.reset()"
+                        formControlName="captcha"></re-captcha>
             <button mat-raised-button
                     [loading]="isloading"
                     color="primary"
-                    [disabled]="checkCodeForm.invalid"
+                    (click)="captchaRefValidate.execute()"
                     fxFlex="1"
-                    type="submit">بررسی</button>
+                    type="button">بررسی</button>
             <button mat-raised-button
                     color="warn"
                     matStepperPrevious
@@ -65,11 +68,11 @@
               [stepControl]="userInformationForm">
         <form [formGroup]="userInformationForm"
               fxLayout="column"
-              (submit)="onUserInformationSubmit()"
+              
               fxLayoutAlign="center center">
             <mat-form-field>
                 <mat-label>
-                    نام
+                    کد ملی
                 </mat-label>
                 <input matInput
                        formControlName="nationalCode">
@@ -88,10 +91,16 @@
                     {{validatorCoreService.GetMessage(userInformationForm.controls.password)}}
                 </mat-error>
             </mat-form-field>
+            <re-captcha size="invisible"
+            #captchaRefUserInfo="reCaptcha"
+            (resolved)="onUserInformationSubmit()"
+            (error)="stepper.reset()"
+            formControlName="captcha"></re-captcha>
             <button mat-raised-button
                     [disabled]="userInformationForm.invalid"
                     [loading]="isloading"
-                    type="submit">ثبت</button>
+                    (click)="captchaRefUserInfo.execute()"
+                    type="button">ثبت</button>
         </form>
     </mat-step>
 </mat-horizontal-stepper>

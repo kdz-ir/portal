@@ -6,6 +6,7 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
+import {isNull} from "lodash-es";
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -27,12 +28,15 @@ export class ErrorInterceptor implements HttpInterceptor {
               break;
             case 422:
               const entityError = err.error.entity;
+              const message=err.error.message;
+              if(!isNull(entityError))
               Object.getOwnPropertyNames(entityError).forEach(pr => {
                 entityError[pr].forEach(mess => {
                   this._snackBar.open(mess);
                 });
               });
-
+              else
+              this._snackBar.open(message);
 
               break;
             case 500:
