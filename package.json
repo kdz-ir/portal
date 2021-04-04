@@ -26,6 +26,7 @@
     "@auth0/angular-jwt": "^5.0.1",
     "jalali-moment": "^3.3.8",
     "lodash-es": "^4.17.15",
+    "ng-behroozbc-libraries-validators": "0.0.2",
     "ng-recaptcha": "^7.0.1",
     "rxjs": "~6.6.6",
     "tslib": "^2.0.0",

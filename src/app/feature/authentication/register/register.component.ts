@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CreateUserInfo } from '../model/create-user-info';
 import { TimerService } from '../Services/timer.service';
-
+import { AdditionalValidators } from "ng-behroozbc-libraries-validators";
 @Component({
   selector: 'karafza-register',
   templateUrl: './register.component.html',
@@ -28,7 +28,7 @@ export class RegisterComponent {
     public readonly _timer: TimerService
   ) {
     this.sendSmsForm = fb.group({
-      phoneNumber: [, [Validators.required, Validators.minLength(11), ValidatorCoreService.PhoneNumber]],
+      phoneNumber: [, [Validators.required, Validators.minLength(11), AdditionalValidators.PhoneNumber]],
       captcha: []
     });
     this.checkCodeForm = fb.group({

@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ConfirmPasswordErrorStateMatcher } from 'src/app/core/services/forms/confirm-password-error-state-matcher';
 import { ForgetPasswordInfo } from '../model/forget-password-info';
+import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
@@ -25,7 +26,7 @@ export class ForgetPasswordComponent {
     private readonly _router: Router
   ) {
     this.sendSmsForm = fb.group({
-      phoneNumber: [, [Validators.required, Validators.minLength(11), ValidatorCoreService.PhoneNumber]],
+      phoneNumber: [, [Validators.required, Validators.minLength(11), AdditionalValidators.PhoneNumber]],
       nationalCode: [, [ValidatorCoreService.nationalCodeChecker]],
       captcha: []
     });
