@@ -218,6 +218,8 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 
+ng-behroozbc-libraries-validators
+
 ng-recaptcha
 MIT
 The MIT License (MIT)
