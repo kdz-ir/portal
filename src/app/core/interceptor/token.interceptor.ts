@@ -55,7 +55,7 @@ export class TokenInterceptor implements HttpInterceptor
       return this.refreshTokenSubject.pipe(
         filter(token => token != null),
         take(1),
-        switchMap(jwt => next.handle(this._authService.addToken(request, jwt.accessToken))));
+        switchMap(jwt => next.handle(this._authService.addToken(request, jwt.entity.access_token))));
     }
   }
 }
