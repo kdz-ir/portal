@@ -29,18 +29,14 @@ export class AuthenticationService {
   private get _accessToken() {
     return this._jwtService.tokenGetter();
   }
-  private set _refreshToken(refreshToken: string) {
-    localStorage.setItem(environment.refreshToken, refreshToken);
-  }
   private get _refreshToken(): string {
     return localStorage.getItem(environment.refreshToken);
   }
-  setTokens(refreshToken: string, accessToken: string) {
-    this._refreshToken = refreshToken;
+  setTokens(accessToken: string) {
+
     this._accessToken = accessToken;
   }
   storeToken(tokensDto: TokenResultDto) {
-    this._refreshToken = tokensDto.refreshToken;
     this._accessToken = tokensDto.accessToken;
   }
   public async loginOut() {
@@ -48,8 +44,7 @@ export class AuthenticationService {
     this._systemLogout();
   }
   private _systemLogout() {
-    localStorage.removeItem(environment.accessToken);
-    localStorage.removeItem(environment.refreshToken);
+    localStorage.clear();
     window.location.reload();
   }
   refreshToken() {
@@ -60,7 +55,7 @@ export class AuthenticationService {
       this._refreshTokenSubject.next(null);
     }
     this._isRefreshing = true;
-    return this._http.post<TokenResultDto>(`${environment.url}/api/token`, {
+    return this._http.post<TokenResultDto>(`${environment.url}/api/v1/account/auth/refresh`, {
       refreshToken: this._refreshToken
     }).pipe(tap((tokens) => {
       this.storeToken(tokens);

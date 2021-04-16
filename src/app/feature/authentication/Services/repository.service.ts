@@ -14,8 +14,8 @@ export class RepositoryService {
   readonly url = `${environment.url}/api/v1/account`;
   constructor (private readonly _httpClient: HttpClient, private readonly _authService: AuthenticationService) { }
   Login(loginInfo: { nationalCode: string, password: string, token: string; }): Observable<TokenResultDto> {
-    return this._httpClient.post<TokenResultDto>(`${this.url}/login`, loginInfo)
-      .pipe(tap(trd => this._authService.setTokens(trd.refreshToken, trd.accessToken)));
+    return this._httpClient.post<TokenResultDto>(`${this.url}/auth/login`, loginInfo)
+      .pipe(tap(trd => this._authService.setTokens('')));
   }
   sendSms(mobile: string, captcha: string) {
     return this._httpClient.post(`${this.url}/register/mobile`, { mobile, token: captcha });
@@ -25,14 +25,13 @@ export class RepositoryService {
   }
   createUser(userData: CreateUserInfo): Observable<TokenResultDto> {
     return this._httpClient.post<TokenResultDto>(`${this.url}/register/create`, userData)
-      .pipe(tap(trd => this._authService.setTokens(trd.refreshToken, trd.accessToken)));
+      .pipe(tap(trd => this._authService.setTokens('')));
   }
   sendSmsForgetPassword(mobile: string, nationalCode: string, token: string) {
     return this._httpClient.post(`${this.url}/ForgetPassword/checkphone`, { mobile, nationalCode, token });
   }
   forgetPassword(forgetPasswordinfo: ForgetPasswordInfo) {
     return this._httpClient.post<TokenResultDto>(`${this.url}/submitPasswordForForgetPassword`, forgetPasswordinfo)
-      .pipe(tap(trd => this._authService.setTokens(trd.refreshToken, trd.accessToken)));
+      .pipe(tap(trd => this._authService.setTokens('')));
   }
-
 }
