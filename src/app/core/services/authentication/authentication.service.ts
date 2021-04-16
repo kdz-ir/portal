@@ -17,7 +17,7 @@ export class AuthenticationService {
   }
 
   public get isAuthenticated(): boolean {
-    if (isNil(this._jwtService.tokenGetter()) || isNil(this._refreshToken)) {
+    if (isNil(this._jwtService.isTokenExpired())) {
       return false;
     }
     return true;
