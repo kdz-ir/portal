@@ -37,7 +37,7 @@ export class AuthenticationService {
     this._accessToken = accessToken;
   }
   storeToken(tokensDto: TokenResultDto) {
-    this._accessToken = tokensDto.accessToken;
+    this._accessToken = tokensDto.entity.access_token;
   }
   public async loginOut() {
     await this._http.get(`${environment.url}/api/logout`).toPromise();
@@ -90,7 +90,7 @@ export class AuthenticationService {
       return this._refreshTokenSubject.pipe(
         filter(token => token != null),
         take(1),
-        switchMap(jwt => next.handle(this.addToken(request, jwt.accessToken))));
+        switchMap(jwt => next.handle(this.addToken(request, jwt.entity.access_token))));
     }
   }
 }
