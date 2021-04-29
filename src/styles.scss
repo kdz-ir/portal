@@ -26,3 +26,11 @@ $custom-typography: mat-typography-config($font-family: 'Vazir FD,Roboto, tahoma
     margin-right: auto;
     margin-left: auto;
 }
+
+
+.mat-loading .mat-progress-spinner {
+    position: absolute;
+    top: calc(29% - 10px);
+    left: calc(50% - 10px);
+  }
+  

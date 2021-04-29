@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
 })
 export class NavigationListComponent {
   readonly LINKS = [
+    { link: '/', name: 'خانه', icon: 'home', isNative: true },
+    {
+      link: '/Settings', name: 'تنظیمات کاربری', icon: 'settings', isNative: true
+    },
   ];
 }

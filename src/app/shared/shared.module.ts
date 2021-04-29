@@ -14,8 +14,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ButtonLoadingDirective } from './directives/button-loading.directive';
 import { LargeLoadingDirective } from './directives/large-loading.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 @NgModule({
-  declarations: [ButtonLoadingDirective, LargeLoadingDirective],
+  declarations: [ButtonLoadingDirective, LargeLoadingDirective, ImageUploaderComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -46,7 +47,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatListModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
-    LargeLoadingDirective
+    LargeLoadingDirective,
+    ImageUploaderComponent
   ]
 })
 export class SharedModule { }

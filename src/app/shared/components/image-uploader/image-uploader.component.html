@@ -1,0 +1,5 @@
+<div class="upload-btn-wrapper">
+    <button mat-button [innerText]="label"></button>
+    <input type="file" name="myfile" (change)="onSelectedFile($event)" [accept]="accept" />
+  </div>
+  <img [src]="src" onError="this.src= 'http://chesapeakevamartialarts.com/blog/wp-content/uploads/2015/10/no_logo.gif'" alt="">
