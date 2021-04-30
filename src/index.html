@@ -45,7 +45,6 @@
                   let redirect = sessionStorage.redirect;
                   // Remove the URL from sessionStorage.
                   delete sessionStorage.redirect;
-                  console.log(redirect);
                   // Check if we actually need to redirect.
                   if (redirect && redirect != location.href) {
                         // We need to redirect to the URL the user was trying to access.
