@@ -69,14 +69,14 @@
                         [lastImageid]="profileForm.value.personalPhoto"
                         label="عکس پرسنلی"
                         fileType="0"
-                        eventType="0"></app-image-uploader>
+                        eventType="-1"></app-image-uploader>
     <app-image-uploader con
                         [accept]="'	image/jpeg'"
                         label="عکس شناسنامه"
                         [lastImageid]="profileForm.value.IdCardPhoto"
                         [fbContorl]="profileForm.get('IdCardPhoto')"
                         fileType="1"
-                        eventType="0"></app-image-uploader>
+                        eventType="-1"></app-image-uploader>
     <button mat-raised-button
             type="submit"
             [disabled]="profileForm.invalid">ثبت پروفایل</button>
