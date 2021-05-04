@@ -32,7 +32,8 @@
             ورود
         </button>
         <button mat-raised-button
-                [loading]="isLoading"
+                [disabled]="isLoading"
+                type="button"
                 routerLink="forget">
             فراموشی رمز عبور
         </button>
