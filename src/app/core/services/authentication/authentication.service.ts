@@ -40,7 +40,7 @@ export class AuthenticationService {
     this._accessToken = tokensDto.entity.access_token;
   }
   public async loginOut() {
-    await this._http.get(`${environment.url}/api/logout`).toPromise();
+    // await this._http.get(`${environment.url}/api/logout`).toPromise();
     this._systemLogout();
   }
   private _systemLogout() {

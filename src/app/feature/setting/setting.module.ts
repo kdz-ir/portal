@@ -8,10 +8,11 @@ import { TextMaskModule } from 'angular2-text-mask';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './adapter/material.persian-date.adapter';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
-  declarations: [EditProfileComponent],
+  declarations: [EditProfileComponent, LogoutComponent],
   imports: [
     CommonModule,
     SharedModule,
