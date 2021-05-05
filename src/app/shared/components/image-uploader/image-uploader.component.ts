@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Lightbox } from 'ngx-lightbox';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -18,11 +19,11 @@ export class ImageUploaderComponent implements OnChanges {
   @Input() lastImageid: string;
   @Input() fileType: string;
   @Input() eventType: string;
-  constructor (private readonly _httpClient: HttpClient) { }
+  constructor (private readonly _httpClient: HttpClient, private _lightbox: Lightbox) { }
   ngOnChanges(changes: SimpleChanges): void {
     this.src = environment.url + '/api/v1/files/show/' + this.lastImageid;
   }
-  onSelectedFile(event) {
+  onSelectedFile(event: { target: HTMLInputElement; }) {
     const file = event.target.files[0] as File;
     const fb = new FormData();
     fb.append('file', file);
@@ -32,6 +33,9 @@ export class ImageUploaderComponent implements OnChanges {
       this.fbContorl.setValue(c.entity.fileId);
       this.src = environment.url + '/api/v1/files/show/' + this.fbContorl.value;
     });
+  }
+  onOpenImage(event: { target: HTMLImageElement; }) {
+    this._lightbox.open([{ src: event.target.src, thumb: '' }]);
   }
 }
 export interface UploadFileInfo {

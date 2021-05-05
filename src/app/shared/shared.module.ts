@@ -15,6 +15,7 @@ import { ButtonLoadingDirective } from './directives/button-loading.directive';
 import { LargeLoadingDirective } from './directives/large-loading.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
+import { LightboxModule } from 'ngx-lightbox';
 @NgModule({
   declarations: [ButtonLoadingDirective, LargeLoadingDirective, ImageUploaderComponent],
   imports: [
@@ -30,7 +31,8 @@ import { ImageUploaderComponent } from './components/image-uploader/image-upload
     MatDialogModule,
     MatListModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    LightboxModule
   ],
   exports: [
     CommonModule,
