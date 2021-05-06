@@ -1,106 +1,129 @@
-<mat-horizontal-stepper labelPosition="bottom"
-                        linear="true"
-                        #stepper>
-    <mat-step label="مرحله اول"
-              [stepControl]="sendSmsForm">
-        <form fxLayout="column"
-              fxLayoutAlign="center center"
-              (submit)="onSendSms()"
-              [formGroup]="sendSmsForm">
-            <mat-form-field>
-                <mat-label>شماره موبایل</mat-label>
-                <input matInput
-                       formControlName="phoneNumber"
-                       type="tel">
-                <mat-error>
-                    {{validatorCoreService.GetMessage(sendSmsForm.controls.phoneNumber)}}
-                </mat-error>
-            </mat-form-field>
-            <re-captcha size="invisible"
-                        #captchaRefSendSms="reCaptcha"
-                        (resolved)="onSendSms()"
-                        (error)="stepper.reset()"
-                        formControlName="captcha"></re-captcha>
-            <button mat-raised-button
-                    [loading]="isloading"
-                    color="primary"
-                    type="button"
-                    (click)="captchaRefSendSms.execute()"
-                    [disabled]="sendSmsForm.invalid">ثبت</button>
-        </form>
-    </mat-step>
-    <mat-step label="مرحله دوم"
-              editable="false"
-              [stepControl]="checkCodeForm">
-        <form fxLayout="column"
-              [formGroup]="checkCodeForm"
-              (submit)="onCheckCodeFromSubmit(stepper)"
-              fxLayoutAlign="center center">
-            <mat-form-field>
-                <mat-label>
-                    کد
-                </mat-label>
-                <input matInput
-                       formControlName="code"
-                       type="number">
-                <mat-error>
-                    {{validatorCoreService.GetMessage(checkCodeForm.controls.code)}}
-                </mat-error>
-            </mat-form-field>
-            <re-captcha size="invisible"
-                        #captchaRefValidate="reCaptcha"
-                        (resolved)="onCheckCodeFromSubmit(stepper)"
-                        (error)="stepper.reset()"
-                        formControlName="captcha"></re-captcha>
-            <button mat-raised-button
-                    [loading]="isloading"
-                    color="primary"
-                    (click)="captchaRefValidate.execute()"
-                    fxFlex="1"
-                    type="button">بررسی</button>
-            <button mat-raised-button
-                    color="warn"
-                    matStepperPrevious
-                    type="reset">برگشت</button>
-        </form>
-    </mat-step>
-    <mat-step label="مرحله سوم"
-              [stepControl]="userInformationForm">
-        <form [formGroup]="userInformationForm"
-              fxLayout="column"
-              
-              fxLayoutAlign="center center">
-            <mat-form-field>
-                <mat-label>
-                    کد ملی
-                </mat-label>
-                <input matInput
-                       formControlName="nationalCode">
-                <mat-error *ngIf="userInformationForm.get('nationalCode').invalid">
-                    {{validatorCoreService.GetMessage(userInformationForm.controls.nationalCode)}}
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>
-                    پسورد
-                </mat-label>
-                <input matInput
-                       formControlName="password"
-                       type="password">
-                <mat-error *ngIf="userInformationForm.get('password').invalid">
-                    {{validatorCoreService.GetMessage(userInformationForm.controls.password)}}
-                </mat-error>
-            </mat-form-field>
-            <re-captcha size="invisible"
-            #captchaRefUserInfo="reCaptcha"
-            (resolved)="onUserInformationSubmit()"
-            (error)="stepper.reset()"
-            formControlName="captcha"></re-captcha>
-            <button mat-raised-button
-                    [disabled]="userInformationForm.invalid"
-                    [loading]="isloading"
-                    (click)="captchaRefUserInfo.execute()"
-                    type="button">ثبت</button>
-        </form>
-    </mat-step>
+<mat-horizontal-stepper labelPosition="bottom" linear="true" #stepper>
+  <mat-step label="مرحله اول" [stepControl]="sendSmsForm">
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      (submit)="onSendSms()"
+      [formGroup]="sendSmsForm"
+    >
+      <mat-form-field>
+        <mat-label>شماره موبایل</mat-label>
+        <input matInput formControlName="phoneNumber" type="tel" />
+        <mat-error>
+          {{
+            validatorCoreService.GetMessage(sendSmsForm.controls.phoneNumber)
+          }}
+        </mat-error>
+      </mat-form-field>
+      <re-captcha
+        size="invisible"
+        #captchaRefSendSms="reCaptcha"
+        (resolved)="onSendSms()"
+        (error)="stepper.reset()"
+        formControlName="captcha"
+      ></re-captcha>
+      <button
+        mat-raised-button
+        [loading]="isloading"
+        color="primary"
+        type="button"
+        (click)="captchaRefSendSms.execute()"
+        [disabled]="sendSmsForm.invalid"
+      >
+        ثبت
+      </button>
+      <button
+      mat-raised-button
+      [disabled]="isloading"
+      color="warn"
+      type="button"
+      routerLink="/"
+    >
+      بازگشت
+    </button>
+    </form>
+  </mat-step>
+  <mat-step label="مرحله دوم" editable="false" [stepControl]="checkCodeForm">
+    <form
+      fxLayout="column"
+      [formGroup]="checkCodeForm"
+      (submit)="onCheckCodeFromSubmit(stepper)"
+      fxLayoutAlign="center center"
+    >
+      <mat-form-field>
+        <mat-label> کد </mat-label>
+        <input matInput formControlName="code" type="number" />
+        <mat-error>
+          {{ validatorCoreService.GetMessage(checkCodeForm.controls.code) }}
+        </mat-error>
+      </mat-form-field>
+      <re-captcha
+        size="invisible"
+        #captchaRefValidate="reCaptcha"
+        (resolved)="onCheckCodeFromSubmit(stepper)"
+        (error)="stepper.reset()"
+        formControlName="captcha"
+      ></re-captcha>
+      <button
+        mat-raised-button
+        [loading]="isloading"
+        color="primary"
+        (click)="captchaRefValidate.execute()"
+        fxFlex="1"
+        type="button"
+      >
+        بررسی
+      </button>
+      <button mat-raised-button color="warn" matStepperPrevious type="reset">
+        برگشت
+      </button>
+    </form>
+  </mat-step>
+  <mat-step label="مرحله سوم" [stepControl]="userInformationForm">
+    <form
+      [formGroup]="userInformationForm"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <mat-form-field>
+        <mat-label> کد ملی </mat-label>
+        <input matInput formControlName="nationalCode" />
+        <mat-error *ngIf="userInformationForm.get('nationalCode').invalid">
+          {{
+            validatorCoreService.GetMessage(
+              userInformationForm.controls.nationalCode
+            )
+          }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> پسورد </mat-label>
+        <input matInput formControlName="password" type="password" />
+        <mat-error *ngIf="userInformationForm.get('password').invalid">
+          {{
+            validatorCoreService.GetMessage(
+              userInformationForm.controls.password
+            )
+          }}
+        </mat-error>
+      </mat-form-field>
+      <re-captcha
+        size="invisible"
+        #captchaRefUserInfo="reCaptcha"
+        (resolved)="onUserInformationSubmit()"
+        (error)="stepper.reset()"
+        formControlName="captcha"
+      ></re-captcha>
+      <button
+        mat-raised-button
+        [disabled]="userInformationForm.invalid"
+        [loading]="isloading"
+        (click)="captchaRefUserInfo.execute()"
+        type="button"
+      >
+        ثبت
+      </button>
+
+    </form>
+  </mat-step>
 </mat-horizontal-stepper>
