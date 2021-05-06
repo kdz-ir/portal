@@ -6,14 +6,15 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-import {isNull} from "lodash-es";
+import { isNull } from "lodash-es";
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SwalService } from '../services/swal/swal.service';
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor (private readonly _snackBar: MatSnackBar) { }
+  constructor (private readonly _snackBar: MatSnackBar, private readonly _swal: SwalService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request)
@@ -24,20 +25,21 @@ export class ErrorInterceptor implements HttpInterceptor {
               this._snackBar.open('دسترسی به اینترنت ممکن نیست.');
               break;
             case 400:
-              this._snackBar.open(err.error);
+              this._swal.showErrorMessage(err.error);
               break;
             case 422:
               const entityError = err.error.entity;
-              const message=err.error.message;
-              if(!isNull(entityError))
-              Object.getOwnPropertyNames(entityError).forEach(pr => {
-                entityError[pr].forEach(mess => {
-                  this._snackBar.open(mess);
+              const message = err.error.message;
+              const serverMessages: string[] = [];
+              if (!isNull(entityError))
+                Object.getOwnPropertyNames(entityError).forEach(pr => {
+                  entityError[pr].forEach((mess: string) => {
+                    serverMessages.push(mess);
+                  });
                 });
-              });
               else
-              this._snackBar.open(message);
-
+                serverMessages.push(message);
+              this._swal.showErrorMessages(serverMessages);
               break;
             case 500:
               this._snackBar.open('سامانه قطع است شکیبا باشید ');
