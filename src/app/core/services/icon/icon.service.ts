@@ -11,5 +11,6 @@ export class IconService {
 
   }
   init() {
+    this._iconRegistery.addSvgIcon('Manthra', this._domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/manthra.svg'));
   }
 }
