@@ -7,7 +7,7 @@ import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from '../../../../environments/environment';
 @Component({
-  selector: 'karafza-login',
+  selector: 'kdz-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

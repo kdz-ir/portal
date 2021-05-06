@@ -9,7 +9,7 @@ import { ConfirmPasswordErrorStateMatcher } from 'src/app/core/services/forms/co
 import { ForgetPasswordInfo } from '../model/forget-password-info';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 @Component({
-  selector: 'app-forget-password',
+  selector: 'kdz-forget-password',
   templateUrl: './forget-password.component.html',
   styleUrls: ['./forget-password.component.scss']
 })

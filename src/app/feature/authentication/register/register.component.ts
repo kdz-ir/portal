@@ -9,7 +9,7 @@ import { CreateUserInfo } from '../model/create-user-info';
 import { TimerService } from '../Services/timer.service';
 import { AdditionalValidators } from "ng-behroozbc-libraries-validators";
 @Component({
-  selector: 'karafza-register',
+  selector: 'kdz-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   providers: [TimerService]

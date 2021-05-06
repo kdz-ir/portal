@@ -37,5 +37,13 @@
                 routerLink="forget">
             فراموشی رمز عبور
         </button>
+        <mat-divider></mat-divider>
+        <button mat-raised-button
+                [disabled]="isLoading"
+                type="button"
+                color="primary"
+                routerLink="register">
+            ثبت نام
+        </button>
     </div>
 </form>

@@ -8,17 +8,17 @@ import { environment } from 'src/environments/environment';
 import { RegisterComponent } from './register/register.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTabsModule } from '@angular/material/tabs';
-import { AuthPageComponent } from './auth-page/auth-page.component';
 import { RepositoryService } from './Services/repository.service';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { RecaptchaModule, RecaptchaFormsModule, RecaptchaSettings, RECAPTCHA_SETTINGS, RECAPTCHA_LANGUAGE } from "ng-recaptcha";
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, AuthPageComponent, ForgetPasswordComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgetPasswordComponent],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
     SharedModule,
-    RecaptchaModule, RecaptchaFormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
     MatStepperModule,
     MatTabsModule
   ],
