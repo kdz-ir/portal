@@ -9,6 +9,11 @@ export class SwalService {
     await this.showErrorMessage(messages.join('<br>'));
   }
   async showErrorMessage(message: string) {
-    await this.swal.fire('اطلاعات مشکل دارد.', message, 'error');
+    await this.swal.fire({
+      title: 'خطا',
+      html: message,
+      icon: 'error',
+      confirmButtonText: 'باشه'
+    });
   }
 }
