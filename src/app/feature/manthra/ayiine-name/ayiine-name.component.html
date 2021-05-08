@@ -1,11 +1,13 @@
-<div  fxLayout="column" fxLayoutGap="20px">
-    <h3>تایید آیین نامه</h3>
-    <div class="mt-5"
-     fxLayout="column"
-     #ayiine
-     (scroll)="onScroll($event)"
-     fxLayoutAlign="center center"
-     fxLayoutGap="15px">
+<div fxLayout="column" fxLayoutGap="20px">
+  <h3>تایید آیین نامه</h3>
+  <div
+    class="mt-5"
+    fxLayout="column"
+    #ayiine
+    (scroll)="onScroll($event)"
+    fxLayoutAlign="center center"
+    fxLayoutGap="15px"
+  >
     <p>dfsdf</p>
     <p>dfsdf</p>
     <p>dfsdf</p>
@@ -50,6 +52,13 @@
     <p>dfsdf</p>
     <p>dfsdf</p>
     <p>dfsdf</p>
-</div>
-<button mat-button  [disabled]="!isReadAll" routerLink="up" class="float-left" > تایید آیین نامه</button>
+  </div>
+  <button
+    mat-button
+    [disabled]="!isReadAll"
+    routerLink="select-section"
+    class="float-left"
+  >
+    تایید آیین نامه
+  </button>
 </div>
