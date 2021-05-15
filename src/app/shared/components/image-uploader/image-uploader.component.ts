@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Lightbox } from 'ngx-lightbox';
+import { UploadService } from 'src/app/core/services/user/upload-serivce.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -10,7 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./image-uploader.component.scss']
 })
 export class ImageUploaderComponent implements OnChanges {
-  private readonly _url = environment.url + '/api/v1/files/upload';
+
   src: string;
   @Input() maxSize = 100;
   @Input() accept: string;
@@ -19,32 +20,24 @@ export class ImageUploaderComponent implements OnChanges {
   @Input() lastImageid: string;
   @Input() fileType: string;
   @Input() eventType: string;
-  constructor (private readonly _httpClient: HttpClient, private _lightbox: Lightbox) { }
+  isUploading = false;
+  constructor (private _lightbox: Lightbox, private readonly _uploadService: UploadService) { }
   ngOnChanges(changes: SimpleChanges): void {
     this.src = environment.url + '/api/v1/files/show/' + this.lastImageid;
   }
   onSelectedFile(event: { target: HTMLInputElement; }) {
     const file = event.target.files[0] as File;
-    const fb = new FormData();
-    fb.append('file', file);
-    fb.append('fileType', this.fileType);
-    fb.append('eventType', this.eventType);
-    this._httpClient.post<UploadFileInfo>(this._url, fb).subscribe(c => {
+    this.isUploading = true;
+    this._uploadService.uploadFile(file, this.fileType, this.eventType).subscribe(c => {
       this.fbContorl.setValue(c.entity.fileId);
+      this.isUploading = false;
       this.src = environment.url + '/api/v1/files/show/' + this.fbContorl.value;
+    }, () => {
+      this.isUploading = false;
     });
+
   }
   onOpenImage(event: { target: HTMLImageElement; }) {
     this._lightbox.open([{ src: event.target.src, thumb: '' }]);
   }
-}
-export interface UploadFileInfo {
-  status: boolean;
-  message: string;
-  entity: UploadFileEntity;
-}
-
-export interface UploadFileEntity {
-  fileId: string;
-  filePath: string;
 }
