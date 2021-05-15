@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'jalali-moment';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
+import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { cites } from '../models/cites';
 import { ProfileSaveInfo } from '../models/profile-info';
 import { sextypes } from '../models/sex-type';
@@ -16,10 +17,13 @@ import { ProfileRepositoryService } from '../services/profile-reporsitory-servic
 export class EditProfileComponent implements AfterViewInit {
   readonly cites = cites;
   readonly sexTypes = sextypes;
-  firstLoading = true;
+  loading = true;
   datemask = [/\d/, /\d/, /\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/];
   profileForm: FormGroup;
-  constructor (readonly _fb: FormBuilder, public readonly validatorCoreService: ValidatorCoreService, private readonly _profileReporsitory: ProfileRepositoryService) {
+  constructor (readonly _fb: FormBuilder,
+    public readonly validatorCoreService: ValidatorCoreService,
+    private readonly _swal: SwalService,
+    private readonly _profileReporsitory: ProfileRepositoryService) {
     this.profileForm = _fb.group({
       name: [, [Validators.required]],
       lastName: [, [Validators.required]],
@@ -35,6 +39,8 @@ export class EditProfileComponent implements AfterViewInit {
     });
   }
   onSubmit(): void {
+    this.loading = true;
+    this.profileForm.disable();
     const formValus = this.profileForm.value;
     const savedProfile: ProfileSaveInfo = {
       name: formValus.name,
@@ -50,12 +56,21 @@ export class EditProfileComponent implements AfterViewInit {
       personalPhoto: formValus.personalPhoto
     };
     this._profileReporsitory.updateProfile(savedProfile).subscribe(c => {
-      console.log(c);
-
+      this.loading = false;
+      this.profileForm.enable();
+      this._swal.swal.fire({
+        title: 'پروفایل شما ثبت شد.',
+        text: 'در مرحله بعد کارت زرتشتگری را آپلود کنید.',
+        icon: 'success'
+      });
+    }, () => {
+      this.loading = false;
+      this.profileForm.enable();
     });
   }
   ngAfterViewInit(): void {
     this._profileReporsitory.getProfileData().subscribe(c => {
+      this.loading = false;
       this.profileForm.setValue({
         name: c.entity.name,
         lastName: c.entity.family,
@@ -69,7 +84,7 @@ export class EditProfileComponent implements AfterViewInit {
         IdCardPhoto: c.entity?.IdCardPhoto ?? '',
         personalPhoto: c.entity.personalPhoto ?? ''
       });
-      this.firstLoading = false;
+
     });
   }
 
