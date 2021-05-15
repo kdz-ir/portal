@@ -1,1 +1,76 @@
-<p>azad works!</p>
+<form [formGroup]="azadForm"
+      fxLayout="column"
+      (submit)="onSubmit()"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px">
+    <div fxLayoutGap="10px">
+        <mat-checkbox formControlName="wantAsli">اصلی</mat-checkbox>
+        <mat-checkbox formControlName="wantJanbi">جنبی</mat-checkbox>
+    </div>
+    <mat-form-field *ngIf="azadForm.value.wantAsli">
+        <mat-label>
+            کد ملی یار اصلی
+        </mat-label>
+        <input matInput
+               formControlName="iiarNationalCodeAsli"
+               (blur)="onblurInput(azadForm.controls.iiarNationalCodeAsli)"
+               type="tel">
+    </mat-form-field>
+    <mat-form-field *ngIf="azadForm.value.wantJanbi">
+        <mat-label>
+            کد ملی یار جنبی
+        </mat-label>
+        <input matInput
+               formControlName="iiarNationalCodeJanbi"
+               (blur)="onblurInput(azadForm.controls.iiarNationalCodeJanbi)"
+               type="tel">
+    </mat-form-field>
+    <mat-checkbox formControlName="isOrdooHamayesh"> کانون دانشجویان زرتشتی بر آن است تا در کنار بیست و هشتمین همایش
+        اوستا
+        خوانی و گاتاشناسی مانتره برای شرکت کنندگان اردویی تفریحی-آموزشی به صورت مجازی برگزار نماید
+        ؟ </mat-checkbox>
+    <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==2">
+        <div>
+            <mat-checkbox formControlName="learnPC">آموزش نرم افزار های کاربردی کامپیوتر مثل پاورپوینت،وتوشاپ و...
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="ravanShenasi">شخصیت شناسی ،خودشناسی،روانشناسی شغل،آینده شغلی
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="amazingFact">حقایق جالب علمی
+            </mat-checkbox>
+        </div>
+    </div>
+    <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==3">
+        <div>
+            <mat-checkbox formControlName="digitalMarket">دیجیتال مارکتینگ
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="startup">راه اندازی کسب وکار
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="bitcoin">سرمایه گذاری در بازار های مالی ارز دیجیتال و....
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="research">پژوهش
+            </mat-checkbox>
+        </div>
+    </div>
+
+    <mat-form-field *ngIf="azadForm.value.isOrdooHamayesh">
+        <mat-label>سایر</mat-label>
+        <textarea matInput
+                  formControlName="other"></textarea>
+    </mat-form-field>
+
+    <button color="primary"
+            mat-flat-button> ثبت اطلاعات</button>
+</form>
