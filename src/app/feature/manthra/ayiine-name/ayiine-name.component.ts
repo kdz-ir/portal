@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, timer } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-ayiine-name',
@@ -7,8 +8,8 @@ import { Observable, Subscription, timer } from 'rxjs';
   styleUrls: ['./ayiine-name.component.scss']
 })
 export class AyiineNameComponent implements OnInit, OnDestroy {
-  isReadAll = false;
-  isTimerEnded = false;
+  isReadAll = !environment.production;
+  isTimerEnded = !environment.production;
   private _timer: Subscription;
   constructor () { }
 
