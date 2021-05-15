@@ -16,7 +16,7 @@ import { ProfileRepositoryService } from '../services/profile-reporsitory-servic
 export class EditProfileComponent implements AfterViewInit {
   readonly cites = cites;
   readonly sexTypes = sextypes;
-  firstLoading=true;
+  firstLoading = true;
   datemask = [/\d/, /\d/, /\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/];
   profileForm: FormGroup;
   constructor (readonly _fb: FormBuilder, public readonly validatorCoreService: ValidatorCoreService, private readonly _profileReporsitory: ProfileRepositoryService) {
@@ -30,8 +30,8 @@ export class EditProfileComponent implements AfterViewInit {
       city: [, [Validators.required]],
       birthday: [, [Validators.required]],
       phone: [, [Validators.required]],
-      IdCardPhoto:[,[Validators.required]],
-      personalPhoto:[,[Validators.required]]
+      IdCardPhoto: [, [Validators.required]],
+      personalPhoto: [, [Validators.required]]
     });
   }
   onSubmit(): void {
@@ -49,27 +49,27 @@ export class EditProfileComponent implements AfterViewInit {
       IdCardPhoto: formValus.IdCardPhoto,
       personalPhoto: formValus.personalPhoto
     };
-    this._profileReporsitory.updateProfile(savedProfile).subscribe(c=>{
+    this._profileReporsitory.updateProfile(savedProfile).subscribe(c => {
       console.log(c);
-      
-    })
+
+    });
   }
   ngAfterViewInit(): void {
     this._profileReporsitory.getProfileData().subscribe(c => {
       this.profileForm.setValue({
         name: c.entity.name,
         lastName: c.entity.family,
-        sex: sextypes.find(s => s.lable == c.entity.sex)?.value??0,
+        sex: sextypes.find(s => s.lable == c.entity.sex)?.value ?? 0,
         fatherName: c.entity.fatherName,
         address: c.entity.address,
-        city: cites.find(cs => cs.lable == c.entity.city)?.value??0,
+        city: cites.find(cs => cs.lable == c.entity.city)?.value ?? 0,
         birthday: moment(c.entity.birthday, 'jYYYY/jMM/jDD'),
         phone: c.entity.phone,
         postalCode: c.entity.postalCode,
-        IdCardPhoto: c.entity.IdCardPhoto,
-        personalPhoto: c.entity.personalPhoto
+        IdCardPhoto: c.entity?.IdCardPhoto ?? '',
+        personalPhoto: c.entity.personalPhoto ?? ''
       });
-      this.firstLoading=false;
+      this.firstLoading = false;
     });
   }
 
