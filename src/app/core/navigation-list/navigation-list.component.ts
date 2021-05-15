@@ -9,7 +9,7 @@ export class NavigationListComponent {
     { link: '/', name: 'خانه', icon: 'home', isNative: true },
     { link: '/Manthra', name: 'مانتره', icon: 'Manthra', isNative: false },
     {
-      link: '/Settings', name: 'تنظیمات کاربری', icon: 'settings', isNative: true
+      link: '/Settings', name: 'مشخصات کاربری', icon: 'settings', isNative: true
     },
     {
       link: '/Settings/logout', name: 'خروج', icon: 'logout', isNative: true
