@@ -1,6 +1,5 @@
 # KdzPortal
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+این پروژه برای پنل کانون دانشجویان زرتشتی می باشد. ما برای اولین بار به صورت اوپن سورس منتشر کردیم که تمام افرادی که به نظرشون مشکل داره بتونن در ساهت پنل با ما کمک کنند.
 
 ## Development server
 
