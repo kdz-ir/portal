@@ -16,4 +16,11 @@ export class SwalService {
       confirmButtonText: 'باشه'
     });
   }
+  async successFullRegister() {
+    await this.swal.fire({
+      title: 'ثبت نام شما با موفقیت انجام شد.',
+      text: 'منتظر دریافت پیامک باشید در صورت عدم دریافت دوباره تلاش کنید.',
+      icon: 'success'
+    });
+  }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
+import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { ManthraReporsitoryService } from '../services/manthra-reporsitory.service';
 
 @Component({
@@ -11,7 +13,7 @@ import { ManthraReporsitoryService } from '../services/manthra-reporsitory.servi
 export class AzadComponent implements OnInit {
   ageRange = 0;
   azadForm: FormGroup;
-  constructor (private readonly _fb: FormBuilder, private readonly _repository: ManthraReporsitoryService) {
+  constructor (private readonly _fb: FormBuilder, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService, private _swal: SwalService) {
     this.azadForm = _fb.group({
       wantAsli: [],
       wantJanbi: [],
@@ -70,8 +72,8 @@ export class AzadComponent implements OnInit {
       }
     };
     this._repository.submitForms(data).subscribe(c => {
-      console.log(c);
-
+      this._swal.successFullRegister();
+      this._router.navigate(['/']);
     });
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
+import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { ManthraReporsitoryService } from '../services/manthra-reporsitory.service';
 
 @Component({
@@ -12,7 +14,9 @@ export class ProjectBasedComponent implements OnInit {
   readonly subjects = this._repository.getProjectSubjects();
   projectbaseForm: FormGroup;
   ageRange = 0;
-  constructor (private readonly _fb: FormBuilder, private readonly _repository: ManthraReporsitoryService) {
+  constructor (private readonly _fb: FormBuilder,
+    private readonly _router: Router,
+    private readonly _swal: SwalService, private readonly _repository: ManthraReporsitoryService) {
     this.projectbaseForm = _fb.group({
       subject: [, Validators.required],
       iiarNationalCode: ['', [ValidatorCoreService.nationalCodeChecker]],
@@ -64,7 +68,8 @@ export class ProjectBasedComponent implements OnInit {
         research: values.research
       }
     }).subscribe(c => {
-      console.log(c);
+      this._swal.successFullRegister();
+      this._router.navigate(['/']);
     });
   }
 }
