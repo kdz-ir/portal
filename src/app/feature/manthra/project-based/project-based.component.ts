@@ -20,7 +20,7 @@ export class ProjectBasedComponent implements OnInit {
       learnPC: [false],
       ravanShenasi: [false],
       amazingFact: [false],
-      other: [false],
+      other: [],
       digitalMarket: [false],
       startup: [false],
       bitcoin: [false],
