@@ -1,0 +1,70 @@
+<form [formGroup]="projectbaseForm"
+      fxLayout="column"
+      (submit)="onSubmit()"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px">
+  <mat-form-field>
+    <mat-label>عنوان مقاله</mat-label>
+    <mat-select formControlName="subject">
+      <mat-option *ngFor="let subject of (subjects|async)?.entity"
+                  [value]="subject.id">
+        {{subject.data}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>
+      کد ملی یارتون
+    </mat-label>
+    <input matInput
+           formControlName="iiarNationalCode"
+           (blur)="onblurInput()"
+           type="tel">
+  </mat-form-field>
+  <mat-checkbox formControlName="isOrdooHamayesh"> کانون دانشجویان زرتشتی بر آن است تا در کنار بیست و هشتمین همایش اوستا
+    خوانی و گاتاشناسی مانتره برای شرکت کنندگان اردویی تفریحی-آموزشی به صورت مجازی برگزار نماید
+    ؟ </mat-checkbox>
+  <div *ngIf="projectbaseForm.value.isOrdooHamayesh&&ageRange==2">
+    <div>
+      <mat-checkbox formControlName="learnPC">آموزش نرم افزار های کاربردی کامپیوتر مثل پاورپوینت،وتوشاپ و...
+      </mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox formControlName="ravanShenasi">شخصیت شناسی ،خودشناسی،روانشناسی شغل،آینده شغلی
+      </mat-checkbox>
+    </div>
+    <div>
+      
+    <mat-checkbox formControlName="amazingFact">حقایق جالب علمی
+    </mat-checkbox>
+    </div>
+  </div>
+  <div *ngIf="projectbaseForm.value.isOrdooHamayesh&&ageRange==3">
+    <div>
+      <mat-checkbox formControlName="digitalMarket">دیجیتال مارکتینگ
+      </mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox formControlName="startup">راه اندازی کسب وکار
+      </mat-checkbox>
+    </div>
+    <div>
+      
+    <mat-checkbox formControlName="bitcoin">سرمایه گذاری در بازار های مالی ارز دیجیتال و....
+    </mat-checkbox>
+    </div>
+    <div>
+      
+    <mat-checkbox formControlName="research">پژوهش
+    </mat-checkbox>
+    </div>
+  </div>
+
+  <mat-form-field *ngIf="projectbaseForm.value.isOrdooHamayesh">
+    <mat-label>سایر</mat-label>
+    <textarea matInput formControlName="other"></textarea>
+  </mat-form-field>
+
+  <button color="primary"
+          mat-flat-button> ثبت اطلاعات</button>
+</form>

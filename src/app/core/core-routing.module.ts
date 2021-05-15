@@ -9,6 +9,10 @@ const routes: Routes = [
       {
         path: 'Settings',
         loadChildren: () => import('../feature/setting/setting.module').then(s => s.SettingModule)
+      },
+      {
+        path: 'Manthra',
+        loadChildren: () => import('../feature/manthra/manthra.module').then(s => s.ManthraModule)
       }
     ]
   },

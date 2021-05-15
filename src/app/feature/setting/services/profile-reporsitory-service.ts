@@ -16,9 +16,9 @@ export class ProfileRepositoryService {
     updateProfile(profileInfo:ProfileSaveInfo) {
       return this._http.post(this._url+'/profile', profileInfo);
     }
-  //   changeParkMode(id: string, isActive: boolean) {
-  //     return this.http.post(`${this.url}/SwitchParkingMode/${id}`, { IsParkMode: isActive });
-  //   }
+    uploadzorostrianCard(data:any) {
+      return this._http.post(`${this._url}/manthra/zoroastrianCard`, data);
+    }
   //   changeGeoFenceMode(id: string, isActive: boolean) {
   //     return this.http.post(`${this.url}/SwitchGeoFenceMode/${id}`, { IsGeoFence: isActive });
   //   }
