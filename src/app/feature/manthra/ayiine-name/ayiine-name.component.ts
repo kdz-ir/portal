@@ -8,14 +8,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./ayiine-name.component.scss']
 })
 export class AyiineNameComponent implements OnInit, OnDestroy {
-  isReadAll = environment.production;
-  isTimerEnded = environment.production;
+  isReadAll = !environment.production;
+  isTimerEnded = !environment.production;
   private _timer: Subscription;
   constructor () { }
 
 
   ngOnInit(): void {
-    this._timer = timer(2 * 1000).subscribe(c => this.isTimerEnded = true);
+    this._timer = timer(2 * 1000 * 60).subscribe(c => this.isTimerEnded = true);
   }
   onScroll(event: { target: HTMLElement; }) {
 
