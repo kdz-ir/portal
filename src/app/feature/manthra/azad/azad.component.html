@@ -25,10 +25,13 @@
                (blur)="onblurInput(azadForm.controls.iiarNationalCodeJanbi)"
                type="tel">
     </mat-form-field>
-    <mat-checkbox formControlName="isOrdooHamayesh"> کانون دانشجویان زرتشتی بر آن است تا در کنار بیست و هشتمین همایش
-        اوستا
-        خوانی و گاتاشناسی مانتره برای شرکت کنندگان اردویی تفریحی-آموزشی به صورت مجازی برگزار نماید
-        ؟ </mat-checkbox>
+    <span class="text-center">
+        کانون دانشجویان زرتشتی بر آن است تا در کنار بیست و هشتمین همایش اوستا خوانی و گاتاشناسی مانتره برای شرکت کنندگان
+        اردویی تفریحی-آموزشی به صورت مجازی برگزار نماید
+    </span>
+    <mat-checkbox formControlName="isOrdooHamayesh">
+
+        اردوهمایش شرکت میکنم </mat-checkbox>
     <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==2">
         <div>
             <mat-checkbox formControlName="learnPC">آموزش نرم افزار های کاربردی کامپیوتر مثل پاورپوینت،وتوشاپ و...
