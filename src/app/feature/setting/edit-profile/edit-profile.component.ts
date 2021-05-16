@@ -57,15 +57,23 @@ export class EditProfileComponent implements AfterViewInit {
       IdCardPhoto: formValus.IdCardPhoto,
       personalPhoto: formValus.personalPhoto
     };
-    this._profileReporsitory.updateProfile(savedProfile).subscribe(async () => {
-      this.loading = false;
-      this.profileForm.enable();
-      await this._swal.swal.fire({
-        title: 'پروفایل شما ثبت شد.',
-        text: 'در مرحله بعد کارت زرتشتگری را آپلود کنید.',
-        icon: 'success'
+    this._profileReporsitory.updateProfile(savedProfile).subscribe(() => {
+      this._profileReporsitory.checkProfileStatus().subscribe(async (c) => {
+        this.loading = false;
+        this.profileForm.enable();
+        if (c.status) {
+          this._router.navigate(['/Manthra']);
+          return;
+        }
+        await this._swal.swal.fire({
+          title: 'پروفایل شما ثبت شد.',
+          text: 'در مرحله بعد کارت زرتشتگری را آپلود کنید.',
+          icon: 'success',
+          confirmButtonText: 'بریم'
+        });
+        this._router.navigate(['/Settings/zoroastrianCard']);
       });
-      this._router.navigate(['/Settings/zoroastrianCard']);
+
     }, () => {
       this.loading = false;
       this.profileForm.enable();
