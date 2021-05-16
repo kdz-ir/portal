@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProfileRepositoryService } from '../services/profile-reporsitory-service';
@@ -8,7 +8,7 @@ import { ProfileRepositoryService } from '../services/profile-reporsitory-servic
   templateUrl: './get-zoroastrian-card.component.html',
   styleUrls: ['./get-zoroastrian-card.component.scss']
 })
-export class GetZoroastrianCardComponent implements OnInit {
+export class GetZoroastrianCardComponent implements AfterViewInit {
   zForm: FormGroup;
   isLoading = false;
   constructor (private readonly _fb: FormBuilder, private readonly _repo: ProfileRepositoryService, private readonly _router: Router) {
@@ -16,9 +16,10 @@ export class GetZoroastrianCardComponent implements OnInit {
       hasCard: [, Validators.required]
     });
   }
-
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    
   }
+
   onChangeOwner() {
     const changed = <number>this.zForm.value.hasCard;
     console.log('hi');
