@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/f
 import { Router } from '@angular/router';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
+import { gataHaRegisterFiled } from '../models/gata-ha-register-field-enum';
 import { ManthraReporsitoryService } from '../services/manthra-reporsitory.service';
 
 @Component({
@@ -49,9 +50,9 @@ export class AzadComponent implements OnInit {
     const values = this.azadForm.value;
     let resgfiled = [];
     if (values.wantJanbi)
-      resgfiled = [2];
+      resgfiled.push(gataHaRegisterFiled.Janbi);
     if (values.wantAsli)
-      resgfiled.push(3);
+      resgfiled.push(gataHaRegisterFiled.Asli);
     const data = {
       registerFiled: resgfiled,
       isOrdooHamayesh: values.isOrdooHamayesh,
