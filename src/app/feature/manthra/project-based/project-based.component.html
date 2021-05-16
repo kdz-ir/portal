@@ -3,7 +3,7 @@
       (submit)="onSubmit()"
       fxLayoutAlign="center center"
       fxLayoutGap="10px">
-  <mat-form-field>
+  <mat-form-field class="large">
     <mat-label>عنوان مقاله</mat-label>
     <mat-select formControlName="subject">
       <mat-option *ngFor="let subject of (subjects|async)?.entity"

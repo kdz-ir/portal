@@ -78,8 +78,6 @@ export class AuthenticationService {
     });
   }
   handle401Error(request: HttpRequest<any>, next: HttpHandler) {
-    // for now 
-    this._systemLogout()
     if (!this._isRefreshing) {
       return this.refreshToken().pipe(
         switchMap((token) => {

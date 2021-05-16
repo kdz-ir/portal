@@ -29,4 +29,7 @@ export class ManthraReporsitoryService {
   submitForms(data) {
     return this._http.post(`${this._url}/gat-ha/register`, data);
   }
+  checkStepoFRegster() {
+    return this._http.get(this._url + '/gat-ha/step');
+  }
 }
