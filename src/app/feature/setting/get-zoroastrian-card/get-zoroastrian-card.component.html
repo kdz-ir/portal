@@ -1,11 +1,20 @@
-<form [formGroup]="zForm" (submit)="onSubmit()">
-   <div fxLayout="column" fxLayoutGap="1rem">
-    <label >شما کارت زرتشتی گری دارید؟</label>
-    <mat-radio-group formControlName="hasCard" (change)="onChangeOwner()" fxLayout="column" fxLayoutGap="1rem" aria-label="شما کارت زرتشتی گری دارید؟">
+<form [formGroup]="zForm"
+      fxLayoutAlign="center center"
+      fxLayout="column"
+      fxLayoutGap="1rem"
+      (submit)="onSubmit()">
+  <div fxLayout="column"
+       fxLayoutGap="1rem">
+    <label>شما کارت زرتشتی گری دارید؟</label>
+    <mat-radio-group formControlName="hasCard"
+                     (change)="onChangeOwner()"
+                     fxLayout="column"
+                     fxLayoutGap="1rem"
+                     aria-label="شما کارت زرتشتی گری دارید؟">
       <mat-radio-button value="1">خودم کارت دارم</mat-radio-button>
       <mat-radio-button value="2">خودم کارت ندارم</mat-radio-button>
     </mat-radio-group>
-   </div>
+  </div>
   <div *ngIf="zForm.value.hasCard==1">
     <app-image-uploader [accept]="'image/jpeg'"
                         [fbContorl]="zForm.get('ownerCard')"
@@ -14,7 +23,9 @@
                         fileType="2"
                         eventType="0"></app-image-uploader>
   </div>
-  <div *ngIf="zForm.value.hasCard==2" fxLayout="column" fxLayoutGap="1rem" >
+  <div *ngIf="zForm.value.hasCard==2"
+       fxLayout="column"
+       fxLayoutGap="1rem">
     <app-image-uploader [accept]="'image/jpeg'"
                         [fbContorl]="zForm.get('motherCard')"
                         [lastImageid]="zForm.value.motherCard"
@@ -28,5 +39,7 @@
                         fileType="2"
                         eventType="0"></app-image-uploader>
   </div>
-  <button mat-flat-button [loading]="isLoading" > ثبت اطلاعات</button>
+  <button mat-flat-button
+          color="accent"
+          [loading]="isLoading"> ثبت اطلاعات</button>
 </form>
