@@ -1,6 +1,7 @@
 import { CdkVirtualForOf } from '@angular/cdk/scrolling';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import * as moment from 'jalali-moment';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
@@ -23,6 +24,7 @@ export class EditProfileComponent implements AfterViewInit {
   constructor (readonly _fb: FormBuilder,
     public readonly validatorCoreService: ValidatorCoreService,
     private readonly _swal: SwalService,
+    private readonly _router: Router,
     private readonly _profileReporsitory: ProfileRepositoryService) {
     this.profileForm = _fb.group({
       name: [, [Validators.required]],
@@ -55,14 +57,15 @@ export class EditProfileComponent implements AfterViewInit {
       IdCardPhoto: formValus.IdCardPhoto,
       personalPhoto: formValus.personalPhoto
     };
-    this._profileReporsitory.updateProfile(savedProfile).subscribe(c => {
+    this._profileReporsitory.updateProfile(savedProfile).subscribe(async () => {
       this.loading = false;
       this.profileForm.enable();
-      this._swal.swal.fire({
+      await this._swal.swal.fire({
         title: 'پروفایل شما ثبت شد.',
         text: 'در مرحله بعد کارت زرتشتگری را آپلود کنید.',
         icon: 'success'
       });
+      this._router.navigate(['/Settings/zoroastrianCard']);
     }, () => {
       this.loading = false;
       this.profileForm.enable();
