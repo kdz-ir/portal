@@ -23,6 +23,8 @@ export class TokenInterceptor implements HttpInterceptor
     if (this._authService.isAuthenticated)
     {
       request = this._authService.addToken(request);
+    }else{
+      this._authService.loginOut();
     }
     return next.handle(request).pipe(catchError(error =>
     {
