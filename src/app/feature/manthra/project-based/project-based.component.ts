@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AgeType } from 'src/app/core/model/age-type-enum';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
+import { gataHaRegisterFiled } from '../models/gata-ha-register-field-enum';
 import { ManthraReporsitoryService } from '../services/manthra-reporsitory.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { ManthraReporsitoryService } from '../services/manthra-reporsitory.servi
 })
 export class ProjectBasedComponent implements OnInit {
   readonly subjects = this._repository.getProjectSubjects();
-  readonly ageTypeEnum=AgeType;
+  readonly ageTypeEnum = AgeType;
   projectbaseForm: FormGroup;
   ageRange = 0;
   constructor (private readonly _fb: FormBuilder,
@@ -53,7 +54,7 @@ export class ProjectBasedComponent implements OnInit {
     const values = this.projectbaseForm.value;
 
     this._repository.submitForms({
-      registerFiled: [0],
+      registerFiled: [gataHaRegisterFiled.projectBase],
       subject: values.subject,
       iiarNationalCode: values.iiarNationalCode,
       isOrdooHamayesh: values.isOrdooHamayesh,
