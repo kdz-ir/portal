@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./ayiine-name.component.scss']
 })
 export class AyiineNameComponent implements OnInit, OnDestroy {
-  isReadAll = !environment.production;
-  isTimerEnded = !environment.production;
+  isReadAll = environment.production;
+  isTimerEnded = environment.production;
   private _timer: Subscription;
   constructor () { }
 
