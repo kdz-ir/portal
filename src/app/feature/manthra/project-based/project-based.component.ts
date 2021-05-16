@@ -49,29 +49,28 @@ export class ProjectBasedComponent implements OnInit {
   }
   onSubmit() {
     const values = this.projectbaseForm.value;
-    console.log(this.projectbaseForm);
 
-    // this._repository.submitForms({
-    //   registerFiled: [0],
-    //   subject: values.subject,
-    //   iiarNationalCode: values.iiarNationalCode,
-    //   isOrdooHamayesh: values.isOrdooHamayesh,
-    //   ageType: this.ageRange,
-    //   step: 0,
-    //   state: 'end',
-    //   oordoHamayesh: {
-    //     learnPC: values.learnPC,
-    //     ravanShenasi: values.ravanShenasi,
-    //     amazingFact: values.amazingFact,
-    //     other: values.other,
-    //     digitalMarket: values.digitalMarket,
-    //     startup: values.startup,
-    //     bitcoin: values.bitcoin,
-    //     research: values.research
-    //   }
-    // }).subscribe(c => {
-    //   this._swal.successFullRegister();
-    //   this._router.navigate(['/']);
-    // });
+    this._repository.submitForms({
+      registerFiled: [0],
+      subject: values.subject,
+      iiarNationalCode: values.iiarNationalCode,
+      isOrdooHamayesh: values.isOrdooHamayesh,
+      ageType: this.ageRange,
+      step: 0,
+      state: 'end',
+      oordoHamayesh: {
+        learnPC: values.learnPC,
+        ravanShenasi: values.ravanShenasi,
+        amazingFact: values.amazingFact,
+        other: values.other,
+        digitalMarket: values.digitalMarket,
+        startup: values.startup,
+        bitcoin: values.bitcoin,
+        research: values.research
+      }
+    }).subscribe(c => {
+      this._swal.successFullRegister();
+      this._router.navigate(['/']);
+    });
   }
 }
