@@ -20,7 +20,8 @@ export class SwalService {
     await this.swal.fire({
       title: 'ثبت نام شما با موفقیت انجام شد.',
       text: 'منتظر دریافت پیامک باشید در صورت عدم دریافت دوباره تلاش کنید.',
-      icon: 'success'
+      icon: 'success',
+      confirmButtonText:'باشه'
     });
   }
 }
