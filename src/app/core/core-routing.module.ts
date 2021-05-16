@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '', canActivate: [AuthenticationGuard], children: [
       {
+        path: '',
+        loadChildren: () => import('../feature/home/home.module').then(h => h.HomeModule)
+      },
+      {
         path: 'Settings',
         loadChildren: () => import('../feature/setting/setting.module').then(s => s.SettingModule)
       },

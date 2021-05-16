@@ -1,12 +1,8 @@
 <div fxLayout="column"
      fxLayoutGap="20px">
   <h3>تایید آیین نامه</h3>
-  <div class="mt-5"
-       fxLayout="column"
-       #ayiine
-       (scroll)="onScroll($event)"
-       fxLayoutAlign="center center"
-       fxLayoutGap="15px">
+  <div class="mt-5 pt-2"
+       (scroll)="onScroll($event)">
     <p class="western"
        dir="rtl"
        align="center"><span style="font-family: Vazir FD;"><span lang="ar-SA"><span
@@ -849,7 +845,8 @@
        align="left"><span style="font-family: Vazir FD;"><span lang="ar-SA"><span style="font-family: Vazir FD;"><span
                   lang="fa-IR">کانون دانشجویان زرتشتی</span></span></span></span></p>
   </div>
-  <button mat-button
+  <button mat-flat-button
+  color="primary"
           [disabled]="!isReadAll && !isTimerEnded"
           routerLink="select-section"
           class="float-left">

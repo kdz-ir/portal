@@ -43,7 +43,10 @@ $spacer:1rem;
 .pb-4 {
     padding-bottom: $spacer*1.5;
 }
-
+.py-3{
+padding-left: $spacer;
+padding-right: $spacer;
+}
 .pb-5 {
     padding-bottom: $spacer*3;
 }
