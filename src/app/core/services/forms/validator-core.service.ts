@@ -6,6 +6,9 @@ import { AbstractControl, FormGroup } from '@angular/forms';
 })
 export class ValidatorCoreService {
   static nationalCodeChecker(control: AbstractControl) {
+    if (!control.value) {
+      return null;
+    }
     if (!new RegExp('[0-9]{10}$').test(control.value)) {
       return {
         'national': true
