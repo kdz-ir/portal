@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { UnAuthenticationGuard } from './guards/un-authentication.guard';
+import { ValidProfileGuard } from './guards/valid-profile.guard';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       },
       {
         path: 'Manthra',
+        canActivate: [ValidProfileGuard],
         loadChildren: () => import('../feature/manthra/manthra.module').then(s => s.ManthraModule)
       }
     ]

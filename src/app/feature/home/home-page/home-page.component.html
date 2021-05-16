@@ -4,7 +4,7 @@
      fxLayoutGap="10px">
     <h2>کاربر گرامی برای ثبت‌نام در بخش گاتاشناسی مانتره لطفا پروفایل خود را تکمیل کنید.</h2>
     <div fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center">
-        <button color="primary" routerLink="/Settings" mat-flat-button>مشاهده و تکمیل پروفایل</button>
+        <button color="primary" *ngIf="!(profileStatus|async)?.status" routerLink="/Settings" mat-flat-button>مشاهده و تکمیل پروفایل</button>
         <button color="accent" routerLink="/Manthra" mat-flat-button>ثبت نام در گاتا شناسی مانتره</button>
     </div>
 </div>

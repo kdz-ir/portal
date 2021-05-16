@@ -1,24 +1,25 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { CoreProfileService } from "src/app/core/services/user/core-profile.service";
 import { environment } from "src/environments/environment";
 import { ProfileSaveInfo, ProfileShowInfo } from "../models/profile-info";
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
-export class ProfileRepositoryService {
-  private readonly _url = environment.url+'/api/v1/account';
-  constructor (private readonly _http: HttpClient) {
+export class ProfileRepositoryService extends CoreProfileService {
+  constructor (http: HttpClient) {
+    super(http);
   }
-    getProfileData() {
-      return this._http.get<ProfileShowInfo>(this._url+'/profile');
-    }
-    updateProfile(profileInfo:ProfileSaveInfo) {
-      return this._http.post(this._url+'/profile', profileInfo);
-    }
-    uploadzorostrianCard(data:any) {
-      return this._http.post(`${this._url}/manthra/zoroastrianCard`, data);
-    }
+  getProfileData() {
+    return this.http.get<ProfileShowInfo>(this.accountUrl + '/profile');
+  }
+  updateProfile(profileInfo: ProfileSaveInfo) {
+    return this.http.post(this.accountUrl + '/profile', profileInfo);
+  }
+  uploadzorostrianCard(data: any) {
+    return this.http.post(`${this.accountUrl}/manthra/zoroastrianCard`, data);
+  }
   //   changeGeoFenceMode(id: string, isActive: boolean) {
   //     return this.http.post(`${this.url}/SwitchGeoFenceMode/${id}`, { IsGeoFence: isActive });
   //   }
