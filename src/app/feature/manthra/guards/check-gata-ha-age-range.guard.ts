@@ -8,20 +8,17 @@ import { ManthraReporsitoryService } from '../services/manthra-reporsitory.servi
 @Injectable({
   providedIn: 'root'
 })
-export class HaveNotRegesterdGuard implements CanActivate {
-  /**
-   *
-   */
-  constructor (private readonly _repos: ManthraReporsitoryService, private readonly _swalService: SwalService) {
+export class CheckGataHaAgeRangeGuard implements CanActivate {
+  constructor (private readonly _repos: ManthraReporsitoryService,private readonly _swal:SwalService) {
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-    return this._repos.checkStepoFRegster().pipe(tap(c => {
-      if (c.entity.step == 100)
-        this._swalService.accessRegister();
-    }), map(c => c.entity.step != 100));
+    return this._repos.gataHaHaveReqiuredAge().pipe(tap(c=>{
+    if(c.status){
+      this._swal.accessRegister();
+    }
+    }),map(c=>!c.status));
   }
-
+  
 }

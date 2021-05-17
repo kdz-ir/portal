@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { checkZoastrianCardInfo } from '../models/check-zoastrian-card-info';
 import { getAgeRange } from '../models/get-age-range';
 import { getUserStepManthra } from '../models/get-user-step-manthra';
+import { isUnder13Info } from '../models/is-under18-info';
 import { SubjetInfo } from '../models/subject-info';
 
 @Injectable({
@@ -32,5 +33,8 @@ export class ManthraReporsitoryService {
   }
   checkStepoFRegster() {
     return this._http.get<getUserStepManthra>(this._url + '/gat-ha/step');
+  }
+  gataHaHaveReqiuredAge() {
+    return this._http.get<isUnder13Info>(this._url + '/gat-ha/isUnder13');
   }
 }

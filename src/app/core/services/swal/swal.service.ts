@@ -24,4 +24,11 @@ export class SwalService {
       confirmButtonText:'باشه'
     });
   }
+  async accessRegister(){
+    await this.swal.fire({
+      title: 'شما مجاز به ثبت نام نیستید!!.',
+      icon: 'error',
+      confirmButtonText:'قبول دارم'
+    });
+  }
 }
