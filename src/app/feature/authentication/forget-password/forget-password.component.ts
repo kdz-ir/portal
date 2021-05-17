@@ -27,7 +27,7 @@ export class ForgetPasswordComponent {
   ) {
     this.sendSmsForm = fb.group({
       phoneNumber: [, [Validators.required, Validators.minLength(11), AdditionalValidators.PhoneNumber]],
-      nationalCode: [, [ValidatorCoreService.nationalCodeChecker]],
+      nationalCode: [, [ValidatorCoreService.nationalCodeChecker, Validators.required]],
       captcha: []
     });
     this.checkCodeForm = fb.group({

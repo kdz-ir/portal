@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { UnAuthenticationGuard } from './guards/un-authentication.guard';
 import { ValidProfileGuard } from './guards/valid-profile.guard';
-
+import { PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   {
     path: '', canActivate: [AuthenticationGuard], children: [
@@ -30,7 +30,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class CoreRoutingModule { }
