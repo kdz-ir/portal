@@ -10,7 +10,7 @@ import { SelectSectionComponent } from './select-section/select-section.componen
 
 const routes: Routes = [
   {
-    path: '', canActivate: [ManthraFillDataGuard, HaveNotRegesterdGuard, CheckGataHaAgeRangeGuard], children: [
+    path: '', canActivate: [ManthraFillDataGuard, CheckGataHaAgeRangeGuard], children: [
       { path: '', component: AyiineNameComponent },
       {
         path: 'section', children: [
