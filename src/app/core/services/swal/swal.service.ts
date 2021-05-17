@@ -5,6 +5,14 @@ import Swal from 'sweetalert2';
 })
 export class SwalService {
   public swal = Swal;
+  /**
+   *
+   */
+  constructor() {
+  this.swal= this.swal.mixin({
+    confirmButtonText:'باشه'
+  })
+  }
   async showErrorMessages(messages: string[]) {
     await this.showErrorMessage(messages.join('<br>'));
   }
@@ -20,8 +28,7 @@ export class SwalService {
     await this.swal.fire({
       title: 'ثبت نام شما با موفقیت انجام شد.',
       text: 'منتظر دریافت پیامک باشید در صورت عدم دریافت دوباره تلاش کنید.',
-      icon: 'success',
-      confirmButtonText:'باشه'
+      icon: 'success'
     });
   }
   async accessRegister(){
@@ -31,4 +38,5 @@ export class SwalService {
       confirmButtonText:'قبول دارم'
     });
   }
+
 }

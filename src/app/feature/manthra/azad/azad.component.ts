@@ -67,6 +67,7 @@ export class AzadComponent implements OnInit {
       iiarNationalCodeJanbi1: values.iiarNationalCodeJanbi1,
       iiarNationalCodeJanbi2: values.iiarNationalCodeJanbi2,
       ageType: this.ageRange,
+      isProjectBase: false,
       step: 100,
       state: 'end',
       oordoHamayesh: {

@@ -60,6 +60,7 @@ export class ProjectBasedComponent implements OnInit {
       isOrdooHamayesh: values.isOrdooHamayesh,
       ageType: this.ageRange,
       step: 100,
+      isProjectBase: true,
       state: 'end',
       oordoHamayesh: {
         learnPC: values.learnPC,
