@@ -65,7 +65,7 @@ export class ForgetPasswordComponent {
       nationalCode: this.sendSmsForm.value.nationalCodes
     };
     this._repository.forgetPassword(data).subscribe(() => {
-      this._router.navigate(['/']);
+      this._router.navigate(['/Authentication']);
     });
   }
   private _setIsloadingFalse() {

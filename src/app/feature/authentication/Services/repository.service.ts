@@ -30,7 +30,6 @@ export class RepositoryService {
     return this._httpClient.post(`${this.url}/ForgetPassword/checkphone`, { mobile, nationalCode, token });
   }
   forgetPassword(forgetPasswordinfo: ForgetPasswordInfo) {
-    return this._httpClient.post<TokenResultDto>(`${this.url}/submitPasswordForForgetPassword`, forgetPasswordinfo)
-      .pipe(tap(trd => this._authService.setTokens(trd.entity.access_token)));
+    return this._httpClient.post<TokenResultDto>(`${this.url}/submitPasswordForForgetPassword`, forgetPasswordinfo);
   }
 }
