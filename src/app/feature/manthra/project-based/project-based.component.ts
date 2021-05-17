@@ -42,7 +42,7 @@ export class ProjectBasedComponent implements OnInit {
     });
   }
   onblurInput() {
-    if (this.projectbaseForm.controls.iiarNationalCode.valid)
+    if (this.projectbaseForm.controls.iiarNationalCode.valid && this.projectbaseForm.value.iiarNationalCode)
       this._repository.canPersionRegister(this.projectbaseForm.value.iiarNationalCode).subscribe(c => {
         console.log(c);
 
