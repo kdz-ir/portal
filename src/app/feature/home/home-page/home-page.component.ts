@@ -30,7 +30,7 @@ export class HomePageComponent implements AfterViewInit {
       }
     });
     this._swal.swal.fire({
-      title: 'ثبت نام در این بخش ها ثبت نام کرده اید.',
+      title: 'کاربر گرامی؛ شما در این بخش‌ها ثبت‌نام کرده‌اید.',
       html: regs.join('<br>'),
       icon:'info',
       confirmButtonText:'بستن'
