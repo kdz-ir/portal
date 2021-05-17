@@ -17,7 +17,7 @@ export class ValidProfileGuard implements CanActivate {
       if (!c.status) {
         await this._swalService.swal.fire({
           title: 'پروفایل شما کامل نشده است',
-          text: 'لطفا پرفایل کامل کنید.',
+          text: 'لطفا پرفایل خود کامل کنید.',
           icon: 'error',
           confirmButtonText: 'بریم کامل کنیم.'
         });
