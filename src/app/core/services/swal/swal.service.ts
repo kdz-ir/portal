@@ -13,7 +13,7 @@ export class SwalService {
       title: 'خطا',
       html: message,
       icon: 'error',
-      confirmButtonText: 'باشه'
+      confirmButtonText: 'متوجه شدم'
     });
   }
   async successFullRegister() {
