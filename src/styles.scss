@@ -16,6 +16,7 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
 }
 
 $custom-typography: mat-typography-config($font-family: 'Vazir FD,Roboto, tahoma;');
