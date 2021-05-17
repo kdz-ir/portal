@@ -35,5 +35,8 @@ $custom-typography: mat-typography-config($font-family: 'Vazir FD,Roboto, tahoma
     position: absolute;
     top: calc(29% - 10px);
     left: calc(50% - 10px);
-  }
-  
+}
+
+.text-warn {
+    color: red;
+}
