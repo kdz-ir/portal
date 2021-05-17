@@ -4,6 +4,7 @@ import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { checkZoastrianCardInfo } from '../models/check-zoastrian-card-info';
 import { getAgeRange } from '../models/get-age-range';
+import { getUserStepManthra } from '../models/get-user-step-manthra';
 import { SubjetInfo } from '../models/subject-info';
 
 @Injectable({
@@ -30,6 +31,6 @@ export class ManthraReporsitoryService {
     return this._http.post(`${this._url}/gat-ha/register`, data);
   }
   checkStepoFRegster() {
-    return this._http.get(this._url + '/gat-ha/step');
+    return this._http.get<getUserStepManthra>(this._url + '/gat-ha/step');
   }
 }

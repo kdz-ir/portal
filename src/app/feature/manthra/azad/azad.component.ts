@@ -59,7 +59,7 @@ export class AzadComponent implements OnInit {
       iiarNationalCodeAsli: values.iiarNationalCodeAsli,
       iiarNationalCodeJanbi: values.iiarNationalCodeJanbi,
       ageType: this.ageRange,
-      step: 0,
+      step: 100,
       state: 'end',
       oordoHamayesh: {
         learnPC: values.learnPC,

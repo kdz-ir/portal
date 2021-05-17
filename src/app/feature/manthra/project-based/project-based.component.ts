@@ -59,7 +59,7 @@ export class ProjectBasedComponent implements OnInit {
       iiarNationalCode: values.iiarNationalCode,
       isOrdooHamayesh: values.isOrdooHamayesh,
       ageType: this.ageRange,
-      step: 0,
+      step: 100,
       state: 'end',
       oordoHamayesh: {
         learnPC: values.learnPC,
