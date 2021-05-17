@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ConfirmPasswordErrorStateMatcher } from 'src/app/core/services/forms/confirm-password-error-state-matcher';
 import { ForgetPasswordInfo } from '../model/forget-password-info';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
+import { SwalService } from 'src/app/core/services/swal/swal.service';
 @Component({
   selector: 'kdz-forget-password',
   templateUrl: './forget-password.component.html',
@@ -23,7 +24,8 @@ export class ForgetPasswordComponent {
     private readonly _repository: RepositoryService,
     public readonly validatorCoreService: ValidatorCoreService,
     private readonly _snackBar: MatSnackBar,
-    private readonly _router: Router
+    private readonly _router: Router,
+    private readonly _swal: SwalService,
   ) {
     this.sendSmsForm = fb.group({
       phoneNumber: [, [Validators.required, Validators.minLength(11), AdditionalValidators.PhoneNumber]],
@@ -64,8 +66,14 @@ export class ForgetPasswordComponent {
       token: this.sendSmsForm.value.captcha,
       nationalCode: this.sendSmsForm.value.nationalCodes
     };
-    this._repository.forgetPassword(data).subscribe(() => {
+    this._repository.forgetPassword(data).subscribe(async () => {
+      this._swal.swal.fire({
+        title: 'رمز شما با موفقیت عوض شد.',
+        confirmButtonText:'باشه',
+        icon:'success'
+      });
       this._router.navigate(['/Authentication']);
+
     });
   }
   private _setIsloadingFalse() {

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { CreateUserInfo } from '../model/create-user-info';
 import { TimerService } from '../Services/timer.service';
 import { AdditionalValidators } from "ng-behroozbc-libraries-validators";
+import { SwalService } from 'src/app/core/services/swal/swal.service';
 @Component({
   selector: 'kdz-register',
   templateUrl: './register.component.html',
@@ -25,7 +26,8 @@ export class RegisterComponent {
     public readonly validatorCoreService: ValidatorCoreService,
     private readonly _snackBar: MatSnackBar,
     private readonly _router: Router,
-    public readonly _timer: TimerService
+    public readonly _timer: TimerService,
+    private readonly _swal: SwalService,
   ) {
     this.sendSmsForm = fb.group({
       phoneNumber: [, [Validators.required, Validators.minLength(11), AdditionalValidators.PhoneNumber]],
@@ -69,8 +71,13 @@ export class RegisterComponent {
       password: this.userInformationForm.value.password
     };
     this.isloading = true;
-    this._repository.createUser(userData).subscribe(() => {
+    this._repository.createUser(userData).subscribe(async () => {
       this._setIsloadingFalse();
+      this._swal.swal.fire({
+        title: 'ثبت نام شما با موفقیت انجام شد.',
+        confirmButtonText: 'باشه',
+        icon: 'success'
+      });
       this._router.navigate(['/Authentication']);
     }, () => this._setIsloadingFalse());
   }
