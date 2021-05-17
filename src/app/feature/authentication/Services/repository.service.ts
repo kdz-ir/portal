@@ -24,8 +24,7 @@ export class RepositoryService {
     return this._httpClient.post<CheckCode>(`${this.url}/register/verify`, { mobile: phoneNumber, otp: code, token });
   }
   createUser(userData: CreateUserInfo): Observable<TokenResultDto> {
-    return this._httpClient.post<TokenResultDto>(`${this.url}/register/create`, userData)
-      .pipe(tap(trd => this._authService.setTokens(trd.entity.access_token)));
+    return this._httpClient.post<TokenResultDto>(`${this.url}/register/create`, userData);
   }
   sendSmsForgetPassword(mobile: string, nationalCode: string, token: string) {
     return this._httpClient.post(`${this.url}/ForgetPassword/checkphone`, { mobile, nationalCode, token });

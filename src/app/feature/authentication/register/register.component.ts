@@ -38,7 +38,7 @@ export class RegisterComponent {
     this.userInformationForm = fb.group({
       nationalCode: [, [Validators.required, ValidatorCoreService.nationalCodeChecker]],
       password: [, [Validators.required, Validators.minLength(6)]],
-      captcha:[]
+      captcha: []
     });
   }
   onSendSms() {
@@ -52,7 +52,7 @@ export class RegisterComponent {
     this.isloading = true;
     this._repository.checkCode(this.sendSmsForm.value.phoneNumber, this.checkCodeForm.value.code, this.checkCodeForm.value.captcha).subscribe(t => {
       this._setIsloadingFalse();
-        stepper.next();
+      stepper.next();
     }, () => {
 
       stepper.reset();
@@ -71,7 +71,7 @@ export class RegisterComponent {
     this.isloading = true;
     this._repository.createUser(userData).subscribe(() => {
       this._setIsloadingFalse();
-      this._router.navigate(['/']);
+      this._router.navigate(['/Authentication']);
     }, () => this._setIsloadingFalse());
   }
   private _setIsloadingFalse() {
