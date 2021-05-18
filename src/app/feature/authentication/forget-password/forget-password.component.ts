@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RepositoryService } from '../Services/repository.service';
 import { MatStepper } from '@angular/material/stepper';
@@ -20,6 +20,7 @@ export class ForgetPasswordComponent {
   readonly sendSmsForm: FormGroup;
   readonly checkCodeForm: FormGroup;
   readonly forgetPasswordForm: FormGroup;
+  @ViewChild(MatStepper) stepper: MatStepper;
   constructor (readonly fb: FormBuilder,
     private readonly _repository: RepositoryService,
     public readonly validatorCoreService: ValidatorCoreService,
@@ -43,20 +44,18 @@ export class ForgetPasswordComponent {
 
   onSendSms() {
     this.isloading = true;
-    this._repository.sendSmsForgetPassword(this.sendSmsForm.value.phoneNumber, this.sendSmsForm.value.nationalCode, this.sendSmsForm.value.capcaptcha)
-      .subscribe(() => this._setIsloadingFalse(), () => this._setIsloadingFalse());
+    this._repository.sendSmsForgetPassword(this.sendSmsForm.value.phoneNumber, this.sendSmsForm.value.nationalCode, this.sendSmsForm.value.captcha)
+      .subscribe(() => { this._setIsloadingFalse(); }, () => { this._setIsloadingFalse(); this.stepper.reset(); });
   }
   onCheckCodeFromSubmit(stepper: MatStepper) {
     this.isloading = true;
     this._repository.checkCode(this.sendSmsForm.value.phoneNumber, this.checkCodeForm.value.code, this.sendSmsForm.value.captcha).subscribe(t => {
       this._setIsloadingFalse();
-      if (t.result) {
-        stepper.next();
-        return;
-      }
-      this._snackBar.open('کد شما اشتباه است.');
+      stepper.next();
 
-    }, this._setIsloadingFalse);
+
+
+    }, this._setIsloadingFalse.bind(this));
   }
   onNewPasswordSubmit() {
     const data: ForgetPasswordInfo = {
@@ -69,8 +68,8 @@ export class ForgetPasswordComponent {
     this._repository.forgetPassword(data).subscribe(async () => {
       this._swal.swal.fire({
         title: 'رمز شما با موفقیت عوض شد.',
-        confirmButtonText:'باشه',
-        icon:'success'
+        confirmButtonText: 'باشه',
+        icon: 'success'
       });
       this._router.navigate(['/Authentication']);
 

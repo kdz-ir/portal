@@ -27,9 +27,9 @@ export class RepositoryService {
     return this._httpClient.post<TokenResultDto>(`${this.url}/register/create`, userData);
   }
   sendSmsForgetPassword(mobile: string, nationalCode: string, token: string) {
-    return this._httpClient.post(`${this.url}/ForgetPassword/checkphone`, { mobile, nationalCode, token });
+    return this._httpClient.post(`${this.url}/forgot`, { mobile, nationalCode, token });
   }
   forgetPassword(forgetPasswordinfo: ForgetPasswordInfo) {
-    return this._httpClient.post<TokenResultDto>(`${this.url}/submitPasswordForForgetPassword`, forgetPasswordinfo);
+    return this._httpClient.post<TokenResultDto>(`${this.url}/submitPasswordForForgotPassword`, forgetPasswordinfo);
   }
 }
