@@ -63,7 +63,7 @@ export class ForgetPasswordComponent {
       mobile: this.sendSmsForm.value.phoneNumber,
       password: this.forgetPasswordForm.value.password,
       token: this.sendSmsForm.value.captcha,
-      nationalCode: this.sendSmsForm.value.nationalCodes
+      nationalCode: this.sendSmsForm.value.nationalCode
     };
     this._repository.forgetPassword(data).subscribe(async () => {
       this._swal.swal.fire({
