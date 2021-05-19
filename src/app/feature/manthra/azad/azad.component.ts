@@ -36,7 +36,7 @@ export class AzadComponent implements OnInit {
     });
   }
   onblurInput(control: AbstractControl) {
-    if (control.valid)
+    if (control.valid && control.value != null)
       this._repository.canPersionRegister(control.value).subscribe(c => {
         console.log(c);
 
@@ -52,20 +52,39 @@ export class AzadComponent implements OnInit {
   }
   onSubmit() {
     const values = this.azadForm.value;
+    const iiarNationalCodeAsli = [];
+    const iiarNationalCodeJanbi = [];
     let resgfiled = [];
-    if (values.wantJanbi)
+    if (values.wantJanbi) {
       resgfiled.push(gataHaRegisterFiled.Janbi);
-    if (values.wantAsli)
+      if (values.iiarNationalCodeJanbi0 != null) {
+        iiarNationalCodeJanbi.push(values.iiarNationalCodeJanbi0);
+      }
+      if (values.iiarNationalCodeJanbi1 != null) {
+        iiarNationalCodeJanbi.push(values.iiarNationalCodeJanbi1);
+      }
+      if (values.iiarNationalCodeJanbi2 != null) {
+        iiarNationalCodeJanbi.push(values.iiarNationalCodeJanbi2);
+      }
+    }
+    if (values.wantAsli) {
       resgfiled.push(gataHaRegisterFiled.Asli);
+
+      if (values.iiarNationalCodeAsli0 != null) {
+        iiarNationalCodeAsli.push(values.iiarNationalCodeAsli0);
+      }
+      if (values.iiarNationalCodeAsli1 != null) {
+        iiarNationalCodeAsli.push(values.iiarNationalCodeAsli2);
+      }
+      if (values.iiarNationalCodeAsli2 != null) {
+        iiarNationalCodeAsli.push(values.iiarNationalCodeAsli2);
+      }
+    }
     const data = {
       registerFiled: resgfiled,
       isOrdooHamayesh: values.isOrdooHamayesh,
-      iiarNationalCodeAsli0: values.iiarNationalCodeAsli0,
-      iiarNationalCodeAsli1: values.iiarNationalCodeAsli1,
-      iiarNationalCodeAsli2: values.iiarNationalCodeAsli2,
-      iiarNationalCodeJanbi0: values.iiarNationalCodeJanbi0,
-      iiarNationalCodeJanbi1: values.iiarNationalCodeJanbi1,
-      iiarNationalCodeJanbi2: values.iiarNationalCodeJanbi2,
+      iiarNationalCodeAsli: iiarNationalCodeAsli,
+      iiarNationalCodeJanbi: iiarNationalCodeJanbi,
       ageType: this.ageRange,
       isProjectBase: false,
       step: 100,
