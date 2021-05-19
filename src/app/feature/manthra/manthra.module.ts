@@ -7,10 +7,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { SelectSectionComponent } from './select-section/select-section.component';
 import { AzadComponent } from './azad/azad.component';
 import { ProjectBasedComponent } from './project-based/project-based.component';
+import { ManthtaHomeComponent } from './manthta-home/manthta-home.component';
 
 
 @NgModule({
-  declarations: [AyiineNameComponent, SelectSectionComponent, AzadComponent, ProjectBasedComponent],
+  declarations: [AyiineNameComponent, SelectSectionComponent, AzadComponent, ProjectBasedComponent, ManthtaHomeComponent],
   imports: [
     CommonModule,
     ManthraRoutingModule,
