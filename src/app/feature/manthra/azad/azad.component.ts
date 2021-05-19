@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { uniq } from 'lodash';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { gataHaRegisterFiled } from '../models/gata-ha-register-field-enum';
@@ -83,8 +84,8 @@ export class AzadComponent implements OnInit {
     const data = {
       registerFiled: resgfiled,
       isOrdooHamayesh: values.isOrdooHamayesh,
-      iiarNationalCodeAsli: iiarNationalCodeAsli,
-      iiarNationalCodeJanbi: iiarNationalCodeJanbi,
+      iiarNationalCodeAsli: uniq(iiarNationalCodeAsli),
+      iiarNationalCodeJanbi: uniq(iiarNationalCodeJanbi),
       ageType: this.ageRange,
       isProjectBase: false,
       step: 100,
