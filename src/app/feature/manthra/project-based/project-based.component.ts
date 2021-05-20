@@ -56,7 +56,7 @@ export class ProjectBasedComponent implements OnInit {
     this._repository.submitForms({
       registerFiled: [gataHaRegisterFiled.projectBase],
       subject: values.subject,
-      iiarNationalCode: values.iiarNationalCode,
+      iiarNationalCode: [values.iiarNationalCode],
       isOrdooHamayesh: values.isOrdooHamayesh,
       ageType: this.ageRange,
       step: 100,

@@ -17,19 +17,18 @@ export class GetZoroastrianCardComponent implements AfterViewInit {
     });
   }
   ngAfterViewInit(): void {
-    
+
   }
 
   onChangeOwner() {
     const changed = <number>this.zForm.value.hasCard;
-    console.log('hi');
     this.zForm.removeControl('ownerCard');
     this.zForm.removeControl('motherCard');
     this.zForm.removeControl('fatherCard');
     if (changed == 1) {
       this.zForm.addControl('ownerCard', this._fb.control(null, [Validators.required]));
     }
-    if (changed == 2) {
+    if (changed == 0) {
       this.zForm.addControl('motherCard', this._fb.control(null, [Validators.required]));
       this.zForm.addControl('fatherCard', this._fb.control(null, [Validators.required]));
     }
@@ -39,7 +38,7 @@ export class GetZoroastrianCardComponent implements AfterViewInit {
     this._repo.uploadzorostrianCard(this.zForm.value).subscribe(c => {
       this.isLoading = false;
       this._router.navigate(['/Manthra']);
-    });
+    }, () => this.isLoading = false);
 
   }
 }
