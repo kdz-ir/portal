@@ -12,7 +12,7 @@
                      fxLayoutGap="1rem"
                      aria-label="شما کارت زرتشتی گری دارید؟">
       <mat-radio-button value="1">خودم کارت دارم</mat-radio-button>
-      <mat-radio-button value="2">خودم کارت ندارم</mat-radio-button>
+      <mat-radio-button value="0">خودم کارت ندارم</mat-radio-button>
     </mat-radio-group>
   </div>
   <div *ngIf="zForm.value.hasCard==1">
@@ -23,7 +23,7 @@
                         fileType="2"
                         eventType="0"></app-image-uploader>
   </div>
-  <div *ngIf="zForm.value.hasCard==2"
+  <div *ngIf="zForm.value.hasCard==1"
        fxLayout="column"
        fxLayoutGap="1rem">
     <app-image-uploader [accept]="'image/jpeg'"

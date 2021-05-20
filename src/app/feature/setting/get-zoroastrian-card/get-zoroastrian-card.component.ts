@@ -29,7 +29,7 @@ export class GetZoroastrianCardComponent implements AfterViewInit {
     if (changed == 1) {
       this.zForm.addControl('ownerCard', this._fb.control(null, [Validators.required]));
     }
-    if (changed == 2) {
+    if (changed == 0) {
       this.zForm.addControl('motherCard', this._fb.control(null, [Validators.required]));
       this.zForm.addControl('fatherCard', this._fb.control(null, [Validators.required]));
     }
