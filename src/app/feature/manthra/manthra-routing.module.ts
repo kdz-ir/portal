@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AyiineNameComponent } from './ayiine-name/ayiine-name.component';
-import { AzadComponent } from './azad/azad.component';
+import { AyiineNameComponent } from './gata-ha/ayiine-name/ayiine-name.component';
+import { AzadComponent } from './gata-ha/azad/azad.component';
 import { CheckGataHaAgeRangeGuard } from './guards/check-gata-ha-age-range.guard';
 import { HaveNotRegesterdGuard } from './guards/have-not-regesterd.guard';
 import { ManthraFillDataGuard } from './guards/manthra-fill-data.guard';
 import { ManthtaHomeComponent } from './manthta-home/manthta-home.component';
-import { ProjectBasedComponent } from './project-based/project-based.component';
-import { SelectSectionComponent } from './select-section/select-section.component';
+import { ProjectBasedComponent } from './gata-ha/project-based/project-based.component';
+import { SelectSectionComponent } from './gata-ha/select-section/select-section.component';
 
 const routes: Routes = [
   {

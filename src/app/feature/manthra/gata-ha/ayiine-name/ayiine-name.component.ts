@@ -3,7 +3,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, timer } from 'rxjs';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { environment } from 'src/environments/environment';
-import { ManthraReporsitoryService } from '../services/manthra-reporsitory.service';
+import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.service';
 
 @Component({
   selector: 'app-ayiine-name',

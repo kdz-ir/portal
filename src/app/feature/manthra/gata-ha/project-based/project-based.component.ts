@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { AgeType } from 'src/app/core/model/age-type-enum';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
-import { gataHaRegisterFiled } from '../models/gata-ha-register-field-enum';
-import { ManthraReporsitoryService } from '../services/manthra-reporsitory.service';
+import { gataHaRegisterFiled } from '../../models/gata-ha-register-field-enum';
+import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.service';
 
 @Component({
   selector: 'app-project-based',

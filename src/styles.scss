@@ -48,6 +48,10 @@ $custom-typography: mat-typography-config($font-family: 'Vazir FD,Roboto, tahoma
     line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
+    cursor:pointer;
+}
+.pulse:disabled{
+    cursor: not-allowed;
 }
  .pulse:hover:not([disabled]),
  .pulse:focus:not([disabled]) {
