@@ -18,7 +18,6 @@ import {MatRadioModule} from '@angular/material/radio';
     CommonModule,
     SharedModule,
     SettingRoutingModule,
-    TextMaskModule,
     MatDatepickerModule,
     MatRadioModule
   ],
