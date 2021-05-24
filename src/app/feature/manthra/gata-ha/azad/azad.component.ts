@@ -101,7 +101,7 @@ export class AzadComponent implements OnInit {
         research: values.research
       }
     };
-    this._repository.submitForms(data).subscribe(c => {
+    this._repository.submitGatahaForms(data).subscribe(c => {
       this._swal.successFullRegister();
       this._router.navigate(['/']);
     });

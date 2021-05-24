@@ -53,7 +53,7 @@ export class ProjectBasedComponent implements OnInit {
   onSubmit() {
     const values = this.projectbaseForm.value;
 
-    this._repository.submitForms({
+    this._repository.submitGatahaForms({
       registerFiled: [gataHaRegisterFiled.projectBase],
       subject: values.subject,
       iiarNationalCode: [values.iiarNationalCode],

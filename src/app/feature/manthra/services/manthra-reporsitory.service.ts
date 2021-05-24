@@ -32,8 +32,11 @@ export class ManthraReporsitoryService {
       nationalCode,
     });
   }
-  submitForms(data) {
+  submitGatahaForms(data) {
     return this._http.post(`${this._url}/gat-ha/register`, data);
+  }
+  submitAvestaKhaniForms(data) {
+    return this._http.post(`${this._url}/avesta/register`, data);
   }
   checkStepoFRegster() {
     return this._http.get<getUserStepManthra>(this._url + '/gat-ha/step');

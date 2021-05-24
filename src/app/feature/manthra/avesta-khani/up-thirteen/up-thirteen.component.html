@@ -1,0 +1,65 @@
+<form [formGroup]="avestaKhaniForm"
+      fxLayout="column"
+      (submit)="onSubmit()"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px">
+    <mat-form-field>
+        <mat-label>رده</mat-label>
+        <mat-select formControlName="rade">
+            <mat-option value="0">اهنودگات</mat-option>
+            <mat-option value="1">اشتود و سپندود</mat-option>
+            <mat-option value="2">کل گاتاها</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="text-center">
+        کانون دانشجویان زرتشتی بر آن است تا در کنار بیست و هشتمین همایش اوستا خوانی و گاتاشناسی مانتره برای شرکت کنندگان
+        اردویی تفریحی-آموزشی به صورت مجازی برگزار نماید
+    </span>
+    <mat-checkbox formControlName="isOrdooHamayesh">
+        اردوهمایش شرکت میکنم
+    </mat-checkbox>
+    <div *ngIf="avestaKhaniForm.value.isOrdooHamayesh&&ageRange==3">
+        <div>
+            <mat-checkbox formControlName="learnPC">آموزش نرم افزار های کاربردی کامپیوتر مثل پاورپوینت،و فتوشاپ و...
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="ravanShenasi">شخصیت‌شناسی، خودشناسی، روانشناسی شغلی، شغل آینده و...
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="amazingFact">حقایق جالب علمی
+            </mat-checkbox>
+        </div>
+    </div>
+    <div *ngIf="avestaKhaniForm.value.isOrdooHamayesh&&ageRange==1">
+        <div>
+            <mat-checkbox formControlName="digitalMarket">دیجیتال مارکتینگ
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="startup">راه اندازی کسب وکار
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="bitcoin">سرمایه گذاری در بازار های مالی ارز دیجیتال و....
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="research">پژوهش
+            </mat-checkbox>
+        </div>
+    </div>
+
+    <mat-form-field *ngIf="avestaKhaniForm.value.isOrdooHamayesh">
+        <mat-label>سایر</mat-label>
+        <textarea matInput
+                  formControlName="other"></textarea>
+    </mat-form-field>
+    <button color="primary"
+    [disabled]="avestaKhaniForm.invalid"
+    mat-flat-button> ثبت اطلاعات</button>
+</form>

@@ -9,16 +9,31 @@ import { ManthtaHomeComponent } from './manthta-home/manthta-home.component';
 import { ProjectBasedComponent } from './gata-ha/project-based/project-based.component';
 import { SelectSectionComponent } from './gata-ha/select-section/select-section.component';
 import { PersonalInformationComponent } from './mantrak/personal-information/personal-information.component';
+import { UpThirteenComponent } from './avesta-khani/up-thirteen/up-thirteen.component';
+import { UnderteenComponent } from './avesta-khani/underteen/underteen.component';
 
 const routes: Routes = [
   {
     path: '', canActivate: [ManthraFillDataGuard, CheckGataHaAgeRangeGuard], children: [
       { path: '', component: ManthtaHomeComponent },
       {
-        path:'mantrak',children:[
+        path: 'avesta-khani',
+        children: [
           {
-            path:'personal-information',
-            component:PersonalInformationComponent
+            path: 'up13',
+            component: UpThirteenComponent
+          },
+          {
+            path: 'under10',
+            component: UnderteenComponent
+          }
+        ]
+      },
+      {
+        path: 'mantrak', children: [
+          {
+            path: 'personal-information',
+            component: PersonalInformationComponent
           }
         ]
       },
