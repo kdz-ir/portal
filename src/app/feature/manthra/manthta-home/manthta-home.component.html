@@ -11,14 +11,15 @@
          fxLayout="column"
          fxLayoutAlign="center center">
 
-        <div>
+        <div fxLayoutAlign="center" fxLayout="row wrap" fxLayout.lt-sm="column wrap">
             <button class="pulse"
-                    [disabled]="(haveAgeRange|async)?.status"
+                    disabled
                     routerLink="/Manthra/gata-ha">ثبت نام در گاتاشناسی</button>
             <button class="pulse"
                     disabled
                     routerLink="/Manthra">ثبت نام در اوستا خوانی</button>
             <button class="pulse"
+            disabled
                     routerLink="mantrak/personal-information">ثبت نام در مانترک</button>
         </div>
         <div fxLayoutAlign="center center">
