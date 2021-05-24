@@ -1,0 +1,44 @@
+<form [formGroup]="personalForm"
+      fxLayout="column"
+      (submit)="onSubmit()"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px">
+    <mat-form-field>
+        <mat-label>
+            تعداد اعضای خانواده
+        </mat-label>
+        <input matInput
+               formControlName="numberOfFamilyMembers"
+               type="number" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            تلفن همراه پدر
+        </mat-label>
+        <input matInput
+               formControlName="fatherphone"
+               type="tel" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            تلفن همراه مادر
+        </mat-label>
+        <input matInput
+               formControlName="motherphone"
+               type="tel" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>روش آشنایی با ما</mat-label>
+        <mat-select formControlName="acquaintance" multiple>
+          <mat-option *ngFor="let acquaintance of acquaintanceModel" [value]="acquaintance.value">{{acquaintance.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <app-image-uploader [accept]="'	image/jpeg'"
+                        [fbContorl]="personalForm.get('workbook')"
+                        [lastImageid]="personalForm.value.workbook"
+                        label="کارنامه"
+                        fileType="1"
+                        eventType="1"></app-image-uploader>
+
+    <button mat-flat-button color="primary">ثبت</button>
+</form>

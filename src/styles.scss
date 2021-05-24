@@ -41,3 +41,27 @@ $custom-typography: mat-typography-config($font-family: 'Vazir FD,Roboto, tahoma
 .text-warn {
     color: red;
 }
+.pulse{
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+    cursor:pointer;
+}
+.pulse:disabled{
+    cursor: not-allowed;
+}
+ .pulse:hover:not([disabled]),
+ .pulse:focus:not([disabled]) {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(#fff, 0);
+
+    color: #a85f84;
+    transition: 0.25s;
+
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 adjust-hue(#863e62, 45deg); }
+  }

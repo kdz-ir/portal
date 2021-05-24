@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs/operators';
+import { gataHaRegisterFilledInfo } from 'src/app/core/model/gata-ha-register-filled';
 import { environment } from 'src/environments/environment';
 import { checkZoastrianCardInfo } from '../models/check-zoastrian-card-info';
 import { getAgeRange } from '../models/get-age-range';
@@ -14,6 +15,9 @@ import { SubjetInfo } from '../models/subject-info';
 export class ManthraReporsitoryService {
   private readonly _url = environment.url + '/api/v1/account/manthra';
   constructor (private readonly _http: HttpClient) { }
+  get getUserRegisteredFilled() {
+    return this._http.get<gataHaRegisterFilledInfo>(this._url + '/gat-ha/getLastRegister');
+  }
   getUserStatus() {
     return this._http.get<checkZoastrianCardInfo>(this._url + '/state').pipe(map(c => c.status));
   }

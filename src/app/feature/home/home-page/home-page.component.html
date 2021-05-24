@@ -1,29 +1,21 @@
-<div fxLayout="column"
+<div fxLayout="column wrap"
      fxLayoutAlign="center center"
      class="width-full"
      fxLayoutGap="10px">
-    <h2 *ngIf="!(profileStatus|async)?.status">کاربر گرامی برای ثبت‌نام در بخش گاتاشناسی مانتره لطفا پروفایل خود را
-        تکمیل کنید.</h2>
-    <h2 *ngIf="(profileStatus|async)?.status">پروفایل شما برای ثبت نام در گاتاشناسی تکمیل است. شما مجاز به نام نویسی در
-        مانتره می باشید.</h2>
-    <div fxLayoutGap="10px"
-         fxLayout="column"
-         fxLayoutAlign="center center">
-        <button color="primary"
-                *ngIf="!(profileStatus|async)?.status"
-                routerLink="/Settings"
-                mat-flat-button>مشاهده و تکمیل پروفایل</button>
-        <button color="accent"
-                *ngIf="registerFiled==null"
-                routerLink="/Manthra"
-                mat-flat-button>ثبت نام در گاتاشناسی مانتره</button>
-        <button color="accent"
-                mat-flat-button
-                *ngIf="registerFiled!=null"
-                (click)="onSeeRegisters()">مشاهده بخش های ثبت شده</button>
-    </div>
-    <h3 class="mt-3 text-warn">
-        در صورتی که پس از نام‌نویسی از طرف کانون دانشجویان زرتشتی پیامک دریافت کنید، نام‌نویسی با موفقیت ثبت شده است، در
-        غیر این صورت نام‌نویسی موفق نبوده است.
-    </h3>
+        <h2>
+                به پنل کاربری کانون دانشجویان زرشتی خوش آمدید.
+        </h2>
+        <h3>
+                برنامه هایی که اکنون ثبت نام دارن.
+        </h3>
+        <div fxLayoutAlign="center" fxLayout="row wrap" fxLayout.lt-sm="column wrap">
+                <button class="pulse"
+                        disabled>پیکارهای ورزشی جام جان‌باختگان</button>
+                <button class="pulse"
+                        disabled>اردوی دانش‌آموزان زرتشتی سراسر کشور</button>
+                <button class="pulse"
+                        disabled>همایش علمی زرتشتیان سراسر کشور</button>
+                <button class="pulse"
+                        routerLink="/Manthra">همایش اوستاخوانی و گاتاشناسی مانتره</button>
+        </div>
 </div>
