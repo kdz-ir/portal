@@ -40,8 +40,8 @@ export class UpThirteenComponent implements OnInit {
   onSubmit() {
     const values = this.avestaKhaniForm.value;
 
-    this._repository.submitGatahaForms({
-      rade: values.rade,
+    this._repository.submitAvestaKhaniForms({
+      rade: +values.rade,
       isOrdooHamayesh: values.isOrdooHamayesh,
       ageType: this.ageRange,
       step: 100,
