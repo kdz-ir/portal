@@ -18,6 +18,9 @@ export class ManthraReporsitoryService {
   get getUserRegisteredFilled() {
     return this._http.get<gataHaRegisterFilledInfo>(this._url + '/gat-ha/getLastRegister');
   }
+  get isUnderTeen() {
+    return this._http.get<isUnder13Info>(this._url + '/avesta/isUnder10');
+  }
   getUserStatus() {
     return this._http.get<checkZoastrianCardInfo>(this._url + '/state').pipe(map(c => c.status));
   }
@@ -44,4 +47,5 @@ export class ManthraReporsitoryService {
   gataHaHaveReqiuredAge() {
     return this._http.get<isUnder13Info>(this._url + '/gat-ha/isUnder13');
   }
+
 }
