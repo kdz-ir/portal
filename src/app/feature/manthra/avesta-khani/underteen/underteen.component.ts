@@ -18,6 +18,7 @@ export class UnderteenComponent implements OnInit {
   onClickToSubmut() {
     this._repository.submitAvestaKhaniForms({
       state: 'end',
+      step:100,
       ageType: this.agerange
     }).subscribe(c => {
       this._swal.successFullRegister();
