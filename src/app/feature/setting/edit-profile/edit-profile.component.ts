@@ -19,7 +19,6 @@ export class EditProfileComponent implements AfterViewInit {
   readonly cites = cites;
   readonly sexTypes = sextypes;
   loading = true;
-  datemask = [/\d/, /\d/, /\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/];
   profileForm: FormGroup;
   constructor (readonly _fb: FormBuilder,
     public readonly validatorCoreService: ValidatorCoreService,
@@ -32,7 +31,7 @@ export class EditProfileComponent implements AfterViewInit {
       sex: [0, [Validators.required]],
       fatherName: [, [Validators.required]],
       address: [, [Validators.required]],
-      postalCode: [, [Validators.required]],
+      postalCode: [, [Validators.required,Validators.maxLength(10),Validators.minLength(10)]],
       city: [, [Validators.required]],
       birthday: [, [Validators.required]],
       phone: [, [Validators.required]],
