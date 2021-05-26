@@ -18,8 +18,8 @@ export class ManthraReporsitoryService {
   get getUserRegisteredFilled() {
     return this._http.get<gataHaRegisterFilledInfo>(this._url + '/gat-ha/getLastRegister');
   }
-  get isUnderTeen() {
-    return this._http.get<isUnder13Info>(this._url + '/avesta/isUnder10');
+  get avestaGetAgeRange() {
+    return this._http.get<getAgeRange>(this._url + '/avesta/getAgeType');
   }
   getUserStatus() {
     return this._http.get<checkZoastrianCardInfo>(this._url + '/state').pipe(map(c => c.status));

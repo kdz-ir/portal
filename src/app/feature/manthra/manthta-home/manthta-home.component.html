@@ -11,14 +11,22 @@
          fxLayout="column"
          fxLayoutAlign="center center">
 
-        <div fxLayoutAlign="center" fxLayout="row wrap" fxLayout.lt-sm="column wrap">
+        <div fxLayoutAlign="center"
+             fxLayout="row wrap"
+             fxLayout.lt-sm="column wrap">
             <button class="pulse"
                     disabled
                     routerLink="/Manthra/gata-ha">ثبت نام در گاتاشناسی</button>
             <button class="pulse"
+                    *ngIf="avestaAgeRange==3"
                     routerLink="/Manthra/avesta-khani/up13">ثبت نام در اوستا خوانی</button>
             <button class="pulse"
-            disabled
+                    *ngIf="avestaAgeRange==1"
+                    routerLink="/Manthra/avesta-khani/under10">ثبت نام در اوستا خوانی</button>
+            <button class="pulse"
+                    *ngIf="avestaAgeRange==4"
+                    routerLink="/Manthra/avesta-khani/up13">ثبت نام در اوستا خوانی</button>
+            <button class="pulse"
                     routerLink="mantrak/personal-information">ثبت نام در مانترک</button>
         </div>
         <div fxLayoutAlign="center center">

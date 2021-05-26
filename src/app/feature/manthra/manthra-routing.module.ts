@@ -14,7 +14,7 @@ import { UnderteenComponent } from './avesta-khani/underteen/underteen.component
 
 const routes: Routes = [
   {
-    path: '', canActivate: [ManthraFillDataGuard, CheckGataHaAgeRangeGuard], children: [
+    path: '', canActivate: [ManthraFillDataGuard], children: [
       { path: '', component: ManthtaHomeComponent },
       {
         path: 'avesta-khani',

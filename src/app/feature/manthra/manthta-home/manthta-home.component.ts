@@ -10,17 +10,20 @@ import { ManthraReporsitoryService } from '../services/manthra-reporsitory.servi
   templateUrl: './manthta-home.component.html',
   styleUrls: ['./manthta-home.component.scss']
 })
-export class ManthtaHomeComponent implements OnInit ,AfterViewInit{
+export class ManthtaHomeComponent implements OnInit, AfterViewInit {
   profileStatus = this._coreProfileService.checkProfileStatus();
-  haveAgeRange=this.manthraReporsitoryService.gataHaHaveReqiuredAge();
+  haveAgeRange = this.manthraReporsitoryService.gataHaHaveReqiuredAge();
   registerFiled: gataHaRegisterFilledEntity;
-  isLoading=true;
-
-  constructor(private readonly _coreProfileService: CoreProfileService,private readonly _swal: SwalService,public readonly manthraReporsitoryService:ManthraReporsitoryService) { }
+  isLoading = true;
+  avestaAgeRange: number;
+  constructor (private readonly _coreProfileService: CoreProfileService, private readonly _swal: SwalService, public readonly manthraReporsitoryService: ManthraReporsitoryService) { }
   ngAfterViewInit(): void {
     this._coreProfileService.getUserRegisteredFilled().subscribe(c => {
       this.registerFiled = c.entity;
-      this.isLoading=false;
+      this.isLoading = false;
+    });
+    this.manthraReporsitoryService.avestaGetAgeRange.subscribe(c=>{
+      this.avestaAgeRange=c.entity.ageType;
     });
   }
 
@@ -41,8 +44,8 @@ export class ManthtaHomeComponent implements OnInit ,AfterViewInit{
     this._swal.swal.fire({
       title: 'کاربر گرامی؛ شما در این بخش‌ها ثبت ‌نام کرده‌اید.',
       html: regs.join('<br>'),
-      icon:'info',
-      confirmButtonText:'بستن'
+      icon: 'info',
+      confirmButtonText: 'بستن'
     });
   }
 }

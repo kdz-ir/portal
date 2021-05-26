@@ -29,16 +29,32 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>روش آشنایی با ما</mat-label>
-        <mat-select formControlName="acquaintance" multiple>
-          <mat-option *ngFor="let acquaintance of acquaintanceModel" [value]="acquaintance.value">{{acquaintance.label}}</mat-option>
+        <mat-select formControlName="acquaintance"
+                    multiple>
+            <mat-option *ngFor="let acquaintance of acquaintanceModel"
+                        [value]="acquaintance.value">{{acquaintance.label}}</mat-option>
         </mat-select>
-      </mat-form-field>
+    </mat-form-field>
     <app-image-uploader [accept]="'	image/jpeg'"
                         [fbContorl]="personalForm.get('workbook')"
                         [lastImageid]="personalForm.value.workbook"
                         label="کارنامه"
                         fileType="1"
                         eventType="1"></app-image-uploader>
-
-    <button mat-flat-button color="primary">ثبت</button>
+    <mat-form-field>
+        <mat-label>
+            هدف شما از شرکت در این دوره از همایش مانتره چیست؟
+        </mat-label>
+        <input formControlName="goalForMantrak"
+               matInput />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            به شرکت در چه کلاس‌هایی در مانترک امسال علاقه‌مندید؟
+        </mat-label>
+        <input formControlName="likedClass"
+               matInput />
+    </mat-form-field>
+    <button mat-flat-button
+            color="primary">ثبت</button>
 </form>
