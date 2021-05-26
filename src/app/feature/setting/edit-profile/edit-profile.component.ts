@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as moment from 'jalali-moment';
+import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { cites } from '../models/cites';
@@ -31,7 +32,7 @@ export class EditProfileComponent implements AfterViewInit {
       sex: [0, [Validators.required]],
       fatherName: [, [Validators.required]],
       address: [, [Validators.required]],
-      postalCode: [, [Validators.required,Validators.maxLength(10),Validators.minLength(10)]],
+      postalCode: [, [Validators.required,Validators.maxLength(10),Validators.minLength(10),AdditionalValidators.CheckIsASCII]],
       city: [, [Validators.required]],
       birthday: [, [Validators.required]],
       phone: [, [Validators.required]],

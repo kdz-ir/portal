@@ -38,7 +38,7 @@ export class RegisterComponent {
       captcha: []
     });
     this.userInformationForm = fb.group({
-      nationalCode: [, [Validators.required, ValidatorCoreService.nationalCodeChecker]],
+      nationalCode: [, [Validators.required, ValidatorCoreService.nationalCodeChecker,AdditionalValidators.CheckIsASCII]],
       password: [, [Validators.required, Validators.minLength(6)]],
       captcha: []
     });

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from '../../../../environments/environment';
+import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 @Component({
   selector: 'kdz-login',
   templateUrl: './login.component.html',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     public readonly validatorCoreService: ValidatorCoreService,
     private readonly _router: Router) {
     this.loginForm = fb.group({
-      nationalCode: [, [Validators.required, ValidatorCoreService.nationalCodeChecker]],
+      nationalCode: [, [Validators.required, ValidatorCoreService.nationalCodeChecker,AdditionalValidators.CheckIsASCII]],
       password: [, [Validators.minLength(6)]],
       captcha: []
     });
