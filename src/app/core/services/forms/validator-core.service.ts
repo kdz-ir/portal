@@ -53,7 +53,7 @@ export class ValidatorCoreService {
       control.getError('ascii') ? 'حروف لاتین وارد نمایید.' :
         control.getError('national') ? 'کد ملی شما درست نمی باشد.' :
           control.getError('email') ? 'ایمیل شما درست نمی باشد.' :
-            control.getError('minlength') ? ' حداقل 6 کارکتر الزامی میباشد.' :
+            control.getError('minlength') ? ' حداقل طول مجاز را رعایت نکرده اید.' :
               control.getError('maxlength') ? 'حداکثر طول مجاز را رعایت نکرده اید' :
                 control.getError('pattern') ? 'الگو شما درست نمی باشد' :
                   control.getError('phoneNumber') ? 'شماره تلفن شما درست نمی باشد.' :

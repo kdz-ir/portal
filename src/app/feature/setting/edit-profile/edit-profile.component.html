@@ -24,6 +24,11 @@
         <input type="tel"
                formControlName="postalCode"
                matInput>
+        <mat-error>
+            {{
+            validatorCoreService.GetMessage(profileForm.controls.postalCode)
+            }}
+        </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>شماره تلفن منزل</mat-label>
@@ -42,9 +47,10 @@
                formControlName="birthday"
                disabled
                matInput>
-        <mat-datepicker-toggle matSuffix 
+        <mat-datepicker-toggle matSuffix
                                [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker disabled="false" #picker></mat-datepicker>
+        <mat-datepicker disabled="false"
+                        #picker></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
         <mat-label>شهر</mat-label>
