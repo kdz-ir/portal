@@ -79,10 +79,11 @@
     <mat-radio-group aria-labelledby="example-radio-group-label"
                      fxLayoutGap="10px"
                      formControlName="isParticipating">
-        <mat-radio-button value="true">بله</mat-radio-button>
-        <mat-radio-button value="false">نه</mat-radio-button>
+        <mat-radio-button [value]="true">بله</mat-radio-button>
+        <mat-radio-button [value]="false">نه</mat-radio-button>
     </mat-radio-group>
 
     <button mat-flat-button
+    [disabled]="personalForm.invalid"
             color="primary">ثبت</button>
 </form>
