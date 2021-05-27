@@ -8,8 +8,11 @@ import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
   styleUrls: ['./personal-information.component.scss']
 })
 export class PersonalInformationComponent implements OnInit {
+
   personalForm: FormGroup;
+  readonly personLinkedFiled = personLinkedFiled;
   readonly acquaintanceModel = acquaintanceModel;
+  readonly isLikeAvestaKhani = isLikeAvestaKhani;
   constructor (private readonly _fb: FormBuilder) {
     this.personalForm = _fb.group({
       fatherphone: [, [Validators.required, AdditionalValidators.PhoneNumber]],
@@ -18,7 +21,10 @@ export class PersonalInformationComponent implements OnInit {
       workbook: [, [Validators.required]],
       acquaintance: [, [Validators.required]],
       goalForMantrak: [, [Validators.required]],
-      likedClass:[,[Validators.required]]
+      likedClass: [, [Validators.required]],
+      suggestions:[,[Validators.required]],
+      personLinkedFiled: [, [Validators.required]],
+      avestaKhani:[,[Validators.required]]
     });
   }
   onSubmit() {
@@ -35,4 +41,16 @@ export const acquaintanceModel = [
   { value: 2, label: 'معلمان و اساتید مدارس' },
   { value: 3, label: 'تبلیغات فضای مجازی' },
   { value: 4, label: 'سایت‌های خبرگذاری داخلی (برساد و امرداد)' },
+];
+export const personLinkedFiled = [
+  { value: 0, label: 'موسیقی' },
+  { value: 1, label: 'دینی' },
+  { value: 2, label: 'خودشناسی' },
+  { value: 3, label: 'خلاقیت' },
+];
+export const isLikeAvestaKhani = [
+  { value: 0, label: 'نه' },
+  { value: 1, label: 'اهنوردگات' },
+  { value: 2, label: 'اشتود-سپنتمدگات' },
+  { value: 3, label: 'کل گاتا' },
 ];

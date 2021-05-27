@@ -50,10 +50,30 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>
-            به شرکت در چه کلاس‌هایی در مانترک امسال علاقه‌مندید؟
+            چه پیشنهادهایی برای اجرای بخش مانترک امسال دارید؟
         </mat-label>
-        <input formControlName="likedClass"
+        <input formControlName="suggestions"
                matInput />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>به کدام یک از زمینه‌های زیر علاقه‌مندید؟</mat-label>
+        <mat-select formControlName="personLinkedFiled"
+                    multiple>
+            <mat-option *ngFor="let topping of personLinkedFiled"
+                        [value]="topping.value">{{topping.label}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>به شرکت در چه کلاس‌هایی در مانترک امسال علاقه‌مندید؟</mat-label>
+        <input matInput
+               formControlName="likedClass"/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>آیا علاقه‌مند به شرکت در بخش اوستاخوانی هستید؟(کدام بخش)</mat-label>
+        <mat-select formControlName="avestaKhani">
+            <mat-option *ngFor="let topping of isLikeAvestaKhani"
+                        [value]="topping.value">{{topping.label}}</mat-option>
+        </mat-select>
     </mat-form-field>
     <button mat-flat-button
             color="primary">ثبت</button>
