@@ -1,1 +1,100 @@
-<p>mantrk-participat-avesta-khani works!</p>
+<form fxLayout="column"
+      [formGroup]="participatAvastaForm"
+      (submit)="onSubmit()"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px">
+    <mat-form-field>
+        <mat-label>
+            در چه دوره‌هایی از همایش مانتره شرکت‌کننده بوده‌اید؟
+        </mat-label>
+        <input matInput
+               formControlName="numberofmanthras"
+               type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            هدف شما از شرکت در دوره‌های پیشین همایش مانتره چه بوده است؟
+        </mat-label>
+        <input matInput
+               formControlName="goalForOld"
+               type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            در کدام بخش از همایش مانتره شرکت‌کننده بوده‌اید؟
+        </mat-label>
+        <mat-select formControlName="sectionOfManthra"
+                    multiple>
+            <mat-option *ngFor="let topping of sectionOfManthra"
+                        [value]="topping.value">{{topping.label}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div fxLayout="column"
+         fxLayoutAlign="center center"
+         fxLayoutGap="10px"
+         *ngIf="isContainMAvestaKhani">
+        <mat-form-field *ngIf="isContainMAvestaKhani">
+            <mat-label>
+                در کدام یک از رده‌های زیر برگزیده شده‌اید؟
+            </mat-label>
+            <mat-select formControlName="radeOfAvestaKhani"
+                        multiple>
+                <mat-option *ngFor="let topping of radeOfAvestaKhani"
+                            [value]="topping.value">{{topping.label}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <label id="example-radio-group-label">آیا موفق به راه‌یابی از مرحله مقدماتی به همایش پایانی شده‌اید؟</label>
+        <mat-radio-group aria-labelledby="example-radio-group-label"
+                         formControlName="isAcceptInfinal"
+                         fxLayoutGap="10px">
+            <mat-radio-button [value]="true">بله</mat-radio-button>
+            <mat-radio-button [value]="false">خیر</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field *ngIf="participatAvastaForm.value.isAcceptInfinal">
+            <mat-label>
+                آیا موفق به کسب عنوان برگزیده در همایش پایانی مانتره شده‌اید؟
+            </mat-label>
+            <mat-select formControlName="finalPlace">
+                <mat-option [value]="-1">خیر</mat-option>
+                <mat-option *ngFor="let topping of radeOfAvestaKhani"
+                            [value]="topping.value">{{topping.label}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <label id="example-radio-group-label">آیا در بخش مانترک پارسال شرکت کرده‌اید؟</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label"
+                     formControlName="isRegisterdLastMantrak"
+                     fxLayoutGap="10px">
+        <mat-radio-button [value]="true">بله</mat-radio-button>
+        <mat-radio-button [value]="false">خیر</mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="participatAvastaForm.value.isRegisterdLastMantrak"
+         fxLayout="column"
+         fxLayoutAlign="center center"
+         fxLayoutGap="10px">
+        <mat-form-field>
+            <mat-label>
+                آیا به طور کلی از عملکرد مانترک پارسال راضی بوده‌اید؟
+            </mat-label>
+            <mat-select formControlName="likedLastManthrak">
+                <mat-option [value]="0"> خیلی کم</mat-option>
+                <mat-option [value]="1"> کم</mat-option>
+                <mat-option [value]="2">زیاد</mat-option>
+                <mat-option [value]="3">خیلی زیاد</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                به کدام برنامه بیشتر از همه در بخش مانترک پارسال علاقه داشتید؟
+            </mat-label>
+            <mat-select formControlName="likeInLastManthrak">
+                <mat-option [value]="0">خویش‌کاری</mat-option>
+                <mat-option [value]="1">اسطوره‌شناسی</mat-option>
+                <mat-option [value]="2">موسیقی</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <button mat-flat-button
+            [disabled]="participatAvastaForm.invalid"
+            color="primary">ثبت</button>
+</form>
