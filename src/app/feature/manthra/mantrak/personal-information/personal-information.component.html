@@ -66,7 +66,7 @@
     <mat-form-field>
         <mat-label>به شرکت در چه کلاس‌هایی در مانترک امسال علاقه‌مندید؟</mat-label>
         <input matInput
-               formControlName="likedClass"/>
+               formControlName="likedClass" />
     </mat-form-field>
     <mat-form-field>
         <mat-label>آیا علاقه‌مند به شرکت در بخش اوستاخوانی هستید؟(کدام بخش)</mat-label>
@@ -75,6 +75,15 @@
                         [value]="topping.value">{{topping.label}}</mat-option>
         </mat-select>
     </mat-form-field>
+    <label id="example-radio-group-label">آیا تا به حال در مانتره شرکت‌ کرده‌اید؟</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label"
+                     fxLayoutGap="10px"
+                     formControlName="isParticipating"
+                     class="example-radio-group">
+        <mat-radio-button value="0">بله</mat-radio-button>
+        <mat-radio-button value="1">نه</mat-radio-button>
+    </mat-radio-group>
+
     <button mat-flat-button
             color="primary">ثبت</button>
 </form>

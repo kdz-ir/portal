@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { ManthraRoutingModule } from './manthra-routing.module';
 import { AyiineNameComponent } from './gata-ha/ayiine-name/ayiine-name.component';
@@ -18,7 +19,8 @@ import { UpThirteenComponent } from './avesta-khani/up-thirteen/up-thirteen.comp
   imports: [
     CommonModule,
     ManthraRoutingModule,
-    SharedModule
+    SharedModule,
+    MatRadioModule,
   ]
 })
 export class ManthraModule { }

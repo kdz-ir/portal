@@ -22,9 +22,10 @@ export class PersonalInformationComponent implements OnInit {
       acquaintance: [, [Validators.required]],
       goalForMantrak: [, [Validators.required]],
       likedClass: [, [Validators.required]],
-      suggestions:[,[Validators.required]],
+      suggestions: [, [Validators.required]],
       personLinkedFiled: [, [Validators.required]],
-      avestaKhani:[,[Validators.required]]
+      avestaKhani: [, [Validators.required]],
+      isParticipating: [, [Validators.required]]
     });
   }
   onSubmit() {
