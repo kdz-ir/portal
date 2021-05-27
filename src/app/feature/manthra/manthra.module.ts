@@ -12,10 +12,11 @@ import { ManthtaHomeComponent } from './manthta-home/manthta-home.component';
 import { PersonalInformationComponent } from './mantrak/personal-information/personal-information.component';
 import { UnderteenComponent } from './avesta-khani/underteen/underteen.component';
 import { UpThirteenComponent } from './avesta-khani/up-thirteen/up-thirteen.component';
+import { MantrkParticipatAvestaKhaniComponent } from './mantrak/mantrk-participat-avesta-khani/mantrk-participat-avesta-khani.component';
 
 
 @NgModule({
-  declarations: [AyiineNameComponent, SelectSectionComponent, AzadComponent, ProjectBasedComponent, ManthtaHomeComponent, PersonalInformationComponent, UnderteenComponent, UpThirteenComponent],
+  declarations: [AyiineNameComponent, SelectSectionComponent, AzadComponent, ProjectBasedComponent, ManthtaHomeComponent, PersonalInformationComponent, UnderteenComponent, UpThirteenComponent, MantrkParticipatAvestaKhaniComponent],
   imports: [
     CommonModule,
     ManthraRoutingModule,

@@ -11,6 +11,7 @@ import { SelectSectionComponent } from './gata-ha/select-section/select-section.
 import { PersonalInformationComponent } from './mantrak/personal-information/personal-information.component';
 import { UpThirteenComponent } from './avesta-khani/up-thirteen/up-thirteen.component';
 import { UnderteenComponent } from './avesta-khani/underteen/underteen.component';
+import { MantrkParticipatAvestaKhaniComponent } from './mantrak/mantrk-participat-avesta-khani/mantrk-participat-avesta-khani.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
           {
             path: 'personal-information',
             component: PersonalInformationComponent
+          },
+          {
+            path: 'mantrk-participat-avesta-khani',
+            component: MantrkParticipatAvestaKhaniComponent
           }
         ]
       },

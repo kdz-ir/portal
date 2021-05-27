@@ -47,5 +47,8 @@ export class ManthraReporsitoryService {
   gataHaHaveReqiuredAge() {
     return this._http.get<isUnder13Info>(this._url + '/gat-ha/isUnder13');
   }
+  mantrakRegister(data) {
+    return this._http.post(this._url + '/mantrak/register', data);
+  }
 
 }

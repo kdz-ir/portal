@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
+import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.service';
 
 @Component({
   selector: 'app-personal-information',
@@ -13,23 +14,42 @@ export class PersonalInformationComponent implements OnInit {
   readonly personLinkedFiled = personLinkedFiled;
   readonly acquaintanceModel = acquaintanceModel;
   readonly isLikeAvestaKhani = isLikeAvestaKhani;
-  constructor (private readonly _fb: FormBuilder) {
+  constructor (private readonly _fb: FormBuilder, private readonly _repository: ManthraReporsitoryService) {
     this.personalForm = _fb.group({
       fatherphone: [, [Validators.required, AdditionalValidators.PhoneNumber]],
       motherphone: [, [Validators.required, AdditionalValidators.PhoneNumber]],
-      numberOfFamilyMembers: [, [Validators.required, Validators.min(1)]],
+      numberOfFamilyMembers: [, [Validators.required, Validators.min(1), Validators.max(20)]],
       workbook: [, [Validators.required]],
       acquaintance: [, [Validators.required]],
-      goalForMantrak: [, [Validators.required]],
-      likedClass: [, [Validators.required]],
-      suggestions: [, [Validators.required]],
-      personLinkedFiled: [, [Validators.required]],
+      goalForMantrak: [,],
+      likedClass: [,],
+      suggestions: [,],
+      personLinkedFiled: [,],
       avestaKhani: [, [Validators.required]],
       isParticipating: [, [Validators.required]]
     });
   }
   onSubmit() {
-    console.log(this.personalForm.value);
+    const formValue = this.personalForm.value;
+    const data = {
+      fatherphone: formValue.fatherphone,
+      motherphone: formValue.motherphone,
+      numberOfFamilyMembers: formValue.numberOfFamilyMembers,
+      workbook: formValue.workbook,
+      acquaintance: formValue.acquaintance,
+      goalForMantrak: formValue.goalForMantrak,
+      likedClass: formValue.likedClass,
+      suggestions: formValue.suggestions,
+      personLinkedFiled: formValue.personLinkedFiled,
+      avestaKhani: formValue.avestaKhani,
+      isParticipating: formValue.isParticipating,
+      step: (formValue.isParticipating) ? 1 : 100,
+      status: (formValue.isParticipating) ? '' : 'end'
+    };
+    this._repository.mantrakRegister(data).subscribe(c => {
+      console.log(c);
+
+    });
 
   }
   ngOnInit(): void {
@@ -48,6 +68,26 @@ export const personLinkedFiled = [
   { value: 1, label: 'دینی' },
   { value: 2, label: 'خودشناسی' },
   { value: 3, label: 'خلاقیت' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ];
 export const isLikeAvestaKhani = [
   { value: 0, label: 'نه' },
