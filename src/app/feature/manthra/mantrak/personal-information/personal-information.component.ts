@@ -74,29 +74,9 @@ export const personLinkedFiled = [
   { value: 1, label: 'دینی' },
   { value: 2, label: 'خودشناسی' },
   { value: 3, label: 'خلاقیت' },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ];
 export const isLikeAvestaKhani = [
-  { value: 0, label: 'نه' },
+  { value: 0, label: 'خیر' },
   { value: 1, label: 'اهنوردگات' },
   { value: 2, label: 'اشتود-سپنتمدگات' },
   { value: 3, label: 'کل گاتا' },
