@@ -5,13 +5,11 @@ mat-form-field {
 button {
     width: 300px;
 }
+
 @media (max-width:959px) {
     mat-form-field {
         width: 300px;
     }
 
-    button {
-        width: 300px;
-    }
 
 }
