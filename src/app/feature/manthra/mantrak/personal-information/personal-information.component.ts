@@ -69,6 +69,7 @@ export const acquaintanceModel = [
   { value: 2, label: 'معلمان و اساتید مدارس' },
   { value: 3, label: 'تبلیغات فضای مجازی' },
   { value: 4, label: 'سایت‌های خبرگذاری داخلی (برساد و امرداد)' },
+  { value: 5, label: 'سایر' },
 ];
 export const personLinkedFiled = [
   { value: 0, label: 'موسیقی' },
