@@ -12,6 +12,8 @@ import { PersonalInformationComponent } from './mantrak/personal-information/per
 import { UpThirteenComponent } from './avesta-khani/up-thirteen/up-thirteen.component';
 import { UnderteenComponent } from './avesta-khani/underteen/underteen.component';
 import { MantrkParticipatAvestaKhaniComponent } from './mantrak/mantrk-participat-avesta-khani/mantrk-participat-avesta-khani.component';
+import { ManthrakAyinNameComponent } from './mantrak/manthrak-ayin-name/manthrak-ayin-name.component';
+import { AvastaKhaniAyinNameComponent } from './avesta-khani/avasta-khani-ayin-name/avasta-khani-ayin-name.component';
 
 const routes: Routes = [
   {
@@ -20,6 +22,10 @@ const routes: Routes = [
       {
         path: 'avesta-khani',
         children: [
+          {
+            path:'',
+            component:AvastaKhaniAyinNameComponent
+          },
           {
             path: 'up13',
             component: UpThirteenComponent
@@ -32,6 +38,10 @@ const routes: Routes = [
       },
       {
         path: 'mantrak', children: [
+          {
+            path: '',
+            component: ManthrakAyinNameComponent
+          },
           {
             path: 'personal-information',
             component: PersonalInformationComponent
