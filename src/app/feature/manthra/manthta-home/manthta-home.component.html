@@ -19,8 +19,10 @@
                                 disabled
                                 routerLink="/Manthra/gata-ha">ثبت نام در گاتاشناسی</button>
                         <button class="pulse"
+                                [disabled]="avestaAgeRange==2"
                                 routerLink="/Manthra/avesta-khani">ثبت نام در اوستا خوانی</button>
                         <button class="pulse"
+                                [disabled]="avestaAgeRange==1||avestaAgeRange==3||avestaAgeRange==4"
                                 routerLink="/Manthra/mantrak">ثبت نام در مانترک</button>
                 </div>
                 <div fxLayoutAlign="center center">
