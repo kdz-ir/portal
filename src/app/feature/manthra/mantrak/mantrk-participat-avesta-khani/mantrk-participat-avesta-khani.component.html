@@ -23,8 +23,7 @@
         <mat-label>
             در کدام بخش از همایش مانتره شرکت‌کننده بوده‌اید؟
         </mat-label>
-        <mat-select formControlName="sectionOfManthra"
-                    multiple>
+        <mat-select formControlName="sectionOfManthra">
             <mat-option *ngFor="let topping of sectionOfManthra"
                         [value]="topping.value">{{topping.label}}</mat-option>
         </mat-select>
