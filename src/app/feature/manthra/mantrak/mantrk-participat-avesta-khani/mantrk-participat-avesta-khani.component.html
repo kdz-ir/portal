@@ -54,7 +54,7 @@
             <mat-label>
                 آیا موفق به کسب عنوان برگزیده در همایش پایانی مانتره شده‌اید؟
             </mat-label>
-            <mat-select formControlName="finalPlace">
+            <mat-select formControlName="finalPlace" multiple>
                 <mat-option [value]="-1">خیر</mat-option>
                 <mat-option *ngFor="let topping of radeOfAvestaKhani"
                             [value]="topping.value">{{topping.label}}</mat-option>

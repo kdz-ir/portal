@@ -41,6 +41,14 @@
                         label="کارنامه"
                         fileType="1"
                         eventType="1"></app-image-uploader>
+    <label id="example-radio-group-label">آیا تا به حال در مانتره شرکت‌ کرده‌اید؟</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label"
+                     fxLayoutGap="10px"
+                     formControlName="isParticipating">
+        <mat-radio-button [value]="true">بله</mat-radio-button>
+        <mat-radio-button [value]="false">خیر</mat-radio-button>
+    </mat-radio-group>
+
     <mat-form-field>
         <mat-label>
             هدف شما از شرکت در این دوره از همایش مانتره چیست؟
@@ -75,15 +83,8 @@
                         [value]="topping.value">{{topping.label}}</mat-option>
         </mat-select>
     </mat-form-field>
-    <label id="example-radio-group-label">آیا تا به حال در مانتره شرکت‌ کرده‌اید؟</label>
-    <mat-radio-group aria-labelledby="example-radio-group-label"
-                     fxLayoutGap="10px"
-                     formControlName="isParticipating">
-        <mat-radio-button [value]="true">بله</mat-radio-button>
-        <mat-radio-button [value]="false">خیر</mat-radio-button>
-    </mat-radio-group>
 
     <button mat-flat-button
-    [disabled]="personalForm.invalid"
+            [disabled]="personalForm.invalid"
             color="primary">ثبت</button>
 </form>
