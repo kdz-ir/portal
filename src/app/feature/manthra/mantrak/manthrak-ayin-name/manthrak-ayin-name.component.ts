@@ -14,10 +14,10 @@ export class ManthrakAyinNameComponent implements OnInit {
   isReadAll = !environment.production;
   isTimerEnded = !environment.production;
   private _timer: Subscription;
-  constructor(private readonly _repository: ManthraReporsitoryService, private readonly _swal: SwalService, private readonly _location: Location) { }
+  constructor (private readonly _repository: ManthraReporsitoryService, private readonly _swal: SwalService, private readonly _location: Location) { }
 
   ngOnInit(): void {
-    this._timer = timer(2 * 1000 * 60).subscribe(c => this.isTimerEnded = true);
+    this._timer = timer(100 * 60).subscribe(c => this.isTimerEnded = true);
   }
   onScroll(event: { target: HTMLElement; }) {
 

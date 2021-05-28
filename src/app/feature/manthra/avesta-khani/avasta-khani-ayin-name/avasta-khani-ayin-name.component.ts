@@ -22,7 +22,7 @@ export class AvastaKhaniAyinNameComponent implements OnInit {
     this._repository.avestaGetAgeRange.subscribe(c=>{
       this.avestaAgeRange=c.entity.ageType;
     });
-    this._timer = timer(2 * 1000 * 60).subscribe(c => this.isTimerEnded = true);
+    this._timer = timer( 100 * 60).subscribe(c => this.isTimerEnded = true);
   }
   onScroll(event: { target: HTMLElement; }) {
 
