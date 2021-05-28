@@ -14,7 +14,7 @@ export class MantrkParticipatAvestaKhaniComponent {
   radeOfAvestaKhani = radeOfAvestaKhani;
   participatAvastaForm: FormGroup;
   get isContainMAvestaKhani(): boolean {
-    return (<Array<number>>this.participatAvastaForm.value.sectionOfManthra)?.includes(2) || (<Array<number>>this.participatAvastaForm.value.sectionOfManthra)?.includes(0);
+    return (<number>this.participatAvastaForm.value.sectionOfManthra) == 2 || (<number>this.participatAvastaForm.value.sectionOfManthra) == 0;
   }
   constructor (private readonly _fb: FormBuilder, private readonly _repository: ManthraReporsitoryService, private readonly _swal: SwalService, private readonly _router: Router) {
     this.participatAvastaForm = _fb.group({
@@ -22,10 +22,10 @@ export class MantrkParticipatAvestaKhaniComponent {
       goalForOld: [, [Validators.required]],
       sectionOfManthra: [, [Validators.required]],
       radeOfAvestaKhani: [],
-      isAcceptInfinal: [false],
+      isAcceptInfinal: [],
       finalPlace: [],
-      isRegisterdLastMantrak: [false],
-      likeInLastManthrak: [0]
+      isRegisterdLastMantrak: [],
+      likedLastManthrak: [0]
     });
   }
   onSubmit() {
