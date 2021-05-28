@@ -25,7 +25,8 @@ export class MantrkParticipatAvestaKhaniComponent {
       isAcceptInfinal: [],
       finalPlace: [],
       isRegisterdLastMantrak: [],
-      likedLastManthrak: [0]
+      likeInLastManthrak: [0],
+      likedLastManthrak:[]
     });
   }
   onSubmit() {
