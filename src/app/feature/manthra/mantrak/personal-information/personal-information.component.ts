@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
+import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.service';
 
@@ -16,10 +17,10 @@ export class PersonalInformationComponent implements OnInit {
   readonly personLinkedFiled = personLinkedFiled;
   readonly acquaintanceModel = acquaintanceModel;
   readonly isLikeAvestaKhani = isLikeAvestaKhani;
-  constructor (private readonly _fb: FormBuilder, private readonly _swal: SwalService, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService) {
+  constructor (private readonly _fb: FormBuilder, public readonly validatorCoreService: ValidatorCoreService, private readonly _swal: SwalService, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService) {
     this.personalForm = _fb.group({
-      fatherphone: [, [Validators.required, AdditionalValidators.PhoneNumber]],
-      motherphone: [, [Validators.required, AdditionalValidators.PhoneNumber]],
+      fatherphone: [, [Validators.required, AdditionalValidators.PhoneNumber, AdditionalValidators.CheckIsASCII]],
+      motherphone: [, [Validators.required, AdditionalValidators.PhoneNumber, AdditionalValidators.CheckIsASCII]],
       numberOfFamilyMembers: [, [Validators.required, Validators.min(1), Validators.max(20)]],
       workbook: [, [Validators.required]],
       acquaintance: [, [Validators.required]],

@@ -10,6 +10,9 @@
         <input matInput
                formControlName="numberOfFamilyMembers"
                type="number" />
+        <mat-error>
+            {{validatorCoreService.GetMessage(personalForm.controls.numberOfFamilyMembers)}}
+        </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>
@@ -18,6 +21,9 @@
         <input matInput
                formControlName="fatherphone"
                type="tel" />
+        <mat-error>
+            {{validatorCoreService.GetMessage(personalForm.controls.fatherphone)}}
+        </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>
@@ -26,6 +32,9 @@
         <input matInput
                formControlName="motherphone"
                type="tel" />
+        <mat-error>
+            {{validatorCoreService.GetMessage(personalForm.controls.motherphone)}}
+        </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>روش آشنایی با ما</mat-label>
