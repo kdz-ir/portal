@@ -17,7 +17,13 @@ export class PersonalInformationComponent implements OnInit {
   readonly personLinkedFiled = personLinkedFiled;
   readonly acquaintanceModel = acquaintanceModel;
   readonly isLikeAvestaKhani = isLikeAvestaKhani;
-  constructor (private readonly _fb: FormBuilder, public readonly validatorCoreService: ValidatorCoreService, private readonly _swal: SwalService, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService) {
+  ageType: number;
+  constructor (private readonly _fb: FormBuilder, public readonly validatorCoreService: ValidatorCoreService, private readonly _swal: SwalService, private readonly _router: Router,
+    private readonly _repository: ManthraReporsitoryService) {
+
+    _repository.avestaGetAgeRange.subscribe(c => {
+      this.ageType = c.entity.ageType;
+    });
     this.personalForm = _fb.group({
       fatherphone: [, [Validators.required, AdditionalValidators.PhoneNumber, AdditionalValidators.CheckIsASCII]],
       motherphone: [, [Validators.required, AdditionalValidators.PhoneNumber, AdditionalValidators.CheckIsASCII]],
@@ -42,6 +48,7 @@ export class PersonalInformationComponent implements OnInit {
       acquaintance: formValue.acquaintance,
       goalForMantrak: formValue.goalForMantrak,
       likedClass: formValue.likedClass,
+      ageType: this.ageType,
       suggestions: formValue.suggestions,
       personLinkedFiled: formValue.personLinkedFiled,
       avestaKhani: formValue.avestaKhani,
