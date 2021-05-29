@@ -86,7 +86,7 @@ export const personLinkedFiled = [
 ];
 export const isLikeAvestaKhani = [
   { value: 0, label: 'خیر' },
-  { value: 1, label: 'اهنوردگات' },
+  { value: 1, label: 'اهنودگات' },
   { value: 2, label: 'اشتود-سپنتمدگات' },
   { value: 3, label: 'کل گاتا' },
 ];
