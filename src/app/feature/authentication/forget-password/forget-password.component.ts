@@ -29,8 +29,7 @@ export class ForgetPasswordComponent {
     private readonly _swal: SwalService,
   ) {
     this.sendSmsForm = fb.group({
-      phoneNumber: [, [Validators.required, Validators.minLength(11), AdditionalValidators.PhoneNumber]],
-      nationalCode: [, [ValidatorCoreService.nationalCodeChecker, Validators.required,AdditionalValidators.CheckIsASCII]],
+      nationalCode: [, [ValidatorCoreService.nationalCodeChecker, Validators.required, AdditionalValidators.CheckIsASCII]],
       captcha: []
     });
     this.checkCodeForm = fb.group({
@@ -44,8 +43,17 @@ export class ForgetPasswordComponent {
 
   onSendSms() {
     this.isloading = true;
-    this._repository.sendSmsForgetPassword(this.sendSmsForm.value.phoneNumber, this.sendSmsForm.value.nationalCode, this.sendSmsForm.value.captcha)
-      .subscribe(() => { this._setIsloadingFalse(); }, () => { this._setIsloadingFalse(); this.stepper.reset(); });
+    this._repository.sendSmsForgetPassword(this.sendSmsForm.value.nationalCode, this.sendSmsForm.value.captcha)
+      .subscribe((c) => {
+        this._swal.swal.fire({
+          title: `کد یکبار مصرف برای شما ارسال شد.`,
+          icon: 'info',
+          html: `ما برای بازیابی حساب کاربری شما یک<br> پیامک را به شماره ${c.entity.mobile} ارسال کرده ایم.<br>کد ارسال شده را در کادر مربوطه وارد کنید
+          <br><span style="color:red">اگر شماره شما درست نمی باشد لطفا با مدیر سیستم تماس بگیرید</span>
+          `
+        });
+        this._setIsloadingFalse();
+      }, () => { this._setIsloadingFalse(); this.stepper.reset(); });
   }
   onCheckCodeFromSubmit(stepper: MatStepper) {
     this.isloading = true;

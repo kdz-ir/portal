@@ -8,6 +8,7 @@ import { CreateUserInfo } from '../model/create-user-info';
 import { ForgetPasswordInfo } from '../model/forget-password-info';
 import { tap } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
+import { sendSmsForgetPasswordInfo } from '../model/send-sms-forget-password-info';
 
 @Injectable()
 export class RepositoryService {
@@ -26,8 +27,8 @@ export class RepositoryService {
   createUser(userData: CreateUserInfo): Observable<TokenResultDto> {
     return this._httpClient.post<TokenResultDto>(`${this.url}/register/create`, userData);
   }
-  sendSmsForgetPassword(mobile: string, nationalCode: string, token: string) {
-    return this._httpClient.post(`${this.url}/forgot`, { mobile, nationalCode, token });
+  sendSmsForgetPassword(nationalCode: string, token: string) {
+    return this._httpClient.post<sendSmsForgetPasswordInfo>(`${this.url}/forgot`, { nationalCode, token });
   }
   forgetPassword(forgetPasswordinfo: ForgetPasswordInfo) {
     return this._httpClient.post<TokenResultDto>(`${this.url}/submitPasswordForForgotPassword`, forgetPasswordinfo);
