@@ -34,6 +34,6 @@ export class RepositoryService {
     return this._httpClient.post<TokenResultDto>(`${this.url}/submitPasswordForForgotPassword`, forgetPasswordinfo);
   }
   forgetSmsVerify(nationalCode: string, code: number, token: string) {
-    return this._httpClient.post<CheckCode>(this.url + '/ForgetPassword/checkphone', { nationalCode: nationalCode, otp: code, token });
+    return this._httpClient.post<CheckCode>(this.url + '/verifyPasswordForForgotPassword', { nationalCode: nationalCode, otp: code, token });
   }
 }
