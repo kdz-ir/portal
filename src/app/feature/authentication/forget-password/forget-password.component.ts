@@ -57,7 +57,7 @@ export class ForgetPasswordComponent {
   }
   onCheckCodeFromSubmit(stepper: MatStepper) {
     this.isloading = true;
-    this._repository.checkCode(this.sendSmsForm.value.phoneNumber, this.checkCodeForm.value.code, this.sendSmsForm.value.captcha).subscribe(t => {
+    this._repository.forgetSmsVerify(this.sendSmsForm.value.nationalCode,this.checkCodeForm.value.code, this.sendSmsForm.value.captcha).subscribe(t => {
       this._setIsloadingFalse();
       stepper.next();
 
