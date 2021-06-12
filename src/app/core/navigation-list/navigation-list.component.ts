@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class NavigationListComponent {
   readonly LINKS = [
     { link: '/', name: 'خانه', icon: 'home', isNative: true },
-    // { link: '/Manthra', name: 'مانتره', icon: 'Manthra', isNative: false },
+    { link: '/Manthra', name: 'مانتره', icon: 'Manthra', isNative: false },
     {
       link: '/Settings', name: 'مشخصات کاربری', icon: 'account_circle', isNative: true
     },
