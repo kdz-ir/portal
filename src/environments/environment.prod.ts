@@ -6,6 +6,6 @@ export const environment = {
   refreshToken: 'refresh_token',
   url: 'https://api.portal.kdz.ir',
   vapid_key: '',
-  version,
+  version:'0.1.0',
   name: 'سامانه کاربری',
 };
