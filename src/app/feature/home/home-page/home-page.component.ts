@@ -10,13 +10,14 @@ import { gataHaRegisterFiled } from '../../manthra/models/gata-ha-register-field
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements AfterViewInit {
-  profileStatus = this._coreProfileService.checkProfileStatus();
+  profileStatus: boolean = false;
   registerFiled: gataHaRegisterFilledEntity;
   constructor (private readonly _coreProfileService: CoreProfileService, private readonly _swal: SwalService) { }
   ngAfterViewInit(): void {
     this._coreProfileService.getUserRegisteredFilled().subscribe(c => {
       this.registerFiled = c.entity;
     });
+    this._coreProfileService.checkProfileStatus().subscribe(c => this.profileStatus = c.status);
   }
   onSeeRegisters() {
     const regs = this.registerFiled.registerFiled.map(c => {
@@ -32,8 +33,8 @@ export class HomePageComponent implements AfterViewInit {
     this._swal.swal.fire({
       title: 'کاربر گرامی؛ شما در این بخش‌ها ثبت ‌نام کرده‌اید.',
       html: regs.join('<br>'),
-      icon:'info',
-      confirmButtonText:'بستن'
+      icon: 'info',
+      confirmButtonText: 'بستن'
     });
   }
 

@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as moment from 'jalali-moment';
+import { isNil } from 'lodash-es';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
@@ -32,7 +33,7 @@ export class EditProfileComponent implements AfterViewInit {
       sex: [0, [Validators.required]],
       fatherName: [, [Validators.required]],
       address: [, [Validators.required]],
-      postalCode: [, [Validators.required,Validators.maxLength(10),Validators.minLength(10),AdditionalValidators.CheckIsASCII]],
+      postalCode: [, [Validators.required, Validators.maxLength(10), Validators.minLength(10), AdditionalValidators.CheckIsASCII]],
       city: [, [Validators.required]],
       birthday: [, [Validators.required]],
       phone: [, [Validators.required]],
@@ -65,17 +66,22 @@ export class EditProfileComponent implements AfterViewInit {
           if (rgu.entity != null)
             return;
           if (c.status) {
-            this._router.navigate(['/Manthra']);
+            this._router.navigate(['/']);
+            await this._swal.swal.fire({
+              title: 'پروفایل شما ثبت شد.',
+              icon: 'success',
+              confirmButtonText: 'بستن'
+            });
             return;
           }
 
-          await this._swal.swal.fire({
-            title: 'پروفایل شما ثبت شد.',
-            text: 'در مرحله بعد کارت زرتشتگری را آپلود کنید.',
-            icon: 'success',
-            confirmButtonText: 'بریم'
-          });
-          this._router.navigate(['/Settings/zoroastrianCard']);
+          // await this._swal.swal.fire({
+          //   title: 'پروفایل شما ثبت شد.',
+          //   text: 'در مرحله بعد کارت زرتشتگری را آپلود کنید.',
+          //   icon: 'success',
+          //   confirmButtonText: 'بریم'
+          // });
+          // this._router.navigate(['/Settings/zoroastrianCard']);
         });
       });
 
@@ -87,20 +93,21 @@ export class EditProfileComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this._profileReporsitory.getProfileData().subscribe(c => {
       this.loading = false;
-      this.profileForm.setValue({
-        name: c.entity.name,
-        lastName: c.entity.family,
-        sex: sextypes.find(s => s.lable == c.entity.sex)?.value ?? 0,
-        fatherName: c.entity.fatherName,
-        address: c.entity.address,
-        city: cites.find(cs => cs.lable == c.entity.city)?.value ?? 0,
-        birthday: moment(c.entity.birthday, 'jYYYY/jMM/jDD'),
-        phone: c.entity.phone,
-        postalCode: c.entity.postalCode,
-        IdCardPhoto: c.entity?.IdCardPhoto ?? '',
-        personalPhoto: c.entity.personalPhoto ?? ''
-      });
-
+      if (!isNil(c.entity)) {
+        this.profileForm.setValue({
+          name: c.entity.name,
+          lastName: c.entity.family,
+          sex: sextypes.find(s => s.lable == c.entity.sex)?.value ?? 0,
+          fatherName: c.entity.fatherName,
+          address: c.entity.address,
+          city: cites.find(cs => cs.lable == c.entity.city)?.value ?? 0,
+          birthday: moment(c.entity.birthday, 'jYYYY/jMM/jDD'),
+          phone: c.entity.phone,
+          postalCode: c.entity.postalCode,
+          IdCardPhoto: c.entity?.IdCardPhoto ?? '',
+          personalPhoto: c.entity.personalPhoto ?? ''
+        });
+      }
     });
   }
 
