@@ -19,9 +19,9 @@ export class ManthrakAyinNameComponent implements OnInit {
   ngOnInit(): void {
     this._timer = timer(100 * 60).subscribe(c => this.isTimerEnded = true);
   }
-  onScroll(event: { target: HTMLElement; }) {
-
-    if (event.target.offsetHeight + event.target.scrollTop == event.target.scrollHeight) {
+  onScroll(event: any) {
+    const target = event.target as HTMLElement;
+    if (target.offsetHeight + target.scrollTop == target.scrollHeight) {
       this.isReadAll = true;
     }
   }

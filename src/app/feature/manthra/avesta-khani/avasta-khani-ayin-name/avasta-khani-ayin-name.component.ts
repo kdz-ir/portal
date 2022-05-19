@@ -16,17 +16,17 @@ export class AvastaKhaniAyinNameComponent implements OnInit {
   isTimerEnded = !environment.production;
   private _timer: Subscription;
   avestaAgeRange: number;
-  constructor(private readonly _repository: ManthraReporsitoryService, private readonly _swal: SwalService, private readonly _location: Location) { }
+  constructor (private readonly _repository: ManthraReporsitoryService, private readonly _swal: SwalService, private readonly _location: Location) { }
 
   ngOnInit(): void {
-    this._repository.avestaGetAgeRange.subscribe(c=>{
-      this.avestaAgeRange=c.entity.ageType;
+    this._repository.avestaGetAgeRange.subscribe(c => {
+      this.avestaAgeRange = c.entity.ageType;
     });
-    this._timer = timer( 100 * 60).subscribe(c => this.isTimerEnded = true);
+    this._timer = timer(100 * 60).subscribe(c => this.isTimerEnded = true);
   }
-  onScroll(event: { target: HTMLElement; }) {
-
-    if (event.target.offsetHeight + event.target.scrollTop == event.target.scrollHeight) {
+  onScroll(event: any) {
+    const target = event.target as HTMLElement;
+    if (target.offsetHeight + target.scrollTop == target.scrollHeight) {
       this.isReadAll = true;
     }
   }

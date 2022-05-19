@@ -45,7 +45,7 @@
         <mat-label>تاریخ تولد</mat-label>
         <input [matDatepicker]="picker"
                formControlName="birthday"
-               disabled
+               [disabled]
                matInput>
         <mat-datepicker-toggle matSuffix
                                [for]="picker"></mat-datepicker-toggle>

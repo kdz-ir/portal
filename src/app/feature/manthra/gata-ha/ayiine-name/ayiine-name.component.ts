@@ -39,9 +39,9 @@ export class AyiineNameComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this._timer = timer(2 * 1000 * 60).subscribe(c => this.isTimerEnded = true);
   }
-  onScroll(event: { target: HTMLElement; }) {
-
-    if (event.target.offsetHeight + event.target.scrollTop == event.target.scrollHeight) {
+  onScroll(event: any) {
+    const target = event.target as HTMLElement;
+    if (target.offsetHeight + target.scrollTop == target.scrollHeight) {
       this.isReadAll = true;
     }
   }
