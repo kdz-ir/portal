@@ -1,13 +1,13 @@
-<mat-nav-list> <a mat-list-item
+<mat-nav-list>
+    <a mat-list-item
        [routerLink]="nav.link"
-       *ngFor="let nav of LINKS">
+       *ngFor="let nav of links">
         <div mat-list-icon
              [ngSwitch]="nav.isNative">
             <mat-icon *ngSwitchCase="false"
                       [svgIcon]="nav.icon"></mat-icon>
             <mat-icon *ngSwitchCase="true">{{nav.icon}}</mat-icon>
         </div>
-
-
         <span mat-line>{{nav.name}}</span>
-    </a></mat-nav-list>
+    </a>
+</mat-nav-list>

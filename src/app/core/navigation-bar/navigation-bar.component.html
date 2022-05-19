@@ -1,0 +1,18 @@
+<nav mat-tab-nav-bar
+     mat-align-tabs="center"
+     backgroundColor="primary"
+     color="warn">
+    <a mat-tab-link
+       *ngFor="let nav of links; index as i"
+       [routerLink]="nav.link"
+       routerLinkActive
+       #rla="routerLinkActive"
+       [active]="rla.isActive">
+        <div [ngSwitch]="nav.isNative">
+            <mat-icon *ngSwitchCase="false"
+                      [svgIcon]="nav.icon"></mat-icon>
+            <mat-icon *ngSwitchCase="true">{{nav.icon}}</mat-icon>
+        </div>
+        <span> {{nav.name}}</span>
+    </a>
+</nav>

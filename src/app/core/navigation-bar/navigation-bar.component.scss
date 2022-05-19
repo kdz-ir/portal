@@ -1,0 +1,12 @@
+nav{
+    position: absolute;
+    bottom: 0;
+    right:  0;
+    left: 0;
+}
+span{
+    margin-right: 5px;
+}
+::ng-deep.mat-tab-link {
+    display: block !important;
+}

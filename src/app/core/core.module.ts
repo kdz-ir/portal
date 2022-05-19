@@ -16,9 +16,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { TokenInterceptor } from './interceptor/token.interceptor';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
-  declarations: [ToolBarComponent, NavigationListComponent],
+  declarations: [ToolBarComponent, NavigationListComponent, NavigationBarComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -32,13 +34,14 @@ import { TokenInterceptor } from './interceptor/token.interceptor';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    MatTabsModule
   ], exports: [
     ToolBarComponent,
     FlexLayoutModule,
     MatSnackBarModule,
     MatIconModule,
-    CoreRoutingModule
+    CoreRoutingModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

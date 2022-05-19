@@ -16,16 +16,11 @@ export class ToolBarComponent implements OnDestroy {
   private _mobileQueryListener: () => void;
   @ViewChild('snav') private readonly _snav: MatSidenav;
   constructor (public readonly authService: AuthenticationService,
-    media: MediaMatcher, changeDetectorRef: ChangeDetectorRef, router: Router) {
+    media: MediaMatcher, changeDetectorRef: ChangeDetectorRef) {
 
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 959px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
-    router.events.subscribe(event => {
-      if (this.mobileQuery.matches && event instanceof NavigationEnd) {
-        this._snav.close();
-      }
-    });
   }
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
