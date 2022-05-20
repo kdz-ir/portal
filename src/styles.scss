@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@use '~@angular/material' as mat;
+@use '~@angular/material'as mat;
 @import '~ngx-lightbox/lightbox.css';
 @import '~@angular/material/theming';
 @import './app/core/scss/bootstrap.scss';
@@ -42,20 +42,23 @@ $custom-typography: mat.define-typography-config($font-family: 'Vazir FD,Roboto,
 .text-warn {
     color: red;
 }
-.pulse{
+
+.pulse {
     background: none;
     border: 2px solid;
     font: inherit;
     line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
-    cursor:pointer;
+    cursor: pointer;
 }
-.pulse:disabled{
+
+.pulse:disabled {
     cursor: not-allowed;
 }
- .pulse:hover:not([disabled]),
- .pulse:focus:not([disabled]) {
+
+.pulse:hover:not([disabled]),
+.pulse:focus:not([disabled]) {
     animation: pulse 1s;
     box-shadow: 0 0 0 2em rgba(#fff, 0);
 
@@ -63,6 +66,14 @@ $custom-typography: mat.define-typography-config($font-family: 'Vazir FD,Roboto,
     transition: 0.25s;
 
 }
+
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 adjust-hue(#863e62, 45deg); }
-  }
+    0% {
+        box-shadow: 0 0 0 0 adjust-hue(#863e62, 45deg);
+    }
+}
+
+.link-active {
+    color: map-get(mat.define-palette(mat.$indigo-palette), A200) !important;
+
+}

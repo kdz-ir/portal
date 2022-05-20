@@ -1,5 +1,6 @@
 <mat-nav-list>
     <a mat-list-item
+       [routerLinkActive]="['link-active']"
        [routerLink]="nav.link"
        *ngFor="let nav of links">
         <div mat-list-icon

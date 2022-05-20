@@ -9,6 +9,11 @@ const routes: Routes = [
     path: '', canActivate: [AuthenticationGuard], children: [
       {
         path: '',
+        pathMatch: 'full',
+        redirectTo: 'home'
+      },
+      {
+        path: 'home',
         loadChildren: () => import('../feature/home/home.module').then(h => h.HomeModule)
       },
       {
