@@ -16,8 +16,9 @@ import { LargeLoadingDirective } from './directives/large-loading.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { LightboxModule } from 'ngx-lightbox';
+import { BackButtonComponent } from './components/back-button/back-button.component';
 @NgModule({
-  declarations: [ButtonLoadingDirective, LargeLoadingDirective, ImageUploaderComponent],
+  declarations: [ButtonLoadingDirective, LargeLoadingDirective, ImageUploaderComponent, BackButtonComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -50,7 +51,8 @@ import { LightboxModule } from 'ngx-lightbox';
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     LargeLoadingDirective,
-    ImageUploaderComponent
+    ImageUploaderComponent,
+    BackButtonComponent
   ]
 })
 export class SharedModule { }
