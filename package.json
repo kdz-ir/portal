@@ -31,7 +31,7 @@
     "jalali-moment": "^3.3.8",
     "lodash-es": "^4.17.21",
     "ng-behroozbc-libraries-validators": "0.1.4",
-    "ng-recaptcha": "^7.0.1",
+    "ng-recaptcha": "^8.0.0",
     "ngx-lightbox": "^2.3.0",
     "rxjs": "~6.6.6",
     "sweetalert2": "^10.16.7",
