@@ -60,10 +60,11 @@ export const sectionOfManthra = [
   { value: 2, label: 'بخش اوستاخوانی' },
 ];
 export const radeOfAvestaKhani = [
-  { value: 0, label: 'اهنودگات' },
+  { value: 0, label: 'از برخوانی زیر 10 سال' },
   { value: 1, label: 'از برخوانی ۱۳ تا ۱۸ سال' },
-  { value: 2, label: 'اشتود-سپنتمدگات' },
-  { value: 3, label: 'کل گاتا' },
-  { value: 4, label: 'از برخوانی گروهی' },
+  { value: 2, label: 'از برخوانی گروهی' },
+  { value: 3, label: 'اهنودگات' },
+  { value: 4, label: 'اشتود-سپنتمدگات' },
+  { value: 5, label: 'کل گاتا' },
 
 ];
