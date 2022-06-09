@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@use '~@angular/material'as mat;
+@use '@angular/material'as mat;
 @import '~ngx-lightbox/lightbox.css';
-@import '~@angular/material/theming';
+@import '@angular/material/theming';
 @import './app/core/scss/bootstrap.scss';
 @import './app/core/scss/spacing.scss';
 @import './app/core/scss/float.scss';
