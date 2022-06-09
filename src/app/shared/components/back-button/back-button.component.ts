@@ -13,7 +13,6 @@ export class BackButtonComponent implements OnInit {
   ngOnInit(): void {
   }
   onBackClick() {
-    console.log('hi kdz');
     this._locationService.back();
   }
 }
