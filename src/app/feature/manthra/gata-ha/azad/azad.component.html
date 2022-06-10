@@ -62,45 +62,57 @@
                type="tel">
     </mat-form-field>
     <span class="text-center">
-        کانون دانشجویان زرتشتی بر آن است تا در کنار بیست و هشتمین همایش اوستا خوانی و گاتاشناسی مانتره برای شرکت کنندگان
-        اردویی تفریحی-آموزشی به صورت مجازی برگزار نماید
+        کانون دانشجویان زرتشتی بر آن است تا در کنار بیست و نهمین همایش اوستا خوانی و گاتاشناسی مانتره برای شرکت کنندگان
+        اردویی تفریحی-آموزشی برگزار نماید
     </span>
     <mat-checkbox formControlName="isOrdooHamayesh">
 
         اردوهمایش شرکت میکنم </mat-checkbox>
     <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==3">
         <div>
-            <mat-checkbox formControlName="learnPC">آموزش نرم افزار های کاربردی کامپیوتر مثل پاورپوینت،و فتوشاپ و...
+            <mat-checkbox formControlName="resumeWriting">رزومه‌‌‌نویسی
             </mat-checkbox>
         </div>
+
         <div>
-            <mat-checkbox formControlName="ravanShenasi">شخصیت‌شناسی، خودشناسی، روانشناسی شغلی، شغل آینده و...
+            <mat-checkbox formControlName="emotionalIntelligenceWorkshop">کارگاه هوش هیجانی
+            </mat-checkbox>
+          </div>
+          <div>
+            <mat-checkbox formControlName="linkedin">نحوه کار با Linkedin
+            </mat-checkbox>
+          </div>
+
+        <div>
+            <mat-checkbox formControlName="ravanShenasi">خودشناسی
             </mat-checkbox>
         </div>
         <div>
 
-            <mat-checkbox formControlName="amazingFact">حقایق جالب علمی
+            <mat-checkbox formControlName="technologyWorkshop">کارگاه تکنولوژی
             </mat-checkbox>
         </div>
     </div>
     <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==1">
         <div>
-            <mat-checkbox formControlName="digitalMarket">دیجیتال مارکتینگ
+            <mat-checkbox formControlName="contentProduction">تولید محتوا
             </mat-checkbox>
         </div>
         <div>
-            <mat-checkbox formControlName="startup">راه اندازی کسب وکار
-            </mat-checkbox>
-        </div>
-        <div>
-
-            <mat-checkbox formControlName="bitcoin">سرمایه گذاری در بازار های مالی ارز دیجیتال و....
+            <mat-checkbox formControlName="principlesOfPhotography">اصول عکاسی
             </mat-checkbox>
         </div>
         <div>
 
-            <mat-checkbox formControlName="research">پژوهش
+            <mat-checkbox formControlName="bodyLanguage">زبان بدن
             </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="mindControlWorkshop
+
+      ">کارگاه تسلط بر ذهن
+      </mat-checkbox>
         </div>
     </div>
 
