@@ -3,62 +3,32 @@
       (submit)="onSubmit()"
       fxLayoutAlign="center center"
       fxLayoutGap="10px">
-    <div fxLayoutGap="10px">
-        <mat-checkbox formControlName="wantAsli">اصلی</mat-checkbox>
-        <mat-checkbox formControlName="wantJanbi">جنبی</mat-checkbox>
-    </div>
-    <mat-form-field *ngIf="azadForm.value.wantAsli">
+
+    <mat-form-field>
         <mat-label>
-            کد ملی یار اصلی
+            کد ملی یار 
         </mat-label>
         <input matInput
                formControlName="iiarNationalCodeAsli0"
                (blur)="onblurInput(azadForm.controls.iiarNationalCodeAsli0)"
                type="tel">
     </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantAsli">
+    <mat-form-field>
         <mat-label>
-            کد ملی یار اصلی
+            کد ملی یار 
         </mat-label>
         <input matInput
                formControlName="iiarNationalCodeAsli1"
                (blur)="onblurInput(azadForm.controls.iiarNationalCodeAsli1)"
                type="tel">
     </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantAsli">
+    <mat-form-field>
         <mat-label>
-            کد ملی یار اصلی
+            کد ملی یار 
         </mat-label>
         <input matInput
                formControlName="iiarNationalCodeAsli2"
                (blur)="onblurInput(azadForm.controls.iiarNationalCodeAsli2)"
-               type="tel">
-    </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantJanbi">
-        <mat-label>
-            کد ملی یار جنبی
-        </mat-label>
-        <input matInput
-               formControlName="iiarNationalCodeJanbi0"
-               (blur)="onblurInput(azadForm.controls.iiarNationalCodeJanbi0)"
-               type="tel">
-    </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantJanbi">
-        <mat-label>
-            کد ملی یار جنبی
-        </mat-label>
-        <input matInput
-               formControlName="iiarNationalCodeJanbi1"
-               (blur)="onblurInput(azadForm.controls.iiarNationalCodeJanbi1)"
-               type="tel">
-    </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantJanbi">
-        <mat-label>
-            کد ملی یار جنبی
-        </mat-label>
-        <input matInput
-               formControlName="iiarNationalCodeJanbi2"
-               (blur)="onblurInput(azadForm.controls.iiarNationalCodeJanbi2)"
                type="tel">
     </mat-form-field>
     <span class="text-center">

@@ -17,14 +17,9 @@ export class AzadComponent implements OnInit {
   azadForm: FormGroup;
   constructor (private readonly _fb: FormBuilder, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService, private _swal: SwalService) {
     this.azadForm = _fb.group({
-      wantAsli: [],
-      wantJanbi: [],
       iiarNationalCodeAsli1: [, [ValidatorCoreService.nationalCodeChecker]],
       iiarNationalCodeAsli0: [, [ValidatorCoreService.nationalCodeChecker]],
       iiarNationalCodeAsli2: [, [ValidatorCoreService.nationalCodeChecker]],
-      iiarNationalCodeJanbi2: [, [ValidatorCoreService.nationalCodeChecker]],
-      iiarNationalCodeJanbi1: [, [ValidatorCoreService.nationalCodeChecker]],
-      iiarNationalCodeJanbi0: [, [ValidatorCoreService.nationalCodeChecker]],
       isOrdooHamayesh: [false],
       resumeWriting: [],
       ravanShenasi: [],
@@ -56,38 +51,23 @@ export class AzadComponent implements OnInit {
   onSubmit() {
     const values = this.azadForm.value;
     const iiarNationalCodeAsli = [];
-    const iiarNationalCodeJanbi = [];
     let resgfiled = [];
-    if (values.wantJanbi) {
-      resgfiled.push(gataHaRegisterFiled.Janbi);
-      if (values.iiarNationalCodeJanbi0 != null) {
-        iiarNationalCodeJanbi.push(values.iiarNationalCodeJanbi0);
-      }
-      if (values.iiarNationalCodeJanbi1 != null) {
-        iiarNationalCodeJanbi.push(values.iiarNationalCodeJanbi1);
-      }
-      if (values.iiarNationalCodeJanbi2 != null) {
-        iiarNationalCodeJanbi.push(values.iiarNationalCodeJanbi2);
-      }
-    }
-    if (values.wantAsli) {
-      resgfiled.push(gataHaRegisterFiled.Asli);
+    resgfiled.push(gataHaRegisterFiled.Asli);
 
-      if (values.iiarNationalCodeAsli0 != null) {
-        iiarNationalCodeAsli.push(values.iiarNationalCodeAsli0);
-      }
-      if (values.iiarNationalCodeAsli1 != null) {
-        iiarNationalCodeAsli.push(values.iiarNationalCodeAsli2);
-      }
-      if (values.iiarNationalCodeAsli2 != null) {
-        iiarNationalCodeAsli.push(values.iiarNationalCodeAsli2);
-      }
+    if (values.iiarNationalCodeAsli0 != null) {
+      iiarNationalCodeAsli.push(values.iiarNationalCodeAsli0);
     }
+    if (values.iiarNationalCodeAsli1 != null) {
+      iiarNationalCodeAsli.push(values.iiarNationalCodeAsli2);
+    }
+    if (values.iiarNationalCodeAsli2 != null) {
+      iiarNationalCodeAsli.push(values.iiarNationalCodeAsli2);
+    }
+
     const data = {
       registerFiled: resgfiled,
       isOrdooHamayesh: values.isOrdooHamayesh,
       iiarNationalCodeAsli: uniq(iiarNationalCodeAsli),
-      iiarNationalCodeJanbi: uniq(iiarNationalCodeJanbi),
       ageType: this.ageRange,
       isProjectBase: false,
       step: 100,
