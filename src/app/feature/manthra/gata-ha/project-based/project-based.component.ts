@@ -24,14 +24,16 @@ export class ProjectBasedComponent implements OnInit {
       subject: [, Validators.required],
       iiarNationalCode: [, [ValidatorCoreService.nationalCodeChecker]],
       isOrdooHamayesh: [false],
-      learnPC: [false],
+      resumeWriting: [false],
       ravanShenasi: [false],
-      amazingFact: [false],
+      technologyWorkshop: [false],
       other: [],
-      digitalMarket: [false],
-      startup: [false],
-      bitcoin: [false],
-      research: [false]
+      linkedin: [false],
+      emotionalIntelligenceWorkshop: [false],
+      contentProduction: [false],
+      principlesOfPhotography: [false],
+      bodyLanguage: [false],
+      mindControlWorkshop: [false]
     });
   }
 
@@ -63,14 +65,16 @@ export class ProjectBasedComponent implements OnInit {
       isProjectBase: true,
       state: 'end',
       oordoHamayesh: {
-        learnPC: values.learnPC,
+        resumeWriting: values.resumeWriting,
         ravanShenasi: values.ravanShenasi,
-        amazingFact: values.amazingFact,
+        emotionalIntelligenceWorkshop: values.emotionalIntelligenceWorkshop,
         other: values.other,
-        digitalMarket: values.digitalMarket,
-        startup: values.startup,
-        bitcoin: values.bitcoin,
-        research: values.research
+        technologyWorkshop: values.technologyWorkshop,
+        contentProduction: values.contentProduction,
+        linkedin: values.linkedin,
+        principlesOfPhotography: values.principlesOfPhotography,
+        mindControlWorkshop: values.mindControlWorkshop,
+        bodyLanguage: values.bodyLanguage
       }
     }).subscribe(c => {
       this._swal.successFullRegister();

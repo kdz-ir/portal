@@ -26,14 +26,16 @@ export class AzadComponent implements OnInit {
       iiarNationalCodeJanbi1: [, [ValidatorCoreService.nationalCodeChecker]],
       iiarNationalCodeJanbi0: [, [ValidatorCoreService.nationalCodeChecker]],
       isOrdooHamayesh: [false],
-      learnPC: [],
+      resumeWriting: [],
       ravanShenasi: [],
-      amazingFact: [],
+      technologyWorkshop: [],
       other: [],
-      digitalMarket: [],
-      startup: [],
-      bitcoin: [],
-      research: []
+      linkedin: [],
+      emotionalIntelligenceWorkshop: [],
+      contentProduction: [],
+      bodyLanguage: [],
+      mindControlWorkshop: [],
+      principlesOfPhotography: []
     });
   }
   onblurInput(control: AbstractControl) {
@@ -91,14 +93,16 @@ export class AzadComponent implements OnInit {
       step: 100,
       state: 'end',
       oordoHamayesh: {
-        learnPC: values.learnPC,
+        resumeWriting: values.resumeWriting,
         ravanShenasi: values.ravanShenasi,
-        amazingFact: values.amazingFact,
+        technologyWorkshop: values.technologyWorkshop,
         other: values.other,
-        digitalMarket: values.digitalMarket,
-        startup: values.startup,
-        bitcoin: values.bitcoin,
-        research: values.research
+        linkedin: values.linkedin,
+        emotionalIntelligenceWorkshop: values.emotionalIntelligenceWorkshop,
+        contentProduction: values.contentProduction,
+        mindControlWorkshop: values.mindControlWorkshop,
+        principlesOfPhotography: values.principlesOfPhotography,
+        bodyLanguage: values.bodyLanguage
       }
     };
     this._repository.submitGatahaForms(data).subscribe(c => {
