@@ -4,7 +4,7 @@
       fxLayoutAlign="center center"
       fxLayoutGap="10px">
   <mat-form-field class="large">
-    <mat-label>اسامی استادها </mat-label>
+    <mat-label>اسامی استاد</mat-label>
     <mat-select formControlName="subject">
       <mat-option *ngFor="let subject of (subjects|async)?.entity"
                   [value]="subject.id">
@@ -77,7 +77,8 @@
 
   <button color="primary"
           [disabled]="projectbaseForm.invalid"
-          mat-flat-button> ثبت اطلاعات</button>
+          mat-flat-button
+          class="button-style"> ثبت اطلاعات</button>
 
-  <app-back-button></app-back-button>        
+  <app-back-button class="button-style"></app-back-button>        
 </form>

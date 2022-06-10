@@ -81,8 +81,8 @@ export const acquaintanceModel = [
 export const personLinkedFiled = [
   { value: 0, label: 'موسیقی' },
   { value: 1, label: 'دینی' },
-  { value: 2, label: 'خودشناسی' },
-  { value: 3, label: 'خلاقیت' },
+  { value: 2, label: 'قصه‌گویی و ایده‌پردازی' },
+  { value: 3, label: 'هنر و خلاقیت' },
 ];
 export const isLikeAvestaKhani = [
   { value: 0, label: 'خیر' },
