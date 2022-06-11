@@ -1,16 +1,29 @@
 img {
     cursor: pointer;
-    width: 30vw;
-    height: 30vw;
+    width: 25vw;
+    height: 50vh;
     border: 1px solid rgb(128, 128, 128);
-
+    
+    @media (max-width: 1150px) {
+        width: 35vw;
+    }
+    
     @media (max-width: 959px) {
-        width: 70vw;
+        width: 40vw;
     }
 
-    @media (max-height: 709px) {
-        height: 70vw;
+    @media (max-width: 700px) {
+        width: 50vw;
     }
+
+    @media (max-width: 600px) {
+        width: 55vw;
+    }
+
+    @media (max-width: 500px) {
+        width: 80vw;
+    }
+
 }
 
 .app-back-button-style{
