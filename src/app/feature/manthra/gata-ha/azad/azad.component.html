@@ -3,72 +3,44 @@
       (submit)="onSubmit()"
       fxLayoutAlign="center center"
       fxLayoutGap="10px">
-    <div fxLayoutGap="10px">
-        <mat-checkbox formControlName="wantAsli">اصلی</mat-checkbox>
-        <mat-checkbox formControlName="wantJanbi">جنبی</mat-checkbox>
-    </div>
-    <mat-form-field *ngIf="azadForm.value.wantAsli">
+
+    <mat-form-field>
         <mat-label>
-            کد ملی یار اصلی
+            کد ملی یار
         </mat-label>
         <input matInput
                formControlName="iiarNationalCodeAsli0"
                (blur)="onblurInput(azadForm.controls.iiarNationalCodeAsli0)"
                type="tel">
     </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantAsli">
+    <mat-form-field>
         <mat-label>
-            کد ملی یار اصلی
+            کد ملی یار
         </mat-label>
         <input matInput
                formControlName="iiarNationalCodeAsli1"
                (blur)="onblurInput(azadForm.controls.iiarNationalCodeAsli1)"
                type="tel">
     </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantAsli">
+    <mat-form-field>
         <mat-label>
-            کد ملی یار اصلی
+            کد ملی یار
         </mat-label>
         <input matInput
                formControlName="iiarNationalCodeAsli2"
                (blur)="onblurInput(azadForm.controls.iiarNationalCodeAsli2)"
                type="tel">
     </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantJanbi">
-        <mat-label>
-            کد ملی یار جنبی
-        </mat-label>
-        <input matInput
-               formControlName="iiarNationalCodeJanbi0"
-               (blur)="onblurInput(azadForm.controls.iiarNationalCodeJanbi0)"
-               type="tel">
-    </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantJanbi">
-        <mat-label>
-            کد ملی یار جنبی
-        </mat-label>
-        <input matInput
-               formControlName="iiarNationalCodeJanbi1"
-               (blur)="onblurInput(azadForm.controls.iiarNationalCodeJanbi1)"
-               type="tel">
-    </mat-form-field>
-    <mat-form-field *ngIf="azadForm.value.wantJanbi">
-        <mat-label>
-            کد ملی یار جنبی
-        </mat-label>
-        <input matInput
-               formControlName="iiarNationalCodeJanbi2"
-               (blur)="onblurInput(azadForm.controls.iiarNationalCodeJanbi2)"
-               type="tel">
-    </mat-form-field>
     <span class="text-center">
         کانون دانشجویان زرتشتی بر آن است تا در کنار بیست و نهمین همایش اوستا خوانی و گاتاشناسی مانتره برای شرکت کنندگان
         اردویی تفریحی-آموزشی برگزار نماید
     </span>
+    <mat-checkbox formControlName="isLikeAttend">تمایل دارم به صورت حضوری در این اردوهمایش شرکت کنم؟</mat-checkbox>
     <mat-checkbox formControlName="isOrdooHamayesh">
-
-        اردوهمایش شرکت میکنم </mat-checkbox>
+        در این اردوهمایش شرکت می‌کنم
+    </mat-checkbox>
     <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==3">
+        <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
         <div>
             <mat-checkbox formControlName="resumeWriting">رزومه‌‌‌نویسی
             </mat-checkbox>
@@ -77,11 +49,11 @@
         <div>
             <mat-checkbox formControlName="emotionalIntelligenceWorkshop">کارگاه هوش هیجانی
             </mat-checkbox>
-          </div>
-          <div>
+        </div>
+        <div>
             <mat-checkbox formControlName="linkedin">نحوه کار با Linkedin
             </mat-checkbox>
-          </div>
+        </div>
 
         <div>
             <mat-checkbox formControlName="ravanShenasi">خودشناسی
@@ -192,6 +164,7 @@
 
 
     <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==1">
+        <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
         <div>
             <mat-checkbox formControlName="contentProduction">تولید محتوا
             </mat-checkbox>
@@ -210,7 +183,7 @@
             <mat-checkbox formControlName="mindControlWorkshop
 
       ">کارگاه تسلط بر ذهن
-      </mat-checkbox>
+            </mat-checkbox>
         </div>
     </div>
 
