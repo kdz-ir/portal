@@ -35,6 +35,42 @@ export class AzadComponent implements OnInit {
       contentProduction: [],
       bodyLanguage: [],
       mindControlWorkshop: [],
+
+
+
+
+
+
+
+
+
+// baraye filed haye 13-18
+Algorithm: [],
+TrainingSoftware: [],
+grim: [],
+Bracelets: [],
+Caricature: [],
+origami: [],
+aidClass: [],
+experiments: [],
+Iranology: [],
+yoga: [],
+story: [],
+food: [],
+arts: [],
+narration: [],
+
+
+
+
+
+
+
+
+
+
+
+
       principlesOfPhotography: []
     });
   }
@@ -102,6 +138,40 @@ export class AzadComponent implements OnInit {
         contentProduction: values.contentProduction,
         mindControlWorkshop: values.mindControlWorkshop,
         principlesOfPhotography: values.principlesOfPhotography,
+
+
+
+
+
+
+
+
+
+
+//baraye field 13-18
+Algorithm: values.Algorithm,
+TrainingSoftware: values.TrainingSoftware,
+grim: values.grim,
+Bracelets: values.Bracelets,
+Caricature: values.Caricature,
+origami: values.origami,
+aidClass: values.aidClass,
+experiments: values.experiments,
+Iranology: values.Iranology,
+yoga: values.yoga,
+story: values.story,
+food: values.food,
+arts: values.arts,
+narration: values.narration,
+
+
+
+
+
+
+
+
+
         bodyLanguage: values.bodyLanguage
       }
     };

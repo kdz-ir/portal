@@ -33,7 +33,42 @@ export class ProjectBasedComponent implements OnInit {
       contentProduction: [false],
       principlesOfPhotography: [false],
       bodyLanguage: [false],
+
+
+
+// baraye filed haye 13-18
+Algorithm: [false],
+TrainingSoftware: [false],
+grim: [false],
+Bracelets: [false],
+Caricature: [false],
+origami: [false],
+aidClass: [false],
+experiments: [false],
+Iranology: [false],
+yoga: [false],
+story: [false],
+food: [false],
+arts: [false],
+narration: [false],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       mindControlWorkshop: [false]
+
     });
   }
 
@@ -74,6 +109,45 @@ export class ProjectBasedComponent implements OnInit {
         linkedin: values.linkedin,
         principlesOfPhotography: values.principlesOfPhotography,
         mindControlWorkshop: values.mindControlWorkshop,
+
+
+
+
+
+
+
+
+
+
+
+//baraye field 13-18
+Algorithm: values.Algorithm,
+TrainingSoftware: values.TrainingSoftware,
+grim: values.grim,
+Bracelets: values.Bracelets,
+Caricature: values.Caricature,
+origami: values.origami,
+aidClass: values.aidClass,
+experiments: values.experiments,
+Iranology: values.Iranology,
+yoga: values.yoga,
+story: values.story,
+food: values.food,
+arts: values.arts,
+narration: values.narration,
+
+
+
+
+
+
+
+
+
+
+
+
+
         bodyLanguage: values.bodyLanguage
       }
     }).subscribe(c => {
