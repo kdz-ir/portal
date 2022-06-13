@@ -22,6 +22,7 @@ export class UpThirteenComponent implements OnInit {
       learnPC: [false],
       ravanShenasi: [false],
       amazingFact: [false],
+      isLikeAttend: [false],
       other: [],
       digitalMarket: [false],
       startup: [false],
@@ -46,6 +47,7 @@ export class UpThirteenComponent implements OnInit {
       ageType: this.ageRange,
       step: 100,
       state: 'end',
+      isLikeAttend: values.isLikeAttend,
       oordoHamayesh: {
         learnPC: values.learnPC,
         ravanShenasi: values.ravanShenasi,
