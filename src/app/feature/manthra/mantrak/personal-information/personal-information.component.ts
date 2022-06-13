@@ -75,7 +75,7 @@ export const acquaintanceModel = [
   { value: 1, label: 'دوستان' },
   { value: 2, label: 'معلمان و اساتید مدارس' },
   { value: 3, label: 'تبلیغات فضای مجازی' },
-  { value: 4, label: 'سایت‌های خبرگذاری داخلی (برساد و امرداد)' },
+  { value: 4, label: 'سایت‌های خبرگزاری داخلی (برساد و امرداد)' },
   { value: 5, label: 'سایر' },
 ];
 export const personLinkedFiled = [
