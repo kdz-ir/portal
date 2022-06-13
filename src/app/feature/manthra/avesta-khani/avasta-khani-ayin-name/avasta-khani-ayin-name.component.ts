@@ -11,10 +11,6 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
   styleUrls: ['./avasta-khani-ayin-name.component.scss']
 })
 export class AvastaKhaniAyinNameComponent implements OnInit {
-
-  isReadAll = !environment.production;
-  isTimerEnded = !environment.production;
-  private _timer: Subscription;
   avestaAgeRange: number;
   constructor (private readonly _repository: ManthraReporsitoryService, private readonly _swal: SwalService, private readonly _location: Location) { }
 
@@ -22,13 +18,6 @@ export class AvastaKhaniAyinNameComponent implements OnInit {
     this._repository.avestaGetAgeRange.subscribe(c => {
       this.avestaAgeRange = c.entity.ageType;
     });
-    this._timer = timer(100 * 60).subscribe(c => this.isTimerEnded = true);
-  }
-  onScroll(event: any) {
-    const target = event.target as HTMLElement;
-    if (target.offsetHeight + target.scrollTop == target.scrollHeight) {
-      this.isReadAll = true;
-    }
   }
 
 }
