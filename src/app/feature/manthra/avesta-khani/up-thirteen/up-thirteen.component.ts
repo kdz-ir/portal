@@ -19,14 +19,22 @@ export class UpThirteenComponent implements OnInit {
     private readonly _swal: SwalService, private readonly _repository: ManthraReporsitoryService) {
     this.avestaKhaniForm = _fb.group({
       isOrdooHamayesh: [false],
-      learnPC: [false],
-      ravanShenasi: [false],
-      amazingFact: [false],
+      algoritm: [false],
+      narmafzar: [false],
+      grim: [false],
       other: [],
-      digitalMarket: [false],
-      startup: [false],
-      bitcoin: [false],
-      research: [false],
+      Bracelets: [false],
+      narration: [false],
+      Caricature: [false],
+      origami: [false],
+      helps: [false],
+      Experiments: [false],
+      iran: [false],
+      yoga: [false],
+      stories: [false],
+      food: [false],
+      arts: [false],
+  
       rade: [, Validators.required]
     });
   }
@@ -47,14 +55,21 @@ export class UpThirteenComponent implements OnInit {
       step: 100,
       state: 'end',
       oordoHamayesh: {
-        learnPC: values.learnPC,
-        ravanShenasi: values.ravanShenasi,
-        amazingFact: values.amazingFact,
+        algoritm: values.algoritm,
+        narmafzar: values.narmafzar,
         other: values.other,
-        digitalMarket: values.digitalMarket,
-        startup: values.startup,
-        bitcoin: values.bitcoin,
-        research: values.research
+        grim: values.grim,
+        Bracelets: values.Bracelets,
+        narration: values.narration,
+        origami: values.origami,
+        helps: values.helps,
+        Experiments: values.Experiments,
+        iran: values.iran,
+        arts: values.arts,
+        yoga: values.yoga,
+        stories: values.stories,
+        food: values.food,
+        Caricature: values.Caricature
       }
     }).subscribe(c => {
       this._swal.successFullRegister();
