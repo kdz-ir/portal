@@ -23,12 +23,12 @@ export class UpThirteenComponent implements OnInit {
       narmafzar: [false],
       grim: [false],
       other: [],
-      Bracelets: [false],
+      bracelets: [false],
       narration: [false],
-      Caricature: [false],
+      caricature: [false],
       origami: [false],
       helps: [false],
-      Experiments: [false],
+      experiments: [false],
       iran: [false],
       yoga: [false],
       stories: [false],
@@ -67,11 +67,11 @@ export class UpThirteenComponent implements OnInit {
         narmafzar: values.narmafzar,
         other: values.other,
         grim: values.grim,
-        Bracelets: values.Bracelets,
+        bracelets: values.Bracelets,
         narration: values.narration,
         origami: values.origami,
         helps: values.helps,
-        Experiments: values.Experiments,
+        experiments: values.Experiments,
         iran: values.iran,
         arts: values.arts,
         yoga: values.yoga,
@@ -86,7 +86,7 @@ export class UpThirteenComponent implements OnInit {
         bodyLanguage: values.bodyLanguage,
         mindControlWorkshop: values.mindControlWorkshop,
         linkedin: values.linkedin,
-        Caricature: values.Caricature
+        caricature: values.Caricature
       }
     }).subscribe(c => {
       this._swal.successFullRegister();
