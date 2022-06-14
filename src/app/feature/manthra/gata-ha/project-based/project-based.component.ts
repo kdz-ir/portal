@@ -34,7 +34,22 @@ export class ProjectBasedComponent implements OnInit {
       contentProduction: [false],
       principlesOfPhotography: [false],
       bodyLanguage: [false],
-      mindControlWorkshop: [false]
+      mindControlWorkshop: [false],
+
+      algoritm: [false],
+      narmafzar: [false],
+      grim: [false],
+      Bracelets: [false],
+      narration: [false],
+      Caricature: [false],
+      origami: [false],
+      helps: [false],
+      Experiments: [false],
+      iran: [false],
+      yoga: [false],
+      stories: [false],     
+      food: [false],
+      arts: [false]
     });
   }
 
@@ -75,7 +90,21 @@ export class ProjectBasedComponent implements OnInit {
         contentProduction: values.contentProduction,
         linkedin: values.linkedin,
         principlesOfPhotography: values.principlesOfPhotography,
-        mindControlWorkshop: values.mindControlWorkshop,
+        mindControlWorkshop: values.mindControlWorkshop, 
+        algoritm: values.algoritmr,
+        narmafzar: values.narmafzar,
+        grim: values.grim,
+        Bracelets: values.Bracelets,
+        narration: values.narration,
+        Caricature: values.Caricature,
+        origami: values.origami,
+        helps: values.helps,
+        Experiments: values.Experiments,
+        iran: values.iran,
+        yoga: values.yoga,
+        stories: values.stories,
+        food: values.food,
+        arts: values.arts,
         bodyLanguage: values.bodyLanguage
       }
     }).subscribe(c => {
