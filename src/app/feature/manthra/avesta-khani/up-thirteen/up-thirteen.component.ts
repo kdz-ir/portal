@@ -62,6 +62,7 @@ export class UpThirteenComponent implements OnInit {
       ageType: this.ageRange,
       step: 100,
       state: 'end',
+      isLikeAttend: values.isLikeAttend,
       oordoHamayesh: {
         algoritm: values.algoritm,
         narmafzar: values.narmafzar,

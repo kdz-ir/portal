@@ -3,6 +3,7 @@
       (submit)="onSubmit()"
       fxLayoutAlign="center center"
       fxLayoutGap="10px">
+      <span>این بخش بصورت مجازی برگزار می شود.</span>
     <mat-form-field>
         <mat-label>
             تعداد اعضای خانواده
@@ -37,7 +38,7 @@
         </mat-error>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>روش آشنایی با ما</mat-label>
+        <mat-label>روش آشنایی شما با همایش مانتره چگونه بوده است؟</mat-label>
         <mat-select formControlName="acquaintance"
                     multiple>
             <mat-option *ngFor="let acquaintance of acquaintanceModel"

@@ -14,28 +14,27 @@
       </span><span style="font-family: Vazir FD;"><span lang="ar-SA"><span style="font-family: Vazir FD 1 **;"><span
                   style="font-size: xx-large;"><span lang="fa-IR">و
                 نهمین همـایش اوستاخوانی و گاتاشناسی مانتره</span></span></span></span></span></p>
-                <p
-                dir="rtl"
-                align="center">
-                <a target="_blank" href="assets/PDFs/AvestaKhaniAyinName.pdf" class="pdfDownloadStyle"> دانلود آیین‌نامه بخش اوستاخوانی</a>
-              </p> 
-    
-    </div>
-    <button mat-flat-button
-            color="primary"
-            [disabled]="!isReadAll && !isTimerEnded"
-            routerLink="under10"
-            *ngIf="avestaAgeRange==5"
-            class="float-left">
-        تایید آیین نامه
-    </button>
-    <button mat-flat-button
-            color="primary"
-            [disabled]="!isReadAll && !isTimerEnded"
-            routerLink="up13"
-            *ngIf="avestaAgeRange!=5"
-            class="float-left">
-        تایید آیین نامه
-    </button>
-    <app-back-button></app-back-button>
+    <p dir="rtl"
+       align="center">
+      <a target="_blank"
+         href="assets/PDFs/AvestaKhaniAyinName.pdf"
+         class="pdfDownloadStyle"> دانلود آیین‌نامه بخش اوستاخوانی</a>
+    </p>
+
+  </div>
+  <button mat-flat-button
+          color="primary"
+          routerLink="under10"
+          *ngIf="avestaAgeRange==5"
+          class="float-left">
+    تایید آیین نامه
+  </button>
+  <button mat-flat-button
+          color="primary"
+          routerLink="up13"
+          *ngIf="avestaAgeRange!=5"
+          class="float-left">
+    تایید آیین نامه
+  </button>
+  <app-back-button></app-back-button>
 </div>

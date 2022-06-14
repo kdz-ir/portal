@@ -35,11 +35,12 @@
         کانون دانشجویان زرتشتی بر آن است تا در کنار بیست و نهمین همایش اوستا خوانی و گاتاشناسی مانتره برای شرکت کنندگان
         اردویی تفریحی-آموزشی برگزار نماید
     </span>
-    <mat-checkbox formControlName="isLikeAttend">تمایل دارم به صورت حضوری در این اردوهمایش شرکت کنم؟</mat-checkbox>
+    <mat-checkbox formControlName="isLikeAttend">تمایل دارم به صورت حضوری در این همایش شرکت کنم؟</mat-checkbox>
     <mat-checkbox formControlName="isOrdooHamayesh">
         در این اردوهمایش شرکت می‌کنم
     </mat-checkbox>
     <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==3">
+       
         <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
         <div>
             <mat-checkbox formControlName="algoritm">آموزش الگوریتم و اصول برنامه‌نویسی 
@@ -57,17 +58,23 @@
 
 
         <div>
-            <mat-checkbox formControlName="Bracelets">آموزش دستبندسازی
+            <mat-checkbox formControlName="bracelets">آموزش دستبندسازی
+
             </mat-checkbox>
         </div>
 
         <div>
+
             <mat-checkbox formControlName="narration">فن بیان و گویندگی
+
+            
             </mat-checkbox>
         </div>
 
         <div>
-            <mat-checkbox formControlName="Caricature">ساخت کاریکاتور
+
+            <mat-checkbox formControlName="caricature">ساخت کاریکاتور
+
             </mat-checkbox>
         </div>
 
@@ -81,7 +88,7 @@
             </mat-checkbox>
         </div>
         <div>
-            <mat-checkbox formControlName="Experiments">کلاس آزمایش‌های شیمی، فیزیک، نانو
+            <mat-checkbox formControlName="experiments">کلاس آزمایش‌های شیمی، فیزیک، نانو
             </mat-checkbox>
         </div>
 
@@ -112,8 +119,10 @@
     </div>
 
 
+
     <!-- baraye balaye 18 sal -->
     <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==1">
+
         <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
         <div>
             <mat-checkbox formControlName="ravanShenasi">خودشناسی
