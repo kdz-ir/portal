@@ -59,16 +59,22 @@
 
         <div>
             <mat-checkbox formControlName="bracelets">آموزش دستبندسازی
+
             </mat-checkbox>
         </div>
 
         <div>
-            <mat-checkbox formControlName="narration">فن بیان وگویندگی
+
+            <mat-checkbox formControlName="narration">فن بیان و گویندگی
+
+            
             </mat-checkbox>
         </div>
 
         <div>
+
             <mat-checkbox formControlName="caricature">ساخت کاریکاتور
+
             </mat-checkbox>
         </div>
 
@@ -114,12 +120,9 @@
 
 
 
+    <!-- baraye balaye 18 sal -->
+    <div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==1">
 
-
-
-<!-- baraye balaye 18 sal -->
-
-<div *ngIf="azadForm.value.isOrdooHamayesh&&ageRange==1">
         <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
         <div>
             <mat-checkbox formControlName="ravanShenasi">خودشناسی
