@@ -34,7 +34,15 @@ export class UpThirteenComponent implements OnInit {
       stories: [false],
       food: [false],
       arts: [false],
-  
+      ravanShenasi: [false],
+      resumeWriting: [false],
+      emotionalIntelligenceWorkshop: [false],
+      technologyWorkshop: [false],
+      contentProduction: [false],
+      principlesOfPhotoarts: [false],graphy: [false],
+      bodyLanguage: [false],
+      mindControlWorkshop: [false],
+      linkedin: [false],
       rade: [, Validators.required]
     });
   }
@@ -69,6 +77,15 @@ export class UpThirteenComponent implements OnInit {
         yoga: values.yoga,
         stories: values.stories,
         food: values.food,
+        ravanShenasi: values.ravanShenasi,
+        resumeWriting: values.resumeWriting,
+        emotionalIntelligenceWorkshop: values.emotionalIntelligenceWorkshop,
+        technologyWorkshop: values.technologyWorkshop,
+        contentProduction: values.contentProduction,
+        principlesOfPhotoarts: values.principlesOfPhotoarts,
+        bodyLanguage: values.bodyLanguage,
+        mindControlWorkshop: values.mindControlWorkshop,
+        linkedin: values.linkedin,
         Caricature: values.Caricature
       }
     }).subscribe(c => {
