@@ -31,6 +31,23 @@ export class AzadComponent implements OnInit {
       contentProduction: [],
       bodyLanguage: [],
       mindControlWorkshop: [],
+
+      algoritm: [],
+      narmafzar: [],
+      grim: [],
+      bracelets: [],
+      narration: [],
+      caricature: [],
+      origami: [],
+      helps: [],
+      experiments: [],
+      iran: [],
+      yoga: [],
+      stories: [],     
+      food: [],
+      arts: [],
+
+
       principlesOfPhotography: []
     });
   }
@@ -84,6 +101,21 @@ export class AzadComponent implements OnInit {
         contentProduction: values.contentProduction,
         mindControlWorkshop: values.mindControlWorkshop,
         principlesOfPhotography: values.principlesOfPhotography,
+
+        algoritm: values.algoritmr,
+        narmafzar: values.narmafzar,
+        grim: values.grim,
+        bracelets: values.Bracelets,
+        narration: values.narration,
+        caricature: values.Caricature,
+        origami: values.origami,
+        helps: values.helps,
+        experiments: values.Experiments,
+        iran: values.iran,
+        yoga: values.yoga,
+        stories: values.stories,
+        food: values.food,
+        arts: values.arts,
         bodyLanguage: values.bodyLanguage
       }
     };
