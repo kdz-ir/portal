@@ -23,6 +23,7 @@ export class UpThirteenComponent implements OnInit {
       narmafzar: [false],
       grim: [false],
       other: [],
+      isLikeAttend:[false],
       bracelets: [false],
       narration: [false],
       caricature: [false],
