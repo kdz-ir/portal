@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
@@ -13,12 +13,12 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
 })
 export class PersonalInformationComponent implements OnInit {
 
-  personalForm: FormGroup;
+  personalForm: UntypedFormGroup;
   readonly personLinkedFiled = personLinkedFiled;
   readonly acquaintanceModel = acquaintanceModel;
   readonly isLikeAvestaKhani = isLikeAvestaKhani;
   ageType: number;
-  constructor (private readonly _fb: FormBuilder, public readonly validatorCoreService: ValidatorCoreService, private readonly _swal: SwalService, private readonly _router: Router,
+  constructor (private readonly _fb: UntypedFormBuilder, public readonly validatorCoreService: ValidatorCoreService, private readonly _swal: SwalService, private readonly _router: Router,
     private readonly _repository: ManthraReporsitoryService) {
 
     _repository.avestaGetAgeRange.subscribe(c => {

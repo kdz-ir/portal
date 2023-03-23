@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgeType } from 'src/app/core/model/age-type-enum';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
@@ -15,9 +15,9 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
 export class ProjectBasedComponent implements OnInit {
   readonly subjects = this._repository.getProjectSubjects();
   readonly ageTypeEnum = AgeType;
-  projectbaseForm: FormGroup;
+  projectbaseForm: UntypedFormGroup;
   ageRange = 0;
-  constructor (private readonly _fb: FormBuilder,
+  constructor (private readonly _fb: UntypedFormBuilder,
     private readonly _router: Router,
     private readonly _swal: SwalService, private readonly _repository: ManthraReporsitoryService) {
     this.projectbaseForm = _fb.group({

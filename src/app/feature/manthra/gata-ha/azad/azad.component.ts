@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, FormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { uniq } from 'lodash';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
@@ -14,8 +14,8 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
 })
 export class AzadComponent implements OnInit {
   ageRange = 0;
-  azadForm: FormGroup;
-  constructor (private readonly _fb: FormBuilder, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService, private _swal: SwalService) {
+  azadForm: UntypedFormGroup;
+  constructor (private readonly _fb: UntypedFormBuilder, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService, private _swal: SwalService) {
     this.azadForm = _fb.group({
       iiarNationalCodeAsli1: [, [ValidatorCoreService.nationalCodeChecker]],
       iiarNationalCodeAsli0: [, [ValidatorCoreService.nationalCodeChecker]],

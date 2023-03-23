@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, FormGroupName, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProfileRepositoryService } from '../services/profile-reporsitory-service';
 
@@ -9,9 +9,9 @@ import { ProfileRepositoryService } from '../services/profile-reporsitory-servic
   styleUrls: ['./get-zoroastrian-card.component.scss']
 })
 export class GetZoroastrianCardComponent implements AfterViewInit {
-  zForm: FormGroup;
+  zForm: UntypedFormGroup;
   isLoading = false;
-  constructor (private readonly _fb: FormBuilder, private readonly _repo: ProfileRepositoryService, private readonly _router: Router) {
+  constructor (private readonly _fb: UntypedFormBuilder, private readonly _repo: ProfileRepositoryService, private readonly _router: Router) {
     this.zForm = _fb.group({
       hasCard: [, Validators.required]
     });

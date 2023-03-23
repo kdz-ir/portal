@@ -21,7 +21,7 @@ export class RepositoryService {
   sendSms(mobile: string, captcha: string) {
     return this._httpClient.post(`${this.url}/register/mobile`, { mobile, token: captcha });
   }
-  checkCode(phoneNumber: number, code: number, token: string): Observable<CheckCode> {
+  checkCode(phoneNumber: string, code: number, token: string): Observable<CheckCode> {
     return this._httpClient.post<CheckCode>(`${this.url}/register/verify`, { mobile: phoneNumber, otp: code, token });
   }
   createUser(userData: CreateUserInfo): Observable<TokenResultDto> {

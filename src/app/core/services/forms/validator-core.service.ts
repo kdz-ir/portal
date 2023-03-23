@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
+import { IPasswordAndConfirmPassword } from './IPasswordAndConfirmPassword';
 
 @Injectable({
   providedIn: 'root'
@@ -38,11 +39,8 @@ export class ValidatorCoreService {
       'national': true
     };
   }
-  static checkPasswords(group: FormGroup) {
-    const pass = group.get('password')?.value;
-    const confirmPass = group.get('confirmPassword')?.value;
-
-    return pass === confirmPass ? null : { confirmPassword: true };
+  static checkPasswords(group: FormGroup<IPasswordAndConfirmPassword>) {
+    return group.controls.password?.value === group.controls.confirmPassword?.value ? null : { confirmPassword: true };
   }
   constructor () { }
   SetStatus(control: AbstractControl) {

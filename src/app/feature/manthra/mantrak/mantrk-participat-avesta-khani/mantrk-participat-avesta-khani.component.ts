@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
@@ -13,11 +13,11 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
 export class MantrkParticipatAvestaKhaniComponent {
   sectionOfManthra = sectionOfManthra;
   radeOfAvestaKhani = radeOfAvestaKhani;
-  participatAvastaForm: FormGroup;
+  participatAvastaForm: UntypedFormGroup;
   get isContainMAvestaKhani(): boolean {
     return (<number>this.participatAvastaForm.value.sectionOfManthra) == 2 || (<number>this.participatAvastaForm.value.sectionOfManthra) == 0;
   }
-  constructor (private readonly _fb: FormBuilder, 
+  constructor (private readonly _fb: UntypedFormBuilder, 
     public readonly validatorCoreService: ValidatorCoreService,
     private readonly _repository: ManthraReporsitoryService, private readonly _swal: SwalService, private readonly _router: Router) {
     this.participatAvastaForm = _fb.group({
