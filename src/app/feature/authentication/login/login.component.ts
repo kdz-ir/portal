@@ -7,28 +7,27 @@ import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from '../../../../environments/environment';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
+import { ILoginForm } from './ILoginForm';
 @Component({
   selector: 'kdz-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+export class LoginComponent {
+  loginForm: FormGroup<ILoginForm>;
   isLoading = false;
   constructor (fb: FormBuilder,
     private readonly _repositoryService: RepositoryService,
     private readonly _authService: AuthenticationService,
     public readonly validatorCoreService: ValidatorCoreService,
     private readonly _router: Router) {
-    this.loginForm = fb.group({
-      nationalCode: [, [Validators.required, ValidatorCoreService.nationalCodeChecker,AdditionalValidators.CheckIsASCII]],
-      password: [, [Validators.minLength(6)]],
-      captcha: []
+    this.loginForm = fb.group<ILoginForm>({
+      nationalCode: fb.nonNullable.control('', [Validators.required, ValidatorCoreService.nationalCodeChecker, AdditionalValidators.CheckIsASCII]),
+      password: fb.nonNullable.control('', [Validators.minLength(6)]),
+      captcha: fb.control<string>(null)
     });
   }
 
-  ngOnInit(): void {
-  }
   onSubmit() {
     const formValue = this.loginForm.value;
     this.isLoading = true;

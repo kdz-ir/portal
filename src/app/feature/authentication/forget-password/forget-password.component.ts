@@ -1,14 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
 import { RepositoryService } from '../Services/repository.service';
 import { MatStepper } from '@angular/material/stepper';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ConfirmPasswordErrorStateMatcher } from 'src/app/core/services/forms/confirm-password-error-state-matcher';
 import { ForgetPasswordInfo } from '../model/forget-password-info';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
+import { IPasswordAndConfirmPassword } from 'src/app/core/services/forms/IPasswordAndConfirmPassword';
+import { IForgetPasswordCheckSmsCodeForm } from './IForgetPasswordCheckSmsCodeForm';
+import { IForgetPasswordSendSmsForm } from './IForgetPasswordSendSmsForm';
 @Component({
   selector: 'kdz-forget-password',
   templateUrl: './forget-password.component.html',
@@ -17,27 +19,26 @@ import { SwalService } from 'src/app/core/services/swal/swal.service';
 export class ForgetPasswordComponent {
   matcher = new ConfirmPasswordErrorStateMatcher();
   isloading = false;
-  readonly sendSmsForm: FormGroup;
-  readonly checkCodeForm: FormGroup;
-  readonly forgetPasswordForm: FormGroup;
+  readonly sendSmsForm: FormGroup<IForgetPasswordSendSmsForm>;
+  readonly checkCodeForm: FormGroup<IForgetPasswordCheckSmsCodeForm>;
+  readonly forgetPasswordForm: FormGroup<IPasswordAndConfirmPassword>;
   @ViewChild(MatStepper) stepper: MatStepper;
   constructor (readonly fb: FormBuilder,
     private readonly _repository: RepositoryService,
     public readonly validatorCoreService: ValidatorCoreService,
-    private readonly _snackBar: MatSnackBar,
     private readonly _router: Router,
     private readonly _swal: SwalService,
   ) {
-    this.sendSmsForm = fb.group({
-      nationalCode: [, [ValidatorCoreService.nationalCodeChecker, Validators.required, AdditionalValidators.CheckIsASCII]],
-      captcha: []
+    this.sendSmsForm = fb.group<IForgetPasswordSendSmsForm>({
+      nationalCode: fb.nonNullable.control<string>('', [ValidatorCoreService.nationalCodeChecker, Validators.required, AdditionalValidators.CheckIsASCII]),
+      captcha: fb.control<string>(null)
     });
-    this.checkCodeForm = fb.group({
-      code: [, Validators.required]
+    this.checkCodeForm = fb.group<IForgetPasswordCheckSmsCodeForm>({
+      code: fb.control<number>(null, [Validators.required])
     });
-    this.forgetPasswordForm = fb.group({
-      password: [, [Validators.required, Validators.minLength(6)]],
-      confirmPassword: [, [Validators.required, Validators.minLength(6)]]
+    this.forgetPasswordForm = fb.group<IPasswordAndConfirmPassword>({
+      password: fb.nonNullable.control<string>('', [Validators.required, Validators.minLength(6)]),
+      confirmPassword: fb.nonNullable.control('', [Validators.required, Validators.minLength(6)])
     }, { validators: ValidatorCoreService.checkPasswords });
   }
 
@@ -57,7 +58,7 @@ export class ForgetPasswordComponent {
   }
   onCheckCodeFromSubmit(stepper: MatStepper) {
     this.isloading = true;
-    this._repository.forgetSmsVerify(this.sendSmsForm.value.nationalCode,this.checkCodeForm.value.code, this.sendSmsForm.value.captcha).subscribe(t => {
+    this._repository.forgetSmsVerify(this.sendSmsForm.value.nationalCode, this.checkCodeForm.value.code, this.sendSmsForm.value.captcha).subscribe(t => {
       this._setIsloadingFalse();
       stepper.next();
 
@@ -68,7 +69,6 @@ export class ForgetPasswordComponent {
   onNewPasswordSubmit() {
     const data: ForgetPasswordInfo = {
       otp: +this.checkCodeForm.value.code,
-      mobile: this.sendSmsForm.value.phoneNumber,
       password: this.forgetPasswordForm.value.password,
       token: this.sendSmsForm.value.captcha,
       nationalCode: this.sendSmsForm.value.nationalCode
@@ -87,3 +87,4 @@ export class ForgetPasswordComponent {
     this.isloading = false;
   }
 }
+

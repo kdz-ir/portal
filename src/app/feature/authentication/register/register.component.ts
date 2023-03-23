@@ -9,6 +9,9 @@ import { CreateUserInfo } from '../model/create-user-info';
 import { TimerService } from '../Services/timer.service';
 import { AdditionalValidators } from "ng-behroozbc-libraries-validators";
 import { SwalService } from 'src/app/core/services/swal/swal.service';
+import { ISendSmsForm } from './ISendSmsForm';
+import { ICheckCodeForm } from './ICheckCodeForm';
+import { IUserInformationForm } from './IUserInformationForm';
 @Component({
   selector: 'kdz-register',
   templateUrl: './register.component.html',
@@ -17,9 +20,9 @@ import { SwalService } from 'src/app/core/services/swal/swal.service';
 })
 export class RegisterComponent {
   isloading = false;
-  readonly sendSmsForm: FormGroup;
-  readonly checkCodeForm: FormGroup;
-  readonly userInformationForm: FormGroup;
+  readonly sendSmsForm: FormGroup<ISendSmsForm>;
+  readonly checkCodeForm: FormGroup<ICheckCodeForm>;
+  readonly userInformationForm: FormGroup<IUserInformationForm>;
   @ViewChild(MatStepper) stepper: MatStepper;
   constructor (readonly fb: FormBuilder,
     private readonly _repository: RepositoryService,
@@ -29,18 +32,18 @@ export class RegisterComponent {
     public readonly _timer: TimerService,
     private readonly _swal: SwalService,
   ) {
-    this.sendSmsForm = fb.group({
-      phoneNumber: [, [Validators.required, Validators.minLength(11), AdditionalValidators.PhoneNumber]],
-      captcha: []
+    this.sendSmsForm = fb.group<ISendSmsForm>({
+      phoneNumber: fb.nonNullable.control<string>('', [Validators.required, Validators.minLength(11), AdditionalValidators.PhoneNumber]),
+      captcha: fb.control<string>(null)
     });
-    this.checkCodeForm = fb.group({
-      code: [, Validators.required],
-      captcha: []
+    this.checkCodeForm = fb.group<ICheckCodeForm>({
+      code: fb.control<number>(null, [Validators.required]),
+      captcha: fb.control<string>(null)
     });
-    this.userInformationForm = fb.group({
-      nationalCode: [, [Validators.required, ValidatorCoreService.nationalCodeChecker,AdditionalValidators.CheckIsASCII]],
-      password: [, [Validators.required, Validators.minLength(6)]],
-      captcha: []
+    this.userInformationForm = fb.group<IUserInformationForm>({
+      nationalCode: fb.nonNullable.control<string>('', [Validators.required, ValidatorCoreService.nationalCodeChecker, AdditionalValidators.CheckIsASCII]),
+      password: fb.nonNullable.control<string>('', [Validators.required, Validators.minLength(6)]),
+      captcha: fb.control<string>(null)
     });
   }
   onSendSms() {

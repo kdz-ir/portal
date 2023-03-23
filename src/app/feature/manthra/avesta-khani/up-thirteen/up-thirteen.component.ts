@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgeType } from 'src/app/core/model/age-type-enum';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
@@ -12,9 +12,9 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
 })
 export class UpThirteenComponent implements OnInit {
   readonly ageTypeEnum = AgeType;
-  avestaKhaniForm: FormGroup;
+  avestaKhaniForm: UntypedFormGroup;
   ageRange = 0;
-  constructor (private readonly _fb: FormBuilder,
+  constructor (private readonly _fb: UntypedFormBuilder,
     private readonly _router: Router,
     private readonly _swal: SwalService, private readonly _repository: ManthraReporsitoryService) {
     this.avestaKhaniForm = _fb.group({
