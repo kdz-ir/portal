@@ -20,7 +20,6 @@ export class AzadComponent implements OnInit {
       iiarNationalCodeAsli1: [, [ValidatorCoreService.nationalCodeChecker]],
       iiarNationalCodeAsli0: [, [ValidatorCoreService.nationalCodeChecker]],
       iiarNationalCodeAsli2: [, [ValidatorCoreService.nationalCodeChecker]],
-      isLikeAttend: [false],
       isOrdooHamayesh: [false],
       resumeWriting: [],
       ravanShenasi: [],
@@ -90,7 +89,6 @@ export class AzadComponent implements OnInit {
       isProjectBase: false,
       step: 100,
       state: 'end',
-      isLikeAttend:values.isLikeAttend,
       oordoHamayesh: {
         resumeWriting: values.resumeWriting,
         ravanShenasi: values.ravanShenasi,

@@ -23,7 +23,6 @@ export class ProjectBasedComponent implements OnInit {
     this.projectbaseForm = _fb.group({
       subject: [, Validators.required],
       iiarNationalCode: [, [ValidatorCoreService.nationalCodeChecker]],
-      isLikeAttend:[false],
       isOrdooHamayesh: [false],
       resumeWriting: [false],
       ravanShenasi: [false],
@@ -79,8 +78,6 @@ export class ProjectBasedComponent implements OnInit {
       ageType: this.ageRange,
       step: 100,
       isProjectBase: true,
-      state: 'end',
-      isLikeAttend:values.isLikeAttend,
       oordoHamayesh: {
         resumeWriting: values.resumeWriting,
         ravanShenasi: values.ravanShenasi,
