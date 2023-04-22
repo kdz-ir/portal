@@ -1,0 +1,136 @@
+<form [formGroup]="fGroup">
+    <mat-checkbox formControlName="isOrdooHamayesh">
+        در این اردوهمایش شرکت می‌کنم
+    </mat-checkbox>
+
+    <!-- baraye 18-13 sal -->
+    <div *ngIf="fGroup.value.isOrdooHamayesh&&ageRange==3">
+
+        <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
+        <div>
+            <mat-checkbox formControlName="algoritm">آموزش الگوریتم و اصول برنامه‌نویسی
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="narmafzar">آموزش نرم‌افزار
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="grim">آموزش انواع گریم
+            </mat-checkbox>
+        </div>
+
+
+        <div>
+            <mat-checkbox formControlName="bracelets">آموزش دستبندسازی
+            </mat-checkbox>
+        </div>
+
+        <div>
+            <mat-checkbox formControlName="narration">فن بیان وگویندگی
+            </mat-checkbox>
+        </div>
+
+        <div>
+            <mat-checkbox formControlName="caricature">ساخت کاریکاتور
+            </mat-checkbox>
+        </div>
+
+        <div>
+            <mat-checkbox formControlName="origami">ساخت اوریگامی
+            </mat-checkbox>
+        </div>
+
+        <div>
+            <mat-checkbox formControlName="helps">کلاس کمک های اولیه
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="experiments">کلاس آزمایش‌های شیمی، فیزیک، نانو
+            </mat-checkbox>
+        </div>
+
+        <div>
+            <mat-checkbox formControlName="iran">ایران‌شناسی
+            </mat-checkbox>
+        </div>
+
+        <div>
+            <mat-checkbox formControlName="yoga">یوگا
+            </mat-checkbox>
+        </div>
+
+        <div>
+            <mat-checkbox formControlName="stories">داستان‌نویسی
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="food">مبانی تغذیه
+            </mat-checkbox>
+        </div>
+
+        <div>
+            <mat-checkbox formControlName="arts">هنر و خلاقیت
+            </mat-checkbox>
+        </div>
+
+    </div>
+    <!-- baraye balaye 18 sal -->
+
+    <div *ngIf="fGroup.value.isOrdooHamayesh&&ageRange==1">
+        <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
+        <div>
+            <mat-checkbox formControlName="ravanShenasi">خودشناسی
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="resumeWriting">رزومه‌نویسی
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="emotionalIntelligenceWorkshop">کارگاه هوش هیجانی
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="technologyWorkshop">کارگاه تکنولوژی
+            </mat-checkbox>
+        </div>
+
+        <div>
+
+            <mat-checkbox formControlName="contentProduction">تولید محتوا
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="principlesOfPhotography">اصول عکاسی
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="bodyLanguage">زبان بدن
+            </mat-checkbox>
+        </div>
+
+        <div>
+
+            <mat-checkbox formControlName="mindControlWorkshop">کارگاه تسلط بر ذهن
+            </mat-checkbox>
+        </div>
+        <div>
+
+            <mat-checkbox formControlName="linkedin">نحوه کار با linkedin
+            </mat-checkbox>
+        </div>
+
+    </div>
+
+    <mat-form-field *ngIf="fGroup.value.isOrdooHamayesh">
+        <mat-label>سایر</mat-label>
+        <textarea matInput
+                  formControlName="other"></textarea>
+    </mat-form-field>
+</form>

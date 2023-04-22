@@ -23,32 +23,7 @@ export class ProjectBasedComponent implements OnInit {
     this.projectbaseForm = _fb.group({
       subject: [, Validators.required],
       iiarNationalCode: [, [ValidatorCoreService.nationalCodeChecker]],
-      isOrdooHamayesh: [false],
-      resumeWriting: [false],
-      ravanShenasi: [false],
-      technologyWorkshop: [false],
-      other: [],
-      linkedin: [false],
-      emotionalIntelligenceWorkshop: [false],
-      contentProduction: [false],
-      principlesOfPhotography: [false],
-      bodyLanguage: [false],
-      mindControlWorkshop: [false],
-
-      algoritm: [false],
-      narmafzar: [false],
-      grim: [false],
-      bracelets: [false],
-      narration: [false],
-      caricature: [false],
-      origami: [false],
-      helps: [false],
-      experiments: [false],
-      iran: [false],
-      yoga: [false],
-      stories: [false],     
-      food: [false],
-      arts: [false]
+      ordooHamaysh: []
     });
   }
 
@@ -69,40 +44,39 @@ export class ProjectBasedComponent implements OnInit {
   }
   onSubmit() {
     const values = this.projectbaseForm.value;
-
     this._repository.submitGatahaForms({
       registerFiled: [gataHaRegisterFiled.projectBase],
       subject: values.subject,
       iiarNationalCode: [values.iiarNationalCode],
-      isOrdooHamayesh: values.isOrdooHamayesh,
+      isOrdooHamayesh: values.ordooHamaysh.isOrdooHamayesh,
       ageType: this.ageRange,
       step: 100,
       isProjectBase: true,
       oordoHamayesh: {
-        resumeWriting: values.resumeWriting,
-        ravanShenasi: values.ravanShenasi,
-        emotionalIntelligenceWorkshop: values.emotionalIntelligenceWorkshop,
-        other: values.other,
-        technologyWorkshop: values.technologyWorkshop,
-        contentProduction: values.contentProduction,
-        linkedin: values.linkedin,
-        principlesOfPhotography: values.principlesOfPhotography,
-        mindControlWorkshop: values.mindControlWorkshop, 
-        algoritm: values.algoritmr,
-        narmafzar: values.narmafzar,
-        grim: values.grim,
-        bracelets: values.Bracelets,
-        narration: values.narration,
-        caricature: values.Caricature,
-        origami: values.origami,
-        helps: values.helps,
-        experiments: values.Experiments,
-        iran: values.iran,
-        yoga: values.yoga,
-        stories: values.stories,
-        food: values.food,
-        arts: values.arts,
-        bodyLanguage: values.bodyLanguage
+        resumeWriting: values.ordooHamaysh.resumeWriting,
+        ravanShenasi: values.ordooHamaysh.ravanShenasi,
+        emotionalIntelligenceWorkshop: values.ordooHamaysh.emotionalIntelligenceWorkshop,
+        other: values.ordooHamaysh.other,
+        technologyWorkshop: values.ordooHamaysh.technologyWorkshop,
+        contentProduction: values.ordooHamaysh.contentProduction,
+        linkedin: values.ordooHamaysh.linkedin,
+        principlesOfPhotography: values.ordooHamaysh.principlesOfPhotography,
+        mindControlWorkshop: values.ordooHamaysh.mindControlWorkshop,
+        algoritm: values.ordooHamaysh.algoritmr,
+        narmafzar: values.ordooHamaysh.narmafzar,
+        grim: values.ordooHamaysh.grim,
+        bracelets: values.ordooHamaysh.Bracelets,
+        narration: values.ordooHamaysh.narration,
+        caricature: values.ordooHamaysh.Caricature,
+        origami: values.ordooHamaysh.origami,
+        helps: values.ordooHamaysh.helps,
+        experiments: values.ordooHamaysh.Experiments,
+        iran: values.ordooHamaysh.iran,
+        yoga: values.ordooHamaysh.yoga,
+        stories: values.ordooHamaysh.stories,
+        food: values.ordooHamaysh.food,
+        arts: values.ordooHamaysh.arts,
+        bodyLanguage: values.ordooHamaysh.bodyLanguage
       }
     }).subscribe(c => {
       this._swal.successFullRegister();
