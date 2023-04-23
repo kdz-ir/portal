@@ -17,9 +17,7 @@ export class AzadComponent implements OnInit {
   azadForm: UntypedFormGroup;
   constructor (private readonly _fb: UntypedFormBuilder, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService, private _swal: SwalService) {
     this.azadForm = _fb.group({
-      iiarNationalCodeAsli1: [, [ValidatorCoreService.nationalCodeChecker]],
       iiarNationalCodeAsli0: [, [ValidatorCoreService.nationalCodeChecker]],
-      iiarNationalCodeAsli2: [, [ValidatorCoreService.nationalCodeChecker]],
       ordooHamaysh: [],
     });
   }
@@ -47,13 +45,6 @@ export class AzadComponent implements OnInit {
     if (values.iiarNationalCodeAsli0 != null) {
       iiarNationalCodeAsli.push(values.iiarNationalCodeAsli0);
     }
-    if (values.iiarNationalCodeAsli1 != null) {
-      iiarNationalCodeAsli.push(values.iiarNationalCodeAsli2);
-    }
-    if (values.iiarNationalCodeAsli2 != null) {
-      iiarNationalCodeAsli.push(values.iiarNationalCodeAsli2);
-    }
-
     const data = {
       registerFiled: resgfiled,
       isOrdooHamayesh: values.ordooHamaysh.isOrdooHamayesh,
