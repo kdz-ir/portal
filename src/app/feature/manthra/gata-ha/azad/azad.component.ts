@@ -15,7 +15,7 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
 export class AzadComponent implements OnInit {
   ageRange = 0;
   azadForm: UntypedFormGroup;
-  constructor (private readonly _fb: UntypedFormBuilder, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService, private _swal: SwalService) {
+  constructor(private readonly _fb: UntypedFormBuilder, private readonly _router: Router, private readonly _repository: ManthraReporsitoryService, private _swal: SwalService) {
     this.azadForm = _fb.group({
       iiarNationalCodeAsli0: [, [ValidatorCoreService.nationalCodeChecker]],
       ordooHamaysh: [],
@@ -54,31 +54,20 @@ export class AzadComponent implements OnInit {
       step: 100,
       state: 'end',
       oordoHamayesh: {
-        resumeWriting: values.ordooHamaysh.resumeWriting,
-        ravanShenasi: values.ordooHamaysh.ravanShenasi,
-        technologyWorkshop: values.ordooHamaysh.technologyWorkshop,
+        goftogo: values.ordooHamaysh.goftogo,
+        sweets: values.ordooHamaysh.sweets,
+        boors: values.ordooHamaysh.boors,
         other: values.ordooHamaysh.other,
-        linkedin: values.ordooHamaysh.linkedin,
-        emotionalIntelligenceWorkshop: values.ordooHamaysh.emotionalIntelligenceWorkshop,
-        contentProduction: values.ordooHamaysh.contentProduction,
-        mindControlWorkshop: values.ordooHamaysh.mindControlWorkshop,
-        principlesOfPhotography: values.ordooHamaysh.principlesOfPhotography,
-
-        algoritm: values.ordooHamaysh.algoritmr,
-        narmafzar: values.ordooHamaysh.narmafzar,
-        grim: values.ordooHamaysh.grim,
-        bracelets: values.ordooHamaysh.Bracelets,
-        narration: values.ordooHamaysh.narration,
-        caricature: values.ordooHamaysh.Caricature,
-        origami: values.ordooHamaysh.origami,
-        helps: values.ordooHamaysh.helps,
-        experiments: values.ordooHamaysh.Experiments,
-        iran: values.ordooHamaysh.iran,
-        yoga: values.ordooHamaysh.yoga,
-        stories: values.ordooHamaysh.stories,
-        food: values.ordooHamaysh.food,
-        arts: values.ordooHamaysh.arts,
-        bodyLanguage: values.ordooHamaysh.bodyLanguage
+        digital: values.ordooHamaysh.digital,
+        advidio: values.ordooHamaysh.advidio,
+        brand: values.ordooHamaysh.brand,
+        copyright: values.ordooHamaysh.copyright,
+        instageram: values.ordooHamaysh.instageram,
+        mozkerat: values.ordooHamaysh.mozkerat,
+        elmi: values.ordooHamaysh.elmi,
+        sport: values.ordooHamaysh.sport,
+        art: values.ordooHamaysh.art,
+        visit: values.ordooHamaysh.visit,
       }
     };
     this._repository.submitGatahaForms(data).subscribe(c => {
