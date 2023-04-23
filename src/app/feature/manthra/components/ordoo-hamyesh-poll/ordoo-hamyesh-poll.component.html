@@ -1,84 +1,76 @@
 <form [formGroup]="fGroup">
-  <mat-checkbox formControlName="isOrdooHamayesh">
-    در این اردوهمایش شرکت می‌کنم
-  </mat-checkbox>
+    <mat-checkbox formControlName="isOrdooHamayesh">
+        در این اردوهمایش شرکت می‌کنم
+    </mat-checkbox>
 
-  <!-- baraye 18-13 sal -->
-  <div *ngIf="fGroup.value.isOrdooHamayesh && ageRange == 3">
-    <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
-    <div>
-      <mat-checkbox formControlName="goftogo"
-        >راز های گفتگوی اثر بخش
-      </mat-checkbox>
-    </div>
-    <div>
-      <mat-checkbox formControlName="sweets">پخت شیرینی </mat-checkbox>
-    </div>
-    <div>
-      <mat-checkbox formControlName="boors"
-        >مدریت سرمایه گذاری در بورس
-      </mat-checkbox>
-    </div>
+    <!-- baraye 18-13 sal -->
+    <div *ngIf="fGroup.value.isOrdooHamayesh && ageRange == 3">
+        <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
+        <div>
+            <mat-checkbox formControlName="goftogo">راز های گفتگوی اثر بخش
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="sweets">پخت شیرینی </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="boors">مدیریت سرمایه گذاری در بورس
+            </mat-checkbox>
+        </div>
 
-    <div>
-      <mat-checkbox formControlName="digital">کارگاه ارز دیجیتال </mat-checkbox>
-    </div>
+        <div>
+            <mat-checkbox formControlName="digital">کارگاه ارز دیجیتال </mat-checkbox>
+        </div>
 
-    <div>
-      <mat-checkbox formControlName="advidio"
-        >تولید محتوای ویئویی
-      </mat-checkbox>
-    </div>
+        <div>
+            <mat-checkbox formControlName="advidio">تولید محتوای ویئویی
+            </mat-checkbox>
+        </div>
 
-    <div>
-      <mat-checkbox formControlName="brand"
-        >برند سازی با تولید محتوا
-      </mat-checkbox>
-    </div>
+        <div>
+            <mat-checkbox formControlName="brand">برند سازی با تولید محتوا
+            </mat-checkbox>
+        </div>
 
-    <div>
-      <mat-checkbox formControlName="copyright"
-        >کپی راییتینگ (کارگاه تبلیغ نویسی)
-      </mat-checkbox>
-    </div>
+        <div>
+            <mat-checkbox formControlName="copyright">کپی راییتینگ (کارگاه تبلیغ نویسی)
+            </mat-checkbox>
+        </div>
 
-    <div>
-      <mat-checkbox formControlName="instageram"
-        >ادمین تخصصی اینستگرام
-      </mat-checkbox>
+        <div>
+            <mat-checkbox formControlName="instageram">ادمین تخصصی اینستگرام
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="mozkerat">اصول و فنون مذکرات تجاری
+            </mat-checkbox>
+        </div>
     </div>
-    <div>
-      <mat-checkbox formControlName="mozkerat"
-        >اصول و فنون مذکرات تجاری
-      </mat-checkbox>
-    </div>
-  </div>
-  <!-- baraye balaye 18 sal -->
+    <!-- baraye balaye 18 sal -->
 
-  <div *ngIf="fGroup.value.isOrdooHamayesh && ageRange == 1">
-    <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
-    <div>
-      <mat-checkbox formControlName="elmi"
-        >علمی
-      </mat-checkbox>
-    </div>
-    <div>
-      <mat-checkbox formControlName="sport">ورزشی</mat-checkbox>
-    </div>
-    <div>
-      <mat-checkbox formControlName="art"
-        >هنری
-      </mat-checkbox>
+    <div *ngIf="fGroup.value.isOrdooHamayesh && ageRange == 1">
+        <span>تمایل دارید تا در این اردوهمایش چه مباحثی آموزش داده شود؟</span>
+        <div>
+            <mat-checkbox formControlName="elmi">علمی
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="sport">ورزشی</mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="art">هنری
+            </mat-checkbox>
+        </div>
+
+        <div>
+            <mat-checkbox formControlName="visit">بازدید</mat-checkbox>
+        </div>
+
     </div>
 
-    <div>
-      <mat-checkbox formControlName="visit">بازدید</mat-checkbox>
-    </div>
-
-  </div>
-
-  <mat-form-field *ngIf="fGroup.value.isOrdooHamayesh">
-    <mat-label>پیشنهادات</mat-label>
-    <textarea matInput formControlName="other"></textarea>
-  </mat-form-field>
+    <mat-form-field *ngIf="fGroup.value.isOrdooHamayesh">
+        <mat-label>پیشنهادات</mat-label>
+        <textarea matInput
+                  formControlName="other"></textarea>
+    </mat-form-field>
 </form>
