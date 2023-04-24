@@ -12,8 +12,5 @@ export const LINKS = [
   { link: '/Manthra', name: 'مانتره', icon: 'Manthra', isNative: false },
   {
     link: '/Settings', name: 'مشخصات کاربری', icon: 'account_circle', isNative: true
-  },
-  {
-    link: '/Settings/logout', name: 'خروج', icon: 'logout', isNative: true
-  },
+  }
 ];
