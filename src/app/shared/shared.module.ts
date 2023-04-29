@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ButtonLoadingDirective } from './directives/button-loading.directive';
 import { LargeLoadingDirective } from './directives/large-loading.directive';
@@ -33,7 +34,8 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     MatListModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
-    LightboxModule
+    LightboxModule,
+    MatRadioModule
   ],
   exports: [
     CommonModule,
@@ -52,7 +54,8 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     MatProgressSpinnerModule,
     LargeLoadingDirective,
     ImageUploaderComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    MatRadioModule
   ]
 })
 export class SharedModule { }

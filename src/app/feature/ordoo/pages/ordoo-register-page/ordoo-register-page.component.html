@@ -1,4 +1,4 @@
-<form>
+<form fxLayout="column">
     <app-image-uploader label="آخرین کارنامه تحصیلی"></app-image-uploader>
     <app-image-uploader label="تعهدنامه و رضایتنامه والدین به صورت دست
     نویس"></app-image-uploader>
@@ -41,9 +41,53 @@
         <input type="email"
                matInput>
     </mat-form-field>
+    <div>
+        <label>
+            آیا سدره پوش شده اید؟
+        </label>
+        <mat-radio-group>
+            <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                              [value]="season.value">
+                {{season.label}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div>
+        <label>
+            آیا مبتلا به بیماری خاصی هستید؟
+        </label>
+        <mat-radio-group>
+            <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                              [value]="season.value">
+                {{season.label}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
     <mat-form-field>
         <mat-label>
-            آیا مبت` به بیماری خاصی هستید؟
+            چنانچه به هر یک از بیماریهای زیر مبتلا هستید؟
+        </mat-label>
+        <mat-select multiple>
+            <mat-option *ngFor="let sickness of sensetiveSickness"
+                        [value]="sickness.value">{{sickness.label}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            در صورتی که به بیماری خاص دیگری مبتلا هستید، نام آن را بنویسید.
+        </mat-label>
+        <input matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            در صورت ابتلا به یکی از موارد فوق چه دارویی مصرف میکنید و چه مدت است به این بیماری مبتلا هستید؟ نوع دقیق آن
+            را ذکر کنید.
+        </mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            در صورت داشتن حساسیت غذایی نوع ماده‌ی غذایی را ذکر کنید.
         </mat-label>
         <input matInput>
     </mat-form-field>
@@ -65,7 +109,18 @@
         <mat-label>
             گروه خونی خود را وارد کنید
         </mat-label>
-        <input matInput>
+        <mat-select>
+            <mat-option *ngFor="let blood of bloodTypes"
+                        [value]="blood.value">{{blood.label}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>ارتفاع</mat-label>
+        <input type="number" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>عرض</mat-label>
+        <input type="number" matInput>
     </mat-form-field>
     <div>
         <h2>مشخصات خانواده شرکت کننده </h2>
@@ -212,11 +267,152 @@
             <mat-label>
                 آدرس پستی دقیق محل سکونت
             </mat-label>
-            <textarea 
-                      matInput></textarea>
+            <textarea matInput></textarea>
         </mat-form-field>
     </div>
     <div>
         <h2>اط&عات تکمیلی شرکت کننده</h2>
+        <div>
+            <label id="">آیا تا به حال در اردوی دانش آموزان کانون
+                دانشجویان زرتشتی شرکت کرده اید؟</label>
+            <mat-radio-group aria-labelledby="example-radio-group-label">
+                <mat-radio-button class="example-radio-button"
+                                  *ngFor="let season of yesOrNoAnswer"
+                                  [value]="season.value">
+                    {{season.label}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <mat-form-field>
+            <!--this field has condition-->
+            <mat-label>
+                در صورت شرکت، کدام اردو؟
+            </mat-label>
+            <input matInput>
+        </mat-form-field>
+        <div>
+            <label>آیا تا به حال برای شرکت در اردوی دانش آموزان
+                کانون دانشجویان زرتشتی اقدام کرده اید؟
+            </label>
+            <mat-radio-group>
+                <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                  [value]="season.value">
+                    {{season.label}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div>
+            <label>
+                یا هیچ یک از دوستان یا اقوام نزدیک شما
+                تقاضانامه ی شرکت در اردوی امسال را پر کرده
+                اند؟
+            </label>
+            <mat-radio-group>
+                <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                  [value]="season.value">
+                    {{season.label}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <mat-form-field>
+            <mat-label>
+                در صورت پر کردن، نام و نسبت آنها را با خود بنویسید.
+            </mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                چقدر و از چه راهی با کانون و برنامههای آن از
+                جمله اردو، آشنایی دارید؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                چرا دوست دارید در اردو شرکت کنید؟ هدف شما
+                از ثبت نام برای اردو امسال چیست؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <p>
+            با فرض پذیرفته شدن در اردو، بدون در نظر گرف]
+            محدودیتهای اجرایی، با توجه به ع&یقتان و با در نظر
+            گرف] فعالیتهایی که تاکنون فرصت تجربهی آن را
+            .نداشتهاید، به سواxت زیر پاسخ دهید
+        </p>
+        <mat-form-field>
+            <mat-label>
+                دوست دارید چه موضوعات و فعالیتهایی را در
+                ک&س های آموزشی یاد بگیرید؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                دوست دارید چه فعالیتهای ورزشی را تجربه
+                کنید؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                دوست دارید چه فعالیت های هنری را امتحان
+                کنید؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                دوست دارید زمان آزاد خود را چگونه بگذرانید؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>دوست دارید از چه مکانهایی در تهران بازدید
+                کنید؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <p>
+            این سواxت م&ک سنجش ما نیستند و صرفا برای آشنایی
+            بیشتر ما با شما و اجرای برنامهای متناسب با نیاز شما،
+            .طراحی شدهاند
+        </p>
+        <mat-form-field>
+            <mat-label>چه ویژگیهایی در مورد خودتان هست که آنها را
+                نقاط قوت خود می دانید؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>چه مسائلی در مورد خودتان هست که دوست
+                دارید بهبود بدهید؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>.یکی ازبهترین خاطرات خود را بنویسید
+
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>یکی از بدترین خاطرات خود را بنویسید.
+
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>یکی از بزرگترین درس هایی که تا امروز در
+                .زندگیتان یاد گرفتید، بنویسید
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>چه کسانی بیشترین تاثیرگذاری را بر روی شما
+                دارند؟چرا؟
+            </mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
     </div>
 </form>
