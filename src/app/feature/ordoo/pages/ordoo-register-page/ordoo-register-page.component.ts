@@ -77,7 +77,7 @@ export class OrdooRegisterPageComponent implements OnInit {
       commitmentLetter: _fb.control<string>('', [Validators.required]),
       parentsConsent: _fb.control<string>('', [Validators.required]),
       successesDocument: _fb.control<string>('', [Validators.required]),
-      bloodTestConsent: _fb.control<string>(null, [Validators.required])
+      wantBloodTest: _fb.control<boolean>(true, [Validators.required])
     });
     this.fGroup.valueChanges.subscribe(c => {
       localStorage.setItem("ordooForm", JSON.stringify(c));
