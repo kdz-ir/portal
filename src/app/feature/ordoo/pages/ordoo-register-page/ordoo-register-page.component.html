@@ -1,5 +1,5 @@
-
 <form [formGroup]="fGroup"
+      (submit)="onFormSubmited()"
       fxLayout="column">
     <mat-accordion>
         <mat-expansion-panel>
@@ -22,10 +22,6 @@
                                     fileType="5"
                                     accept="image/jpeg"
                                     formArrayName="successesDocument">مدرک مربوط به موفقیتتان</app-image-uploader>
-                <app-image-uploader eventType="1"
-                                    fileType="6"
-                                    accept="image/jpeg"
-                                    formArrayName="bloodTestConsent">موافقت با تست خون</app-image-uploader>
             </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
@@ -102,6 +98,17 @@
                         آیا مبتلا به بیماری خاصی هستید؟
                     </label>
                     <mat-radio-group formControlName="isSpecialSickness">
+                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div>
+                    <label>
+                        آیا شما آزمایش خون میدید؟
+                    </label>
+                    <mat-radio-group formControlName="wantBloodTest">
                         <mat-radio-button *ngFor="let season of yesOrNoAnswer"
                                           [value]="season.value">
                             {{season.label}}
@@ -576,8 +583,9 @@
             </div>
         </mat-expansion-panel>
     </mat-accordion>
-    <div>
-        <h2></h2>
-
-    </div>
+    <button type="submit"
+            mat-raised-button
+            [disabled]="fGroup.invalid"
+            color="primary">ثبت</button>
+    <app-back-button></app-back-button>
 </form>

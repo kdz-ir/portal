@@ -6,6 +6,7 @@ import { IOrdooInformationForm } from "./IOrdooInformationForm";
 import { isEmpty } from 'lodash-es';
 import { IOrdooData } from './IOrdooData';
 import { IPersonalInformationForm } from './IPersonalInformation';
+import { SwalService } from 'src/app/core/services/swal/swal.service';
 
 @Component({
   selector: 'app-ordoo-register-page',
@@ -17,7 +18,7 @@ export class OrdooRegisterPageComponent implements OnInit {
   bloodTypes = bloodTypes;
   sensetiveSickness = SensetiveSickness;
   fGroup: FormGroup<IOrdooInformationForm>;
-  constructor (private readonly _fb: FormBuilder) {
+  constructor (private readonly _fb: FormBuilder, private readonly _swalService: SwalService) {
     this.fGroup = _fb.group<IOrdooInformationForm>({
       placeOfBirthCertificate: _fb.control<string>('', [Validators.required]),
       grades: _fb.control<string>('', [Validators.required]),
@@ -76,7 +77,7 @@ export class OrdooRegisterPageComponent implements OnInit {
       commitmentLetter: _fb.control<string>('', [Validators.required]),
       parentsConsent: _fb.control<string>('', [Validators.required]),
       successesDocument: _fb.control<string>('', [Validators.required]),
-      bloodTestConsent: _fb.control<string>(null, [Validators.required])
+      wantBloodTest: _fb.control<boolean>(true, [Validators.required])
     });
     this.fGroup.valueChanges.subscribe(c => {
       localStorage.setItem("ordooForm", JSON.stringify(c));
@@ -96,7 +97,7 @@ export class OrdooRegisterPageComponent implements OnInit {
         this.fGroup.controls.otherSensetiveSickness.addValidators([Validators.required]);
         this.fGroup.controls.drug.addValidators([Validators.required]);
       }
-      else{
+      else {
         this.fGroup.controls.sensetiveSickness.clearValidators();
         this.fGroup.controls.sensetiveSickness.clearValidators();
         this.fGroup.controls.otherSensetiveSickness.clearValidators();
@@ -107,7 +108,7 @@ export class OrdooRegisterPageComponent implements OnInit {
       if (c) {
         this.fGroup.controls.personInOrdooRealtion.addValidators([Validators.required]);
       }
-      else{
+      else {
         this.fGroup.controls.personInOrdooRealtion.clearValidators();
       }
     });
@@ -115,7 +116,7 @@ export class OrdooRegisterPageComponent implements OnInit {
       if (c) {
         this.fGroup.controls.ordooNumber.addValidators([Validators.required]);
       }
-      else{
+      else {
         this.fGroup.controls.ordooNumber.clearValidators();
       }
     });
@@ -131,6 +132,13 @@ export class OrdooRegisterPageComponent implements OnInit {
         console.error(e);
       }
     }
+  }
+  async onFormSubmited() {
+    await this._swalService.successFullRegister();
+    await this._swalService.swal.fire({
+      title: 'این تستی بود!',
+      icon: 'warning'
+    });
   }
   private _addMember() {
     return this._fb.group<IPersonalInformationForm>({
