@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SensetiveSickness, bloodTypes } from 'src/app/shared/models/bloodTypes';
 import { YesOrNoAnswer } from 'src/app/shared/models/yesOrNoAnswer';
 import { IPersonalInformation } from './IPersonalInformation';
+import { isEmpty } from 'lodash-es';
 
 @Component({
   selector: 'app-ordoo-register-page',
   templateUrl: './ordoo-register-page.component.html',
   styleUrls: ['./ordoo-register-page.component.scss']
 })
-export class OrdooRegisterPageComponent {
+export class OrdooRegisterPageComponent implements OnInit {
   yesOrNoAnswer = YesOrNoAnswer;
   bloodTypes = bloodTypes;
   sensetiveSickness = SensetiveSickness;
@@ -19,7 +20,7 @@ export class OrdooRegisterPageComponent {
       placeOfBirthCertificate: fb.control<string>('', [Validators.required]),
       grades: fb.control<string>('', [Validators.required]),
       studyField: fb.control<string>('', [Validators.required]),
-      lastGPA: fb.control<number>(0, [Validators.required]),
+      lastGPA: fb.control<number>(null, [Validators.required]),
       schoolName: fb.control<string>('', [Validators.required]),
       lastSchoolName: fb.control<string>('', [Validators.required]),
       email: fb.control<string>('', [Validators.required, Validators.email]),
@@ -30,10 +31,10 @@ export class OrdooRegisterPageComponent {
       drug: fb.control<string>(''),
       allergicFood: fb.control<string>(''),
       bloodType: fb.control<string>('', [Validators.required]),
-      height: fb.control<number>(0, [Validators.required, Validators.min(10)]),
-      weight: fb.control<number>(0, [Validators.required, Validators.min(1)]),
-      clothesHeight: fb.control<number>(0, [Validators.required]),
-      clothesWidth: fb.control<number>(0, [Validators.required]),
+      height: fb.control<number>(null, [Validators.required, Validators.min(10)]),
+      weight: fb.control<number>(null, [Validators.required, Validators.min(1)]),
+      clothesHeight: fb.control<number>(null, [Validators.required]),
+      clothesWidth: fb.control<number>(null, [Validators.required]),
       familyHeadName: fb.control<string>('', [Validators.required]),
       familyHeadLastName: fb.control<string>('', [Validators.required]),
       familyHeadRealtion: fb.control<string>('', [Validators.required]),
@@ -81,6 +82,17 @@ export class OrdooRegisterPageComponent {
       parentsConsent: fb.control<string>('', [Validators.required]),
       successesDocument: fb.control<string>('', [Validators.required]),
     });
+    this.fGroup.valueChanges.subscribe(c => {
+      localStorage.setItem("ordooForm", JSON.stringify(c));
+
+    });
+  }
+  ngOnInit(): void {
+    const form = localStorage.getItem("ordooForm");
+    if (!isEmpty(form)) {
+      const data = JSON.parse(form);
+      this.fGroup.setValue(data);
+    }
   }
 
 }

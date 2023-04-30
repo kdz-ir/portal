@@ -95,34 +95,38 @@
                         </mat-radio-button>
                     </mat-radio-group>
                 </div>
-                <mat-form-field>
-                    <mat-label>
-                        چنانچه به هر یک از بیماریهای زیر مبتلا هستید؟
-                    </mat-label>
-                    <mat-select formControlName="sensetiveSickness"
-                                multiple>
-                        <mat-option *ngFor="let sickness of sensetiveSickness"
-                                    [value]="sickness.value">{{sickness.label}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>
-                        در صورتی که به بیماری خاص دیگری مبتلا هستید، نام آن را بنویسید.
-                    </mat-label>
-                    <input formControlName="otherSensetiveSickness"
-                           matInput>
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>
-                        در صورت ابتلا به یکی از موارد فوق چه دارویی مصرف میکنید و چه مدت است به این بیماری مبتلا هستید؟
-                        نوع
-                        دقیق
-                        آن
-                        را ذکر کنید.
-                    </mat-label>
-                    <textarea formControlName="drug"
-                              matInput></textarea>
-                </mat-form-field>
+                <div *ngIf="fGroup.value.isSpecialSickness">
+                    <mat-form-field>
+                        <mat-label>
+                            چنانچه به هر یک از بیماریهای زیر مبتلا هستید؟
+                        </mat-label>
+                        <mat-select formControlName="sensetiveSickness"
+                                    multiple>
+                            <mat-option *ngFor="let sickness of sensetiveSickness"
+                                        [value]="sickness.value">{{sickness.label}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>
+                            در صورتی که به بیماری خاص دیگری مبتلا هستید، نام آن را بنویسید.
+                        </mat-label>
+                        <input formControlName="otherSensetiveSickness"
+                               matInput>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>
+                            در صورت ابتلا به یکی از موارد فوق چه دارویی مصرف میکنید و چه مدت است به این بیماری مبتلا
+                            هستید؟
+                            نوع
+                            دقیق
+                            آن
+                            را ذکر کنید.
+                        </mat-label>
+                        <textarea formControlName="drug"
+                                  matInput></textarea>
+                    </mat-form-field>
+                </div>
+
                 <mat-form-field>
                     <mat-label>
                         در صورت داشتن حساسیت غذایی نوع ماده‌ی غذایی را ذکر کنید.
@@ -399,7 +403,7 @@
                         </mat-radio-button>
                     </mat-radio-group>
                 </div>
-                <mat-form-field>
+                <mat-form-field *ngIf="fGroup.value.haveBeenOrdoo">
                     <!--this field has condition-->
                     <mat-label>
                         در صورت شرکت، کدام اردو؟
