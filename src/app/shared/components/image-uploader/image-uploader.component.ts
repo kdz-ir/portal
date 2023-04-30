@@ -26,7 +26,6 @@ export class ImageUploaderComponent implements ControlValueAccessor, Validator, 
   src: string;
   @Input() maxSize = 100;
   @Input() accept: string;
-  @Input() label: string;
   @Input() lastImageid: string;
   @Input() fileType: string;
   @Input() eventType: string;
@@ -74,12 +73,13 @@ export class ImageUploaderComponent implements ControlValueAccessor, Validator, 
     this.src = environment.url + '/api/v1/files/show/' + this.lastImageid;
   }
   onSelectedFile(event: Event) {
+    this.markAsTouched();
     const file = (<HTMLInputElement>event.target).files[0] as File;
     this.isUploading = true;
     this._uploadService.uploadFile(file, this.fileType, this.eventType).subscribe(c => {
       this.onChange(c.entity.fileId);
       this.isUploading = false;
-      this.src = environment.url + '/api/v1/files/show/' + c;
+      this.src = c.entity.filePath;
     }, () => {
       this.isUploading = false;
     });
