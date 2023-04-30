@@ -1,5 +1,5 @@
-
 <form [formGroup]="fGroup"
+      (submit)="onFormSubmited()"
       fxLayout="column">
     <mat-accordion>
         <mat-expansion-panel>
@@ -576,8 +576,9 @@
             </div>
         </mat-expansion-panel>
     </mat-accordion>
-    <div>
-        <h2></h2>
-
-    </div>
+    <button type="submit"
+            mat-raised-button
+            [disabled]="fGroup.invalid"
+            color="primary">ثبت</button>
+    <app-back-button></app-back-button>
 </form>
