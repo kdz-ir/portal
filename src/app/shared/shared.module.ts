@@ -18,8 +18,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LegecyImageUploaderComponent } from './components/legecy-image-uploader/legecy-image-uploader.component';
 import { LightboxModule } from 'ngx-lightbox';
 import { BackButtonComponent } from './components/back-button/back-button.component';
+import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 @NgModule({
-  declarations: [ButtonLoadingDirective, LargeLoadingDirective, LegecyImageUploaderComponent, BackButtonComponent],
+  declarations: [ButtonLoadingDirective, LargeLoadingDirective, LegecyImageUploaderComponent, BackButtonComponent, ImageUploaderComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -55,7 +56,8 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     LargeLoadingDirective,
     LegecyImageUploaderComponent,
     BackButtonComponent,
-    MatRadioModule
+    MatRadioModule,
+    ImageUploaderComponent
   ]
 })
 export class SharedModule { }

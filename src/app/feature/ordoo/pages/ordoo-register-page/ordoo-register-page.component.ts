@@ -85,6 +85,7 @@ export class OrdooRegisterPageComponent implements OnInit {
       commitmentLetter: fb.control<string>('', [Validators.required]),
       parentsConsent: fb.control<string>('', [Validators.required]),
       successesDocument: fb.control<string>('', [Validators.required]),
+      bloodTestConsent:fb.control<string>(null,[Validators.required])
     });
     this.fGroup.valueChanges.subscribe(c => {
       localStorage.setItem("ordooForm", JSON.stringify(c));
@@ -105,7 +106,6 @@ export class OrdooRegisterPageComponent implements OnInit {
           graduationRate: fb.control<string>(null, [Validators.required]),
           phone: fb.control<string>(null, [Validators.required]),
         }));
-      return;
 
 
     });
