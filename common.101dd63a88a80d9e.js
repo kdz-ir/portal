@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkdz_portal=self.webpackChunkkdz_portal||[]).push([[592],{2281:(k,p,c)=>{c.d(p,{m:()=>n});var n=(()=>{return(u=n||(n={}))[u.projectBase=1]="projectBase",u[u.Janbi=2]="Janbi",u[u.Asli=3]="Asli",n;var u})()}}]);
