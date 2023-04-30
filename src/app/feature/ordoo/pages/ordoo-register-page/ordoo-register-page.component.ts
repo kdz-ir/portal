@@ -90,8 +90,12 @@ export class OrdooRegisterPageComponent implements OnInit {
   ngOnInit(): void {
     const form = localStorage.getItem("ordooForm");
     if (!isEmpty(form)) {
-      const data = JSON.parse(form);
-      this.fGroup.setValue(data);
+      try {
+        this.fGroup.setValue(data);
+      }
+      catch (e) {
+        console.error(e);
+      }
     }
   }
 
