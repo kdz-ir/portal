@@ -1,3 +1,4 @@
+
 <form [formGroup]="fGroup"
       fxLayout="column">
     <mat-accordion>
@@ -198,160 +199,160 @@
                     مشخصات خانواده شرکت کننده
 
                 </mat-panel-title>
-                <mat-panel-description>
-
-                    در زیر مواردی ارائه شده است. این موارد را درباره
-                    وضعیت پدر، مادر، خواهران، برادران و سایر افرادی که
-                    با خانواده شما زندگی میکنند، به طور کامل پر کنید
-                    هر سری از سوالات مربوط به یک نفر از اعضای خانواده
-                    میباشد. پر کردن سوالات مربوط به یک نفر (هشت سوال
-                    (اولیه الزامیست
-                </mat-panel-description>
             </mat-expansion-panel-header>
-            <mat-form-field>
-                <mat-label>
-                    نام سرپرست خانواده
-                </mat-label>
-                <input formControlName="familyHeadName"
-                       matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>
-                    نام خانوادگی سرپرست خانواده
-                </mat-label>
-                <input formControlName="familyHeadLastName"
-                       matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>
-                    نسبت سرپرست خانواده با شما
-                </mat-label>
-                <input formControlName="familyHeadRealtion"
-                       matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>
-                    تعداد افراد تحت تکفل سرپرست خانواده
-                </mat-label>
-                <input formControlName="familyHeadDependents"
-                       matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>
-                    وضعیت تاهل
-                </mat-label>
-                <input formControlName="familyHeadMarigeStatus"
-                       matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>
-                    سن
-                </mat-label>
-                <input formControlName="familyHeadOld"
-                       type="tel"
-                       matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>
-                    شغل
-                </mat-label>
-                <input formControlName="familyHeadJob"
-                       matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>
-                    میزان تحصیلات
-                </mat-label>
-                <input formControlName="familyHeadGraduationRate"
-                       matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>
-                    تلفن همراه
-                </mat-label>
-                <input formControlName="familyHeadPhone"
-                       type="tel"
-                       matInput>
-            </mat-form-field>
+            <p>
+                در زیر مواردی ارائه شده است. این موارد را درباره
+                وضعیت پدر، مادر، خواهران، برادران و سایر افرادی که
+                با خانواده شما زندگی میکنند، به طور کامل پر کنید
+                هر سری از سوالات مربوط به یک نفر از اعضای خانواده
+                میباشد. پر کردن سوالات مربوط به یک نفر (هشت سوال
+                (اولیه الزامیست</p>
             <div>
-                <label>
-                    آیا فردی از خانواده خود را از دست داده اید؟
-                </label>
-                <mat-radio-group formControlName="isLostAnybody">
-                    <mat-radio-button *ngFor="let season of yesOrNoAnswer"
-                                      [value]="season.value">
-                        {{season.label}}
-                    </mat-radio-button>
-                </mat-radio-group>
-            </div>
-            <mat-tab-group formArrayName="familyMembers">
-                <ng-container *ngFor="let member of fGroup.controls.familyMembers.controls; let i=index">
-                    <ng-container [formGroupName]="i">
-                        <mat-tab [label]="'عضو '+(i+1)">
-                            <div>
-                                <mat-form-field>
-                                    <mat-label>
-                                        نام
-                                    </mat-label>
-                                    <input formControlName="name"
-                                           matInput>
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>
-                                        نام خانوادگی
-                                    </mat-label>
-                                    <input formControlName="lastName"
-                                           matInput>
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>
-                                        نسبت
-                                    </mat-label>
-                                    <input formControlName="realtion"
-                                           matInput>
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>
-                                        وضعیت تاهل
-                                    </mat-label>
-                                    <input formControlName="marigeStatus"
-                                           matInput>
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>
-                                        سن
-                                    </mat-label>
-                                    <input formControlName="old"
-                                           type="tel"
-                                           matInput>
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>
-                                        شغل
-                                    </mat-label>
-                                    <input formControlName="job"
-                                           matInput>
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>
-                                        میزان تحصیلات
-                                    </mat-label>
-                                    <input formControlName="graduationRate"
-                                           matInput>
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>
-                                        تلفن همراه
-                                    </mat-label>
-                                    <input formControlName="phone"
-                                           type="tel"
-                                           matInput>
-                                </mat-form-field>
-                            </div>
-                        </mat-tab>
+                <mat-form-field>
+                    <mat-label>
+                        نام سرپرست خانواده
+                    </mat-label>
+                    <input formControlName="familyHeadName"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        نام خانوادگی سرپرست خانواده
+                    </mat-label>
+                    <input formControlName="familyHeadLastName"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        نسبت سرپرست خانواده با شما
+                    </mat-label>
+                    <input formControlName="familyHeadRealtion"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        تعداد افراد تحت تکفل سرپرست خانواده
+                    </mat-label>
+                    <input formControlName="familyHeadDependents"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        وضعیت تاهل
+                    </mat-label>
+                    <input formControlName="familyHeadMarigeStatus"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        سن
+                    </mat-label>
+                    <input formControlName="familyHeadOld"
+                           type="tel"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        شغل
+                    </mat-label>
+                    <input formControlName="familyHeadJob"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        میزان تحصیلات
+                    </mat-label>
+                    <input formControlName="familyHeadGraduationRate"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        تلفن همراه
+                    </mat-label>
+                    <input formControlName="familyHeadPhone"
+                           type="tel"
+                           matInput>
+                </mat-form-field>
+                <div>
+                    <label>
+                        آیا فردی از خانواده خود را از دست داده اید؟
+                    </label>
+                    <mat-radio-group formControlName="isLostAnybody">
+                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <mat-tab-group formArrayName="familyMembers">
+                    <ng-container *ngFor="let member of fGroup.controls.familyMembers.controls; let i=index">
+                        <ng-container [formGroupName]="i">
+                            <mat-tab [label]="'عضو '+(i+1)">
+                                <div>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            نام
+                                        </mat-label>
+                                        <input formControlName="name"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            نام خانوادگی
+                                        </mat-label>
+                                        <input formControlName="lastName"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            نسبت
+                                        </mat-label>
+                                        <input formControlName="realtion"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            وضعیت تاهل
+                                        </mat-label>
+                                        <input formControlName="marigeStatus"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            سن
+                                        </mat-label>
+                                        <input formControlName="old"
+                                               type="tel"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            شغل
+                                        </mat-label>
+                                        <input formControlName="job"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            میزان تحصیلات
+                                        </mat-label>
+                                        <input formControlName="graduationRate"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            تلفن همراه
+                                        </mat-label>
+                                        <input formControlName="phone"
+                                               type="tel"
+                                               matInput>
+                                    </mat-form-field>
+                                </div>
+                            </mat-tab>
+                        </ng-container>
                     </ng-container>
-                </ng-container>
-            </mat-tab-group>
+                </mat-tab-group>
+            </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -458,7 +459,7 @@
                         </mat-radio-button>
                     </mat-radio-group>
                 </div>
-                <mat-form-field>
+                <mat-form-field *ngIf="fGroup.value.isCloseFamilyinOrdoo">
                     <mat-label>
                         در صورت پر کردن، نام و نسبت آنها را با خود بنویسید.
                     </mat-label>
