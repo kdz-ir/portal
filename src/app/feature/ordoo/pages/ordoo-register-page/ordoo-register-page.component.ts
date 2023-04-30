@@ -1,25 +1,28 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SensetiveSickness, bloodTypes } from 'src/app/shared/models/bloodTypes';
 import { YesOrNoAnswer } from 'src/app/shared/models/yesOrNoAnswer';
-import { IPersonalInformation } from './IPersonalInformation';
+import { IOrdooInformationForm } from "./IOrdooInformationForm";
+import { isEmpty } from 'lodash-es';
+import { IOrdooData } from './IOrdooData';
+import { IPersonalInformationForm } from './IPersonalInformation';
 
 @Component({
   selector: 'app-ordoo-register-page',
   templateUrl: './ordoo-register-page.component.html',
   styleUrls: ['./ordoo-register-page.component.scss']
 })
-export class OrdooRegisterPageComponent {
+export class OrdooRegisterPageComponent implements OnInit {
   yesOrNoAnswer = YesOrNoAnswer;
   bloodTypes = bloodTypes;
   sensetiveSickness = SensetiveSickness;
-  fGroup: FormGroup<IPersonalInformation>;
+  fGroup: FormGroup<IOrdooInformationForm>;
   constructor (fb: FormBuilder) {
-    this.fGroup = fb.group<IPersonalInformation>({
+    this.fGroup = fb.group<IOrdooInformationForm>({
       placeOfBirthCertificate: fb.control<string>('', [Validators.required]),
       grades: fb.control<string>('', [Validators.required]),
       studyField: fb.control<string>('', [Validators.required]),
-      lastGPA: fb.control<number>(0, [Validators.required]),
+      lastGPA: fb.control<number>(null, [Validators.required]),
       schoolName: fb.control<string>('', [Validators.required]),
       lastSchoolName: fb.control<string>('', [Validators.required]),
       email: fb.control<string>('', [Validators.required, Validators.email]),
@@ -30,10 +33,10 @@ export class OrdooRegisterPageComponent {
       drug: fb.control<string>(''),
       allergicFood: fb.control<string>(''),
       bloodType: fb.control<string>('', [Validators.required]),
-      height: fb.control<number>(0, [Validators.required, Validators.min(10)]),
-      weight: fb.control<number>(0, [Validators.required, Validators.min(1)]),
-      clothesHeight: fb.control<number>(0, [Validators.required]),
-      clothesWidth: fb.control<number>(0, [Validators.required]),
+      height: fb.control<number>(null, [Validators.required, Validators.min(10)]),
+      weight: fb.control<number>(null, [Validators.required, Validators.min(1)]),
+      clothesHeight: fb.control<number>(null, [Validators.required]),
+      clothesWidth: fb.control<number>(null, [Validators.required]),
       familyHeadName: fb.control<string>('', [Validators.required]),
       familyHeadLastName: fb.control<string>('', [Validators.required]),
       familyHeadRealtion: fb.control<string>('', [Validators.required]),
@@ -44,14 +47,16 @@ export class OrdooRegisterPageComponent {
       familyHeadGraduationRate: fb.control<string>('', [Validators.required]),
       familyHeadPhone: fb.control<string>('', [Validators.required]),
       isLostAnybody: fb.control<boolean>(null, [Validators.required]),
-      name: fb.control<string>('', [Validators.required]),
-      lastName: fb.control<string>('', [Validators.required]),
-      realtion: fb.control<string>('', [Validators.required]),
-      marigeStatus: fb.control<string>('', [Validators.required]),
-      old: fb.control<number>(0, [Validators.required]),
-      job: fb.control<string>('', [Validators.required]),
-      graduationRate: fb.control<string>('', [Validators.required]),
-      phone: fb.control<string>('', [Validators.required]),
+      familyMembers: fb.array<FormGroup<IPersonalInformationForm>>([fb.group({
+        name: fb.control<string>('', [Validators.required]),
+        lastName: fb.control<string>('', [Validators.required]),
+        realtion: fb.control<string>(null, [Validators.required]),
+        marigeStatus: fb.control<string>(null, [Validators.required]),
+        old: fb.control<number>(null, [Validators.required]),
+        job: fb.control<string>(null, [Validators.required]),
+        graduationRate: fb.control<string>(null, [Validators.required]),
+        phone: fb.control<string>(null, [Validators.required]),
+      })]),
       tehranName: fb.control<string>('', [Validators.required]),
       tehranLastname: fb.control<string>('', [Validators.required]),
       tehranRealtion: fb.control<string>('', [Validators.required]),
@@ -81,6 +86,41 @@ export class OrdooRegisterPageComponent {
       parentsConsent: fb.control<string>('', [Validators.required]),
       successesDocument: fb.control<string>('', [Validators.required]),
     });
+    this.fGroup.valueChanges.subscribe(c => {
+      localStorage.setItem("ordooForm", JSON.stringify(c));
+    });
+    this.fGroup.controls.familyHeadDependents.valueChanges.subscribe(c => {
+      const dependMembers = c - 1;//Remove the regter person
+      const pervisMembers = this.fGroup.controls.familyMembers.controls.length;
+      for (let index = pervisMembers; index > dependMembers; index--)
+        this.fGroup.controls.familyMembers.controls.pop();
+      for (let index = pervisMembers; index < dependMembers; index++)
+        this.fGroup.controls.familyMembers.push(fb.group<IPersonalInformationForm>({
+          name: fb.control<string>('', [Validators.required]),
+          lastName: fb.control<string>('', [Validators.required]),
+          realtion: fb.control<string>(null, [Validators.required]),
+          marigeStatus: fb.control<string>(null, [Validators.required]),
+          old: fb.control<number>(null, [Validators.required]),
+          job: fb.control<string>(null, [Validators.required]),
+          graduationRate: fb.control<string>(null, [Validators.required]),
+          phone: fb.control<string>(null, [Validators.required]),
+        }));
+      return;
+
+
+    });
+  }
+  ngOnInit(): void {
+    const form = localStorage.getItem("ordooForm");
+    if (!isEmpty(form)) {
+      const data = <IOrdooData>JSON.parse(form);
+      try {
+        this.fGroup.setValue(data);
+      }
+      catch (e) {
+        console.error(e);
+      }
+    }
   }
 
 }
