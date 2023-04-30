@@ -11,9 +11,7 @@ describe('ImageUploaderComponent', () => {
       declarations: [ ImageUploaderComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ImageUploaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

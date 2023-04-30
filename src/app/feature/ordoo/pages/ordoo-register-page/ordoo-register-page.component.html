@@ -7,13 +7,25 @@
                     اپلود مدارک مورد نیاز
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <app-image-uploader [fbContorl]="fGroup.controls.lastAcademicTranscript"
-                                label="آخرین کارنامه تحصیلی"></app-image-uploader>
-            <app-image-uploader [fbContorl]="fGroup.controls.parentsConsent"
-                                label="تعهدنامه و رضایتنامه والدین به صورت دست
-نویس"></app-image-uploader>
-            <app-image-uploader [fbContorl]="fGroup.controls.successesDocument"
-                                label="مدرک مربوط به موفقیتتان"></app-image-uploader>
+            <div>
+                <app-image-uploader eventType="1"
+                                    accept="image/jpeg"
+                                    fileType="3"
+                                    formControlName="lastAcademicTranscript">آخرین کارنامه تحصیلی</app-image-uploader>
+                <app-image-uploader fileType="4"
+                                    eventType="1"
+                                    accept="image/jpeg"
+                                    formControlName="parentsConsent">تعهدنامه و رضایتنامه والدین به صورت دست
+                    نویس</app-image-uploader>
+                <app-image-uploader eventType="1"
+                                    fileType="5"
+                                    accept="image/jpeg"
+                                    formArrayName="successesDocument">مدرک مربوط به موفقیتتان</app-image-uploader>
+                <app-image-uploader eventType="1"
+                                    fileType="6"
+                                    accept="image/jpeg"
+                                    formArrayName="bloodTestConsent">موافقت با تست خون</app-image-uploader>
+            </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -470,10 +482,10 @@
                               matInput></textarea>
                 </mat-form-field>
                 <p>
-                    با فرض پذیرفته شدن در اردو، بدون در نظر گرف]
+                    با فرض پذیرفته شدن در اردو، بدون در نظر گرفتن
                     محدودیتهای اجرایی، با توجه به عالیقتان و با در نظر
-                    گرف] فعالیتهایی که تاکنون فرصت تجربهی آن را
-                    .نداشتهاید، به سوالxت زیر پاسخ دهید
+                    گرفتن فعالیتهایی که تاکنون فرصت تجربهی آن را
+                    .نداشتهاید، به سوالات زیر پاسخ دهید
                 </p>
                 <mat-form-field>
                     <mat-label>
@@ -514,7 +526,7 @@
                               matInput></textarea>
                 </mat-form-field>
                 <p>
-                    این سواxت م&ک سنجش ما نیستند و صرفا برای آشنایی
+                    این سوالات ملاک سنجش ما نیستند و صرفا برای آشنایی
                     بیشتر ما با شما و اجرای برنامهای متناسب با نیاز شما،
                     .طراحی شدهاند
                 </p>

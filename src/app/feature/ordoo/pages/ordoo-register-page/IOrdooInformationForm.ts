@@ -60,4 +60,5 @@ export interface IOrdooInformationForm {
   commitmentLetter: FormControl<string>;
   parentsConsent: FormControl<string>;
   successesDocument: FormControl<string>;
+  bloodTestConsent:FormControl<string>;
 }

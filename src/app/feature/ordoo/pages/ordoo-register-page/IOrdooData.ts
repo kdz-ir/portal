@@ -58,4 +58,5 @@ export interface IOrdooData {
   commitmentLetter: string;
   parentsConsent: string;
   successesDocument: string;
+  bloodTestConsent:string;
 }
