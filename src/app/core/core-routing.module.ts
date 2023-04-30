@@ -24,6 +24,11 @@ const routes: Routes = [
         path: 'Manthra',
         canActivate: [ValidProfileGuard],
         loadChildren: () => import('../feature/manthra/manthra.module').then(s => s.ManthraModule)
+      },
+      {
+        path: 'ordoo',
+        canActivate: [ValidProfileGuard],
+        loadChildren: () => import('../feature/ordoo/ordoo.module').then(s => s.OrdooModule)
       }
     ]
   },
