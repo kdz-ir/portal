@@ -15,11 +15,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ButtonLoadingDirective } from './directives/button-loading.directive';
 import { LargeLoadingDirective } from './directives/large-loading.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
+import { LegecyImageUploaderComponent } from './components/legecy-image-uploader/legecy-image-uploader.component';
 import { LightboxModule } from 'ngx-lightbox';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 @NgModule({
-  declarations: [ButtonLoadingDirective, LargeLoadingDirective, ImageUploaderComponent, BackButtonComponent],
+  declarations: [ButtonLoadingDirective, LargeLoadingDirective, LegecyImageUploaderComponent, BackButtonComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -53,7 +53,7 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     LargeLoadingDirective,
-    ImageUploaderComponent,
+    LegecyImageUploaderComponent,
     BackButtonComponent,
     MatRadioModule
   ]

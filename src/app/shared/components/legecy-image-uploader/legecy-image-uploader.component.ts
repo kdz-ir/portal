@@ -5,12 +5,15 @@ import { Lightbox } from 'ngx-lightbox';
 import { UploadService } from 'src/app/core/services/user/upload-serivce.service';
 import { environment } from 'src/environments/environment';
 
+/**
+* @deprecated This component became deprecate and use `app-image-uploader`
+*/
 @Component({
-  selector: 'app-image-uploader',
-  templateUrl: './image-uploader.component.html',
-  styleUrls: ['./image-uploader.component.scss']
+  selector: 'app-legecy-image-uploader',
+  templateUrl: './legecy-image-uploader.component.html',
+  styleUrls: ['./legecy-image-uploader.component.scss']
 })
-export class ImageUploaderComponent implements OnChanges {
+export class LegecyImageUploaderComponent implements OnChanges {
 
   src: string;
   @Input() maxSize = 100;
@@ -25,7 +28,7 @@ export class ImageUploaderComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.src = environment.url + '/api/v1/files/show/' + this.lastImageid;
   }
-  onSelectedFile(event:Event ) {
+  onSelectedFile(event: Event) {
     const file = (<HTMLInputElement>event.target).files[0] as File;
     this.isUploading = true;
     this._uploadService.uploadFile(file, this.fileType, this.eventType).subscribe(c => {
@@ -41,3 +44,5 @@ export class ImageUploaderComponent implements OnChanges {
     this._lightbox.open([{ src: (<HTMLImageElement>event.target).src, thumb: '' }]);
   }
 }
+
+
