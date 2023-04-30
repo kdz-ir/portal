@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SensetiveSickness, bloodTypes } from 'src/app/shared/models/bloodTypes';
 import { YesOrNoAnswer } from 'src/app/shared/models/yesOrNoAnswer';
+import { IPersonalInformation } from './IPersonalInformation';
 
 @Component({
   selector: 'app-ordoo-register-page',
@@ -56,64 +57,30 @@ export class OrdooRegisterPageComponent {
       tehranRealtion: fb.control<string>('', [Validators.required]),
       tehranPhone: fb.control<string>('', [Validators.required]),
       tehranHome: fb.control<string>('', [Validators.required]),
-      tehranAddress: fb.control<string>('', [Validators.required])
+      tehranAddress: fb.control<string>('', [Validators.required]),
+      haveBeenOrdoo: fb.control<boolean>(false, [Validators.required]),
+      ordooNumber: fb.control<number>(null),
+      haveTriedOrdoo: fb.control<boolean>(false),
+      isCloseFamilyinOrdoo: fb.control<boolean>(null, [Validators.required]),
+      personInOrdooRealtion: fb.control<string>(''),
+      howMeetOrdoo: fb.control<string>('', [Validators.required]),
+      goal: fb.control<string>('', [Validators.required]),
+      likeClassSubjects: fb.control<string>('', [Validators.required]),
+      likeSports: fb.control<string>('', [Validators.required]),
+      likeArt: fb.control<string>('', [Validators.required]),
+      likeSpendFreetime: fb.control<string>('', [Validators.required]),
+      likePlaceInTehran: fb.control<string>('', [Validators.required]),
+      goodPoints: fb.control<string>('', [Validators.required]),
+      negetivePoints: fb.control<string>('', [Validators.required]),
+      bestMemory: fb.control<string>('', [Validators.required]),
+      woerstMemory: fb.control<string>('', [Validators.required]),
+      biggestLesson: fb.control<string>('', [Validators.required]),
+      mostInfuence: fb.control<string>('', [Validators.required]),
+      lastAcademicTranscript: fb.control<string>('', [Validators.required]),
+      commitmentLetter: fb.control<string>('', [Validators.required]),
+      parentsConsent: fb.control<string>('', [Validators.required]),
+      successesDocument: fb.control<string>('', [Validators.required]),
     });
   }
 
-}
-export interface IPersonalInformation {
-  placeOfBirthCertificate: FormControl<string>;
-  grades: FormControl<string>;
-  studyField: FormControl<string>;
-  lastGPA: FormControl<number>;
-  schoolName: FormControl<string>;
-  lastSchoolName: FormControl<string>;
-  email: FormControl<string>;
-  isNavjote: FormControl<boolean>;
-  isSpecialSickness: FormControl<boolean>;
-  sensetiveSickness: FormControl<string[]>;
-  otherSensetiveSickness: FormControl<string>;
-  drug: FormControl<string>;
-  allergicFood: FormControl<string>;
-  weight: FormControl<number>;
-  height: FormControl<number>;
-  bloodType: FormControl<string>;
-  clothesHeight: FormControl<number>;
-  clothesWidth: FormControl<number>;
-  familyHeadName: FormControl<string>;
-  familyHeadLastName: FormControl<string>;
-  familyHeadRealtion: FormControl<string>;
-  familyHeadDependents: FormControl<number>;
-  familyHeadMarigeStatus: FormControl<string>;
-  familyHeadOld: FormControl<number>;
-  familyHeadJob: FormControl<string>;
-  familyHeadGraduationRate: FormControl<string>;
-  familyHeadPhone: FormControl<string>;
-  isLostAnybody: FormControl<boolean>;
-  name: FormControl<string>;
-  lastName: FormControl<string>;
-  realtion: FormControl<string>;
-  marigeStatus: FormControl<string>;
-  old: FormControl<number>;
-  job: FormControl<string>;
-  graduationRate: FormControl<string>;
-  phone: FormControl<string>;
-  tehranName: FormControl<string>;
-  tehranLastname: FormControl<string>;
-  tehranRealtion: FormControl<string>;
-  tehranPhone: FormControl<string>;
-  tehranHome: FormControl<string>;
-  tehranAddress: FormControl<string>;
-  haveBeenOrdoo: FormControl<boolean>;
-  ordooNumber: FormControl<boolean>;
-  haveTriedOrdoo: FormControl<boolean>;
-  isCloseFamilyinOrdoo: FormControl<boolean>;
-  personInOrdooRealtion: FormControl<string>;
-  howMeetOrdoo: FormControl<string>;
-  goal: FormControl<string>;
-  likeClassSubjects: FormControl<string>;
-  likeSports: FormControl<string>;
-  likeArt: FormControl<string>;
-  likeSpendFreetime: FormControl<string>;
-  likePlaceInTehran: FormControl<string>;
 }
