@@ -45,10 +45,14 @@ export interface IOrdooInformationForm {
   personInOrdooRealtion: FormControl<string>;
   howMeetOrdoo: FormControl<string>;
   goal: FormControl<string>;
+  goAfterNewPeople: FormControl<string>;
+  goesAfterlongPeopleOrNear: FormControl<string>;
+  likedTopics: FormControl<string>;
   likeClassSubjects: FormControl<string>;
   likeSports: FormControl<string>;
   likeArt: FormControl<string>;
   likeSpendFreetime: FormControl<string>;
+  freeBeInMarkar:FormControl<string>;
   likePlaceInTehran: FormControl<string>;
   goodPoints: FormControl<string>;
   negetivePoints: FormControl<string>;

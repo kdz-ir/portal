@@ -43,10 +43,14 @@ export interface IOrdooData {
   personInOrdooRealtion: string;
   howMeetOrdoo: string;
   goal: string;
+  goAfterNewPeople: string;
+  goesAfterlongPeopleOrNear: string;
+  likedTopics: string;
   likeClassSubjects: string;
   likeSports: string;
   likeArt: string;
   likeSpendFreetime: string;
+  freeBeInMarkar: string;
   likePlaceInTehran: string;
   goodPoints: string;
   negetivePoints: string;
