@@ -7,18 +7,20 @@ import { isEmpty } from 'lodash-es';
 import { IOrdooData } from './IOrdooData';
 import { IPersonalInformationForm } from './IPersonalInformation';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
+import { OrdooService } from '../../services/ordoo.service';
 
 @Component({
   selector: 'app-ordoo-register-page',
   templateUrl: './ordoo-register-page.component.html',
   styleUrls: ['./ordoo-register-page.component.scss']
 })
-export class OrdooRegisterPageComponent implements OnInit {
+export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
   yesOrNoAnswer = YesOrNoAnswer;
   bloodTypes = bloodTypes;
   sensetiveSickness = SensetiveSickness;
+  isLiveInTehran = true;
   fGroup: FormGroup<IOrdooInformationForm>;
-  constructor (private readonly _fb: FormBuilder, private readonly _swalService: SwalService) {
+  constructor (private readonly _fb: FormBuilder, private readonly _swalService: SwalService, private readonly _ordooService: OrdooService) {
     this.fGroup = _fb.group<IOrdooInformationForm>({
       placeOfBirthCertificate: _fb.control<string>('', [Validators.required]),
       grades: _fb.control<string>('', [Validators.required]),
@@ -49,12 +51,12 @@ export class OrdooRegisterPageComponent implements OnInit {
       familyHeadPhone: _fb.control<string>('', [Validators.required]),
       isLostAnybody: _fb.control<boolean>(null, [Validators.required]),
       familyMembers: _fb.array<FormGroup<IPersonalInformationForm>>([this._addMember()]),
-      tehranName: _fb.control<string>('', [Validators.required]),
-      tehranLastname: _fb.control<string>('', [Validators.required]),
-      tehranRealtion: _fb.control<string>('', [Validators.required]),
-      tehranPhone: _fb.control<string>('', [Validators.required]),
-      tehranHome: _fb.control<string>('', [Validators.required]),
-      tehranAddress: _fb.control<string>('', [Validators.required]),
+      tehranName: _fb.control<string>(''),
+      tehranLastname: _fb.control<string>(''),
+      tehranRealtion: _fb.control<string>(''),
+      tehranPhone: _fb.control<string>(''),
+      tehranHome: _fb.control<string>(''),
+      tehranAddress: _fb.control<string>(''),
       haveBeenOrdoo: _fb.control<boolean>(false, [Validators.required]),
       ordooNumber: _fb.control<number>(null),
       haveTriedOrdoo: _fb.control<boolean>(false),
@@ -122,6 +124,20 @@ export class OrdooRegisterPageComponent implements OnInit {
       }
       else {
         this.fGroup.controls.ordooNumber.clearValidators();
+      }
+    });
+  }
+  ngAfterViewInit(): void {
+    this._ordooService.isLiveInTehran.subscribe(c => {
+      this.isLiveInTehran = c.entity.isLiveInTehran;
+      if (this.isLiveInTehran) {
+        this.fGroup.controls.tehranName.addValidators([Validators.required]);
+        this.fGroup.controls.tehranLastname.addValidators([Validators.required]);
+        this.fGroup.controls.tehranRealtion.addValidators([Validators.required]);
+        this.fGroup.controls.tehranPhone.addValidators([Validators.required]);
+        this.fGroup.controls.tehranHome.addValidators([Validators.required]);
+        this.fGroup.controls.tehranAddress.addValidators([Validators.required]);
+
       }
     });
   }
