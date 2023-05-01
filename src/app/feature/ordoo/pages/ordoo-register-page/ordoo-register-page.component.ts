@@ -3,7 +3,7 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SensetiveSickness, bloodTypes } from 'src/app/shared/models/bloodTypes';
 import { YesOrNoAnswer } from 'src/app/shared/models/yesOrNoAnswer';
 import { IOrdooInformationForm } from "./IOrdooInformationForm";
-import { isEmpty } from 'lodash-es';
+import { isEmpty,isNil } from 'lodash-es';
 import { IOrdooData } from './IOrdooData';
 import { IPersonalInformationForm } from './IPersonalInformation';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
@@ -30,7 +30,7 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       lastSchoolName: _fb.control<string>('', [Validators.required]),
       email: _fb.control<string>('', [Validators.required, Validators.email]),
       isNavjote: _fb.control<boolean>(null, [Validators.required]),
-      isSpecialSickness: _fb.control<boolean>(false, [Validators.required]),
+      isSpecialSickness: _fb.control<boolean>(null, [Validators.required]),
       sensetiveSickness: _fb.control<string[]>([]),
       otherSensetiveSickness: _fb.control<string>(''),
       drug: _fb.control<string>(''),
@@ -43,14 +43,14 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       familyHeadName: _fb.control<string>('', [Validators.required]),
       familyHeadLastName: _fb.control<string>('', [Validators.required]),
       familyHeadRealtion: _fb.control<string>('', [Validators.required]),
-      familyHeadDependents: _fb.control<number>(1, [Validators.required]),
+      familyHeadDependents: _fb.control<number>(null, [Validators.required]),
       familyHeadMarigeStatus: _fb.control<string>('', [Validators.required]),
       familyHeadOld: _fb.control<number>(null, [Validators.required]),
       familyHeadJob: _fb.control<string>('', [Validators.required]),
       familyHeadGraduationRate: _fb.control<string>('', [Validators.required]),
       familyHeadPhone: _fb.control<string>('', [Validators.required]),
       isLostAnybody: _fb.control<boolean>(null, [Validators.required]),
-      familyMembers: _fb.array<FormGroup<IPersonalInformationForm>>([this._addMember()]),
+      familyMembers: _fb.array<FormGroup<IPersonalInformationForm>>([]),
       tehranName: _fb.control<string>(''),
       tehranLastname: _fb.control<string>(''),
       tehranRealtion: _fb.control<string>(''),
@@ -83,12 +83,15 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       commitmentLetter: _fb.control<string>('', [Validators.required]),
       parentsConsent: _fb.control<string>('', [Validators.required]),
       successesDocument: _fb.control<string>('', [Validators.required]),
-      wantBloodTest: _fb.control<boolean>(true, [Validators.required])
+      wantBloodTest: _fb.control<boolean>(null, [Validators.required])
     });
     this.fGroup.valueChanges.subscribe(c => {
       localStorage.setItem("ordooForm", JSON.stringify(c));
     });
     this.fGroup.controls.familyHeadDependents.valueChanges.subscribe(c => {
+      if (isNil(c)) {
+        return;
+      }
       const dependMembers = c - 1;//Remove the regter person
       const pervisMembers = this.fGroup.controls.familyMembers.controls.length;
       for (let index = pervisMembers; index > dependMembers; index--)

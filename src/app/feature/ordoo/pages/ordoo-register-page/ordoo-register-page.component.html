@@ -5,7 +5,7 @@
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    اپلود مدارک مورد نیاز
+                    آپلود مدارک مورد نیاز
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <div>
@@ -27,7 +27,7 @@
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    اطلاعات شخصی
+                    مشخصات فردی شرکت‌کننده
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <div fxLayout="column">
@@ -76,7 +76,7 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>
-                        پست الکترونیک
+                        آدرس پست الکترونیک
                     </mat-label>
                     <input formControlName="email"
                            type="email"
@@ -84,7 +84,7 @@
                 </mat-form-field>
                 <div>
                     <label>
-                        آیا سدره پوش شده اید؟
+                        آیا سدره پوش شده‌اید؟
                     </label>
                     <mat-radio-group formControlName="isNavjote">
                         <mat-radio-button *ngFor="let season of yesOrNoAnswer"
@@ -104,21 +104,11 @@
                         </mat-radio-button>
                     </mat-radio-group>
                 </div>
-                <div>
-                    <label>
-                        آیا شما آزمایش خون میدید؟
-                    </label>
-                    <mat-radio-group formControlName="wantBloodTest">
-                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
-                                          [value]="season.value">
-                            {{season.label}}
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </div>
+
                 <div *ngIf="fGroup.value.isSpecialSickness">
                     <mat-form-field>
                         <mat-label>
-                            چنانچه به هر یک از بیماریهای زیر مبتلا هستید؟
+                            چنانچه به هر یک از بیماری‌های زیر مبتلا هستید، در مقابل آن علامت بزنید؟
                         </mat-label>
                         <mat-select formControlName="sensetiveSickness"
                                     multiple>
@@ -179,11 +169,22 @@
                                     [value]="blood.value">{{blood.label}}</mat-option>
                     </mat-select>
                 </mat-form-field>
+                <div>
+                    <label>
+                        درصورتی که تمایل دارید تا از شما آزمایش خون گرفته شود گزین "بله" را انتخاب نمایید.
+                    </label>
+                    <mat-radio-group formControlName="wantBloodTest">
+                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
             </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
-                <mat-panel-title>اصلاعات لباس </mat-panel-title>
+                <mat-panel-title>اطلاعات لباس </mat-panel-title>
             </mat-expansion-panel-header>
             <div fxLayout="column">
                 <mat-form-field>
@@ -203,17 +204,17 @@
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    مشخصات خانواده شرکت کننده
+                    مشخصات خانواده شرکت‌کننده
 
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <p>
                 در زیر مواردی ارائه شده است. این موارد را درباره
                 وضعیت پدر، مادر، خواهران، برادران و سایر افرادی که
-                با خانواده شما زندگی میکنند، به طور کامل پر کنید
+                با خانواده شما زندگی می‌کنند، به طور کامل پر کنید.
                 هر سری از سوالات مربوط به یک نفر از اعضای خانواده
-                میباشد. پر کردن سوالات مربوط به یک نفر (هشت سوال
-                (اولیه الزامیست</p>
+                می‌باشد.
+            </p>
             <div>
                 <mat-form-field>
                     <mat-label>
@@ -361,7 +362,7 @@
                 </mat-tab-group>
             </div>
         </mat-expansion-panel>
-        <mat-expansion-panel *ngIf="">
+        <mat-expansion-panel *ngIf="isLiveInTehran">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     مشخصات یکی از اقوام نزدیک در تهران
@@ -444,7 +445,7 @@
                 </mat-form-field>
                 <div>
                     <label>آیا تا به حال برای شرکت در اردوی دانش آموزان
-                        کانون دانشجویان زرتشتی اقدام کرده اید؟
+                        کانون دانشجویان زرتشتی اقدام کرده‌اید؟
                     </label>
                     <mat-radio-group formControlName="haveTriedOrdoo">
                         <mat-radio-button *ngFor="let season of yesOrNoAnswer"
@@ -455,9 +456,8 @@
                 </div>
                 <div>
                     <label>
-                        یا هیچ یک از دوستان یا اقوام نزدیک شما
-                        تقاضانامه ی شرکت در اردوی امسال را پر کرده
-                        اند؟
+                        آیا هیچ یک از دوستان یا اقوام نزدیک شما
+                        تقاضانامه ی شرکت در اردوی امسال را پر کرده‌اند؟
                     </label>
                     <mat-radio-group formControlName="isCloseFamilyinOrdoo">
                         <mat-radio-button *ngFor="let season of yesOrNoAnswer"
@@ -474,15 +474,15 @@
                            matInput>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>
-                        چقدر و از چه راهی با کانون و برنامههای آن از
+                    <mat-label class="warp-label">
+                        چقدر و از چه راهی با کانون و برنامه‌های آن از
                         جمله اردو، آشنایی دارید؟
                     </mat-label>
                     <textarea formControlName="howMeetOrdoo"
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>
+                    <mat-label class="warp-label">
                         چرا دوست دارید در اردو شرکت کنید؟ هدف شما
                         از ثبت نام برای اردو امسال چیست؟
                     </mat-label>
@@ -497,20 +497,20 @@
 
 
                 <mat-form-field>
-                    <mat-label>الف) آیا در این مدت تلاش می کنید تا با افراد دیگر ارتباط برقرار کنید و با آن ها دوست
+                    <mat-label class="warp-label">الف) آیا در این مدت تلاش می کنید تا با افراد دیگر ارتباط برقرار کنید و با آن ها دوست
                         شوید، یا ترجیح می دهید دیگران با شما شروع به صحبت کنند؟
                     </mat-label>
                     <textarea formControlName="goAfterNewPeople"
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>ب) دوست دارید با تمام بچه های کلاس آشنا شوید یا اینکه با افراد اطراف خود بیشتر صحبت کنید
+                    <mat-label class="warp-label">ب) دوست دارید با تمام بچه های کلاس آشنا شوید یا اینکه با افراد اطراف خود بیشتر صحبت کنید
                     </mat-label>
                     <textarea formControlName="goesAfterlongPeopleOrNear"
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>ج) فرض کنید نیم ساعت گذشته و معلم پرورشی وارد کلاس می شود و شما را به گروه های مختلف
+                    <mat-label class="warp-label">ج) فرض کنید نیم ساعت گذشته و معلم پرورشی وارد کلاس می شود و شما را به گروه های مختلف
                         تقسیم می کند و به شما فرصت می دهد تا موضوعی را برای بحث انتخاب کنید، شما چه موضوعی را مناسب می
                         دانید و برایتان جذاب است؟
 
@@ -525,7 +525,7 @@
                     .نداشتهاید، به سوالات زیر پاسخ دهید
                 </p>
                 <mat-form-field>
-                    <mat-label>
+                    <mat-label class="warp-label">
                         دوست دارید چه موضوعات و فعالیتهایی را در
                         کلاس های آموزشی یاد بگیرید؟
                     </mat-label>
@@ -555,11 +555,11 @@
                     <textarea formControlName="likeSpendFreetime"
                               matInput></textarea>
                 </mat-form-field>
-                فرض کنید صبح یکی از روزهای اردو وقتی از درب خوابگاه بیرون می روید، هیچ یک از برگزار
-                کننده ها در مارکار حضور ندارند در آن روز چه فعالیت هایی انجام می دهید ؟
+                
                 <mat-form-field>
-                    <mat-label>
-                        جواب
+                    <mat-label class="warp-label">
+                        فرض کنید صبح یکی از روزهای اردو وقتی از درب خوابگاه بیرون می روید، هیچ یک از برگزار
+                        کننده ها در مارکار حضور ندارند در آن روز چه فعالیت هایی انجام می دهید ؟
                     </mat-label>
                     <textarea formControlName="freeBeInMarkar"
                               matInput></textarea>
@@ -576,15 +576,15 @@
                     بیشتر ما با شما و اجرای برنامهای متناسب با نیاز شما،
                     .طراحی شدهاند
                 </p>
-                <mat-form-field>
-                    <mat-label>چه ویژگیهایی در مورد خودتان هست که آنها را
+                <mat-form-field >
+                    <mat-label class="warp-label">چه ویژگی‌هایی در مورد خودتان هست که آنها را
                         نقاط قوت خود می دانید؟
                     </mat-label>
                     <textarea formControlName="goodPoints"
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>چه مسائلی در مورد خودتان هست که دوست
+                    <mat-label class="warp-label">چه مسائلی در مورد خودتان هست که دوست
                         دارید بهبود بدهید؟
                     </mat-label>
                     <textarea formControlName="negetivePoints"
@@ -605,14 +605,14 @@
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>یکی از بزرگترین درس هایی که تا امروز در
+                    <mat-label class="warp-label">یکی از بزرگترین درس هایی که تا امروز در
                         .زندگیتان یاد گرفتید، بنویسید
                     </mat-label>
                     <textarea formControlName="biggestLesson"
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>چه کسانی بیشترین تاثیرگذاری را بر روی شما
+                    <mat-label class="warp-label">چه کسانی بیشترین تاثیرگذاری را بر روی شما
                         دارند؟چرا؟
                     </mat-label>
                     <textarea formControlName="mostInfuence"
