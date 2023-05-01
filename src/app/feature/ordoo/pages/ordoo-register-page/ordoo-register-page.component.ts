@@ -133,7 +133,7 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this._ordooService.isLiveInTehran.subscribe(c => {
       this.isLiveInTehran = c.entity.isLiveInTehran;
-      if (this.isLiveInTehran) {
+      if (!this.isLiveInTehran) {
         this.fGroup.controls.tehranName.addValidators([Validators.required]);
         this.fGroup.controls.tehranLastname.addValidators([Validators.required]);
         this.fGroup.controls.tehranRealtion.addValidators([Validators.required]);
