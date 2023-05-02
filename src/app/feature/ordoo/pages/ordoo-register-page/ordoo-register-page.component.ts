@@ -3,11 +3,12 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SensetiveSickness, bloodTypes } from 'src/app/shared/models/bloodTypes';
 import { YesOrNoAnswer } from 'src/app/shared/models/yesOrNoAnswer';
 import { IOrdooInformationForm } from "./IOrdooInformationForm";
-import { isEmpty,isNil } from 'lodash-es';
+import { isEmpty, isNil } from 'lodash-es';
 import { IOrdooData } from './IOrdooData';
 import { IPersonalInformationForm } from './IPersonalInformation';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { OrdooService } from '../../services/ordoo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ordoo-register-page',
@@ -20,7 +21,7 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
   sensetiveSickness = SensetiveSickness;
   isLiveInTehran = true;
   fGroup: FormGroup<IOrdooInformationForm>;
-  constructor (private readonly _fb: FormBuilder, private readonly _swalService: SwalService, private readonly _ordooService: OrdooService) {
+  constructor (private readonly _fb: FormBuilder, private readonly _swalService: SwalService, private readonly _ordooService: OrdooService, private readonly _router: Router) {
     this.fGroup = _fb.group<IOrdooInformationForm>({
       placeOfBirthCertificate: _fb.control<string>('', [Validators.required]),
       grades: _fb.control<string>('', [Validators.required]),
@@ -82,11 +83,12 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       lastAcademicTranscript: _fb.control<string>('', [Validators.required]),
       commitmentLetter: _fb.control<string>('', [Validators.required]),
       parentsConsent: _fb.control<string>('', [Validators.required]),
-      successesDocument: _fb.control<string>('', [Validators.required]),
+      successesDocument: _fb.control<string>(''),
       wantBloodTest: _fb.control<boolean>(null, [Validators.required])
     });
     this.fGroup.valueChanges.subscribe(c => {
       localStorage.setItem("ordooForm", JSON.stringify(c));
+
     });
     this.fGroup.controls.familyHeadDependents.valueChanges.subscribe(c => {
       if (isNil(c)) {
@@ -157,11 +159,13 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
     }
   }
   async onFormSubmited() {
+    await this._ordooService.registerOrdoo(<IOrdooData>this.fGroup.value).toPromise();
     await this._swalService.successFullRegister();
     await this._swalService.swal.fire({
       title: 'این تستی بود!',
       icon: 'warning'
     });
+    this._router.navigate(['/']);
   }
   private _addMember() {
     return this._fb.group<IPersonalInformationForm>({

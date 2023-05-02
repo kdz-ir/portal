@@ -16,12 +16,17 @@
                 <app-image-uploader fileType="4"
                                     eventType="1"
                                     accept="image/jpeg"
-                                    formControlName="parentsConsent">تعهدنامه و رضایتنامه والدین به صورت دست
+                                    formControlName="parentsConsent"> رضایتنامه والدین به صورت دست
+                    نویس</app-image-uploader>
+                <app-image-uploader fileType="6"
+                                    eventType="1"
+                                    accept="image/jpeg"
+                                    formControlName="commitmentLetter"> تعهدنامه والدین به صورت دست
                     نویس</app-image-uploader>
                 <app-image-uploader eventType="1"
                                     fileType="5"
                                     accept="image/jpeg"
-                                    formArrayName="successesDocument">مدرک مربوط به موفقیتتان</app-image-uploader>
+                                    formControlName="successesDocument">مدرک مربوط به موفقیتتان</app-image-uploader>
             </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
@@ -497,20 +502,23 @@
 
 
                 <mat-form-field>
-                    <mat-label class="warp-label">الف) آیا در این مدت تلاش می کنید تا با افراد دیگر ارتباط برقرار کنید و با آن ها دوست
+                    <mat-label class="warp-label">الف) آیا در این مدت تلاش می کنید تا با افراد دیگر ارتباط برقرار کنید و
+                        با آن ها دوست
                         شوید، یا ترجیح می دهید دیگران با شما شروع به صحبت کنند؟
                     </mat-label>
                     <textarea formControlName="goAfterNewPeople"
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label class="warp-label">ب) دوست دارید با تمام بچه های کلاس آشنا شوید یا اینکه با افراد اطراف خود بیشتر صحبت کنید
+                    <mat-label class="warp-label">ب) دوست دارید با تمام بچه های کلاس آشنا شوید یا اینکه با افراد اطراف
+                        خود بیشتر صحبت کنید
                     </mat-label>
                     <textarea formControlName="goesAfterlongPeopleOrNear"
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label class="warp-label">ج) فرض کنید نیم ساعت گذشته و معلم پرورشی وارد کلاس می شود و شما را به گروه های مختلف
+                    <mat-label class="warp-label">ج) فرض کنید نیم ساعت گذشته و معلم پرورشی وارد کلاس می شود و شما را به
+                        گروه های مختلف
                         تقسیم می کند و به شما فرصت می دهد تا موضوعی را برای بحث انتخاب کنید، شما چه موضوعی را مناسب می
                         دانید و برایتان جذاب است؟
 
@@ -555,7 +563,7 @@
                     <textarea formControlName="likeSpendFreetime"
                               matInput></textarea>
                 </mat-form-field>
-                
+
                 <mat-form-field>
                     <mat-label class="warp-label">
                         فرض کنید صبح یکی از روزهای اردو وقتی از درب خوابگاه بیرون می روید، هیچ یک از برگزار
@@ -576,7 +584,7 @@
                     بیشتر ما با شما و اجرای برنامهای متناسب با نیاز شما،
                     .طراحی شدهاند
                 </p>
-                <mat-form-field >
+                <mat-form-field>
                     <mat-label class="warp-label">چه ویژگی‌هایی در مورد خودتان هست که آنها را
                         نقاط قوت خود می دانید؟
                     </mat-label>
