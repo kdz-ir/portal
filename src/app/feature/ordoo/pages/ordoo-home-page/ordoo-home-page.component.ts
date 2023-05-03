@@ -11,5 +11,8 @@ export class OrdooHomePageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  onDeleteCatch()
+  {
+    localStorage.removeItem("ordooForm")
+  }
 }
