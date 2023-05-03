@@ -101,7 +101,7 @@ export class EditProfileComponent implements AfterViewInit {
           sex: sextypes.find(s => s.lable == c.entity.sex)?.value ?? 0,
           fatherName: c.entity.fatherName,
           address: c.entity.address,
-          city: cites.find(cs => cs.lable == c.entity.city)?.value ?? 0,
+          city: cites.find(cs => cs.label == c.entity.city)?.value ?? 0,
           birthday: moment(c.entity.birthday, 'jYYYY/jMM/jDD'),
           phone: c.entity.phone,
           postalCode: c.entity.postalCode,
