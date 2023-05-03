@@ -81,7 +81,6 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       biggestLesson: _fb.control<string>('', [Validators.required]),
       mostInfuence: _fb.control<string>('', [Validators.required]),
       lastAcademicTranscript: _fb.control<string>('', [Validators.required]),
-      commitmentLetter: _fb.control<string>('', [Validators.required]),
       parentsConsent: _fb.control<string>('', [Validators.required]),
       successesDocument: _fb.control<string>(''),
       wantBloodTest: _fb.control<boolean>(null, [Validators.required])

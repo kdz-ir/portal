@@ -59,7 +59,6 @@ export interface IOrdooData {
   biggestLesson: string;
   mostInfuence: string;
   lastAcademicTranscript: string;
-  commitmentLetter: string;
   parentsConsent: string;
   successesDocument: string;
   wantBloodTest: boolean;

@@ -61,7 +61,6 @@ export interface IOrdooInformationForm {
   biggestLesson: FormControl<string>;
   mostInfuence: FormControl<string>;
   lastAcademicTranscript: FormControl<string>;
-  commitmentLetter: FormControl<string>;
   parentsConsent: FormControl<string>;
   successesDocument: FormControl<string>;
   wantBloodTest:FormControl<boolean>;
