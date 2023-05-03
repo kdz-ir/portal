@@ -7,12 +7,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { OrdooRegisterPageComponent } from './pages/ordoo-register-page/ordoo-register-page.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
+import { OrdooAdminPageComponent } from './pages/ordoo-admin-page/ordoo-admin-page.component';
 
 
 @NgModule({
   declarations: [
     OrdooHomePageComponent,
-    OrdooRegisterPageComponent
+    OrdooRegisterPageComponent,
+    OrdooAdminPageComponent
   ],
   imports: [
     SharedModule,
