@@ -5,33 +5,6 @@
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    آپلود مدارک مورد نیاز
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div>
-                <app-image-uploader eventType="1"
-                                    accept="image/jpeg"
-                                    fileType="3"
-                                    formControlName="lastAcademicTranscript">آخرین کارنامه تحصیلی</app-image-uploader>
-                <app-image-uploader fileType="4"
-                                    eventType="1"
-                                    accept="image/jpeg"
-                                    formControlName="parentsConsent"> رضایتنامه والدین به صورت دست
-                    نویس</app-image-uploader>
-                <app-image-uploader fileType="6"
-                                    eventType="1"
-                                    accept="image/jpeg"
-                                    formControlName="commitmentLetter"> تعهدنامه والدین به صورت دست
-                    نویس</app-image-uploader>
-                <app-image-uploader eventType="1"
-                                    fileType="5"
-                                    accept="image/jpeg"
-                                    formControlName="successesDocument">مدرک مربوط به موفقیتتان</app-image-uploader>
-            </div>
-        </mat-expansion-panel>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
                     مشخصات فردی شرکت‌کننده
                 </mat-panel-title>
             </mat-expansion-panel-header>
@@ -203,8 +176,34 @@
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
+                    آپلود مدارک مورد نیاز
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+                <app-image-uploader eventType="1"
+                                    accept="image/jpeg"
+                                    fileType="3"
+                                    formControlName="lastAcademicTranscript">آخرین کارنامه تحصیلی</app-image-uploader>
+                <app-image-uploader fileType="4"
+                                    eventType="1"
+                                    accept="image/jpeg"
+                                    formControlName="parentsConsent"> رضایتنامه والدین به صورت دست
+                    نویس</app-image-uploader>
+                <app-image-uploader fileType="6"
+                                    eventType="1"
+                                    accept="image/jpeg"
+                                    formControlName="commitmentLetter"> تعهدنامه والدین به صورت دست
+                    نویس</app-image-uploader>
+                <app-image-uploader eventType="1"
+                                    fileType="5"
+                                    accept="image/jpeg"
+                                    formControlName="successesDocument">مدرک مربوط به موفقیتتان</app-image-uploader>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
                     مشخصات خانواده شرکت‌کننده
-
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <p>
@@ -421,6 +420,11 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <div fxLayout="column">
+                <p>
+                    این سوالات ملاک سنجش ما نیستند و صرفا برای آشنایی
+                    بیشتر ما با شما و اجرای برنامه‌ای متناسب با نیاز شما
+                    طراحی شده‌اند.
+                </p>
                 <div>
                     <label id="">آیا تا به حال در اردوی دانش آموزان کانون
                         دانشجویان زرتشتی شرکت کرده اید؟</label>
@@ -512,7 +516,9 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label class="warp-label">
-                        ج) فرض کنید نیم ساعت گذشته و معلم پرورشی وارد کلاس می‌شود و شما را به گروه‌های مختلف تقسیم می‌کند و به شما فرصت می‌دهد تا موضوعی را برای بحث انتخاب کنید، شما چه موضوعی را مناسب می‌دانید و برایتان جذاب است؟
+                        ج) فرض کنید نیم ساعت گذشته و معلم پرورشی وارد کلاس می‌شود و شما را به گروه‌های مختلف تقسیم
+                        می‌کند و به شما فرصت می‌دهد تا موضوعی را برای بحث انتخاب کنید، شما چه موضوعی را مناسب می‌دانید و
+                        برایتان جذاب است؟
 
                     </mat-label>
                     <textarea formControlName="likedTopics"
@@ -520,9 +526,9 @@
                 </mat-form-field>
                 <p>
                     با فرض پذیرفته شدن در اردو، بدون در نظر گرفتن
-                    محدودیتهای اجرایی، با توجه به عالیقتان و با در نظر
-                    گرفتن فعالیتهایی که تاکنون فرصت تجربهی آن را
-                    .نداشتهاید، به سوالات زیر پاسخ دهید
+                    محدودیت‌های اجرایی، با توجه به علایقتان و با در نظر
+                    گرفتن فعالیت‌هایی که تاکنون فرصت تجربه‌ی آن را
+                    نداشته‌اید، به سوالات زیر پاسخ دهید.
                 </p>
                 <mat-form-field>
                     <mat-label class="warp-label">
@@ -534,7 +540,7 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>
-                        دوست دارید چه فعالیتهای ورزشی را تجربه
+                        دوست دارید چه فعالیت‌های ورزشی را تجربه
                         کنید؟
                     </mat-label>
                     <textarea formControlName="likeSports"
@@ -542,7 +548,7 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>
-                        دوست دارید چه فعالیت های هنری را امتحان
+                        دوست دارید چه فعالیت‌های هنری را امتحان
                         کنید؟
                     </mat-label>
                     <textarea formControlName="likeArt"
@@ -558,23 +564,19 @@
 
                 <mat-form-field>
                     <mat-label class="warp-label">
-                        فرض کنید صبح یکی از روزهای اردو وقتی از درب خوابگاه بیرون می‌روید، هیچ یک از برگزار کننده‌ها در مارکار حضور ندارند در آن روز چه فعالیت‌هایی انجام می‌دهید؟
+                        فرض کنید صبح یکی از روزهای اردو وقتی از درب خوابگاه بیرون می‌روید، هیچ یک از برگزار کننده‌ها در
+                        مارکار حضور ندارند در آن روز چه فعالیت‌هایی انجام می‌دهید؟
                     </mat-label>
                     <textarea formControlName="freeBeInMarkar"
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>دوست دارید از چه مکانهایی در تهران بازدید
+                    <mat-label>دوست دارید از چه مکان‌هایی در تهران بازدید
                         کنید؟
                     </mat-label>
                     <textarea formControlName="likePlaceInTehran"
                               matInput></textarea>
                 </mat-form-field>
-                <p>
-                    این سوالات ملاک سنجش ما نیستند و صرفا برای آشنایی
-                    بیشتر ما با شما و اجرای برنامهای متناسب با نیاز شما،
-                    .طراحی شدهاند
-                </p>
                 <mat-form-field>
                     <mat-label class="warp-label">چه ویژگی‌هایی در مورد خودتان هست که آنها را
                         نقاط قوت خود می دانید؟
@@ -590,7 +592,7 @@
                               matInput></textarea>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>.یکی ازبهترین خاطرات خود را بنویسید
+                    <mat-label>یکی ازبهترین خاطرات خود را بنویسید.
 
                     </mat-label>
                     <textarea formControlName="bestMemory"
@@ -605,7 +607,7 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label class="warp-label">یکی از بزرگترین درس هایی که تا امروز در
-                        .زندگیتان یاد گرفتید، بنویسید
+                        زندگیتان یاد گرفتید، بنویسید.
                     </mat-label>
                     <textarea formControlName="biggestLesson"
                               matInput></textarea>
