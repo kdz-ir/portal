@@ -16,4 +16,7 @@ export class OrdooService {
   registerOrdoo(data: IOrdooData) {
     return this._http.post(this._url + '/register', data);
   }
+  getReport() {
+    return this._http.get(this._url + '/report', { responseType: 'blob' });
+  }
 }
