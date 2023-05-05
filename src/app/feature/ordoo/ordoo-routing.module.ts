@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { OrdooHomePageComponent } from './pages/ordoo-home-page/ordoo-home-page.component';
 import { OrdooRegisterPageComponent } from './pages/ordoo-register-page/ordoo-register-page.component';
 import { OrdooAdminPageComponent } from './pages/ordoo-admin-page/ordoo-admin-page.component';
+import { OrdooAyinNamePageComponent } from './pages/ordoo-ayin-name-page/ordoo-ayin-name-page.component';
 
 const routes: Routes = [{
   path: '',
@@ -13,6 +14,9 @@ const routes: Routes = [{
 }, {
   path: 'admin',
   component: OrdooAdminPageComponent
+}, {
+  path: 'ayin-name',
+  component: OrdooAyinNamePageComponent
 }];
 
 @NgModule({

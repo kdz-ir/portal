@@ -8,13 +8,15 @@ import { OrdooRegisterPageComponent } from './pages/ordoo-register-page/ordoo-re
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 import { OrdooAdminPageComponent } from './pages/ordoo-admin-page/ordoo-admin-page.component';
+import { OrdooAyinNamePageComponent } from './pages/ordoo-ayin-name-page/ordoo-ayin-name-page.component';
 
 
 @NgModule({
   declarations: [
     OrdooHomePageComponent,
     OrdooRegisterPageComponent,
-    OrdooAdminPageComponent
+    OrdooAdminPageComponent,
+    OrdooAyinNamePageComponent
   ],
   imports: [
     SharedModule,
