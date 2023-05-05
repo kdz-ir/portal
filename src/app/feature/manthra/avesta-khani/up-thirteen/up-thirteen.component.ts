@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgeType } from 'src/app/core/model/age-type-enum';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.service';
+import { ILabel } from 'src/app/shared/models/yesOrNoAnswer';
 
 @Component({
   selector: 'app-up-thirteen',
@@ -12,39 +13,17 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
 })
 export class UpThirteenComponent implements OnInit {
   readonly ageTypeEnum = AgeType;
+  readonly avestaKhaniCategories = avestaKhaniCategoriesList;
   avestaKhaniForm: UntypedFormGroup;
   ageRange = 0;
   constructor (private readonly _fb: UntypedFormBuilder,
     private readonly _router: Router,
     private readonly _swal: SwalService, private readonly _repository: ManthraReporsitoryService) {
     this.avestaKhaniForm = _fb.group({
-      isOrdooHamayesh: [false],
-      algoritm: [false],
-      narmafzar: [false],
-      grim: [false],
-      other: [],
-      isLikeAttend:[false],
-      bracelets: [false],
-      narration: [false],
-      caricature: [false],
-      origami: [false],
-      helps: [false],
-      experiments: [false],
-      iran: [false],
-      yoga: [false],
-      stories: [false],
-      food: [false],
-      arts: [false],
-      ravanShenasi: [false],
-      resumeWriting: [false],
-      emotionalIntelligenceWorkshop: [false],
-      technologyWorkshop: [false],
-      contentProduction: [false],
-      principlesOfPhotoarts: [false],graphy: [false],
-      bodyLanguage: [false],
-      mindControlWorkshop: [false],
-      linkedin: [false],
-      rade: [, Validators.required]
+      ordooHamaysh: [],
+      category: [, [Validators.required]],
+      rade: ['0'],
+      iiarNationalCodeAsli0: []
     });
   }
   ngOnInit(): void {
@@ -53,42 +32,50 @@ export class UpThirteenComponent implements OnInit {
 
     });
   }
+  onblurInput(control: AbstractControl) {
+    if (control.valid && control.value != null)
+      this._repository.canPersionRegister(control.value).subscribe(c => {
+        console.log(c);
 
+      }, () => {
+        control.setValue('');
+      });
+  }
   onSubmit() {
     const values = this.avestaKhaniForm.value;
-
+    console.log(values);
     this._repository.submitAvestaKhaniForms({
       rade: +values.rade,
-      isOrdooHamayesh: values.isOrdooHamayesh,
+      isOrdooHamayesh: values.ordooHamaysh.isOrdooHamayesh,
       ageType: this.ageRange,
+      iiarNationalCodeAsli0: values.iiarNationalCodeAsli0,
       step: 100,
       state: 'end',
-      isLikeAttend: values.isLikeAttend,
       oordoHamayesh: {
-        algoritm: values.algoritm,
-        narmafzar: values.narmafzar,
-        other: values.other,
-        grim: values.grim,
-        bracelets: values.Bracelets,
-        narration: values.narration,
-        origami: values.origami,
-        helps: values.helps,
-        experiments: values.Experiments,
-        iran: values.iran,
-        arts: values.arts,
-        yoga: values.yoga,
-        stories: values.stories,
-        food: values.food,
-        ravanShenasi: values.ravanShenasi,
-        resumeWriting: values.resumeWriting,
-        emotionalIntelligenceWorkshop: values.emotionalIntelligenceWorkshop,
-        technologyWorkshop: values.technologyWorkshop,
-        contentProduction: values.contentProduction,
-        principlesOfPhotoarts: values.principlesOfPhotoarts,
-        bodyLanguage: values.bodyLanguage,
-        mindControlWorkshop: values.mindControlWorkshop,
-        linkedin: values.linkedin,
-        caricature: values.Caricature
+        algoritm: values.ordooHamaysh.algoritm,
+        narmafzar: values.ordooHamaysh.narmafzar,
+        other: values.ordooHamaysh.other,
+        grim: values.ordooHamaysh.grim,
+        bracelets: values.ordooHamaysh.Bracelets,
+        narration: values.ordooHamaysh.narration,
+        origami: values.ordooHamaysh.origami,
+        helps: values.ordooHamaysh.helps,
+        experiments: values.ordooHamaysh.Experiments,
+        iran: values.ordooHamaysh.iran,
+        arts: values.ordooHamaysh.arts,
+        yoga: values.ordooHamaysh.yoga,
+        stories: values.ordooHamaysh.stories,
+        food: values.ordooHamaysh.food,
+        ravanShenasi: values.ordooHamaysh.ravanShenasi,
+        resumeWriting: values.ordooHamaysh.resumeWriting,
+        emotionalIntelligenceWorkshop: values.ordooHamaysh.emotionalIntelligenceWorkshop,
+        technologyWorkshop: values.ordooHamaysh.technologyWorkshop,
+        contentProduction: values.ordooHamaysh.contentProduction,
+        principlesOfPhotoarts: values.ordooHamaysh.principlesOfPhotoarts,
+        bodyLanguage: values.ordooHamaysh.bodyLanguage,
+        mindControlWorkshop: values.ordooHamaysh.mindControlWorkshop,
+        linkedin: values.ordooHamaysh.linkedin,
+        caricature: values.ordooHamaysh.Caricature
       }
     }).subscribe(c => {
       this._swal.successFullRegister();
@@ -96,3 +83,14 @@ export class UpThirteenComponent implements OnInit {
     });
   }
 }
+export const avestaKhaniCategoriesList: ILabel[] = [{
+  label: 'رو خوانی',
+  value: 0
+},
+{
+  label: 'از بر خوانی',
+  value: 1
+}, {
+  label: 'از بر گروهی',
+  value: 2
+}];
