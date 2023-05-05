@@ -15,7 +15,7 @@ export class OrdooHomePageComponent implements OnInit {
   ngOnInit(): void {
     this.isAdmin = this._authenticationService.getTokenItem<number>("isAdmin");
     this.roleId = this._authenticationService.getTokenItem<number>("rule_id");
-console.log(this.isAdmin);
+    console.log(this.isAdmin);
 
   }
   onDeleteCatch() {
