@@ -25,6 +25,10 @@
         <mat-label>کد ملی یار</mat-label>
         <input formControlName="iiarNationalCodeAsli0" (blur)="onblurInput(avestaKhaniForm.controls.iiarNationalCodeAsli0)" matInput>
     </mat-form-field>
+    <mat-form-field *ngIf="avestaKhaniForm.value.category?.includes(2)">
+        <mat-label>شماره گروه</mat-label>
+        <input formControlName="groupNumber" type="number" matInput>
+    </mat-form-field>
     <app-ordoo-hamyesh-poll [ageRange]="ageRange"
                             formControlName="ordooHamaysh"></app-ordoo-hamyesh-poll>
     <button color="primary"

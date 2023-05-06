@@ -23,7 +23,8 @@ export class UpThirteenComponent implements OnInit {
       ordooHamaysh: [],
       category: [, [Validators.required]],
       rade: ['0'],
-      iiarNationalCodeAsli0: []
+      iiarNationalCodeAsli0: [],
+      groupNumber: []
     });
   }
   ngOnInit(): void {
@@ -49,6 +50,7 @@ export class UpThirteenComponent implements OnInit {
       isOrdooHamayesh: values.ordooHamaysh.isOrdooHamayesh,
       ageType: this.ageRange,
       iiarNationalCodeAsli0: values.iiarNationalCodeAsli0,
+      groupNumber: values.groupNumber,
       step: 100,
       state: 'end',
       oordoHamayesh: {
