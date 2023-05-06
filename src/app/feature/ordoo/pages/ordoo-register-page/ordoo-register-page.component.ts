@@ -160,10 +160,6 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
   async onFormSubmited() {
     await this._ordooService.registerOrdoo(<IOrdooData>this.fGroup.value).toPromise();
     await this._swalService.successFullRegister();
-    await this._swalService.swal.fire({
-      title: 'این تستی بود!',
-      icon: 'warning'
-    });
     this._router.navigate(['/']);
   }
   private _addMember() {
