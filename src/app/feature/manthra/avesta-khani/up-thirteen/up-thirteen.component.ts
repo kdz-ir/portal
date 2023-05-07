@@ -5,6 +5,7 @@ import { AgeType } from 'src/app/core/model/age-type-enum';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.service';
 import { ILabel } from 'src/app/shared/models/yesOrNoAnswer';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-up-thirteen',
@@ -22,7 +23,7 @@ export class UpThirteenComponent implements OnInit {
     this.avestaKhaniForm = _fb.group({
       ordooHamaysh: [],
       category: [, [Validators.required]],
-      rade: ['0'],
+      rade: [],
       iiarNationalCodeAsli0: [],
       groupNumber: []
     });
@@ -32,6 +33,15 @@ export class UpThirteenComponent implements OnInit {
       this.ageRange = c.entity.ageType;
 
     });
+  }
+  onSelectChange(data: MatSelectChange) {
+    const selectedItem = <Array<number>>data.value;
+    if (selectedItem.includes(0))
+      this.avestaKhaniForm.controls.rade.addValidators([Validators.required]);
+    else {
+      this.avestaKhaniForm.controls.rade.clearValidators();
+      this.avestaKhaniForm.controls.rade.setValue(null);
+    }
   }
   onblurInput(control: AbstractControl) {
     if (control.valid && control.value != null)
@@ -46,7 +56,7 @@ export class UpThirteenComponent implements OnInit {
     const values = this.avestaKhaniForm.value;
     this._repository.submitAvestaKhaniForms({
       rade: +values.rade,
-      isOrdooHamayesh: values.ordooHamaysh.isOrdooHamayesh,
+      isOrdooHamayesh: values.ordooHamaysh?.isOrdooHamayesh ?? false,
       ageType: this.ageRange,
       category: values.category,
       iiarNationalCodeAsli0: values.iiarNationalCodeAsli0,
@@ -54,20 +64,20 @@ export class UpThirteenComponent implements OnInit {
       step: 100,
       state: 'end',
       oordoHamayesh: {
-        goftogo: values.ordooHamaysh.goftogo,
-        sweets: values.ordooHamaysh.sweets,
-        boors: values.ordooHamaysh.boors,
-        other: values.ordooHamaysh.other,
-        digital: values.ordooHamaysh.digital,
-        advidio: values.ordooHamaysh.advidio,
-        brand: values.ordooHamaysh.brand,
-        copyright: values.ordooHamaysh.copyright,
-        instageram: values.ordooHamaysh.instageram,
-        mozkerat: values.ordooHamaysh.mozkerat,
-        elmi: values.ordooHamaysh.elmi,
-        sport: values.ordooHamaysh.sport,
-        art: values.ordooHamaysh.art,
-        visit: values.ordooHamaysh.visit,
+        goftogo: values.ordooHamaysh?.goftogo,
+        sweets: values.ordooHamaysh?.sweets,
+        boors: values.ordooHamaysh?.boors,
+        other: values.ordooHamaysh?.other,
+        digital: values.ordooHamaysh?.digital,
+        advidio: values.ordooHamaysh?.advidio,
+        brand: values.ordooHamaysh?.brand,
+        copyright: values.ordooHamaysh?.copyright,
+        instageram: values.ordooHamaysh?.instageram,
+        mozkerat: values.ordooHamaysh?.mozkerat,
+        elmi: values.ordooHamaysh?.elmi,
+        sport: values.ordooHamaysh?.sport,
+        art: values.ordooHamaysh?.art,
+        visit: values.ordooHamaysh?.visit,
       }
     }).subscribe(c => {
       this._swal.successFullRegister();

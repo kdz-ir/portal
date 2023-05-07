@@ -6,6 +6,7 @@
     <mat-form-field>
         <mat-label>دسته بندی</mat-label>
         <mat-select multiple
+        (selectionChange)="onSelectChange($event)"
                     formControlName="category">
             <mat-option [value]="category.value"
                         *ngFor="let category of avestaKhaniCategories">
