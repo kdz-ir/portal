@@ -44,7 +44,6 @@ export class UpThirteenComponent implements OnInit {
   }
   onSubmit() {
     const values = this.avestaKhaniForm.value;
-    console.log(values);
     this._repository.submitAvestaKhaniForms({
       rade: +values.rade,
       isOrdooHamayesh: values.ordooHamaysh.isOrdooHamayesh,
@@ -55,30 +54,20 @@ export class UpThirteenComponent implements OnInit {
       step: 100,
       state: 'end',
       oordoHamayesh: {
-        algoritm: values.ordooHamaysh.algoritm,
-        narmafzar: values.ordooHamaysh.narmafzar,
+        goftogo: values.ordooHamaysh.goftogo,
+        sweets: values.ordooHamaysh.sweets,
+        boors: values.ordooHamaysh.boors,
         other: values.ordooHamaysh.other,
-        grim: values.ordooHamaysh.grim,
-        bracelets: values.ordooHamaysh.Bracelets,
-        narration: values.ordooHamaysh.narration,
-        origami: values.ordooHamaysh.origami,
-        helps: values.ordooHamaysh.helps,
-        experiments: values.ordooHamaysh.Experiments,
-        iran: values.ordooHamaysh.iran,
-        arts: values.ordooHamaysh.arts,
-        yoga: values.ordooHamaysh.yoga,
-        stories: values.ordooHamaysh.stories,
-        food: values.ordooHamaysh.food,
-        ravanShenasi: values.ordooHamaysh.ravanShenasi,
-        resumeWriting: values.ordooHamaysh.resumeWriting,
-        emotionalIntelligenceWorkshop: values.ordooHamaysh.emotionalIntelligenceWorkshop,
-        technologyWorkshop: values.ordooHamaysh.technologyWorkshop,
-        contentProduction: values.ordooHamaysh.contentProduction,
-        principlesOfPhotoarts: values.ordooHamaysh.principlesOfPhotoarts,
-        bodyLanguage: values.ordooHamaysh.bodyLanguage,
-        mindControlWorkshop: values.ordooHamaysh.mindControlWorkshop,
-        linkedin: values.ordooHamaysh.linkedin,
-        caricature: values.ordooHamaysh.Caricature
+        digital: values.ordooHamaysh.digital,
+        advidio: values.ordooHamaysh.advidio,
+        brand: values.ordooHamaysh.brand,
+        copyright: values.ordooHamaysh.copyright,
+        instageram: values.ordooHamaysh.instageram,
+        mozkerat: values.ordooHamaysh.mozkerat,
+        elmi: values.ordooHamaysh.elmi,
+        sport: values.ordooHamaysh.sport,
+        art: values.ordooHamaysh.art,
+        visit: values.ordooHamaysh.visit,
       }
     }).subscribe(c => {
       this._swal.successFullRegister();
