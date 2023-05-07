@@ -49,6 +49,7 @@ export class UpThirteenComponent implements OnInit {
       rade: +values.rade,
       isOrdooHamayesh: values.ordooHamaysh.isOrdooHamayesh,
       ageType: this.ageRange,
+      category: values.category,
       iiarNationalCodeAsli0: values.iiarNationalCodeAsli0,
       groupNumber: values.groupNumber,
       step: 100,
