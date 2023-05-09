@@ -23,21 +23,20 @@
     </p>
 
   </div>
-  <div>
-    <button mat-flat-button
-            color="primary"
-            routerLink="under10"
-            *ngIf="avestaAgeRange==5"
-            class="float-left">
-      تایید آیین نامه
-    </button>
-    <button mat-flat-button
-            color="primary"
-            routerLink="up13"
-            *ngIf="avestaAgeRange!=5"
-            class="float-left">
-      تایید آیین نامه
-    </button>
-  </div>
+
+  <button mat-flat-button
+          color="primary"
+          routerLink="under10"
+          *ngIf="avestaAgeRange==5&&!isLoading"
+          class="float-left">
+    تایید آیین نامه
+  </button>
+  <button mat-flat-button
+          color="primary"
+          routerLink="up13"
+          *ngIf="avestaAgeRange!=5&&!isLoading "
+          class="float-left">
+    تایید آیین نامه
+  </button>
   <app-back-button></app-back-button>
 </div>
