@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-underteen',
@@ -9,7 +10,7 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
 })
 export class UnderteenComponent implements OnInit {
   agerange: number;
-  constructor (private readonly _repository: ManthraReporsitoryService, private readonly _swal: SwalService) { }
+  constructor (private readonly _repository: ManthraReporsitoryService,private readonly _router: Router, private readonly _swal: SwalService) { }
 
   ngOnInit(): void {
     this._repository.avestaGetAgeRange.subscribe(c => this.agerange = c.entity
@@ -22,6 +23,7 @@ export class UnderteenComponent implements OnInit {
       ageType: this.agerange
     }).subscribe(c => {
       this._swal.successFullRegister();
+      this._router.navigate(['/']);
     });
   }
 }
