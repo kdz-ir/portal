@@ -25,7 +25,8 @@ export class UpThirteenComponent implements OnInit {
       category: [, [Validators.required]],
       rade: [],
       iiarNationalCodeAsli0: [],
-      groupNumber: []
+      groupNumber: [],
+      groupNumberSingle:[]
     });
   }
   ngOnInit(): void {
@@ -61,6 +62,7 @@ export class UpThirteenComponent implements OnInit {
       category: values.category,
       iiarNationalCodeAsli0: values.iiarNationalCodeAsli0,
       groupNumber: values.groupNumber,
+      groupNumberSingle: values.groupNumberSingle,
       step: 100,
       state: 'end',
       oordoHamayesh: {

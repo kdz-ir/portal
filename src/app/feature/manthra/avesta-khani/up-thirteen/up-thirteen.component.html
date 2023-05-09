@@ -22,12 +22,17 @@
             <mat-option value="2">کل گاتا</mat-option>
         </mat-select>
     </mat-form-field>
+    <mat-form-field *ngIf="avestaKhaniForm.value.category?.includes(1)">
+        <mat-label>شماره گروه از بر خوانی انفرادی</mat-label>
+        <input formControlName="groupNumberSingle" type="number" matInput>
+    </mat-form-field>
     <mat-form-field *ngIf="avestaKhaniForm.value.category?.includes(2)">
         <mat-label>کد ملی یار</mat-label>
         <input formControlName="iiarNationalCodeAsli0" (blur)="onblurInput(avestaKhaniForm.controls.iiarNationalCodeAsli0)" matInput>
     </mat-form-field>
+    
     <mat-form-field *ngIf="avestaKhaniForm.value.category?.includes(2)">
-        <mat-label>شماره گروه</mat-label>
+        <mat-label>شماره گروه از بر خوانی گروهی</mat-label>
         <input formControlName="groupNumber" type="number" matInput>
     </mat-form-field>
     <app-ordoo-hamyesh-poll [ageRange]="ageRange"
