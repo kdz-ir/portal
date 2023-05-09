@@ -12,11 +12,13 @@ import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.se
 })
 export class AvastaKhaniAyinNameComponent implements OnInit {
   avestaAgeRange: number;
+  isLoading=true;
   constructor (private readonly _repository: ManthraReporsitoryService, private readonly _swal: SwalService, private readonly _location: Location) { }
 
   ngOnInit(): void {
     this._repository.avestaGetAgeRange.subscribe(c => {
       this.avestaAgeRange = c.entity.ageType;
+      this.isLoading=false;
     });
   }
 

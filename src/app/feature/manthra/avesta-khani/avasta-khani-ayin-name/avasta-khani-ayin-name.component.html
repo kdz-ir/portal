@@ -1,5 +1,6 @@
 <div fxLayout="column"
-     fxLayoutGap="20px">
+     fxLayoutGap="20px"
+     [largeLoading]="isLoading">
   <div class="mt-5 pt-2">
     <p class="western"
        dir="rtl"
@@ -22,19 +23,21 @@
     </p>
 
   </div>
-  <button mat-flat-button
-          color="primary"
-          routerLink="under10"
-          *ngIf="avestaAgeRange==5"
-          class="float-left">
-    تایید آیین نامه
-  </button>
-  <button mat-flat-button
-          color="primary"
-          routerLink="up13"
-          *ngIf="avestaAgeRange!=5"
-          class="float-left">
-    تایید آیین نامه
-  </button>
+  <div>
+    <button mat-flat-button
+            color="primary"
+            routerLink="under10"
+            *ngIf="avestaAgeRange==5"
+            class="float-left">
+      تایید آیین نامه
+    </button>
+    <button mat-flat-button
+            color="primary"
+            routerLink="up13"
+            *ngIf="avestaAgeRange!=5"
+            class="float-left">
+      تایید آیین نامه
+    </button>
+  </div>
   <app-back-button></app-back-button>
 </div>
