@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Form, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SensetiveSickness, bloodTypes } from 'src/app/shared/models/bloodTypes';
 import { YesOrNoAnswer } from 'src/app/shared/models/yesOrNoAnswer';
 import { IOrdooInformationForm } from "./IOrdooInformationForm";
@@ -9,6 +9,7 @@ import { IPersonalInformationForm } from './IPersonalInformation';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { OrdooService } from '../../services/ordoo.service';
 import { Router } from '@angular/router';
+import { invalid } from 'jalali-moment';
 
 @Component({
   selector: 'app-ordoo-register-page',
@@ -20,6 +21,7 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
   bloodTypes = bloodTypes;
   sensetiveSickness = SensetiveSickness;
   isLiveInTehran = true;
+  inValidControlers = 0;
   fGroup: FormGroup<IOrdooInformationForm>;
   constructor (private readonly _fb: FormBuilder, private readonly _swalService: SwalService, private readonly _ordooService: OrdooService, private readonly _router: Router) {
     this.fGroup = _fb.group<IOrdooInformationForm>({
@@ -87,7 +89,21 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
     });
     this.fGroup.valueChanges.subscribe(c => {
       localStorage.setItem("ordooForm", JSON.stringify(c));
-
+      this.inValidControlers = 0;
+      if (this.fGroup.invalid) {
+        let recursiveFunc = (form: FormGroup | FormArray) => {
+          Object.keys(form.controls).forEach(field => {
+            const control = form.get(field);
+            if (control.invalid) this.inValidControlers++;
+            if (control instanceof FormGroup) {
+              recursiveFunc(control);
+            } else if (control instanceof FormArray) {
+              recursiveFunc(control);
+            }
+          });
+        };
+        recursiveFunc(this.fGroup)
+      }
     });
     this.fGroup.controls.familyHeadDependents.valueChanges.subscribe(c => {
       if (isNil(c)) {

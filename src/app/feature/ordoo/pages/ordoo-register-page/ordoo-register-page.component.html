@@ -187,13 +187,14 @@
                 <app-image-uploader fileType="4"
                                     eventType="1"
                                     accept="image/jpeg"
-                                    formControlName="parentsConsent"> تعهدنامه و رضایت‌نامه والدین به صورت دست‌نویس</app-image-uploader>
-                                    <div>
-                                        <img src="assets/pic/image_2023-05-04_15-36-30.jpg">
-                                        <p>
-                                            متن زیر را به صورت دست‌نویس نوشته ، سپس آن را آپلود نمایید.
-                                        </p>
-                                    </div>
+                                    formControlName="parentsConsent"> تعهدنامه و رضایت‌نامه والدین به صورت
+                    دست‌نویس</app-image-uploader>
+                <div>
+                    <img src="assets/pic/image_2023-05-04_15-36-30.jpg">
+                    <p>
+                        متن زیر را به صورت دست‌نویس نوشته ، سپس آن را آپلود نمایید.
+                    </p>
+                </div>
                 <app-image-uploader eventType="1"
                                     fileType="5"
                                     accept="image/jpeg"
@@ -623,6 +624,7 @@
             </div>
         </mat-expansion-panel>
     </mat-accordion>
+    <span *ngIf="fGroup.invalid"> شما {{inValidControlers}} ورودی را تکمیل نکرده‌اید.</span>
     <button type="submit"
             mat-raised-button
             [disabled]="fGroup.invalid"
