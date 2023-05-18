@@ -22,7 +22,8 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
   sensetiveSickness = SensetiveSickness;
   isLiveInTehran = true;
   inValidControlers = 0;
-  inValidFields:string[]=[];
+  inValidFields: string[] = [];
+  inValidFieldsName: Record<string, string>;
   fGroup: FormGroup<IOrdooInformationForm>;
   constructor (private readonly _fb: FormBuilder, private readonly _swalService: SwalService, private readonly _ordooService: OrdooService, private readonly _router: Router) {
     this.fGroup = _fb.group<IOrdooInformationForm>({
@@ -88,17 +89,18 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       successesDocument: _fb.control<string>(''),
       wantBloodTest: _fb.control<boolean>(null, [Validators.required])
     });
+
     this.fGroup.valueChanges.subscribe(c => {
       localStorage.setItem("ordooForm", JSON.stringify(c));
       this.inValidControlers = 0;
-      this.inValidFields=[];
+      this.inValidFields = [];
       if (this.fGroup.invalid) {
         let recursiveFunc = (form: FormGroup | FormArray) => {
           Object.keys(form.controls).forEach(field => {
             const control = form.get(field);
             if (control.invalid) {
-              this.inValidControlers++
-              this.inValidFields.push(field);
+              this.inValidControlers++;
+              this.inValidFields.push(this.inValidFieldsName[field]);
             };
             if (control instanceof FormGroup) {
               recursiveFunc(control);
@@ -107,7 +109,7 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
             }
           });
         };
-        recursiveFunc(this.fGroup)
+        recursiveFunc(this.fGroup);
       }
     });
     this.fGroup.controls.familyHeadDependents.valueChanges.subscribe(c => {
@@ -129,7 +131,7 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       }
       else {
         console.log('change validators.');
-        
+
         this.fGroup.controls.sensetiveSickness.clearValidators();
         this.fGroup.controls.sensetiveSickness.updateValueAndValidity();
         this.fGroup.controls.otherSensetiveSickness.clearValidators();
@@ -145,7 +147,7 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       else {
         this.fGroup.controls.personInOrdooRealtion.clearValidators();
         this.fGroup.controls.personInOrdooRealtion.updateValueAndValidity();
-        
+
       }
     });
     this.fGroup.controls.haveBeenOrdoo.valueChanges.subscribe(c => {
@@ -154,8 +156,42 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       }
       else {
         this.fGroup.controls.ordooNumber.clearValidators();
+        this.fGroup.controls.ordooNumber.updateValueAndValidity();
       }
     });
+    this.inValidFieldsName = {
+      'mostInfuence': 'چه کسانی بیشترین تاثیرگذاری را بر روی شمادارند؟چرا؟',
+      'biggestLesson': 'کی از بزرگترین درس هایی که تا امروز درزندگیتان یاد گرفتید، بنویسید.',
+      'woerstMemory': 'یکی از بدترین خاطرات خود را بنویسید.',
+      'bestMemory': 'یکی ازبهترین خاطرات خود را بنویسید.',
+      'negetivePoints': 'چه مسائلی در مورد خودتان هست که دوست دارید بهبود بدهید؟',
+      'goodPoints': 'چه ویژگی‌هایی در مورد خودتان هست که آنها را نقاط قوت خود می دانید؟',
+      'likePlaceInTehran': 'دوست دارید از چه مکان‌هایی در تهران بازدید کنید؟',
+      'likeSpendFreetime': 'دوست دارید زمان آزاد خود را چگونه بگذرانید؟',
+      'freeBeInMarkar': 'فرض کنید صبح یکی از روزهای اردو وقتی از درب خوابگاه بیرون می‌روید، هیچ یک از برگزار کننده‌ها در مارکار حضور ندارند در آن روز چه فعالیت‌هایی انجام می‌دهید؟',
+      'likeArt': 'دوست دارید چه فعالیت‌های هنری را امتحان کنید؟',
+      'likeSports': 'دوست دارید چه فعالیت‌های ورزشی را تجربه کنید؟',
+      'likeClassSubjects': 'دوست دارید چه موضوعات و فعالیتهایی را در کلاس های آموزشی یاد بگیرید؟',
+      'likedTopics': 'ج) فرض کنید نیم ساعت گذشته و معلم پرورشی وارد کلاس می‌شود و شما را به گروه‌های مختلف تقسیم می‌کند و به شما فرصت می‌دهد تا موضوعی را برای بحث انتخاب کنید، شما چه موضوعی را مناسب می‌دانید و برایتان جذاب است؟',
+      'goesAfterlongPeopleOrNear': 'ب) دوست دارید با تمام بچه‌های کلاس آشنا شوید یا اینکه با افراد اطراف خود بیشتر صحبت کنید؟',
+      'goAfterNewPeople': 'الف) آیا در این مدت تلاش می‌کنید تا با افراد دیگر ارتباط برقرار کنید و با آن‌ها دوست شوید، یا ترجیح می‌دهید دیگران با شما شروع به صحبت کنند؟',
+      'goal': 'چرا دوست دارید در اردو شرکت کنید؟ هدف شما از ثبت‌نام در اردو امسال چیست؟',
+      'howMeetOrdoo': 'چقدر و از چه راهی با کانون و برنامه‌های آن از جمله اردو، آشنایی دارید؟',
+      'personInOrdooRealtion': 'در صورت پر کردن، نام و نسبت آنها را با خود بنویسید',
+      'isCloseFamilyinOrdoo': 'آیا هیچ یک از دوستان یا اقوام نزدیک شما تقاضانامه‌ی شرکت در اردوی امسال را پر کرده‌اند؟',
+      'haveTriedOrdoo': 'آیا تا به حال برای شرکت در اردوی دانش آموزان کانون دانشجویان زرتشتی اقدام کرده‌اید؟',
+      'ordooNumber': 'در صورت شرکت، کدام اردو؟',
+      'haveBeenOrdoo': 'آیا تا به حال در اردوی دانش آموزان کانون دانشجویان زرتشتی شرکت کرده اید؟',
+      'phone': 'تلفن همراه',
+      'graduationRate': 'میزان تحصیلات',
+      'job': 'شغل',
+      'old': 'سن',
+      'marigeStatus': 'وضعیت تاهل',
+      'realtion':'نسبت',
+      'lastName':'نام خانوادگی',
+      'name':'نام',
+      'isLostAnybody':'آیا فردی از خانواده خود را از دست داده‌اید؟'
+    };
   }
   ngAfterViewInit(): void {
     this._ordooService.isLiveInTehran.subscribe(c => {
