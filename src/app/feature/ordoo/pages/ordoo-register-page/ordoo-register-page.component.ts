@@ -94,7 +94,11 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
         let recursiveFunc = (form: FormGroup | FormArray) => {
           Object.keys(form.controls).forEach(field => {
             const control = form.get(field);
-            if (control.invalid) this.inValidControlers++;
+            if (control.invalid) {
+              this.inValidControlers++
+              console.log(field);
+              
+            };
             if (control instanceof FormGroup) {
               recursiveFunc(control);
             } else if (control instanceof FormArray) {
@@ -119,15 +123,18 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
     this.fGroup.controls.isSpecialSickness.valueChanges.subscribe(c => {
       if (c) {
         this.fGroup.controls.sensetiveSickness.addValidators([Validators.required]);
-        this.fGroup.controls.sensetiveSickness.addValidators([Validators.required]);
         this.fGroup.controls.otherSensetiveSickness.addValidators([Validators.required]);
         this.fGroup.controls.drug.addValidators([Validators.required]);
       }
       else {
+        console.log('change validators.');
+        
         this.fGroup.controls.sensetiveSickness.clearValidators();
-        this.fGroup.controls.sensetiveSickness.clearValidators();
+        this.fGroup.controls.sensetiveSickness.updateValueAndValidity();
         this.fGroup.controls.otherSensetiveSickness.clearValidators();
+        this.fGroup.controls.otherSensetiveSickness.updateValueAndValidity();
         this.fGroup.controls.drug.clearValidators();
+        this.fGroup.controls.drug.updateValueAndValidity();
       }
     });
     this.fGroup.controls.isCloseFamilyinOrdoo.valueChanges.subscribe(c => {
@@ -136,6 +143,8 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       }
       else {
         this.fGroup.controls.personInOrdooRealtion.clearValidators();
+        this.fGroup.controls.personInOrdooRealtion.updateValueAndValidity();
+        
       }
     });
     this.fGroup.controls.haveBeenOrdoo.valueChanges.subscribe(c => {
