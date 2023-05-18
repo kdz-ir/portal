@@ -625,6 +625,11 @@
         </mat-expansion-panel>
     </mat-accordion>
     <span *ngIf="fGroup.invalid"> شما {{inValidControlers}} ورودی را تکمیل نکرده‌اید.</span>
+    <ul *ngIf="inValidFields.length<10">
+        <li *ngFor="let field of inValidFields">
+            {{field}}
+        </li>
+    </ul>
     <button type="submit"
             mat-raised-button
             [disabled]="fGroup.invalid"

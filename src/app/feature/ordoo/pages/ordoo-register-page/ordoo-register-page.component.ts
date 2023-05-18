@@ -22,6 +22,7 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
   sensetiveSickness = SensetiveSickness;
   isLiveInTehran = true;
   inValidControlers = 0;
+  inValidFields:string[]=[];
   fGroup: FormGroup<IOrdooInformationForm>;
   constructor (private readonly _fb: FormBuilder, private readonly _swalService: SwalService, private readonly _ordooService: OrdooService, private readonly _router: Router) {
     this.fGroup = _fb.group<IOrdooInformationForm>({
@@ -90,14 +91,14 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
     this.fGroup.valueChanges.subscribe(c => {
       localStorage.setItem("ordooForm", JSON.stringify(c));
       this.inValidControlers = 0;
+      this.inValidFields=[];
       if (this.fGroup.invalid) {
         let recursiveFunc = (form: FormGroup | FormArray) => {
           Object.keys(form.controls).forEach(field => {
             const control = form.get(field);
             if (control.invalid) {
               this.inValidControlers++
-              console.log(field);
-              
+              this.inValidFields.push(field);
             };
             if (control instanceof FormGroup) {
               recursiveFunc(control);
