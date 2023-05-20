@@ -16,7 +16,6 @@ export class OrdooAdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      console.log(this._authenticationService.getTokenItem<number>("isAdmin"))
     return this._authenticationService.getTokenItem<number>("isAdmin") == 1;
   }
 
