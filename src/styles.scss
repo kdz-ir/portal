@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material'as mat;
 @import '~ngx-lightbox/lightbox.css';
-@import '@angular/material/theming';
 @import './app/core/scss/bootstrap.scss';
 @import './app/core/scss/spacing.scss';
 @import './app/core/scss/float.scss';
@@ -20,9 +19,9 @@ body {
     overflow-y: hidden;
 }
 
-$custom-typography: mat.define-typography-config($font-family: 'Vazir FD,Roboto, tahoma;');
-@include mat.core($custom-typography);
-
+$custom-typography: mat.define-typography-config($font-family: 'Vazir FD');
+@include mat.all-component-typographies($custom-typography);
+@include mat.core();
 .text-center {
     text-align: center !important;
 }
@@ -33,7 +32,7 @@ $custom-typography: mat.define-typography-config($font-family: 'Vazir FD,Roboto,
 }
 
 
-.mat-loading .mat-progress-spinner {
+.mat-loading .mat-mdc-progress-spinner {
     position: absolute;
     top: calc(29% - 10px);
     left: calc(50% - 10px);
@@ -74,8 +73,7 @@ $custom-typography: mat.define-typography-config($font-family: 'Vazir FD,Roboto,
 }
 
 .link-active {
-    color: map-get(mat.define-palette(mat.$indigo-palette), A200) !important;
-
+background-color: map-get(mat.define-palette(mat.$indigo-palette), 50) !important;
 }
 .home-page-background {
     height: 60vh;
