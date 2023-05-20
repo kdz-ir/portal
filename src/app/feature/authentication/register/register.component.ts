@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RepositoryService } from '../Services/repository.service';
 import { MatStepper } from '@angular/material/stepper';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CreateUserInfo } from '../model/create-user-info';
 import { TimerService } from '../Services/timer.service';

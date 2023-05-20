@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material'as mat;
 @import '~ngx-lightbox/lightbox.css';
-@import '@angular/material/theming';
 @import './app/core/scss/bootstrap.scss';
 @import './app/core/scss/spacing.scss';
 @import './app/core/scss/float.scss';
@@ -20,18 +19,9 @@ body {
     overflow-y: hidden;
 }
 
-$custom-typography: mat.define-legacy-typography-config($font-family: 'Vazir FD,Roboto, tahoma;');
-// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy($custom-typography);`
-@include mat.all-legacy-component-typographies($custom-typography);
-@include mat.legacy-core();
-
+$custom-typography: mat.define-typography-config($font-family: 'Vazir FD');
+@include mat.all-component-typographies($custom-typography);
+@include mat.core();
 .text-center {
     text-align: center !important;
 }
@@ -42,7 +32,7 @@ $custom-typography: mat.define-legacy-typography-config($font-family: 'Vazir FD,
 }
 
 
-.mat-loading .mat-progress-spinner {
+.mat-loading .mat-mdc-progress-spinner {
     position: absolute;
     top: calc(29% - 10px);
     left: calc(50% - 10px);
@@ -83,8 +73,7 @@ $custom-typography: mat.define-legacy-typography-config($font-family: 'Vazir FD,
 }
 
 .link-active {
-    color: map-get(mat.define-palette(mat.$indigo-palette), A200) !important;
-
+background-color: map-get(mat.define-palette(mat.$indigo-palette), 50) !important;
 }
 .home-page-background {
     height: 60vh;

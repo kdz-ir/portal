@@ -3,7 +3,7 @@ import
     Directive, Input, ElementRef, SimpleChanges, OnChanges, ComponentFactory,
     ComponentRef, ComponentFactoryResolver, ViewContainerRef, Renderer2
   } from '@angular/core';
-import { MatLegacyProgressSpinner as MatProgressSpinner } from '@angular/material/legacy-progress-spinner';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Directive({
   selector: '[largeLoading]'

@@ -4,7 +4,7 @@ import { RepositoryService } from '../Services/repository.service';
 import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
 import { Router } from '@angular/router';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { environment } from '../../../../environments/environment';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 import { ILoginForm } from './ILoginForm';

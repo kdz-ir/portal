@@ -7,7 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { RegisterComponent } from './register/register.component';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatLegacyTabsModule as MatTabsModule } from '@angular/material/legacy-tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { RepositoryService } from './Services/repository.service';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { RecaptchaModule, RecaptchaFormsModule, RecaptchaSettings, RECAPTCHA_SETTINGS, RECAPTCHA_LANGUAGE } from "ng-recaptcha";

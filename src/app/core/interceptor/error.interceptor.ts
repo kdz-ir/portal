@@ -9,7 +9,7 @@ import {
 import { isNull } from "lodash-es";
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SwalService } from '../services/swal/swal.service';
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
