@@ -4,6 +4,7 @@ import { OrdooHomePageComponent } from './pages/ordoo-home-page/ordoo-home-page.
 import { OrdooRegisterPageComponent } from './pages/ordoo-register-page/ordoo-register-page.component';
 import { OrdooAdminPageComponent } from './pages/ordoo-admin-page/ordoo-admin-page.component';
 import { OrdooAyinNamePageComponent } from './pages/ordoo-ayin-name-page/ordoo-ayin-name-page.component';
+import { OrdooAdminGuard } from './guards/ordoo-admin.guard';
 
 const routes: Routes = [{
   path: '',
@@ -13,7 +14,8 @@ const routes: Routes = [{
   component: OrdooRegisterPageComponent
 }, {
   path: 'admin',
-  component: OrdooAdminPageComponent
+  component: OrdooAdminPageComponent,
+  canActivate: [OrdooAdminGuard]
 }, {
   path: 'ayin-name',
   component: OrdooAyinNamePageComponent
