@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatRadioModule } from '@angular/material/radio';
+import { MatLegacyRadioModule as MatRadioModule } from '@angular/material/legacy-radio';
 
 import { ManthraRoutingModule } from './manthra-routing.module';
 import { AyiineNameComponent } from './gata-ha/ayiine-name/ayiine-name.component';

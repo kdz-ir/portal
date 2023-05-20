@@ -10,7 +10,7 @@ import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/materia
 import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from './adapter/material.persian-date.adapter';
 import { LogoutComponent } from './logout/logout.component';
 import { GetZoroastrianCardComponent } from './get-zoroastrian-card/get-zoroastrian-card.component';
-import {MatRadioModule} from '@angular/material/radio';
+import {MatLegacyRadioModule as MatRadioModule} from '@angular/material/legacy-radio';
 
 @NgModule({
   declarations: [EditProfileComponent, LogoutComponent, GetZoroastrianCardComponent],

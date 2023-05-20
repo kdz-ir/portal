@@ -5,7 +5,7 @@ import { AgeType } from 'src/app/core/model/age-type-enum';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.service';
 import { ILabel } from 'src/app/shared/models/yesOrNoAnswer';
-import { MatSelectChange } from '@angular/material/select';
+import { MatLegacySelectChange as MatSelectChange } from '@angular/material/legacy-select';
 
 @Component({
   selector: 'app-up-thirteen',

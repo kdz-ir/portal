@@ -6,7 +6,7 @@ import { OrdooHomePageComponent } from './pages/ordoo-home-page/ordoo-home-page.
 import { SharedModule } from 'src/app/shared/shared.module';
 import { OrdooRegisterPageComponent } from './pages/ordoo-register-page/ordoo-register-page.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatLegacyTabsModule as MatTabsModule } from '@angular/material/legacy-tabs';
 import { OrdooAdminPageComponent } from './pages/ordoo-admin-page/ordoo-admin-page.component';
 import { OrdooAyinNamePageComponent } from './pages/ordoo-ayin-name-page/ordoo-ayin-name-page.component';
 
