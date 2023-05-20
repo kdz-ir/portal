@@ -242,6 +242,7 @@
                         تعداد افراد تحت تکفل سرپرست خانواده
                     </mat-label>
                     <input formControlName="familyHeadDependents"
+                           type="number"
                            matInput>
                 </mat-form-field>
                 <mat-form-field>
@@ -462,7 +463,7 @@
                 <div>
                     <label>
                         آیا هیچ یک از دوستان یا اقوام نزدیک شما
-                       تقاضانامه‌ی شرکت در اردوی امسال را پر کرده‌اند؟
+                        تقاضانامه‌ی شرکت در اردوی امسال را پر کرده‌اند؟
                     </label>
                     <mat-radio-group formControlName="isCloseFamilyinOrdoo">
                         <mat-radio-button *ngFor="let season of yesOrNoAnswer"
