@@ -10,6 +10,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html,
 body {
     height: 100%;
@@ -20,10 +21,23 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     overflow-y: hidden;
 }
+// @include mat.all-component-typographies($custom-typography);
+@include mat.core();
+$my-primary: mat.define-palette(mat.$light-green-palette,900);
+$my-accent: mat.define-palette(mat.$light-blue-palette, A200, A100, A400);
 
 $custom-typography: mat.define-typography-config($font-family: 'Vazir FD');
-@include mat.all-component-typographies($custom-typography);
-@include mat.core();
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+ ),
+ typography: $custom-typography,
+ density: 0,
+));
+
+@include mat.all-component-themes($my-theme);
+
 .text-center {
     text-align: center !important;
 }
