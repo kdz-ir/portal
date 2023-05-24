@@ -37,6 +37,10 @@ const routes: Routes = [
     loadChildren: () => import('../feature/authentication/authentication.module').then(a => a.AuthenticationModule),
     canActivate: [UnAuthenticationGuard]
   },
+  {
+    path: 'news',
+    loadChildren: () => import('../feature/news/news.module').then(c => c.NewsModule)
+  }
 ];
 
 @NgModule({
