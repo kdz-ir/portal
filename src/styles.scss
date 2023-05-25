@@ -40,7 +40,7 @@ $dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
                     accent: $light-accent,
                 )));
 
-    @include mat.all-component-themes($light-theme);
+    @include mat.core-theme($light-theme);
     .home-page-background {
         background-color: rgb(255, 255, 255);
     }

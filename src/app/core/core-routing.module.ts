@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('../feature/setting/setting.module').then(s => s.SettingModule)
       },
       {
+        path: 'jam',
+        loadChildren: () => import('../feature/jam/jam.module').then(c => c.JamModule)
+      },
+      {
         path: 'Manthra',
         canActivate: [ValidProfileGuard],
         loadChildren: () => import('../feature/manthra/manthra.module').then(s => s.ManthraModule)
