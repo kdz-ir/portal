@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NewsRepositoryService } from '../services/news-repository.service';
 import { NewsList } from '../model/news-list';
-
+declare const navigator: Navigator;
 @Component({
   selector: 'app-news-list',
   templateUrl: './news-list.component.html',
@@ -15,8 +15,20 @@ export class NewsListComponent implements AfterViewInit {
     console.log(c.posts)
    })
   }
-  
-constructor(private readonly _newsRepository:NewsRepositoryService) {}
 
+constructor(private readonly _newsRepository:NewsRepositoryService) {}
+share(title:string,content:string,url:string) {
+  if (navigator && navigator.share) {
+    navigator.share({
+      title: title,
+      text: content,
+      url: url,
+    })
+      .then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing:', error));
+  } else {
+    console.log('Web Share API not supported');
+  }
+}
 
 }

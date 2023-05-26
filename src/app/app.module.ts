@@ -6,10 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { OfflineConnectionComponent } from './core/components/offline-connection/offline-connection.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+
 @NgModule({
   declarations: [
     AppComponent,
-    OfflineConnectionComponent
+    OfflineConnectionComponent,
+    
   ],
   imports: [
     BrowserModule,
