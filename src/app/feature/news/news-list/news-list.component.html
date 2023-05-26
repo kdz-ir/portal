@@ -5,13 +5,13 @@
       <mat-card-title [innerHTML]="news.title"></mat-card-title>
       <mat-card-subtitle [innerHTML]="news.date"></mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="news.thumbnail_images['jannah-image-large']['url']" alt="Photo of a Shiba Inu" style="width: 490px;height: 200px;">
+    <img mat-card-image *ngIf="news.thumbnail_images" [src]="news.thumbnail_images['jannah-image-large']['url']" alt="Photo of a Shiba Inu" style="width: 490px;height: 200px;">
     <mat-card-content>
       <p [innerHTML]="news.content">
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>اطلاعات بیشتر</button>
+      <a mat-button [href]="news.url" target="_blank">اطلاعات بیشتر</a>
       <button mat-button><mat-icon>share</mat-icon></button>
     </mat-card-actions>
   </mat-card>

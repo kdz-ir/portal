@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { NewsRepositoryService } from '../news-repository.service';
-import { NewsList } from '../news-list';
+import { NewsRepositoryService } from '../services/news-repository.service';
+import { NewsList } from '../model/news-list';
 
 @Component({
   selector: 'app-news-list',
@@ -16,13 +16,7 @@ export class NewsListComponent implements AfterViewInit {
    })
   }
   
-/**
- *
- */
-constructor(private readonly _newsRepository:NewsRepositoryService) {
-  
-  
-}
+constructor(private readonly _newsRepository:NewsRepositoryService) {}
 
 
 }
