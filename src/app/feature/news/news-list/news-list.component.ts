@@ -17,11 +17,10 @@ export class NewsListComponent implements AfterViewInit {
   }
 
 constructor(private readonly _newsRepository:NewsRepositoryService) {}
-share(title:string,content:string,url:string) {
+share(title:string,url:string) {
   if (navigator && navigator.share) {
     navigator.share({
       title: title,
-      text: content,
       url: url,
     })
       .then(() => console.log('Successful share'))
