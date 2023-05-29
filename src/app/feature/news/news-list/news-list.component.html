@@ -11,8 +11,8 @@
     <mat-card-content>
       <div [innerHTML]="news.content" ></div>
     </mat-card-content>
+    <br>
     <mat-divider></mat-divider>
-   
     <mat-card-actions>
       <a mat-button [href]="news.url" target="_blank">اطلاعات بیشتر</a>
       <button mat-button (click)="share(news.title,news.url)"><mat-icon>share</mat-icon></button>
