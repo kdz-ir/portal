@@ -7,15 +7,14 @@
     <div class="image-container">
       <img class="full-height-image" *ngIf="news.thumbnail_images" [src]="news.thumbnail_images['medium']['url']" alt="picture">
     </div>  
-
     <mat-card-content>
       <div [innerHTML]="news.content" ></div>
     </mat-card-content>
     <br>
     <mat-divider></mat-divider>
     <mat-card-actions>
-      <a mat-button [href]="news.url" target="_blank">اطلاعات بیشتر</a>
-      <button mat-button (click)="share(news.title,news.url)"><mat-icon>share</mat-icon></button>
+      <a mat-button [href]="news.url" target="_blank">ادامه</a>
+      <button mat-button (click)="share(news.title, news.url)" *ngIf="isWebShareSupported"><mat-icon>share</mat-icon></button>
     </mat-card-actions>
   </mat-card>
 </div>
