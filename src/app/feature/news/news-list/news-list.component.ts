@@ -9,23 +9,14 @@ declare const navigator: Navigator;
   templateUrl: './news-list.component.html',
   styleUrls: ['./news-list.component.scss']
 })
-export class NewsListComponent implements AfterViewInit {
+export class NewsListComponent {
   newsList: NewsList;
-  isWebShareSupported: boolean;
-
+  readonly isWebShareSupported: boolean=navigator && navigator.share ? true : false;
+newsList2=this._newsRepository.getNewsList;
   constructor(private readonly _newsRepository: NewsRepositoryService) {}
 
-  ngAfterViewInit(): void {
-    this._newsRepository.getNewsList().subscribe(c => {
-      this.newsList = c;
-      console.log(c.posts);
-      this.checkWebShareSupport();
-    });
-  }
 
-  checkWebShareSupport() {
-    this.isWebShareSupported = navigator && navigator.share ? true : false;
-  }
+  
 
   share(title: string, url: string) {
     if (navigator && navigator.share) {
