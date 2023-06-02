@@ -7,5 +7,5 @@ export const environment = {
   url: 'https://api.portal.kdz.ir',
   vapid_key: '',
   version:'0.1.0',
-  name: 'سامانه کاربری',
+  name: 'کانون دانشجویان زرتشتی',
 };
