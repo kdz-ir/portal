@@ -1,20 +1,28 @@
 <div class="flex justify-center gap-4 flex-col flex-wrap md:flex-row">
-  <mat-card class="max-w-sm max-h-fit" *ngFor="let news of (newsList|async)?.posts">
+  <mat-card class="max-w-sm max-h-fit"
+            *ngFor="let news of (newsList|async)?.posts">
     <mat-card-header>
       <mat-card-title [innerHTML]="news.title"></mat-card-title>
       <mat-card-subtitle>
-        <span>{{ calculateRelativeTime(news.date) }} پیش</span>
+        <span [innerText]="news.date|relativeDate "></span>
       </mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image class="transition hover:z-20 ease-in-out hover:scale-125 duration-300"
-      *ngIf="news.thumbnail_images" [src]="news.thumbnail_images?.full.url" [alt]="news.title_plain">
+    <img mat-card-image
+         class="transition hover:z-20 ease-in-out hover:scale-125 duration-300"
+         *ngIf="news.thumbnail_images"
+         [src]="news.thumbnail_images?.full.url"
+         [alt]="news.title_plain">
     <mat-card-content [innerHTML]="news.excerpt"></mat-card-content>
     <br>
     <mat-divider class="mx-2"></mat-divider>
     <mat-card-actions class="flex justify-between">
-      <a mat-button [href]="news.url" target="_blank">ادامه</a>
-      <button *ngIf="isWebShareSupported" mat-icon-button aria-label="اشتراک گزاری"
-        (click)="share(news.title, news.url)">
+      <a mat-button
+         [href]="news.url"
+         target="_blank">ادامه</a>
+      <button *ngIf="isWebShareSupported"
+              mat-icon-button
+              aria-label="اشتراک گزاری"
+              (click)="share(news.title, news.url)">
         <mat-icon>share</mat-icon>
       </button>
     </mat-card-actions>
