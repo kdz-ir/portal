@@ -29,5 +29,18 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "news",
+      "urls": [
+        "https://kdz.ir/fa/?json=get_posts"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "1d",
+        "strategy": "freshness"
+      }
+    }
   ]
 }
