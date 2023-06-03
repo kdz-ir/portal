@@ -1,15 +1,10 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class SportInsuranceGuard implements CanActivate {
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
-  }
+import { inject } from "@angular/core";
+import { CanActivateFn, Router } from "@angular/router";
+import { SingleRepositoryService } from "../services/single-repository.service";
+export const SportInsuranceGuard: CanActivateFn = async () => {
+  const singleRepository = inject(SingleRepositoryService);
+  const router: Router = inject(Router);
+  const sportInsurence = await singleRepository.SportInsurenceStatus.toPromise();
   
-}
+  return sportInsurence || router.createUrlTree(['jam','single', 'sport-insurence']);
+};
