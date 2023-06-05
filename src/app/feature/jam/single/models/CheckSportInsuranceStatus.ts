@@ -3,3 +3,8 @@ export interface CheckSportInsuranceStatus {
   message: null;
   entity: null;
 }
+export interface SportInsurance {
+  status:  boolean;
+  message: string;
+  entity:  string;
+}

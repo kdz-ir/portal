@@ -1,5 +1,22 @@
-<p *ngIf="!(sportInsurenceStatus|async)">کارت بیمه ورزشی برای شرکت در جام جانباختگان <span
-          class="underline">ضروری</span> میباشد.</p>
-<app-image-uploader fileType="6"
+<div class="md:win-w-full mt-10 mx-3">
 
-                    eventType="2"></app-image-uploader>
+  <form (submit)="onSubmit()"
+        class="flex flex-col gap-3"
+        [formGroup]="fGroup">
+    <p *ngIf="!status">کارت بیمه ورزشی برای شرکت در جام جانباختگان <span class="underline">ضروری</span> میباشد.
+    </p>
+    <p>
+      برای دریافت بیمه ورزشی به آدرس <a href="http://ifsm.ir">ifsm.ir</a> مراجعه کنید.
+    </p>
+    <p>بیمه ورزشی شما در سیستم ثبت شده است. برای به روز رسانی یا اصلاح آن میتوانید دوبار آپلود و ثبت کنید.</p>
+    <app-image-uploader fileType="6"
+                        accept="image/jpeg"
+                        formControlName="sportInsurance"
+                        eventType="2"></app-image-uploader>
+    <button type="submit"
+            [disabled]="fGroup.invalid"
+            mat-flat-button
+            color="accent">ثبت</button>
+    <app-back-button></app-back-button>
+  </form>
+</div>
