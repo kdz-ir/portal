@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { gataHaRegisterFilledInfo } from '../../model/gata-ha-register-filled';
-import { ProfileStatusInfo } from '../../model/profile-status-info';
+import { CheckFieldStatus, ProfileStatusInfo } from '../../model/profile-status-info';
+import { ProfileField, ProgramType } from '../../model/age-type-enum';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,8 @@ export class CoreProfileService {
   }
   getUserRegisteredFilled() {
     return this.http.get<gataHaRegisterFilledInfo>(this.accountUrl + '/manthra/gat-ha/getLastRegister');
+  }
+  checkFieldStatus(field:ProfileField,type:ProgramType){
+  return this.http.get<CheckFieldStatus>(this.accountUrl+`/profile/field-status/${field}/${type}`)
   }
 }

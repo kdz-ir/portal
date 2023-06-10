@@ -3,3 +3,8 @@ export interface ProfileStatusInfo {
     message: string;
     entity:  null;
 }
+export interface CheckFieldStatus {
+    status: boolean;
+    message: null;
+    entity: null;
+  }
