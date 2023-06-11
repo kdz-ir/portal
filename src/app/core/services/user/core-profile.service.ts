@@ -11,7 +11,7 @@ export class CoreProfileService {
   protected readonly accountUrl = environment.url + '/api/v1/account';
   constructor (protected readonly http: HttpClient) { }
   checkProfileStatus() {
-    return this.http.get<ProfileStatusInfo>(this.accountUrl + '/profileStatus');
+    return this.http.get<ProfileStatusInfo>(this.accountUrl + '/profile/status');
   }
   getUserRegisteredFilled() {
     return this.http.get<gataHaRegisterFilledInfo>(this.accountUrl + '/manthra/gat-ha/getLastRegister');
