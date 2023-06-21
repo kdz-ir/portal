@@ -13,6 +13,13 @@ export class SwalService {
       confirmButtonText: 'باشه'
     });
   }
+  showWarnMessage() {
+    return this.swal.fire({
+      title: 'این کار شما برگشت ناپذیر است.',
+      icon: 'warning',
+      confirmButtonText: 'ادامه میدم.'
+    });
+  }
   async showErrorMessages(messages: string[]) {
     await this.showErrorMessage(messages.join('<br>'));
   }

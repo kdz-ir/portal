@@ -6,25 +6,40 @@ import { SportInsurencePageComponent } from './pages/sport-in-surence-page/sport
 import { sportInsuranceResolver } from './resolvers/sport-insurance-status-reslover';
 import { SingleRegisterPageComponent } from './pages/single-register-page/single-register-page.component';
 import { DoubleRegisterPageComponent } from './pages/double-register-page/double-register-page.component';
+import { IndividualsResolver, SingleRegisteredStatusResolver } from './resolvers/single-registered-status-resolver';
+import { FieldNameResolver, SubFieldNameResolver } from '../resolvers/field-name-resolver';
 
 const routes: Routes = [{
   path: '',
   canActivate: [SportInsuranceGuard],
-  component: SingleHomePageComponent
+  children: [
+    { path: '', component: SingleHomePageComponent },
+    {
+      path: ':field/:subField',
+      component: SingleRegisterPageComponent,
+      resolve: {
+        registeredStatus: SingleRegisteredStatusResolver,
+        sportName: FieldNameResolver,
+        subFieldName: SubFieldNameResolver
+      }
+    },
+    {
+      path: 'double/:field/:subField',
+      component: DoubleRegisterPageComponent,
+      resolve: {
+        sportName: FieldNameResolver,
+        subFieldName: SubFieldNameResolver,
+        individuals: IndividualsResolver
+      }
+    },
+    {
+      path: 'sport-insurence',
+      component: SportInsurencePageComponent,
+      resolve: { sportInsurance: sportInsuranceResolver }
+    }
+  ]
 },
-{
-  path: ':field/:subField',
-  component: SingleRegisterPageComponent
-},
-{
-  path: 'double/:field/:subField',
-  component: DoubleRegisterPageComponent
-},
-{
-  path: 'sport-insurence',
-  component: SportInsurencePageComponent,
-  resolve: { sportInsurance: sportInsuranceResolver }
-}];
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
