@@ -18,7 +18,7 @@ export class ManthtaHomeComponent implements OnInit, AfterViewInit {
   avestaAgeRange: number;
   constructor (private readonly _coreProfileService: CoreProfileService, private readonly _swal: SwalService, public readonly manthraReporsitoryService: ManthraReporsitoryService) { }
   ngAfterViewInit(): void {
-    this._coreProfileService.getUserRegisteredFilled().subscribe(c => {
+    this.manthraReporsitoryService.getUserRegisteredFilled.subscribe(c => {
       this.registerFiled = c.entity;
       this.isLoading = false;
     });
