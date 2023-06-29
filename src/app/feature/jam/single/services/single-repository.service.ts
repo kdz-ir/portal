@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 import { IIndividual, SportInsurance } from '../models/CheckSportInsuranceStatus';
 import { SingleRegisteredStatus } from "../models/SingleRegisteredStatus";
 import { CoreProfileService } from 'src/app/core/services/user/core-profile.service';
-import { ProfileField, ProgramType } from 'src/app/core/model/age-type-enum';
+import { ProfileField } from "src/app/core/model/ProfileField";
+import { ProgramType } from "src/app/core/model/ProgramType";
 import { SportField } from '../../models/sport-field';
 import { SportSubField } from '../../models/sub-sport-field';
 
@@ -14,8 +15,8 @@ import { SportSubField } from '../../models/sub-sport-field';
 })
 export class SingleRepositoryService extends CoreProfileService {
   private readonly _url = environment.url + "/api/v1/account/jam/single";
-  constructor (http: HttpClient) {
-    super(http);
+  constructor () {
+    super();
   }
   public get SportInsurenceStatus() {
     return this.checkFieldStatus(ProfileField.SportInsurance, ProgramType.jam).pipe(map(c => c.status));
@@ -34,9 +35,6 @@ export class SingleRepositoryService extends CoreProfileService {
   }
   delete(field: SportField, subField: SportSubField) {
     return this.http.post(this._url + '/delete', { field, subField });
-  }
-  individuals(field: SportField, subField: SportSubField) {
-    return this.http.post<IIndividual>(this._url + '/individuals', { field, subField });
   }
 }
 

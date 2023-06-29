@@ -7,8 +7,7 @@ import { SingleHomePageComponent } from './pages/single-home-page/single-home-pa
 import { SportInsurencePageComponent } from './pages/sport-in-surence-page/sport-insurence-page.component';
 import { SingleRegisterPageComponent } from './pages/single-register-page/single-register-page.component';
 import { DoubleRegisterPageComponent } from './pages/double-register-page/double-register-page.component';
-
-
+import { SharedProfileModule } from 'src/app/shared/modules/shared-profile/shared-profile.module';
 @NgModule({
   declarations: [
     SingleHomePageComponent,
@@ -19,7 +18,8 @@ import { DoubleRegisterPageComponent } from './pages/double-register-page/double
   imports: [
     SharedModule,
     SingleRoutingModule,
-    MatExpansionModule
+    MatExpansionModule,
+    SharedProfileModule
   ]
 })
 export class SingleModule { }

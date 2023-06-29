@@ -24,7 +24,7 @@
                                                   *ngIf="!profiles[i]?.isCompleted">error</mat-icon>
                                 </div>
                         </mat-form-field>
-                        <button mat-icon-button
+                        <button mat-icon-button color="accent" (click)="onEditProfileClick(i)"
                                 *ngIf="profiles[i]?.editable"><mat-icon>edit</mat-icon></button>
                                 
                         <span [innerText]="profiles[i]?.profile?.name"></span>

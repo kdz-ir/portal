@@ -8,11 +8,12 @@ import { environment } from 'src/environments/environment';
 export class UploadService {
   private readonly _url = environment.url + '/api/v1/files/upload';
   constructor (private readonly _httpClient: HttpClient) { }
-  uploadFile(file: File, fileType: string, eventType: string) {
+  uploadFile(file: File, fileType: string, eventType: string, nationalCode: string) {
     const fb = new FormData();
     fb.append('file', file);
     fb.append('fileType', fileType);
     fb.append('eventType', eventType);
+    fb.append('nationalCode', nationalCode);
     return this._httpClient.post<UploadFileInfo>(this._url, fb);
   }
 }

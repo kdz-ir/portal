@@ -1,7 +1,9 @@
 import { Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
+import { inject } from '@angular/core/testing';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator, Validators } from '@angular/forms';
 import { isEmpty, isNull } from 'lodash-es';
 import { Lightbox } from 'ngx-lightbox';
+import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
 import { UploadService } from 'src/app/core/services/user/upload-serivce.service';
 import { environment } from 'src/environments/environment';
 
@@ -29,16 +31,16 @@ export class ImageUploaderComponent implements ControlValueAccessor, Validator, 
   @Input() lastImageid: string;
   @Input() fileType: string;
   @Input() eventType: string;
+  @Input() nationalCode: string = this._authSerivce.getTokenItem('nationalCode');
   isUploading = false;
   onChange = (imageAddress: string) => { };
-
   onTouched = () => { };
 
   touched = false;
 
   disabled = false;
 
-  constructor (private readonly _lightbox: Lightbox, private readonly _uploadService: UploadService) { }
+  constructor (private readonly _lightbox: Lightbox, private readonly _uploadService: UploadService, private readonly _authSerivce: AuthenticationService) { }
   writeValue(obj: string): void {
     if (isEmpty(obj))
       return;
@@ -76,7 +78,7 @@ export class ImageUploaderComponent implements ControlValueAccessor, Validator, 
     this.markAsTouched();
     const file = (<HTMLInputElement>event.target).files[0] as File;
     this.isUploading = true;
-    this._uploadService.uploadFile(file, this.fileType, this.eventType).subscribe(c => {
+    this._uploadService.uploadFile(file, this.fileType, this.eventType, this.nationalCode).subscribe(c => {
       this.onChange(c.entity.fileId);
       this.isUploading = false;
       this.src = c.entity.filePath;
