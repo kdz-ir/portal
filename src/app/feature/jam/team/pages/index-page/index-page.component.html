@@ -1,0 +1,55 @@
+<a routerLink="create">افزودن</a>
+<table mat-table
+       matSort
+       [dataSource]="dataSource"
+       class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef> نام </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="fieldName">
+        <th mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef> رشته </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.fieldName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subFieldName">
+        <th mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef> رده </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.subFieldName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ageRangeName">
+        <th mat-header-cell
+            *matHeaderCellDef> گروه سنی </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.ageRangeName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th mat-header-cell
+            *matHeaderCellDef></th>
+        <td mat-cell
+            *matCellDef="let element"> <button [routerLink]="element.id"
+                    mat-icon-button><mat-icon>
+                    visibility</mat-icon></button> </td>
+    </ng-container>
+
+    <tr mat-header-row
+        *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row
+        *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

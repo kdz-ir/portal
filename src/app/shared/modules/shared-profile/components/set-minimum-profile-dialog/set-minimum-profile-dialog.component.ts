@@ -9,6 +9,8 @@ import { cites } from "src/app/feature/setting/models/cites";
 import { sextypes } from "src/app/feature/setting/models/sex-type";
 import { IBaseProfileForm } from "../../models/IBaseProfileForm";
 import { IMinimumProfileSaveInfo } from "../../models/IMinimumProfileSaveInfo";
+import { ISetMinimumProfileDialog } from "../../models/ISetMinimumProfileDialog";
+import { ProgramFieldMode } from "src/app/core/model/ProgramFieldMode";
 
 @Component({
   selector: 'app-set-minimum-profile-dialog',
@@ -20,21 +22,25 @@ export class SetMinimumProfileDialogComponent {
   private readonly _profileService = inject(CoreProfileService);
   readonly cites = cites;
   readonly sexTypes = sextypes;
-  constructor (@Inject(MAT_DIALOG_DATA) public readonly data: IGetProfile,
+  profile: IGetProfile;
+  constructor (@Inject(MAT_DIALOG_DATA) public readonly data: ISetMinimumProfileDialog,
     private readonly _swalService: SwalService,
     fb: FormBuilder,
     private readonly _dialogRef: MatDialogRef<SetMinimumProfileDialogComponent>) {
+    this.profile = data.profile;
     this.fGroup = fb.group<IBaseProfileForm>({
-      nationalCode: fb.control<string>(data.nationalCode, [Validators.required]),
-      name: fb.control<string>(data.name, [Validators.required]),
-      family: fb.control<string>(data.family, [Validators.required]),
-      sex: fb.control<number>(sextypes.find(s => s.lable == data.sex)?.value ?? 0, [Validators.required]),
-      birthday: fb.control<moment.Moment>(moment(data.birthday, 'jYYYY/jMM/jDD'), [Validators.required]),
-      IdCardPhoto: fb.control<string>(data.idCardPhoto, [Validators.required]),
-      city: fb.control<number>(cites.find(cs => cs.label == data.city)?.value ?? 0, [Validators.required]),
-      sportInsurance: fb.control(data.sportInsurance, [Validators.required]),
-      personalPhoto: fb.control(data.personalPhoto, [Validators.required])
+      nationalCode: fb.control<string>(this.profile.nationalCode, [Validators.required]),
+      name: fb.control<string>(this.profile.name, [Validators.required]),
+      family: fb.control<string>(this.profile.family, [Validators.required]),
+      sex: fb.control<number>(sextypes.find(s => s.lable == this.profile.sex)?.value ?? 0, [Validators.required]),
+      birthday: fb.control<moment.Moment>(moment(this.profile.birthday, 'jYYYY/jMM/jDD'), [Validators.required]),
+      IdCardPhoto: fb.control<string>(this.profile.idCardPhoto, [Validators.required]),
+      city: fb.control<number>(cites.find(cs => cs.label == this.profile.city)?.value ?? 0, [Validators.required]),
+      sportInsurance: fb.control(this.profile.sportInsurance),
+      personalPhoto: fb.control(this.profile.personalPhoto, [Validators.required])
     });
+    if (this.data.mode == ProgramFieldMode.needed)
+      this.fGroup.controls.sportInsurance.addValidators(Validators.required);
   }
   onSaveProfile() {
     const rawValues = this.fGroup.value;
@@ -43,11 +49,11 @@ export class SetMinimumProfileDialogComponent {
       sportInsurance: rawValues.sportInsurance,
       name: rawValues.name,
       family: rawValues.family,
-      city:rawValues.city,
-      birthday:rawValues.birthday.format('jYYYY/jMM/jDD'),
-      IdCardPhoto:rawValues.IdCardPhoto,
-      personalPhoto:rawValues.personalPhoto,
-      sex:rawValues.sex
+      city: rawValues.city,
+      birthday: rawValues.birthday.format('jYYYY/jMM/jDD'),
+      IdCardPhoto: rawValues.IdCardPhoto,
+      personalPhoto: rawValues.personalPhoto,
+      sex: rawValues.sex
     };
     this._profileService.saveProfileWithNationalCode(profileSave).subscribe(c => {
       this._swalService.successFullSubmited();

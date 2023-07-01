@@ -28,7 +28,7 @@ export class DoubleRegisterPageComponent implements OnInit {
   subFieldName: string;
   fGroup: FormGroup<IDoubleRegisterForm>;
   individual: IIndividual;
-  profiles: IGetProfileRoot[];
+  readonly profileMode = ProgramFieldMode;
   constructor (private readonly _activetedRoute: ActivatedRoute, private readonly _dialog: MatDialog, private readonly _fb: FormBuilder, private readonly _doubleService: DoubleRepositoryService) {
     this._field = <SportField>_activetedRoute.snapshot.params['field'];
     this._subField = <SportSubField>_activetedRoute.snapshot.params['subField'];
@@ -36,7 +36,7 @@ export class DoubleRegisterPageComponent implements OnInit {
     this.sportName = <string>this._activetedRoute.snapshot.data['sportName'];
     this.subFieldName = <string>this._activetedRoute.snapshot.data['subFieldName'];
     this.individual = <IIndividual>this._activetedRoute.snapshot.data['individuals'][0];
-    this.profiles = [];
+
   }
   ngOnInit(): void {
     const individuals: FormControl<string>[] = [];
@@ -46,24 +46,8 @@ export class DoubleRegisterPageComponent implements OnInit {
       individuals: this._fb.array<FormControl<string>>(individuals)
     });
   }
-  onEditProfileClick(index: number) {
-    const dialog = this._dialog.open(SetMinimumProfileDialogComponent, { data: this.profiles[index].profile, disableClose: true });
-    dialog.afterClosed().subscribe(result => {
-      if (result === true) {
-        this.onSearchProfile(index);
-      }
-    });
-  }
-  onSearchProfile(index: number) {
-    this._doubleService.getProfileWithNationalCode(this.fGroup.controls.individuals.at(index).value, ProgramType.jam, ProgramFieldMode.needed).subscribe(c => {
-      this.profiles[index] = c;
-    });
-  }
   onSubmited() {
-    if (difference(this.profiles.map(c => c.profile.nationalCode), this.fGroup.value.individuals).length === 0)
-      if (this.profiles.every(c => c.isCompleted === true)) {
-        this._doubleService.register(this._field, this._subField, this.fGroup.value.individuals).subscribe();
-      }
+    this._doubleService.register(this._field, this._subField, this.fGroup.value.individuals).subscribe();
   }
 }
 export interface IDoubleRegisterForm {
