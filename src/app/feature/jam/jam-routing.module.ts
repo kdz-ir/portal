@@ -9,10 +9,10 @@ const routes: Routes = [
   },
   {
     path: 'single',
-    loadChildren: () => import('./single/single.module').then(c => c.SingleModule)
+    loadChildren: () => import('./modules/single/single.module').then(c => c.SingleModule)
   }, {
     path: 'team',
-    loadChildren: () => import('./team/team.module').then(c => c.TeamModule)
+    loadChildren: () => import('./modules/team/team.module').then(c => c.TeamModule)
   }];
 
 @NgModule({

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CoreProfileService } from 'src/app/core/services/user/core-profile.service';
 import { environment } from 'src/environments/environment';
-import { SportField } from '../../models/sport-field';
-import { SportSubField } from '../../models/sub-sport-field';
 import { IIndividual } from '../models/CheckSportInsuranceStatus';
+import { SportField } from '../../../models/sport-field';
+import { SportSubField } from '../../../models/sub-sport-field';
 
 @Injectable({
   providedIn: 'root'

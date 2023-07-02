@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { SingleRepositoryService } from '../../services/single-repository.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SportField } from '../../../models/sport-field';
-import { SportSubField } from '../../../models/sub-sport-field';
 import { SingleRegisteredStatus } from "../../models/SingleRegisteredStatus";
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { Location } from '@angular/common';
+import { SportField } from 'src/app/feature/jam/models/sport-field';
+import { SportSubField } from 'src/app/feature/jam/models/sub-sport-field';
 
 @Component({
   selector: 'app-single-register-page',

@@ -1,19 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SportField } from '../../../models/sport-field';
-import { SportSubField } from '../../../models/sub-sport-field';
 import { SingleRegisteredStatus } from '../../models/SingleRegisteredStatus';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IIndividual } from '../../models/CheckSportInsuranceStatus';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
-import { SingleRepositoryService } from '../../services/single-repository.service';
-import { IGetProfileRoot } from 'src/app/core/model/profile-status-info';
 import { MatDialog } from '@angular/material/dialog';
 import { DoubleRepositoryService } from '../../services/double-repository.service';
-import { difference } from 'lodash-es';
-import { SetMinimumProfileDialogComponent } from 'src/app/shared/modules/shared-profile/components/set-minimum-profile-dialog/set-minimum-profile-dialog.component';
-import { ProgramType } from "src/app/core/model/ProgramType";
 import { ProgramFieldMode } from 'src/app/core/model/ProgramFieldMode';
+import { SportField } from 'src/app/feature/jam/models/sport-field';
+import { SportSubField } from 'src/app/feature/jam/models/sub-sport-field';
 
 @Component({
   selector: 'app-double-register-page',

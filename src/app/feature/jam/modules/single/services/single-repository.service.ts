@@ -7,8 +7,8 @@ import { SingleRegisteredStatus } from "../models/SingleRegisteredStatus";
 import { CoreProfileService } from 'src/app/core/services/user/core-profile.service';
 import { ProfileField } from "src/app/core/model/ProfileField";
 import { ProgramType } from "src/app/core/model/ProgramType";
-import { SportField } from '../../models/sport-field';
-import { SportSubField } from '../../models/sub-sport-field';
+import { SportField } from '../../../models/sport-field';
+import { SportSubField } from '../../../models/sub-sport-field';
 
 @Injectable({
   providedIn: 'root'

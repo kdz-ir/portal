@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { TeamRepositoryService } from '../../services/team-repository.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { SportField } from '../../../models/sport-field';
-import { SportSubField } from '../../../models/sub-sport-field';
 import { Gender } from '../../models/gender';
 import { AgeRange, BozorgsalLabel, NojavanLabel, NonahalLabel } from '../../../shared/jam-shared/models/age-range';
-import { merge } from 'rxjs';
 import { ILabel } from 'src/app/shared/models/ILabel';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
+import { SportField } from 'src/app/feature/jam/models/sport-field';
+import { SportSubField } from 'src/app/feature/jam/models/sub-sport-field';
 @Component({
   selector: 'app-create-team-page',
   templateUrl: './create-team-page.component.html',

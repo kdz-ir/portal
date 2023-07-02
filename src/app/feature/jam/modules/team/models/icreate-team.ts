@@ -1,5 +1,5 @@
-import { SportField } from "../../models/sport-field";
-import { SportSubField } from "../../models/sub-sport-field";
+import { SportField } from "../../../models/sport-field";
+import { SportSubField } from "../../../models/sub-sport-field";
 import { AgeRange } from "../../shared/jam-shared/models/age-range";
 import { Gender } from "./gender";
 
