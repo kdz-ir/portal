@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CreateTeamPageComponent } from './pages/create-team-page/create-team-page.component';
 import { ShowTeamPageComponent } from './pages/show-team-page/show-team-page.component';
 import { JamSharedModule } from '../shared/jam-shared/jam-shared.module';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { JamSharedModule } from '../shared/jam-shared/jam-shared.module';
   imports: [
     JamSharedModule,
     TeamRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
   ]
 })
 export class TeamModule { }

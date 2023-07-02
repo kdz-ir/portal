@@ -12,7 +12,7 @@ import { MatSort } from '@angular/material/sort';
 export class IndexPageComponent implements OnInit, AfterViewInit {
   private readonly _teams: ITeamsList[];
   dataSource: MatTableDataSource<ITeamsList>;
-  displayedColumns: string[] = [ 'name','fieldName','subFieldName','ageRangeName', 'action'];
+  displayedColumns: string[] = [ 'name','fieldName','subFieldName','ageRangeName','players', 'action'];
   @ViewChild(MatSort) sort: MatSort;
   constructor (private readonly _activatedRoute: ActivatedRoute) {
     this._teams = <ITeamsList[]>_activatedRoute.snapshot.data['teams'];

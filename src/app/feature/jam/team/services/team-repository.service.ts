@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { ICreateTeam } from '../models/icreate-team';
 import { IDataCollection } from '../models/IDataCollection';
 import { ITeamsList } from '../models/iteams-list';
+import { ITeam } from "../models/ITeam";
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -18,7 +19,7 @@ export class TeamRepositoryService extends CoreProfileService {
     return this.http.get<IDataCollection<ITeamsList>>(this._url).pipe(map(c => c.data));
   }
   team(id: number) {
-    return this.http.get(this._url + `/${id}`);
+    return this.http.get<ITeam>(this._url + `/${id}`);
   }
   create(data: ICreateTeam) {
     return this.http.post(this._url, data);
