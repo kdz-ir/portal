@@ -4,7 +4,7 @@ import { AuthenticationGuard } from './guards/authentication.guard';
 import { UnAuthenticationGuard } from './guards/un-authentication.guard';
 import { ValidProfileGuard } from './guards/valid-profile.guard';
 import { PreloadAllModules } from '@angular/router';
-import { CanLoadThisProgramGuard} from './guards/can-load-this-program.guard';
+import { CanLoadThisProgramGuard } from './guards/can-load-this-program.guard';
 const routes: Routes = [
   {
     path: '', canActivate: [AuthenticationGuard], children: [
@@ -27,7 +27,7 @@ const routes: Routes = [
         children: [
           {
             path: 'jam',
-            canActivate:[CanLoadThisProgramGuard(true)],
+            canActivate: [CanLoadThisProgramGuard(true)],
             loadChildren: () => import('../feature/jam/jam.module').then(c => c.JamModule)
           },
           {
@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'Authentication',
     loadChildren: () => import('../feature/authentication/authentication.module').then(a => a.AuthenticationModule),
     canActivate: [UnAuthenticationGuard]
+  },
+  {
+    path: "payment",
+    loadChildren: () => import('../feature/payment/payment.module').then(c => c.PaymentModule)
   },
   {
     path: 'news',

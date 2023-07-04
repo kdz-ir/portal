@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { JamRoutingModule } from './jam-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { JamHomePageComponent } from './jam-home-page/jam-home-page.component';
+import { JamHomePageComponent } from './pages/jam-home-page/jam-home-page.component';
 
 
 @NgModule({

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SharedProfileModule } from 'src/app/shared/modules/shared-profile/shared-profile.module';
 import { ProfileCheckInputComponent } from './components/profile-check-input/profile-check-input.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -11,12 +12,14 @@ import { ProfileCheckInputComponent } from './components/profile-check-input/pro
   ],
   imports: [
     SharedModule,
-    SharedProfileModule
+    SharedProfileModule,
+    MatTableModule,
   ],
   exports: [
     SharedModule,
     SharedProfileModule,
-    ProfileCheckInputComponent
+    ProfileCheckInputComponent,
+    MatTableModule,
   ]
 })
 export class JamSharedModule { }
