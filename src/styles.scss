@@ -17,13 +17,13 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Vazirmatn UI FD NL',Roboto, "Helvetica Neue", sans-serif;
     overflow-y: hidden;
 }
 
 // @include mat.all-component-typographies($custom-typography);
 @include mat.core();
-$custom-typography: mat.define-typography-config($font-family: 'Vazir FD');
+$custom-typography: mat.define-typography-config($font-family: 'Vazirmatn UI FD NL');
 $dark-primary: mat.define-palette(mat.$cyan-palette, 900);
 $dark-accent: mat.define-palette(mat.$deep-purple-palette, A200, A400,A700);
 $dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
