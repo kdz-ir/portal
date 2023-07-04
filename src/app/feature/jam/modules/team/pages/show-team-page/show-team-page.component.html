@@ -70,7 +70,8 @@
                     <th mat-header-cell
                         *matHeaderCellDef></th>
                     <td mat-cell
-                        *matCellDef="let element"> <button [routerLink]="element.id"
+                        *matCellDef="let element"> <button *ngIf="element.playerType==1"
+                                (click)="onDeletePlayer(element.nationalCode)"
                                 mat-icon-button><mat-icon>
                                 delete</mat-icon></button> </td>
                 </ng-container>

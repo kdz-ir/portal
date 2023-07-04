@@ -6,6 +6,7 @@ import { ITeam } from '../../models/ITeam';
 import { MatSort } from '@angular/material/sort';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TeamRepositoryService } from '../../services/team-repository.service';
+import { SwalService } from 'src/app/core/services/swal/swal.service';
 
 @Component({
   selector: 'app-show-team-page',
@@ -18,17 +19,33 @@ export class ShowTeamPageComponent {
   displayedColumns: string[] = ['name', 'playerType', 'nationalCode', 'action'];
   teamInfo: ITeam;
   fGroup: FormGroup<{ player: FormControl<string>; }>;
-  constructor (private readonly _activatedRoute: ActivatedRoute, fb: FormBuilder, private readonly _teamService: TeamRepositoryService) {
-    this.teamInfo = <ITeam>_activatedRoute.snapshot.data['team'];
+  constructor (activatedRoute: ActivatedRoute, fb: FormBuilder, private readonly _teamService: TeamRepositoryService, private readonly _swalService: SwalService) {
+    this.teamInfo = <ITeam>activatedRoute.snapshot.data['team'];
     this.dataSource = new MatTableDataSource(this.teamInfo.players);
     this.fGroup = fb.nonNullable.group({
       player: fb.nonNullable.control('', [Validators.required])
     });
   }
+  async onDeletePlayer(nationalCode: string) {
+    const player = this.teamInfo.players.find(c => c.nationalCode == nationalCode);
+    const result = await this._swalService.swal.fire({ text: `آیا شما مطمعنید میخواهید بازیکن ${player.profile.name} ${player.profile.family} را حذف کنید.`, icon: 'warning', confirmButtonText: 'بله', showCancelButton: true });
 
+    if (result.isConfirmed)
+      this._teamService.deletePlayer(this.teamInfo.team.id, nationalCode).subscribe(c => {
+
+        this._refreshTeam();
+      });
+  }
+  private _refreshTeam() {
+    this._teamService.team(this.teamInfo.team.id).subscribe(c => {
+      this.teamInfo = c;
+    });
+  }
   onNewPlayerAdded() {
-    this._teamService.addMember(this.teamInfo.team.id, { team: this.teamInfo.team.id, nationalCode: this.fGroup.value.player }).subscribe(c => this._teamService.team(this.teamInfo.team.id).subscribe(c =>{
-      this.teamInfo=c;
-    }));
+    this._teamService.addMember(this.teamInfo.team.id, { team: this.teamInfo.team.id, nationalCode: this.fGroup.value.player })
+      .subscribe(c => {
+        this.fGroup.reset();
+        this._refreshTeam();
+      });
   }
 }

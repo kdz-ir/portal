@@ -22,14 +22,14 @@ const routes: Routes = [
         loadChildren: () => import('../feature/setting/setting.module').then(s => s.SettingModule)
       },
       {
+        path: 'jam',
+        canActivate: [CanLoadThisProgramGuard(true)],
+        loadChildren: () => import('../feature/jam/jam.module').then(c => c.JamModule)
+      },
+      {
         path: '',
         canActivate: [ValidProfileGuard],
         children: [
-          {
-            path: 'jam',
-            canActivate: [CanLoadThisProgramGuard(true)],
-            loadChildren: () => import('../feature/jam/jam.module').then(c => c.JamModule)
-          },
           {
             path: 'Manthra',
             canActivate: [CanLoadThisProgramGuard(false)],

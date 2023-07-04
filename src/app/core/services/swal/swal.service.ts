@@ -10,7 +10,8 @@ export class SwalService {
    */
   constructor () {
     this.swal = this.swal.mixin({
-      confirmButtonText: 'باشه'
+      confirmButtonText: 'باشه',
+      cancelButtonText: 'بستن'
     });
   }
   showWarnMessage() {

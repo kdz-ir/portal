@@ -30,4 +30,7 @@ export class TeamRepositoryService extends CoreProfileService {
   delete(id: number) {
     return this.http.delete(this._url + `/${id}`);
   }
+  deletePlayer(teamId: number, nationalCode: string) {
+    return this.http.delete(this._url + `/${teamId}/${nationalCode}`);
+  }
 }
