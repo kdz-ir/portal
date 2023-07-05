@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AgeType } from 'src/app/core/model/age-type-enum';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { ManthraReporsitoryService } from '../../services/manthra-reporsitory.service';
-import { ILabel } from 'src/app/shared/models/yesOrNoAnswer';
+import { ILabel } from "src/app/shared/models/ILabel";
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({

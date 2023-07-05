@@ -3,12 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { JamRoutingModule } from './jam-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { JamHomePageComponent } from './jam-home-page/jam-home-page.component';
+import { JamHomePageComponent } from './pages/jam-home-page/jam-home-page.component';
+import { RegisterHomePageComponent } from './pages/register-home-page/register-home-page.component';
+import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 
 
 @NgModule({
   declarations: [
-    JamHomePageComponent
+    JamHomePageComponent,
+    RegisterHomePageComponent,
+    HistoryPageComponent,
+    CountdownComponent
   ],
   imports: [
     SharedModule,
