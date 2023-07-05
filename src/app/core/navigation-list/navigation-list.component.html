@@ -1,11 +1,28 @@
 <mat-nav-list>
-    <mat-list-item [routerLink]="nav.link" [routerLinkActive]="['link-active']" *ngFor="let nav of links" >
-       <span matListItemTitle>{{ nav.name }}</span>
-       <div matListItemIcon
-             [ngSwitch]="nav.isNative">
+    <ng-container *ngFor="let nav of links">
+        <container-element [ngSwitch]="nav.access">
+            <ng-container [ngTemplateOutlet]="listItem"
+                          *ngSwitchCase="accessType.public"
+                          [ngTemplateOutletContext]="{'$implicit':nav}"></ng-container>
+            <ng-container *ngSwitchCase="accessType.users">
+                <ng-container *ngIf="authService.isAuthenticated"
+                              [ngTemplateOutletContext]="{'$implicit':nav}"
+                              [ngTemplateOutlet]="listItem"></ng-container>
+            </ng-container>
+        </container-element>
+    </ng-container>
+
+</mat-nav-list>
+<ng-template #listItem
+             let-navigation>
+    <mat-list-item [routerLink]="navigation.path"
+                   [routerLinkActive]="['link-active']">
+        <span matListItemTitle>{{ navigation.name }}</span>
+        <div matListItemIcon
+             [ngSwitch]="navigation.isNative">
             <mat-icon *ngSwitchCase="false"
-                      [svgIcon]="nav.icon"></mat-icon>
-            <mat-icon *ngSwitchCase="true">{{nav.icon}}</mat-icon>
+                      [svgIcon]="navigation.icon"></mat-icon>
+            <mat-icon *ngSwitchCase="true">{{navigation.icon}}</mat-icon>
         </div>
     </mat-list-item>
-  </mat-nav-list>
+</ng-template>

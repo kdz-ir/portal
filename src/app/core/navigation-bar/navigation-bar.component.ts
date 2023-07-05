@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LINKS } from '../navigation-list/navigation-list.component';
+import { AuthenticationService } from '../services/authentication/authentication.service';
+import { AccessType } from '../model/AccessType';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,7 +10,8 @@ import { LINKS } from '../navigation-list/navigation-list.component';
 })
 export class NavigationBarComponent implements OnInit {
   readonly links = LINKS;
-  constructor () { }
+  readonly accessType = AccessType;
+  constructor (readonly authService: AuthenticationService) { }
 
   ngOnInit(): void {
   }

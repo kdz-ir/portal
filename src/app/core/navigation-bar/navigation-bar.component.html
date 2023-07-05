@@ -3,20 +3,46 @@
      backgroundColor="primary"
      [tabPanel]="tabPanel"
      color="warn">
-    <a mat-tab-link
-       *ngFor="let nav of links; index as i"
-       [routerLink]="nav.link"
-       routerLinkActive
-       #rla="routerLinkActive"
-       [active]="rla.isActive">
-        <div [ngSwitch]="nav.isNative">
-            <mat-icon *ngSwitchCase="false"
-                      [svgIcon]="nav.icon"></mat-icon>
-            <mat-icon *ngSwitchCase="true">{{nav.icon}}</mat-icon>
-        </div>
-        <span> {{nav.name}}</span>
-    </a>
+    <ng-container *ngFor="let nav of links">
+        <!-- <container-element [ngSwitch]="nav.access">
+            <ng-container [ngTemplateOutlet]="listItem"
+                          *ngSwitchCase="accessType.public"
+                          [ngTemplateOutletContext]="{'$implicit':nav}"></ng-container>
+            <ng-container *ngSwitchCase="accessType.users">
+                <ng-container *ngIf="authService.isAuthenticated"
+                              [ngTemplateOutletContext]="{'$implicit':nav}"
+                              [ngTemplateOutlet]="listItem"></ng-container>
+            </ng-container>
+        </container-element> -->
+        <a mat-tab-link
+           [routerLink]="nav.path"
+           routerLinkActive
+           #rla="routerLinkActive"
+           [active]="rla.isActive">
+            <div [ngSwitch]="nav.isNative">
+                <mat-icon *ngSwitchCase="false"
+                          [svgIcon]="nav.icon"></mat-icon>
+                <mat-icon *ngSwitchCase="true">{{nav.icon}}</mat-icon>
+            </div>
+            <span> {{nav.name}}</span>
+        </a>
+    </ng-container>
 </nav>
 
 <mat-tab-nav-panel #tabPanel>
 </mat-tab-nav-panel>
+<ng-template #listItem
+             let-navigation>
+    <a mat-tab-link
+       [routerLink]="navigation.path"
+       routerLinkActive
+       #rla="routerLinkActive"
+       [active]="rla.isActive">
+        <div [ngSwitch]="navigation.isNative">
+            <mat-icon *ngSwitchCase="false"
+                      [svgIcon]="navigation.icon"></mat-icon>
+            <mat-icon *ngSwitchCase="true">{{navigation.icon}}</mat-icon>
+        </div>
+        <span> {{navigation.name}}</span>
+    </a>
+</ng-template>

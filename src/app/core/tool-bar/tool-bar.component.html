@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
     <button mat-icon-button
-            *ngIf="authService.isAuthenticated && !mobileQuery.matches"
+            *ngIf="!mobileQuery.matches"
             (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
@@ -9,7 +9,7 @@
 </mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav #snav
-                 [opened]="!mobileQuery.matches && authService.isAuthenticated"
+                 [opened]="!mobileQuery.matches"
                  [mode]="mobileQuery.matches ? 'over' : 'side'"
                  fixedTopGap="56"
                  [fixedInViewport]="mobileQuery.matches">
@@ -20,4 +20,4 @@
 
     </mat-sidenav-content>
 </mat-sidenav-container>
-<app-navigation-bar *ngIf="mobileQuery.matches && authService.isAuthenticated"></app-navigation-bar>
+<app-navigation-bar *ngIf="mobileQuery.matches"></app-navigation-bar>
