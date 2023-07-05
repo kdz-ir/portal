@@ -9,6 +9,8 @@ import { DoubleRepositoryService } from '../../services/double-repository.servic
 import { ProgramFieldMode } from 'src/app/core/model/ProgramFieldMode';
 import { SportField } from 'src/app/feature/jam/models/sport-field';
 import { SportSubField } from 'src/app/feature/jam/models/sub-sport-field';
+import { SwalService } from 'src/app/core/services/swal/swal.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-double-register-page',
@@ -24,14 +26,18 @@ export class DoubleRegisterPageComponent implements OnInit {
   fGroup: FormGroup<IDoubleRegisterForm>;
   individual: IIndividual;
   readonly profileMode = ProgramFieldMode;
-  constructor (private readonly _activetedRoute: ActivatedRoute, private readonly _dialog: MatDialog, private readonly _fb: FormBuilder, private readonly _doubleService: DoubleRepositoryService) {
+  constructor (private readonly _activetedRoute: ActivatedRoute,
+    private readonly _fb: FormBuilder,
+    private readonly _location: Location,
+    private readonly _doubleService: DoubleRepositoryService,
+    private readonly _swalService: SwalService) {
     this._field = <SportField>_activetedRoute.snapshot.params['field'];
     this._subField = <SportSubField>_activetedRoute.snapshot.params['subField'];
     this.isRegistered = <SingleRegisteredStatus>this._activetedRoute.snapshot.data['registeredStatus'];
     this.sportName = <string>this._activetedRoute.snapshot.data['sportName'];
     this.subFieldName = <string>this._activetedRoute.snapshot.data['subFieldName'];
     this.individual = <IIndividual>this._activetedRoute.snapshot.data['individuals'][0];
-
+    this.isRegistered = <SingleRegisteredStatus>this._activetedRoute.snapshot.data['registeredStatus'];
   }
   ngOnInit(): void {
     const individuals: FormControl<string>[] = [];
@@ -42,7 +48,19 @@ export class DoubleRegisterPageComponent implements OnInit {
     });
   }
   onSubmited() {
-    this._doubleService.register(this._field, this._subField, this.fGroup.value.individuals).subscribe();
+    this._doubleService.register(this._field, this._subField, this.fGroup.value.individuals).subscribe(() => {
+      this._swalService.successFullRegister();
+      this._location.back();
+    });
+  }
+  async onWantDelete() {
+    const confirm = await this._swalService.showWarnMessage();
+    if (!confirm.isConfirmed)
+      return;
+    this._doubleService.delete(this._field, this._subField).subscribe(c => {
+      this._swalService.successFullSubmited();
+      this._location.back();
+    });
   }
 }
 export interface IDoubleRegisterForm {

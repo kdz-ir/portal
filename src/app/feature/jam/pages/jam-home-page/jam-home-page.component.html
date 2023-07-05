@@ -1,4 +1,26 @@
-<button mat-button
-        routerLink="register">ثبت نام</button>
-<button mat-button
-        routerLink="history">تاریخچه</button>
+<div class=" text-center">
+
+        <img class="h-40 mx-auto"
+             src="assets/pic/jam.webp"
+             alt="جام">
+        <p>
+                پیکارهای ورزشی جام جان‌باختگان، مسابقات ورزشی است که با حضور بیش از ۸۰۰ ورزشکار از سراسر جامعه زرتشتی،
+                چه از داخل و چه خارج از کشور، هر ساله در امردادماه، در همایشگاه فرهنگی، دینی، ورزشی مارکار
+                تهرانپارس برگزار می‌گردد. درحال حاضر نیز در ۹ رشته ورزشی فوتبال، بسکتبال، والیبال، بدمینتون، تنیس روی
+                میز، شطرنج، دو و میدانی، شنا و دوچرخه سواری در دو گروه آقایان و بانوان و در رده‌های سنی گوناگون، با همت
+                کانون دانشجویان زرتشتی برگزار گردید؛ که حاصل بیش از ۱۱۰ هزار نفر ساعت کار و برنامه‌ریزی شبانه‌روزی
+                دانشجویانی است که فعالیت‌های خود را برای به مرحله اجرا درآوردن این پیکارها، از اسفندماه آغاز می‌کنند.
+        </p>
+        <div>
+                <span>تا جام جان‌باختگان چقدر مانده</span>
+                <app-countdown></app-countdown>
+        </div>
+        <div class="flex gap-2 justify-center mt-2">
+                <button mat-raised-button
+                        class="w-36"
+                        color="accent"
+                        routerLink="register">ثبت نام</button>
+                <button mat-raised-button
+                        routerLink="history">تاریخچه</button>
+        </div>
+</div>

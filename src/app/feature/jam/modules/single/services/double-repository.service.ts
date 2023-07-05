@@ -9,7 +9,7 @@ import { SportSubField } from '../../../models/sub-sport-field';
   providedIn: 'root'
 })
 export class DoubleRepositoryService extends CoreProfileService {
-  private readonly _url = environment.url+'/api/v1/account/jam/double';
+  private readonly _url = environment.url + '/api/v1/account/jam/double';
   constructor () {
     super();
   }
@@ -18,5 +18,8 @@ export class DoubleRepositoryService extends CoreProfileService {
   }
   individuals(field: SportField, subField: SportSubField) {
     return this.http.post<IIndividual>(this._url + '/individuals', { field, subField });
+  }
+  delete(field: SportField, subField: SportSubField) {
+    return this.http.post(this._url + '/delete', { field, subField });
   }
 }

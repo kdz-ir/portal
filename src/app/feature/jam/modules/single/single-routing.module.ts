@@ -29,7 +29,8 @@ const routes: Routes = [{
       resolve: {
         sportName: FieldNameResolver,
         subFieldName: SubFieldNameResolver,
-        individuals: IndividualsResolver
+        individuals: IndividualsResolver,
+        registeredStatus: SingleRegisteredStatusResolver,
       }
     },
     {

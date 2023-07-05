@@ -6,13 +6,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { JamHomePageComponent } from './pages/jam-home-page/jam-home-page.component';
 import { RegisterHomePageComponent } from './pages/register-home-page/register-home-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 
 
 @NgModule({
   declarations: [
     JamHomePageComponent,
     RegisterHomePageComponent,
-    HistoryPageComponent
+    HistoryPageComponent,
+    CountdownComponent
   ],
   imports: [
     SharedModule,
