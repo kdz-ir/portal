@@ -4,6 +4,7 @@ import { JamHomePageComponent } from './pages/jam-home-page/jam-home-page.compon
 import { ValidProfileGuard } from 'src/app/core/guards/valid-profile.guard';
 import { RegisterHomePageComponent } from './pages/register-home-page/register-home-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { CanRegisterGuard } from './guards/can-register-guard';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'register',
+    canActivate: [CanRegisterGuard],
     component: RegisterHomePageComponent,
   },
   {
@@ -20,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    canActivate: [ValidProfileGuard],
+    canActivate: [ValidProfileGuard, CanRegisterGuard],
     children: [
       {
         path: 'single',
