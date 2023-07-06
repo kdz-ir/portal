@@ -12,7 +12,7 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js",
-          "https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v26.0.2/dist/Farsi-Digits/font-face-FD.css",
+          "https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/misc/UI-Farsi-Digits-Non-Latin/Vazirmatn-UI-FD-NL-font-face.css",
           "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap",
           "https://fonts.googleapis.com/icon?family=Material+Icons"
         ]
