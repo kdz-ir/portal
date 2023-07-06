@@ -16,12 +16,10 @@ export const LINKS = [
 
   { link: '/ordoo', name: 'اردو', icon: 'Ordoo', isNative: false },
   {
-    link: '/Settings', name: 'مشخصات کاربری', icon: 'account_circle', isNative: true
-  },
-  {
     link: '/news', name: 'اخبار', icon: 'feed', isNative: true
   },
   {
-    link: '/Settings/logout', name: 'خروج', icon: 'logout', isNative: true
+    link: '/Settings', name: 'مشخصات کاربری', icon: 'account_circle', isNative: true
   },
+
 ];
