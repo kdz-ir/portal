@@ -1,0 +1,149 @@
+{
+  "configVersion": 1,
+  "timestamp": 1688653445076,
+  "index": "/portal/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/portal/165.16d96b2ca920361e.js",
+        "/portal/2.e0a8265935b3ebf8.js",
+        "/portal/222.7d00cfdaff3c9b06.js",
+        "/portal/232.62ff99e7593c2bc9.js",
+        "/portal/233.0837a58035e6d8d8.js",
+        "/portal/268.125d7da7a87d3d69.js",
+        "/portal/306.6d1c4ff3167f4aea.js",
+        "/portal/35.7f9d06f0a1330d34.js",
+        "/portal/386.be50590fe40be3bc.js",
+        "/portal/418.aba03b2bf2e58973.js",
+        "/portal/546.afd046af979d7316.js",
+        "/portal/629.6239485a935b454e.js",
+        "/portal/68.2df15d84c3be90f0.js",
+        "/portal/759.0a875e8a80f6da55.js",
+        "/portal/78.229690cb95156798.js",
+        "/portal/805.e67270b795253e3f.js",
+        "/portal/840.039045668a85022b.js",
+        "/portal/911.65ef18ae0df19123.js",
+        "/portal/956.34b69a32257f7d12.js",
+        "/portal/common.3f257a768b7e375a.js",
+        "/portal/favicon.ico",
+        "/portal/index.html",
+        "/portal/main.e2fbf1cdf919c949.js",
+        "/portal/manifest.webmanifest",
+        "/portal/polyfills.7c978ea6c48a313b.js",
+        "/portal/runtime.bc6aea27732cf79b.js",
+        "/portal/styles.0ecd8763f04304e5.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/portal/assets/icons/icon-128x128.png",
+        "/portal/assets/icons/icon-144x144.png",
+        "/portal/assets/icons/icon-152x152.png",
+        "/portal/assets/icons/icon-192x192.png",
+        "/portal/assets/icons/icon-384x384.png",
+        "/portal/assets/icons/icon-48x48.png",
+        "/portal/assets/icons/icon-512x512.png",
+        "/portal/assets/icons/icon-72x72.png",
+        "/portal/assets/icons/icon-96x96.png",
+        "/portal/assets/icons/jam.svg",
+        "/portal/assets/icons/manthra.svg",
+        "/portal/assets/icons/ordoo.svg",
+        "/portal/assets/pic/image_2023-05-04_15-36-30.jpg",
+        "/portal/assets/pic/jam.webp",
+        "/portal/assets/pic/tshirtSize.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "news",
+      "patterns": [
+        "https:\\/\\/kdz\\.ir\\/fa\\/\\?json=get_posts"
+      ],
+      "strategy": "freshness",
+      "maxSize": 50,
+      "maxAge": 86400000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/portal/165.16d96b2ca920361e.js": "9d5b5fb9cc2547214bddd8355e7ad53ce664c6c9",
+    "/portal/2.e0a8265935b3ebf8.js": "32de38aa0a7f2350a5c060d725554dc516a68744",
+    "/portal/222.7d00cfdaff3c9b06.js": "8145f3545fc0ec86fec5238a971fe840ecd6b484",
+    "/portal/232.62ff99e7593c2bc9.js": "c92029119b045ad7af0b714d421c7e923b87c564",
+    "/portal/233.0837a58035e6d8d8.js": "63810c0e8e7e90aec43471d98fff3292d030010e",
+    "/portal/268.125d7da7a87d3d69.js": "8a9a5ac34fd6c085998295ffd0182f71b73b76d7",
+    "/portal/306.6d1c4ff3167f4aea.js": "d9bf9bf4d7a51175bf42780bd9c64cb6509298df",
+    "/portal/35.7f9d06f0a1330d34.js": "e5158769409d9936b226d86849575680b4a62fe4",
+    "/portal/386.be50590fe40be3bc.js": "1c35bd7c26adb7e9ac74c9a6dde534dfe37e35c4",
+    "/portal/418.aba03b2bf2e58973.js": "b4aac5f237442cbb4c893ccdc0eb4747d648b49e",
+    "/portal/546.afd046af979d7316.js": "c318f7aad76ba77dc2c35da2e75e21b12472c3b8",
+    "/portal/629.6239485a935b454e.js": "09cbaf13eef7a7127603526ad08d18f6b9e1251a",
+    "/portal/68.2df15d84c3be90f0.js": "6483d9285c80bf0af5651728a818f7b5ab226a8e",
+    "/portal/759.0a875e8a80f6da55.js": "4f8727a70cadbeb539bc406e1ba3dec5f6b17e60",
+    "/portal/78.229690cb95156798.js": "07902a0afc73ed2018236e75ae47c0240f038b79",
+    "/portal/805.e67270b795253e3f.js": "48c1777499d8232cc2f16851d965eff2aeffcb91",
+    "/portal/840.039045668a85022b.js": "65b56f2925d38e6c2e111199b419c87cfe36825e",
+    "/portal/911.65ef18ae0df19123.js": "2344eda4090786ec284cb25d527b75594240e0c2",
+    "/portal/956.34b69a32257f7d12.js": "35bca8de51803ab90a0b917e878ca326d88435c2",
+    "/portal/assets/icons/icon-128x128.png": "d7d1222cd9f26a807793a4ed562ad2b5ab83d720",
+    "/portal/assets/icons/icon-144x144.png": "249524f48d9f9b411fd7c302f0231204db5cb9bd",
+    "/portal/assets/icons/icon-152x152.png": "70df2922f6f9f402b1563e0498e309cd15e8cc7a",
+    "/portal/assets/icons/icon-192x192.png": "8ef3087b4596fb61690a9037b39b4171f5b74b18",
+    "/portal/assets/icons/icon-384x384.png": "c2b71b6a4995e52dcfa98736fcfec41c654020fc",
+    "/portal/assets/icons/icon-48x48.png": "9b4e7344a4d1bf8d15d404a7c47e01ba563fa9dd",
+    "/portal/assets/icons/icon-512x512.png": "a765d87f5678dcd9069c98ff37af36959350c344",
+    "/portal/assets/icons/icon-72x72.png": "9d3ab01937b093dd75573645916bbd0d14004473",
+    "/portal/assets/icons/icon-96x96.png": "d2bfb6987d19a71d88a9d3b1ff44aad3e6b761f8",
+    "/portal/assets/icons/jam.svg": "478129edbab9538891f16641bb17f0a04f15c1d3",
+    "/portal/assets/icons/manthra.svg": "556cfb31bbd0c2c793993e3ea8024ad8b1be1cb4",
+    "/portal/assets/icons/ordoo.svg": "1c82479e3ac394a3c4c85c67c7c7af39599c4295",
+    "/portal/assets/pic/image_2023-05-04_15-36-30.jpg": "d7d93bd41d040478025b95be83d6489ef03342ec",
+    "/portal/assets/pic/jam.webp": "845b373e8967c6d0ec52f327e96147229c157185",
+    "/portal/assets/pic/tshirtSize.jpg": "b0d73e10ed68dbd8b4d1e3857cd3f52a61d98fa6",
+    "/portal/common.3f257a768b7e375a.js": "344d9a8cec2b043799b3a02ca19491c8eeae13c7",
+    "/portal/favicon.ico": "a008f051369ce7a5c52f6a2011fa32bd4c429c4f",
+    "/portal/index.html": "fe8123fdb0ec23b3d9da6331ee07e81a033425d5",
+    "/portal/main.e2fbf1cdf919c949.js": "36c117d411af0a9106c6c3e638b38868851cd673",
+    "/portal/manifest.webmanifest": "c494c902771710a5112e95a6e7023c1410b9b8f9",
+    "/portal/polyfills.7c978ea6c48a313b.js": "ed2d1dcd7b4eb15a2ab2d5a4ea9de6728b2310e4",
+    "/portal/runtime.bc6aea27732cf79b.js": "84d4094af7e024fe64454e635005990fb925344c",
+    "/portal/styles.0ecd8763f04304e5.css": "3a1d9f7533346f2d695290ebd5f3383283def29a"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
