@@ -1,32 +1,27 @@
+import { IBaseProfileShow } from "src/app/shared/modules/shared-profile/models/IBaseProfileShow";
+
 export interface ProfileStatusInfo {
-    status:  boolean;
+    status: boolean;
     message: string;
-    entity:  null;
+    entity: null;
 }
 export interface CheckFieldStatus {
     status: boolean;
     message: null;
     entity: null;
-  }
-  export interface IGetProfileRoot {
-    profile:     IGetProfile;
+}
+export interface IGetProfileRoot {
+    profile: IGetProfile;
     isCompleted: boolean;
-    editable:    boolean;
+    editable: boolean;
 }
 
-export interface IGetProfile {
-    nationalCode:   string;
+export interface IGetProfile extends IBaseProfileShow {
+    nationalCode: string;
     sportInsurance: string;
-    name:           string;
-    address:        string;
-    birthday:       string;
-    city:           string;
-    family:         string;
-    fatherName:     string;
-    phone:          string;
-    sex:            string;
-    postalCode:     string;
-    IdCardPhoto:    string;
-    personalPhoto:  string;
-    created_at:     string;
+    address: string;
+    fatherName: string;
+    phone: string;
+    postalCode: string;
+    created_at: string;
 }

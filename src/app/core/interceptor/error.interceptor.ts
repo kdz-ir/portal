@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-import { isNull } from "lodash-es";
+import { isNil, isNull } from "lodash-es";
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -28,18 +28,37 @@ export class ErrorInterceptor implements HttpInterceptor {
               this._swal.showErrorMessage(err.error);
               break;
             case 422:
-              const entityError = err.error.entity;
-              const message = err.error.message;
               const serverMessages: string[] = [];
-              if (!isNull(entityError))
-                Object.getOwnPropertyNames(entityError).forEach(pr => {
-                  entityError[pr].forEach((mess: string) => {
-                    serverMessages.push(mess);
+              const message = err.error.message;
+              if (!isNil(err.error.entity)) {
+                const entityError = err.error.entity;
+
+
+                if (!isNull(entityError))
+                  Object.getOwnPropertyNames(entityError).forEach(pr => {
+                    entityError[pr].forEach((mess: string) => {
+                      serverMessages.push(mess);
+                    });
                   });
-                });
-              else
-                serverMessages.push(message);
-              this._swal.showErrorMessages(serverMessages);
+                else
+                  serverMessages.push(message);
+
+              }
+              else {
+                if (!isNil(err.error.errors)) {
+                  const entityError = err.error.errors;
+                  if (!isNull(entityError))
+                    Object.getOwnPropertyNames(entityError).forEach(pr => {
+                      entityError[pr].forEach((mess: string) => {
+                        serverMessages.push(mess);
+                      });
+                    });
+                  else
+                    serverMessages.push(message);
+                }
+              }
+              if (serverMessages.length != 0)
+                this._swal.showErrorMessages(serverMessages);
               break;
             case 500:
               this._snackBar.open('سامانه قطع است شکیبا باشید ');

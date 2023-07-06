@@ -93,7 +93,7 @@ export class EditProfileComponent implements AfterViewInit {
           birthday: moment(c.entity.birthday, 'jYYYY/jMM/jDD'),
           phone: c.entity.phone,
           postalCode: c.entity.postalCode,
-          IdCardPhoto: c.entity?.IdCardPhoto ?? '',
+          IdCardPhoto: c.entity?.idCardPhoto ?? '',
           personalPhoto: c.entity.personalPhoto ?? ''
         });
       }

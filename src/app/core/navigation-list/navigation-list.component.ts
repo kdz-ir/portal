@@ -22,13 +22,10 @@ export const LINKS: Link[] = [
 
   { path: '/ordoo', name: 'اردو', icon: 'Ordoo', isNative: false, access: AccessType.users },
   {
+    path: '/news', name: 'اخبار', icon: 'feed', isNative: true, access: AccessType.public,
+  },
+  {
     path: '/Settings', name: 'مشخصات کاربری', icon: 'account_circle', isNative: true, access: AccessType.users
   },
-  {
-    path: '/news', name: 'اخبار', icon: 'feed', isNative: true, access: AccessType.public
-  },
-  {
-    path: '/Settings/logout', name: 'خروج', icon: 'logout', isNative: true, access: AccessType.users
-  },
-];
 
+];
