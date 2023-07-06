@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material'as mat;
 @import '~ngx-lightbox/lightbox.css';
-@import '@angular/material/theming';
 @import './app/core/scss/bootstrap.scss';
 @import './app/core/scss/spacing.scss';
 @import './app/core/scss/float.scss';
 @import './app/core/scss/loading-spinner.scss';
 // @import './app/core/scss/material-icons.scss';
 // @import './app/core/scss/roboto.scss';
+@tailwind base;
+@tailwind utilities;
 
 html,
 body {
@@ -16,12 +17,33 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Vazirmatn UI FD NL',Roboto, "Helvetica Neue", sans-serif;
     overflow-y: hidden;
 }
 
-$custom-typography: mat.define-typography-config($font-family: 'Vazir FD,Roboto, tahoma;');
-@include mat.core($custom-typography);
+// @include mat.all-component-typographies($custom-typography);
+@include mat.core();
+$custom-typography: mat.define-typography-config($font-family: 'Vazirmatn UI FD NL');
+$dark-primary: mat.define-palette(mat.$teal-palette, 700);
+$dark-accent: mat.define-palette(mat.$purple-palette, A700);
+$dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
+            accent: $dark-accent,
+        ), typography: $custom-typography,
+        density: 0, ));
+@include mat.all-component-themes($dark-theme);
+
+@media (prefers-color-scheme: light) {
+    $light-primary: mat.define-palette(mat.$light-blue-palette, 500);
+    $light-accent: mat.define-palette(mat.$amber-palette,400);
+    $light-theme: mat.define-light-theme((color: (primary: $light-primary,
+                    accent: $light-accent,
+                )));
+
+    @include mat.all-component-themes($light-theme);
+    .home-page-background {
+        background-color: rgb(255, 255, 255);
+    }
+}
 
 .text-center {
     text-align: center !important;
@@ -33,7 +55,7 @@ $custom-typography: mat.define-typography-config($font-family: 'Vazir FD,Roboto,
 }
 
 
-.mat-loading .mat-progress-spinner {
+.mat-loading .mat-mdc-progress-spinner {
     position: absolute;
     top: calc(29% - 10px);
     left: calc(50% - 10px);
@@ -74,6 +96,10 @@ $custom-typography: mat.define-typography-config($font-family: 'Vazir FD,Roboto,
 }
 
 .link-active {
-    color: map-get(mat.define-palette(mat.$indigo-palette), A200) !important;
+    background-color: map-get(mat.define-palette(mat.$deep-purple-palette), A700) !important;
+}
 
+.home-page-background {
+    height: 60vh;
+    background-color: rgb(27, 27, 27);
 }

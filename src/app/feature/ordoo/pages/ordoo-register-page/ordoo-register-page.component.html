@@ -1,0 +1,638 @@
+<form [formGroup]="fGroup"
+      (submit)="onFormSubmited()"
+      fxLayout="column">
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    مشخصات فردی شرکت‌کننده
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="column">
+                <mat-form-field>
+                    <mat-label>
+                        محل صدور شناسنامه
+                    </mat-label>
+                    <input formControlName="placeOfBirthCertificate"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        مقطع تحصیلی
+                    </mat-label>
+                    <input formControlName="grades"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        رشته تحصیلی
+                    </mat-label>
+                    <input formControlName="studyField"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        معدل سال گذشته
+                    </mat-label>
+                    <input type="number"
+                           formControlName="lastGPA"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        نام مدرسه محل تحصیل سال جاری
+                    </mat-label>
+                    <input formControlName="schoolName"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        نام مدرسه محل تحصیل سال گذشته
+                    </mat-label>
+                    <input formControlName="lastSchoolName"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        آدرس پست الکترونیک
+                    </mat-label>
+                    <input formControlName="email"
+                           type="email"
+                           matInput>
+                </mat-form-field>
+                <div>
+                    <label>
+                        آیا سدره پوش شده‌اید؟
+                    </label>
+                    <mat-radio-group formControlName="isNavjote">
+                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div>
+                    <label>
+                        آیا مبتلا به بیماری خاصی هستید؟
+                    </label>
+                    <mat-radio-group formControlName="isSpecialSickness">
+                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div *ngIf="fGroup.value.isSpecialSickness">
+                    <mat-form-field>
+                        <mat-label>
+                            چنانچه به هر یک از بیماری‌های زیر مبتلا هستید، در مقابل آن علامت بزنید؟
+                        </mat-label>
+                        <mat-select formControlName="sensetiveSickness"
+                                    multiple>
+                            <mat-option *ngFor="let sickness of sensetiveSickness"
+                                        [value]="sickness.value">{{sickness.label}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>
+                            در صورتی که به بیماری خاص دیگری مبتلا هستید، نام آن را بنویسید.
+                        </mat-label>
+                        <input formControlName="otherSensetiveSickness"
+                               matInput>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>
+                            در صورت ابتلا به یکی از موارد فوق چه دارویی مصرف میکنید و چه مدت است به این بیماری مبتلا
+                            هستید؟
+                            نوع
+                            دقیق
+                            آن
+                            را ذکر کنید.
+                        </mat-label>
+                        <textarea formControlName="drug"
+                                  matInput></textarea>
+                    </mat-form-field>
+                </div>
+
+                <mat-form-field>
+                    <mat-label>
+                        در صورت داشتن حساسیت غذایی نوع ماده‌ی غذایی را ذکر کنید.
+                    </mat-label>
+                    <input formControlName="allergicFood"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        وزن خود را به کیلوگرم وارد کنید
+                    </mat-label>
+                    <input type="number"
+                           formControlName="weight"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        قد خود را به سانتیمتر وارد کنید
+                    </mat-label>
+                    <input type="number"
+                           formControlName="height"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        گروه خونی خود را وارد کنید
+                    </mat-label>
+                    <mat-select formControlName="bloodType">
+                        <mat-option *ngFor="let blood of bloodTypes"
+                                    [value]="blood.value">{{blood.label}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div>
+                    <label>
+                        درصورتی که تمایل دارید تا از شما آزمایش خون گرفته شود گزینه "بله" را انتخاب نمایید.
+                    </label>
+                    <mat-radio-group formControlName="wantBloodTest">
+                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <img src="assets/pic/tshirtSize.jpg">
+                <mat-form-field>
+                    <mat-label>ارتفاع</mat-label>
+                    <input formControlName="clothesHeight"
+                           type="number"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>عرض</mat-label>
+                    <input formControlName="clothesWidth"
+                           type="number"
+                           matInput>
+                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    آپلود مدارک مورد نیاز
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+                <app-image-uploader eventType="1"
+                                    accept="image/jpeg"
+                                    fileType="3"
+                                    formControlName="lastAcademicTranscript">آخرین کارنامه تحصیلی</app-image-uploader>
+                <app-image-uploader fileType="4"
+                                    eventType="1"
+                                    accept="image/jpeg"
+                                    formControlName="parentsConsent"> تعهدنامه و رضایت‌نامه والدین به صورت
+                    دست‌نویس</app-image-uploader>
+                <div>
+                    <img src="assets/pic/image_2023-05-04_15-36-30.jpg">
+                    <p>
+                        متن زیر را به صورت دست‌نویس نوشته ، سپس آن را آپلود نمایید.
+                    </p>
+                </div>
+                <app-image-uploader eventType="1"
+                                    fileType="5"
+                                    accept="image/jpeg"
+                                    formControlName="successesDocument">مدرک مربوط به موفقیت‌تان</app-image-uploader>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    مشخصات خانواده شرکت‌کننده
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>
+
+                در ادامه‌ی ثبت‌نام واردی ارایه شده است٬این موارد را درباره
+                وضعیت پدر، مادر، خواهران، برادران و سایر افرادی که
+                با خانواده شما زندگی می‌کنند، به طور کامل پر کنید.
+                هر سری از سوالات مربوط به یک نفر از اعضای خانواده
+                می‌باشد.
+            </p>
+            <div>
+                <mat-form-field>
+                    <mat-label>
+                        نام سرپرست خانواده
+                    </mat-label>
+                    <input formControlName="familyHeadName"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        نام خانوادگی سرپرست خانواده
+                    </mat-label>
+                    <input formControlName="familyHeadLastName"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        نسبت سرپرست خانواده با شما
+                    </mat-label>
+                    <input formControlName="familyHeadRealtion"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        تعداد افراد تحت تکفل سرپرست خانواده
+                    </mat-label>
+                    <input formControlName="familyHeadDependents"
+                           type="number"
+                           matInput>
+                           <span matSuffix>نفر</span>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        وضعیت تاهل
+                    </mat-label>
+                    <input formControlName="familyHeadMarigeStatus"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        سن
+                    </mat-label>
+                    <input formControlName="familyHeadOld"
+                           type="tel"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        شغل
+                    </mat-label>
+                    <input formControlName="familyHeadJob"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        میزان تحصیلات
+                    </mat-label>
+                    <input formControlName="familyHeadGraduationRate"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        تلفن همراه
+                    </mat-label>
+                    <input formControlName="familyHeadPhone"
+                           type="tel"
+                           matInput>
+                </mat-form-field>
+                <div>
+                    <label>
+                        آیا فردی از خانواده خود را از دست داده‌اید؟
+                    </label>
+                    <mat-radio-group formControlName="isLostAnybody">
+                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <mat-tab-group formArrayName="familyMembers">
+                    <ng-container *ngFor="let member of fGroup.controls.familyMembers.controls; let i=index">
+                        <ng-container [formGroupName]="i">
+                            <mat-tab [label]="'عضو '+(i+1)">
+                                <div>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            نام
+                                        </mat-label>
+                                        <input formControlName="name"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            نام خانوادگی
+                                        </mat-label>
+                                        <input formControlName="lastName"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            نسبت
+                                        </mat-label>
+                                        <input formControlName="realtion"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            وضعیت تاهل
+                                        </mat-label>
+                                        <input formControlName="marigeStatus"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            سن
+                                        </mat-label>
+                                        <input formControlName="old"
+                                               type="tel"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            شغل
+                                        </mat-label>
+                                        <input formControlName="job"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            میزان تحصیلات
+                                        </mat-label>
+                                        <input formControlName="graduationRate"
+                                               matInput>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>
+                                            تلفن همراه
+                                        </mat-label>
+                                        <input formControlName="phone"
+                                               type="tel"
+                                               matInput>
+                                    </mat-form-field>
+                                </div>
+                            </mat-tab>
+                        </ng-container>
+                    </ng-container>
+                </mat-tab-group>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel *ngIf="!isLiveInTehran">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    مشخصات یکی از اقوام نزدیک در تهران
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+                <mat-form-field>
+                    <mat-label>
+                        نام
+                    </mat-label>
+                    <input formControlName="tehranName"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        نام خانوادگی
+                    </mat-label>
+                    <input formControlName="tehranLastname"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        نسبت
+                    </mat-label>
+                    <input formControlName="tehranRealtion"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        تلفن همراه
+                    </mat-label>
+                    <input formControlName="tehranPhone"
+                           type="tel"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        تلفن ثابت
+                    </mat-label>
+                    <input formControlName="tehranHome"
+                           type="tel"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        آدرس پستی دقیق محل سکونت
+                    </mat-label>
+                    <textarea formControlName="tehranAddress"
+                              matInput></textarea>
+                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    اطلاعات تکمیلی شرکت کننده
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="column">
+                <p>
+                    این سوالات ملاک سنجش ما نیستند و صرفا برای آشنایی
+                    بیشتر ما با شما و اجرای برنامه‌ای متناسب با نیاز شما
+                    طراحی شده‌اند.
+                </p>
+                <div>
+                    <label id="">آیا تا به حال در اردوی دانش آموزان کانون
+                        دانشجویان زرتشتی شرکت کرده اید؟</label>
+                    <mat-radio-group formControlName="haveBeenOrdoo"
+                                     aria-labelledby="example-radio-group-label">
+                        <mat-radio-button class="example-radio-button"
+                                          *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <mat-form-field *ngIf="fGroup.value.haveBeenOrdoo">
+                    <!--this field has condition-->
+                    <mat-label>
+                        در صورت شرکت، کدام اردو؟
+                    </mat-label>
+                    <input type="tel"
+                           formControlName="ordooNumber"
+                           matInput>
+                </mat-form-field>
+                <div>
+                    <label>آیا تا به حال برای شرکت در اردوی دانش آموزان
+                        کانون دانشجویان زرتشتی اقدام کرده‌اید؟
+                    </label>
+                    <mat-radio-group formControlName="haveTriedOrdoo">
+                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div>
+                    <label>
+                        آیا هیچ یک از دوستان یا اقوام نزدیک شما
+                        تقاضانامه‌ی شرکت در اردوی امسال را پر کرده‌اند؟
+                    </label>
+                    <mat-radio-group formControlName="isCloseFamilyinOrdoo">
+                        <mat-radio-button *ngFor="let season of yesOrNoAnswer"
+                                          [value]="season.value">
+                            {{season.label}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <mat-form-field *ngIf="fGroup.value.isCloseFamilyinOrdoo">
+                    <mat-label>
+                        در صورت پر کردن، نام و نسبت آنها را با خود بنویسید.
+                    </mat-label>
+                    <input formControlName="personInOrdooRealtion"
+                           matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="warp-label">
+                        چقدر و از چه راهی با کانون و برنامه‌های آن از
+                        جمله اردو، آشنایی دارید؟
+                    </mat-label>
+                    <textarea formControlName="howMeetOrdoo"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="warp-label">
+                        چرا دوست دارید در اردو شرکت کنید؟ هدف شما از ثبت‌نام در اردو امسال چیست؟
+                    </mat-label>
+                    <textarea formControlName="goal"
+                              matInput></textarea>
+                </mat-form-field>
+                <p>
+                    تصور کنید روز اول مدرسه است و از مقطع راهنمایی وارد دبیرستان شده‌اید، در کلاس شما همه افراد با
+                    یکدیگر غریبه هستند. فرض کنید معلم زنگ اول نیامده و شما مجبور هستید تمام وقت آن زنگ را در کلاس
+                    بمانید. با درنظر گرفتن این موقعیت به سوالات زیر پاسخ دهید.
+
+                </p>
+
+
+                <mat-form-field>
+                    <mat-label class="warp-label">
+                        الف) آیا در این مدت تلاش می‌کنید تا با افراد دیگر ارتباط برقرار کنید و با آن‌ها دوست شوید، یا
+                        ترجیح می‌دهید دیگران با شما شروع به صحبت کنند؟
+                    </mat-label>
+                    <textarea formControlName="goAfterNewPeople"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="warp-label">
+                        ب) دوست دارید با تمام بچه‌های کلاس آشنا شوید یا اینکه با افراد اطراف خود بیشتر صحبت کنید؟
+                    </mat-label>
+                    <textarea formControlName="goesAfterlongPeopleOrNear"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="warp-label">
+                        ج) فرض کنید نیم ساعت گذشته و معلم پرورشی وارد کلاس می‌شود و شما را به گروه‌های مختلف تقسیم
+                        می‌کند و به شما فرصت می‌دهد تا موضوعی را برای بحث انتخاب کنید، شما چه موضوعی را مناسب می‌دانید و
+                        برایتان جذاب است؟
+
+                    </mat-label>
+                    <textarea formControlName="likedTopics"
+                              matInput></textarea>
+                </mat-form-field>
+                <p>
+                    با فرض پذیرفته شدن در اردو، بدون در نظر گرفتن
+                    محدودیت‌های اجرایی، با توجه به علایقتان و با در نظر
+                    گرفتن فعالیت‌هایی که تاکنون فرصت تجربه‌ی آن را
+                    نداشته‌اید، به سوالات زیر پاسخ دهید.
+                </p>
+                <mat-form-field>
+                    <mat-label class="warp-label">
+                        دوست دارید چه موضوعات و فعالیتهایی را در
+                        کلاس های آموزشی یاد بگیرید؟
+                    </mat-label>
+                    <textarea formControlName="likeClassSubjects"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        دوست دارید چه فعالیت‌های ورزشی را تجربه
+                        کنید؟
+                    </mat-label>
+                    <textarea formControlName="likeSports"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        دوست دارید چه فعالیت‌های هنری را امتحان
+                        کنید؟
+                    </mat-label>
+                    <textarea formControlName="likeArt"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        دوست دارید زمان آزاد خود را چگونه بگذرانید؟
+                    </mat-label>
+                    <textarea formControlName="likeSpendFreetime"
+                              matInput></textarea>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label class="warp-label">
+                        فرض کنید صبح یکی از روزهای اردو وقتی از درب خوابگاه بیرون می‌روید، هیچ یک از برگزار کننده‌ها در
+                        مارکار حضور ندارند در آن روز چه فعالیت‌هایی انجام می‌دهید؟
+                    </mat-label>
+                    <textarea formControlName="freeBeInMarkar"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>دوست دارید از چه مکان‌هایی در تهران بازدید
+                        کنید؟
+                    </mat-label>
+                    <textarea formControlName="likePlaceInTehran"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="warp-label">چه ویژگی‌هایی در مورد خودتان هست که آنها را
+                        نقاط قوت خود می دانید؟
+                    </mat-label>
+                    <textarea formControlName="goodPoints"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="warp-label">چه مسائلی در مورد خودتان هست که دوست
+                        دارید بهبود بدهید؟
+                    </mat-label>
+                    <textarea formControlName="negetivePoints"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>یکی ازبهترین خاطرات خود را بنویسید.
+                    </mat-label>
+                    <textarea formControlName="bestMemory"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>یکی از بدترین خاطرات خود را بنویسید.
+                    </mat-label>
+                    <textarea formControlName="woerstMemory"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="warp-label">یکی از بزرگترین درس هایی که تا امروز در
+                        زندگیتان یاد گرفتید، بنویسید.
+                    </mat-label>
+                    <textarea formControlName="biggestLesson"
+                              matInput></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="warp-label">چه کسانی بیشترین تاثیرگذاری را بر روی شما
+                        دارند؟چرا؟
+                    </mat-label>
+                    <textarea formControlName="mostInfuence"
+                              matInput></textarea>
+                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <span *ngIf="fGroup.invalid"> شما {{inValidControlers}} ورودی را تکمیل نکرده‌اید.</span>
+    <ul *ngIf="inValidFields.length<10">
+        <li *ngFor="let field of inValidFields">
+            {{field}}
+        </li>
+    </ul>
+    <button type="submit"
+            mat-raised-button
+            [disabled]="fGroup.invalid"
+            color="primary">ثبت</button>
+    <app-back-button></app-back-button>
+</form>

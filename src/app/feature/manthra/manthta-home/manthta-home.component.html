@@ -2,7 +2,7 @@
      [fxHide]="isLoading"
      fxLayoutAlign.lt-sm="start"
      fxLayoutAlign="center center"
-     class="width-full"
+     class="home-page-background"
      fxLayoutGap="10px">
         <h2 *ngIf="!(profileStatus|async)?.status">کاربر گرامی برای ثبت‌نام در مانتره لطفا پروفایل خود را
                 تکمیل کنید.</h2>
@@ -15,15 +15,15 @@
                 <div fxLayoutAlign="center"
                      fxLayout="row wrap"
                      fxLayout.lt-sm="column wrap">
-                        <button class="pulse"
-                                [disabled]="avestaAgeRange==4"
-                                routerLink="/Manthra/gata-ha">ثبت نام در گاتاشناسی</button>
                         <!-- <button class="pulse"
+                                [disabled]="avestaAgeRange==4"
+                                routerLink="/Manthra/gata-ha">ثبت نام در گاتاشناسی</button> -->
+                        <button class="pulse"
                                 [disabled]="avestaAgeRange==4"
                                 routerLink="/Manthra/avesta-khani">ثبت نام در اوستاخوانی</button>
                         <button class="pulse"
                                 [disabled]="avestaAgeRange!=4"
-                                routerLink="/Manthra/mantrak">ثبت نام در مانترک</button> -->
+                                routerLink="/Manthra/mantrak">ثبت نام در مانترک</button>
                 </div>
                 <div fxLayoutAlign="center center">
                         <button class="pulse"

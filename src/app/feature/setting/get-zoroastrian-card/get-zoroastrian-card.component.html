@@ -16,31 +16,26 @@
     </mat-radio-group>
   </div>
   <div *ngIf="zForm.value.hasCard==1">
-    <app-image-uploader [accept]="'image/jpeg'"
-                        [fbContorl]="zForm.get('ownerCard')"
-                        [lastImageid]="zForm.value.ownerCard"
-                        label="کارت زرتشتی گری شما"
-                        fileType="2"
-                        eventType="0"></app-image-uploader>
+    <app-image-uploader fileType="2"
+                        accept="image/jpeg"
+                        formControlName="ownerCard"
+                        eventType="0">کارت زرتشتی گری شما</app-image-uploader>
   </div>
   <div *ngIf="zForm.value.hasCard==0"
        fxLayout="column"
        fxLayoutGap="1rem">
-    <app-image-uploader [accept]="'image/jpeg'"
-                        [fbContorl]="zForm.get('motherCard')"
-                        [lastImageid]="zForm.value.motherCard"
-                        label="کارت زرتشتی گری مادر"
-                        fileType="2"
-                        eventType="0"></app-image-uploader>
-    <app-image-uploader [accept]="'image/jpeg'"
-                        [fbContorl]="zForm.get('fatherCard')"
-                        [lastImageid]="zForm.value.fatherCard"
-                        label="کارت زرتشتی گری پدر"
-                        fileType="2"
-                        eventType="0"></app-image-uploader>
+    <app-image-uploader fileType="2"
+                        accept="image/jpeg"
+                        formControlName="motherCard"
+                        eventType="0">کارت زرتشتی گری مادر</app-image-uploader>
+    <app-image-uploader fileType="2"
+                        accept="image/jpeg"
+                        formControlName="fatherCard"
+                        eventType="0">کارت زرتشتی گری پدر</app-image-uploader>
   </div>
   <button mat-flat-button
           color="accent"
-          [loading]="isLoading" class="button-style"> ثبت اطلاعات</button>
-          <app-back-button class="button-style"></app-back-button>
+          [loading]="isLoading"
+          class="button-style"> ثبت اطلاعات</button>
+  <app-back-button class="button-style"></app-back-button>
 </form>

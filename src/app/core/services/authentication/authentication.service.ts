@@ -15,7 +15,9 @@ export class AuthenticationService {
   constructor (private _jwtService: JwtHelperService, private _http: HttpClient) {
     this._refreshTokenSubject = new BehaviorSubject<TokenResultDto>(null);
   }
-
+  public getTokenItem<T>(key: string): T {
+    return <T>this._jwtService.decodeToken()[key];
+  }
   public get isAuthenticated(): boolean {
     if (this._jwtService.isTokenExpired()) {
       return false;

@@ -1,0 +1,17 @@
+<div fxLayout="column"
+     fxLayoutAlign.lt-sm="start"
+     fxLayoutAlign="center center"
+     class="home-page-background"
+     fxLayoutGap="10px">
+        <h3>به ثبت‌نام اردوی دانش‌آموزان زرتشتی سراسر کشور خوش آمدید.
+        </h3>
+        <h4>درصورت دریافت پیامک تایید، ثبت‌نام شما با موفقیت انجام شد.
+        </h4>
+        <button routerLink="ayin-name"
+                class="pulse"> شروع فرایند ثبت نام اولیه</button>
+        <button class="pulse"
+                *ngIf="isAdmin==1&&roleId==3"
+                routerLink="admin">
+                مدیریت
+        </button>
+</div>

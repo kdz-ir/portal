@@ -1,5 +1,6 @@
 <div fxLayout="column"
-     fxLayoutGap="20px">
+     fxLayoutGap="20px"
+     [largeLoading]="isLoading">
   <div class="mt-5 pt-2">
     <p class="western"
        dir="rtl"
@@ -9,30 +10,31 @@
     <p class="western"
        dir="rtl"
        align="center"><span style="font-family: Vazir FD;"><span lang="ar-SA"><span
-                style="font-family: Vazir FD 1 **;"><span style="font-size: xx-large;"><span
-                    lang="fa-IR">بیست</span></span></span></span></span><span style="font-size: xx-large;">­
+                style="font-family: Vazir FD 1 **;"><span style="font-size: xx-large;"></span></span></span></span><span
+            style="font-size: xx-large;">­
       </span><span style="font-family: Vazir FD;"><span lang="ar-SA"><span style="font-family: Vazir FD 1 **;"><span
                   style="font-size: xx-large;"><span lang="fa-IR">و
-                نهمین همـایش اوستاخوانی و گاتاشناسی مانتره</span></span></span></span></span></p>
+                سی‌امین همـایش اوستاخوانی و گاتاشناسی مانتره</span></span></span></span></span></p>
     <p dir="rtl"
        align="center">
       <a target="_blank"
-         href="assets/PDFs/AvestaKhaniAyinName.pdf"
+         href="https://kdz.ir/fa/wp-content/uploads/2023/04/فراخوان-بخش-اوستاخوانی-مانتره30.pdf"
          class="pdfDownloadStyle"> دانلود آیین‌نامه بخش اوستاخوانی</a>
     </p>
 
   </div>
+
   <button mat-flat-button
           color="primary"
           routerLink="under10"
-          *ngIf="avestaAgeRange==5"
+          *ngIf="avestaAgeRange==5&&!isLoading"
           class="float-left">
     تایید آیین نامه
   </button>
   <button mat-flat-button
           color="primary"
           routerLink="up13"
-          *ngIf="avestaAgeRange!=5"
+          *ngIf="avestaAgeRange!=5&&!isLoading "
           class="float-left">
     تایید آیین نامه
   </button>

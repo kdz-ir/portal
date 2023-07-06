@@ -10,15 +10,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ButtonLoadingDirective } from './directives/button-loading.directive';
 import { LargeLoadingDirective } from './directives/large-loading.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { LightboxModule } from 'ngx-lightbox';
 import { BackButtonComponent } from './components/back-button/back-button.component';
+import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 @NgModule({
-  declarations: [ButtonLoadingDirective, LargeLoadingDirective, ImageUploaderComponent, BackButtonComponent],
+  declarations: [ButtonLoadingDirective, LargeLoadingDirective, BackButtonComponent, ImageUploaderComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -33,7 +34,8 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     MatListModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
-    LightboxModule
+    LightboxModule,
+    MatRadioModule
   ],
   exports: [
     CommonModule,
@@ -51,8 +53,9 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     LargeLoadingDirective,
-    ImageUploaderComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    MatRadioModule,
+    ImageUploaderComponent
   ]
 })
 export class SharedModule { }

@@ -8,10 +8,18 @@ export class SwalService {
   /**
    *
    */
-  constructor() {
-  this.swal= this.swal.mixin({
-    confirmButtonText:'باشه'
-  })
+  constructor () {
+    this.swal = this.swal.mixin({
+      confirmButtonText: 'باشه',
+      cancelButtonText: 'بستن'
+    });
+  }
+  showWarnMessage() {
+    return this.swal.fire({
+      title: 'این کار شما برگشت ناپذیر است.',
+      icon: 'warning',
+      confirmButtonText: 'ادامه میدم.'
+    });
   }
   async showErrorMessages(messages: string[]) {
     await this.showErrorMessage(messages.join('<br>'));
@@ -29,15 +37,21 @@ export class SwalService {
       title: 'ثبت نام شما با موفقیت انجام شد.',
       text: 'منتظر دریافت پیامک باشید در صورت عدم دریافت دوباره تلاش کنید.',
       icon: 'success',
-      confirmButtonText:'متوجه شدم'
+      confirmButtonText: 'متوجه شدم'
     });
   }
-  async accessRegister(){
+  async accessRegister() {
     await this.swal.fire({
       title: 'شما مجاز به ثبت نام نیستید!!.',
       icon: 'error',
-      confirmButtonText:'قبول دارم'
+      confirmButtonText: 'قبول دارم'
     });
   }
-
+  async successFullSubmited() {
+    await this.swal.fire({
+      icon: 'success',
+      text: 'اطلاعات جدید ثبت شد.',
+      confirmButtonText: 'بستن'
+    });
+  }
 }
