@@ -8,11 +8,11 @@ import { ProfileSaveInfo, ProfileShowInfo } from "../models/profile-info";
   providedIn: 'root'
 })
 export class ProfileRepositoryService extends CoreProfileService {
-  constructor (http: HttpClient) {
+  constructor () {
     super();
   }
   getProfileData() {
-    return this.http.get<ProfileShowInfo>(this.accountUrl + '');
+    return super.profileData<ProfileShowInfo>();
   }
   updateProfile(profileInfo: ProfileSaveInfo) {
     return this.http.post(this.accountUrl + '', profileInfo);

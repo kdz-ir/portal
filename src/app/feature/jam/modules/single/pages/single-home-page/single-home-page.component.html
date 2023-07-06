@@ -28,8 +28,15 @@
       </mat-expansion-panel-header>
       <div class="grid grid-cols-3 gap-4">
          <button mat-flat-button
+                 routerLink="5/1"
                  color="primary">انفرادی</button>
          <button mat-flat-button
+                 routerLink="double/5/2"
+                 *ngIf="gender==1"
+                 color="accent">دوبل</button>
+         <button mat-flat-button
+                 routerLink="double/5/4"
+                 *ngIf="gender==1"
                  color="accent">دوبل</button>
       </div>
    </mat-expansion-panel>
@@ -44,9 +51,20 @@
       </mat-expansion-panel-header>
       <div class="grid grid-cols-2 gap-4">
          <button mat-flat-button
+                 routerLink="6/1"
                  color="primary">انفرادی</button>
          <button mat-flat-button
-                 color="accent">دوبل میکس</button>
+                 routerLink="double/6/2"
+                 color="accent">دوبل</button>
+         <button mat-flat-button
+                 routerLink="6/9"
+                 color="accent">مطرنج</button>
+         <button mat-flat-button
+                 routerLink="6/5"
+                 color="accent">بیلتیز</button>
+         <button mat-flat-button
+                 routerLink="6/10"
+                 color="accent">سیمولتانه</button>
       </div>
    </mat-expansion-panel>
    <mat-expansion-panel>
@@ -60,9 +78,16 @@
       </mat-expansion-panel-header>
       <div class="grid grid-cols-2 gap-4">
          <button mat-flat-button
-                 color="primary">انفرادی</button>
+                 routerLink="7/11"
+                 color="primary">کرال سینه</button>
          <button mat-flat-button
-                 color="accent">دوبل میکس</button>
+                 routerLink="7/12"
+                 *ngIf="ageRange==3"
+                 color="accent">قورباغه</button>
+         <button mat-flat-button
+                 *ngIf="ageRange!=3"
+                 routerLink="7/13"
+                 color="accent">مختلط</button>
       </div>
    </mat-expansion-panel>
    <mat-expansion-panel>
@@ -76,9 +101,14 @@
       </mat-expansion-panel-header>
       <div class="grid grid-cols-2 gap-4">
          <button mat-flat-button
-                 color="primary">انفرادی</button>
+                 routerLink="9/6"
+                 color="primary">سرعت</button>
          <button mat-flat-button
-                 color="accent">دوبل میکس</button>
+                 *ngIf="gender==2"
+                 color="accent">استقامت</button>
+         <button mat-flat-button
+                 routerLink="double/9/7"
+                 color="accent">مدادی میکس</button>
       </div>
    </mat-expansion-panel>
    <mat-expansion-panel>
@@ -92,9 +122,11 @@
       </mat-expansion-panel-header>
       <div class="grid grid-cols-2 gap-4">
          <button mat-flat-button
-                 color="primary">انفرادی</button>
+                 routerLink="8/8"
+                 color="primary">استقامت</button>
          <button mat-flat-button
-                 color="accent">دوبل میکس</button>
+                 routerLink="8/6"
+                 color="accent">تایم تریل سرعت</button>
       </div>
    </mat-expansion-panel>
 </mat-accordion>

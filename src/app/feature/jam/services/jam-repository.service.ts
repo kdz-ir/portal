@@ -7,6 +7,7 @@ import { ISportFieldName } from "../models/ISportFieldName";
 import { ISportSubFieldName } from "../models/ISportSubFieldName";
 import { map } from 'rxjs/operators';
 import { IWordPressPageRoot } from '../models/iword-press-page';
+import { AgeRange } from '../modules/shared/jam-shared/models/age-range';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,8 @@ export class JamRepositoryService {
   }
   get canRegister() {
     return this._http.get<{ access: boolean; }>(this._url + '/can-register');
+  }
+  get ageRange() {
+    return this._http.get<{ ageRange: AgeRange; accessAgeRange: AgeRange[]; }>(this._url + '/age-range');
   }
 }
