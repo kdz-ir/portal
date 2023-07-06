@@ -72,19 +72,14 @@
         </mat-select>
         <!-- <mat-hint align="start"></mat-hint> -->
     </mat-form-field>
-    <app-legecy-image-uploader [accept]="'	image/jpeg'"
-                        [fbContorl]="profileForm.get('personalPhoto')"
-                        [lastImageid]="profileForm.value.personalPhoto"
-                        label="عکس پرسنلی"
-                        fileType="0"
-                        eventType="-1"></app-legecy-image-uploader>
-    <app-legecy-image-uploader con
-                        [accept]="'	image/jpeg'"
-                        label="عکس شناسنامه"
-                        [lastImageid]="profileForm.value.IdCardPhoto"
-                        [fbContorl]="profileForm.get('IdCardPhoto')"
-                        fileType="1"
-                        eventType="-1"></app-legecy-image-uploader>
+    <app-image-uploader fileType="0"
+                        eventType="-1"
+                        accept="image/jpeg"
+                        formControlName="personalPhoto"> عکس پرسنلی</app-image-uploader>
+    <app-image-uploader fileType="1"
+                        eventType="-1"
+                        accept="image/jpeg"
+                        formControlName="IdCardPhoto"> عکس شناسنامه</app-image-uploader>
     <button mat-raised-button
             type="submit"
             color="primary"

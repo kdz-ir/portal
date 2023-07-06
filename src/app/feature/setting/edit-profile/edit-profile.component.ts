@@ -60,30 +60,18 @@ export class EditProfileComponent implements AfterViewInit {
       personalPhoto: formValus.personalPhoto
     };
     this._profileReporsitory.updateProfile(savedProfile).subscribe(() => {
-      this._profileReporsitory.checkProfileStatus().subscribe((c) => {
-        this._profileReporsitory.getUserRegisteredFilled().subscribe(async (rgu) => {
-          this.loading = false;
-          this.profileForm.enable();
-          if (rgu.entity != null)
-            return;
-          if (c.status) {
-            this._router.navigate(['/']);
-            await this._swal.swal.fire({
-              title: 'پروفایل شما ثبت شد.',
-              icon: 'success',
-              confirmButtonText: 'بستن'
-            });
-            return;
-          }
-
-          // await this._swal.swal.fire({
-          //   title: 'پروفایل شما ثبت شد.',
-          //   text: 'در مرحله بعد کارت زرتشتگری را آپلود کنید.',
-          //   icon: 'success',
-          //   confirmButtonText: 'بریم'
-          // });
-          // this._router.navigate(['/Settings/zoroastrianCard']);
-        });
+      this._profileReporsitory.checkProfileStatus().subscribe(async (c) => {
+        this.loading = false;
+        this.profileForm.enable();
+        if (c.status) {
+          this._router.navigate(['/']);
+          await this._swal.swal.fire({
+            title: 'پروفایل شما ثبت شد.',
+            icon: 'success',
+            confirmButtonText: 'بستن'
+          });
+          return;
+        }
       });
 
     }, () => {
@@ -105,7 +93,7 @@ export class EditProfileComponent implements AfterViewInit {
           birthday: moment(c.entity.birthday, 'jYYYY/jMM/jDD'),
           phone: c.entity.phone,
           postalCode: c.entity.postalCode,
-          IdCardPhoto: c.entity?.IdCardPhoto ?? '',
+          IdCardPhoto: c.entity?.idCardPhoto ?? '',
           personalPhoto: c.entity.personalPhoto ?? ''
         });
       }

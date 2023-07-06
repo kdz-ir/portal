@@ -14,5 +14,6 @@ export class IconService {
     
     this._iconRegistery.addSvgIcon('Manthra', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/manthra.svg'));
     this._iconRegistery.addSvgIcon('Ordoo', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/ordoo.svg'));
+    this._iconRegistery.addSvgIcon('Jam', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/jam.svg'));
   }
 }

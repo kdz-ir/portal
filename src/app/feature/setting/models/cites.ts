@@ -1,4 +1,4 @@
-import { ILabel } from "src/app/shared/models/yesOrNoAnswer";
+import { ILabel } from "src/app/shared/models/ILabel";
 
 export const cites: ILabel[] = [
     { value: 1, label: 'تهران' },

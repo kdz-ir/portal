@@ -1,6 +1,7 @@
 <nav mat-tab-nav-bar
      mat-align-tabs="center"
      backgroundColor="primary"
+     [tabPanel]="tabPanel"
      color="warn">
     <a mat-tab-link
        *ngFor="let nav of links; index as i"
@@ -16,3 +17,6 @@
         <span> {{nav.name}}</span>
     </a>
 </nav>
+
+<mat-tab-nav-panel #tabPanel>
+</mat-tab-nav-panel>

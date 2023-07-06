@@ -1,4 +1,4 @@
-import { ILabel } from './yesOrNoAnswer';
+import { ILabel } from "./ILabel";
 export const bloodTypes: ILabel[] = [
     { label: 'A+', value: 'A+' },
     { label: 'A-', value: 'A-' },

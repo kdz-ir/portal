@@ -4,6 +4,7 @@ import { AuthenticationGuard } from './guards/authentication.guard';
 import { UnAuthenticationGuard } from './guards/un-authentication.guard';
 import { ValidProfileGuard } from './guards/valid-profile.guard';
 import { PreloadAllModules } from '@angular/router';
+import { CanLoadThisProgramGuard } from './guards/can-load-this-program.guard';
 const routes: Routes = [
   {
     path: '', canActivate: [AuthenticationGuard], children: [
@@ -21,14 +22,24 @@ const routes: Routes = [
         loadChildren: () => import('../feature/setting/setting.module').then(s => s.SettingModule)
       },
       {
-        path: 'Manthra',
-        canActivate: [ValidProfileGuard],
-        loadChildren: () => import('../feature/manthra/manthra.module').then(s => s.ManthraModule)
+        path: 'jam',
+        canActivate: [CanLoadThisProgramGuard(true)],
+        loadChildren: () => import('../feature/jam/jam.module').then(c => c.JamModule)
       },
       {
-        path: 'ordoo',
+        path: '',
         canActivate: [ValidProfileGuard],
-        loadChildren: () => import('../feature/ordoo/ordoo.module').then(s => s.OrdooModule)
+        children: [
+          {
+            path: 'Manthra',
+            canActivate: [CanLoadThisProgramGuard(false)],
+            loadChildren: () => import('../feature/manthra/manthra.module').then(s => s.ManthraModule)
+          },
+          {
+            path: 'ordoo',
+            canActivate: [CanLoadThisProgramGuard(false)],
+            loadChildren: () => import('../feature/ordoo/ordoo.module').then(s => s.OrdooModule)
+          }]
       }
     ]
   },
@@ -37,6 +48,14 @@ const routes: Routes = [
     loadChildren: () => import('../feature/authentication/authentication.module').then(a => a.AuthenticationModule),
     canActivate: [UnAuthenticationGuard]
   },
+  {
+    path: "payment",
+    loadChildren: () => import('../feature/payment/payment.module').then(c => c.PaymentModule)
+  },
+  {
+    path: 'news',
+    loadChildren: () => import('../feature/news/news.module').then(c => c.NewsModule),
+  }
 ];
 
 @NgModule({

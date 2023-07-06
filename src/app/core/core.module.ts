@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
@@ -24,7 +23,6 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
   imports: [
     CommonModule,
     HttpClientModule,
-    FlexLayoutModule,
     MatToolbarModule,
     JwtModule.forRoot({
       config: { tokenGetter: () => localStorage.getItem(environment.accessToken) }
@@ -38,7 +36,6 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     MatTabsModule
   ], exports: [
     ToolBarComponent,
-    FlexLayoutModule,
     MatSnackBarModule,
     MatIconModule,
     CoreRoutingModule,
