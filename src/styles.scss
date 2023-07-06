@@ -97,7 +97,7 @@ $dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
 }
 
 .link-active {
-    background-color: map-get(mat.define-palette(mat.$deep-purple-palette), A700) !important;
+    background-color: map-get(mat.define-palette(mat.$purple-palette), A700) !important;
 
     @media (prefers-color-scheme: light) {
         background-color: map-get(mat.define-palette(mat.$amber-palette), 400) !important;
