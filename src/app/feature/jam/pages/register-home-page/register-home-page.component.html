@@ -1,4 +1,17 @@
-<p>register-home-page works!</p>
-<button routerLink="single">انفرادی</button>
-<button routerLink="team">تیمی</button>
-<button routerLink="dormitory">خوابگاه</button>
+<div class="text-center	">
+    <p class="mb-2">بخش مورد نظر خود را انتخاب کنید.</p>
+    <div class="flex flex-wrap justify-center gap-2 max-md:flex-col">
+
+        <button color="primary"
+                class="basis-1/4"
+                mat-raised-button
+                routerLink="single">انفرادی</button>
+        <button mat-raised-button
+                class="basis-1/4"
+                color="accent"
+                routerLink="team">تیمی</button>
+        <button mat-raised-button
+                class="basis-1/4"
+                routerLink="dormitory">خوابگاه</button>
+    </div>
+</div>
