@@ -56,6 +56,7 @@
             </table>
         </mat-card-content>
         <mat-card-actions align="end"><button mat-stroked-button
+                    [disabled]="fRecord.invalid"
                     type="submit">پرداخت</button></mat-card-actions>
     </mat-card>
 </form>
