@@ -60,9 +60,23 @@
                     mat-icon-button><mat-icon>
                     visibility</mat-icon></button> </td>
     </ng-container>
+    <tr class="mat-row"
+        *matNoDataRow>
+        <td class="mat-cell"
+            colspan="7">تیمی به سرپرستی شما تعریف نشده است.</td>
+    </tr>
 
     <tr mat-header-row
         *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row
         *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<a mat-flat-button
+   class="mat-elevation-z8"
+   routerLink="create"
+   fxLayoutAlign="center"
+   aria-label="Add new">
+    <mat-icon>add</mat-icon>
+    <span>افزودن تیم</span>
+
+</a>
