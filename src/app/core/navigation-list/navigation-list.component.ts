@@ -18,8 +18,8 @@ export const LINKS = [
   {
     link: '/news', name: 'اخبار', icon: 'feed', isNative: true
   },
-  {
-    link: '/Settings', name: 'مشخصات کاربری', icon: 'account_circle', isNative: true
-  },
+  // {
+  //   link: '/Settings', name: 'مشخصات کاربری', icon: 'account_circle', isNative: true
+  // },
 
 ];
