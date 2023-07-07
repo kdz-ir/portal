@@ -4,6 +4,7 @@ import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR
 import { isEmpty, isNull } from 'lodash-es';
 import { Lightbox } from 'ngx-lightbox';
 import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
+import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { UploadService } from 'src/app/core/services/user/upload-serivce.service';
 import { environment } from 'src/environments/environment';
 
@@ -26,7 +27,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ImageUploaderComponent implements ControlValueAccessor, Validator, OnChanges {
   src: string;
-  @Input() maxSize = 100;
+  @Input() maxSize = 500;
   @Input() accept: string;
   @Input() lastImageid: string;
   @Input() fileType: string;
@@ -40,7 +41,9 @@ export class ImageUploaderComponent implements ControlValueAccessor, Validator, 
 
   disabled = false;
 
-  constructor (private readonly _lightbox: Lightbox, private readonly _uploadService: UploadService, private readonly _authSerivce: AuthenticationService) { }
+  constructor (private readonly _lightbox: Lightbox,
+    private readonly _uploadService: UploadService, private readonly _swalService: SwalService,
+    private readonly _authSerivce: AuthenticationService) { }
   writeValue(obj: string): void {
     if (isEmpty(obj))
       return;
@@ -77,6 +80,10 @@ export class ImageUploaderComponent implements ControlValueAccessor, Validator, 
   onSelectedFile(event: Event) {
     this.markAsTouched();
     const file = (<HTMLInputElement>event.target).files[0] as File;
+    if (this.maxSize <= (file.size / 1024)) {
+      this._swalService.showErrorMessage('حجم فایل بیشتر از حد مجاز می باشد.');
+      return;
+    }
     this.isUploading = true;
     this._uploadService.uploadFile(file, this.fileType, this.eventType, this.nationalCode).subscribe(c => {
       this.onChange(c.entity.fileId);
