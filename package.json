@@ -26,6 +26,7 @@
     "@angular/router": "^15.2.9",
     "@angular/service-worker": "^15.2.9",
     "@auth0/angular-jwt": "^5.0.1",
+    "@ngx-loading-bar/router": "^6.0.2",
     "@sweetalert2/theme-material-ui": "^4.0.5",
     "@w11k/git-info": "^1.1.2",
     "angular2-text-mask": "^9.0.0",
