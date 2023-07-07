@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LINKS } from '../navigation-list/navigation-list.component';
+import { BaseLinks } from '../navigation-list/navigation-list.component';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,7 +7,7 @@ import { LINKS } from '../navigation-list/navigation-list.component';
   styleUrls: ['./navigation-bar.component.scss']
 })
 export class NavigationBarComponent implements OnInit {
-  readonly links = LINKS;
+  readonly links = [...BaseLinks,  { link: '/programs', name: 'برنامه ها', icon: 'event_list', isNative: true }];
   constructor () { }
 
   ngOnInit(): void {

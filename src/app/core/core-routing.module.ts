@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: () => import('../feature/home/home.module').then(h => h.HomeModule)
       },
       {
+        path: 'programs',
+        loadChildren: () => import('../feature/programs/programs.module').then(h => h.ProgramsModule)
+      },
+      {
         path: 'Settings',
         loadChildren: () => import('../feature/setting/setting.module').then(s => s.SettingModule)
       },
