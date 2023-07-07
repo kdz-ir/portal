@@ -1,4 +1,6 @@
-<form [formGroup]="fGroup" (submit)="onSubmit()">
+<form class="flex md:grid md:grid-cols-2 flex-col gap-4 flex-wrap"
+      [formGroup]="fGroup"
+      (submit)="onSubmit()">
     <mat-form-field>
         <mat-label>
             نام تیم
@@ -49,8 +51,10 @@
 
     <app-profile-check-input [profileMode]="2"
                              formControlName="coach">مربی</app-profile-check-input>
-    <button mat-raised-button
-            color="accent"
-            type="submit">ثبت تیم</button>
-    <app-back-button></app-back-button>
+
+        <button mat-raised-button
+                color="accent"
+                class="w-full"
+                type="submit">ثبت تیم</button>
+        <app-back-button class="w-full"></app-back-button>
 </form>
