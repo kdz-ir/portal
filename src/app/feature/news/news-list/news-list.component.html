@@ -12,7 +12,7 @@
          *ngIf="news.thumbnail_images"
          [src]="news.thumbnail_images?.full.url"
          [alt]="news.title_plain">
-    <mat-card-content [innerHTML]="news.excerpt"></mat-card-content>
+    <mat-card-content class="text-justify" [innerHTML]="news.excerpt"></mat-card-content>
     <br>
     <mat-divider class="mx-2"></mat-divider>
     <mat-card-actions class="flex justify-between">
