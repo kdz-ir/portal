@@ -6,5 +6,5 @@ export const SportInsuranceGuard: CanActivateFn = async () => {
   const router: Router = inject(Router);
   const sportInsurence = await singleRepository.SportInsurenceStatus.toPromise();
   
-  return sportInsurence || router.createUrlTree(['jam','single', 'sport-insurence']);
+  return sportInsurence || router.createUrlTree(['jam','register','single', 'sport-insurence']);
 };

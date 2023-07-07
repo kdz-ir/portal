@@ -9,7 +9,13 @@ import { DoubleRegisterPageComponent } from './pages/double-register-page/double
 import { GenderResolver, IndividualsResolver, SingleRegisteredStatusResolver } from './resolvers/single-registered-status-resolver';
 import { AgeRangeResolver, FieldNameResolver, SubFieldNameResolver } from '../../resolvers/field-name-resolver';
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
+    path: 'sport-insurence',
+    component: SportInsurencePageComponent,
+    resolve: { sportInsurance: sportInsuranceResolver }
+  },
+  {
   path: '',
   canActivate: [SportInsuranceGuard],
   children: [
@@ -38,11 +44,6 @@ const routes: Routes = [{
         individuals: IndividualsResolver,
         registeredStatus: SingleRegisteredStatusResolver,
       }
-    },
-    {
-      path: 'sport-insurence',
-      component: SportInsurencePageComponent,
-      resolve: { sportInsurance: sportInsuranceResolver }
     }
   ]
 },
