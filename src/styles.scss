@@ -42,7 +42,7 @@ $dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
     @include mat.all-component-themes($light-theme);
 
     .home-page-background {
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255) !important;
     }
 }
 
