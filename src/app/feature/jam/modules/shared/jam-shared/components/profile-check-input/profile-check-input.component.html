@@ -23,7 +23,5 @@
             color="accent"
             (click)="onEditProfileClick()"
             *ngIf="profile?.editable"><mat-icon>edit</mat-icon></button>
-    <span [innerText]="profile?.profile?.name??'-'"
-          class="ml-1"></span>
-    <span [innerText]="profile?.profile?.family??'-'"></span>
+    <span [innerText]="(profile?.profile?.name??'-')+' '+(profile?.profile?.family??'-')"></span>
 </div>

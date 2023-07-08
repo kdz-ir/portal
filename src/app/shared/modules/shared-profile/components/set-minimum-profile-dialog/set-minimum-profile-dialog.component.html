@@ -69,7 +69,7 @@
           [mat-dialog-close]="false">بستن</button>
   <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
   <button mat-raised-button
-          
+          [disabled]="fGroup.invalid"
           (click)="onSaveProfile()"
           color="accent">ذخیره</button>
 </mat-dialog-actions>
