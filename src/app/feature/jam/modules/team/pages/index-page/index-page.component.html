@@ -29,7 +29,15 @@
             mat-sort-header
             *matHeaderCellDef> رشته </th>
         <td mat-cell
-            *matCellDef="let element"> {{element.fieldName}} </td>
+            *matCellDef="let element">
+            <mat-icon>
+                <ng-container [ngSwitch]="element.field">
+                    <ng-container *ngSwitchCase="1">sports_soccer</ng-container>
+                    <ng-container *ngSwitchCase="2">sports_volleyball</ng-container>
+                    <ng-container *ngSwitchCase="3">sports_basketball</ng-container>
+                </ng-container>
+            </mat-icon>
+        </td>
     </ng-container>
 
     <ng-container matColumnDef="subFieldName">
@@ -68,6 +76,8 @@
     <tr mat-header-row
         *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row
+        [routerLink]="[row.id]"
+        class="cursor-pointer"
         *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <a mat-flat-button
