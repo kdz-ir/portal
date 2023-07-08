@@ -39,6 +39,7 @@ export class ShowTeamPageComponent {
   private _refreshTeam() {
     this._teamService.team(this.teamInfo.team.id).subscribe(c => {
       this.teamInfo = c;
+      this.dataSource = new MatTableDataSource(c.players);
     });
   }
   onNewPlayerAdded() {
