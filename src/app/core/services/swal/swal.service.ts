@@ -18,7 +18,8 @@ export class SwalService {
     return this.swal.fire({
       title: 'این کار شما برگشت ناپذیر است.',
       icon: 'warning',
-      confirmButtonText: 'ادامه میدم.'
+      confirmButtonText: 'ادامه میدم.',
+      showCancelButton: true
     });
   }
   async showErrorMessages(messages: string[]) {
