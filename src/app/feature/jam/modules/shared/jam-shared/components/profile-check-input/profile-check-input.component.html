@@ -10,7 +10,7 @@
                     matSuffix
                     type="button"
                     (click)="onSearchProfile()"
-                    [disabled]="fControl.invalid"
+                    [disabled]="fControl.invalid||fControl.untouched"
                     mat-icon-button>
                 <mat-icon>search</mat-icon></button>
             <mat-icon matSuffix
