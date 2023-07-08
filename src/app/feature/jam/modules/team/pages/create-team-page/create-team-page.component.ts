@@ -75,6 +75,7 @@ export class CreateTeamPageComponent {
       gender: values.gender ?? null,
     }).subscribe(c => {
       this._swalService.successFullRegister();
+      this.fGroup.reset();
     });
   }
 }

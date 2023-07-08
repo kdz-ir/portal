@@ -31,13 +31,7 @@
               [disabled]="sendSmsForm.invalid">
         ثبت
       </button>
-      <button mat-raised-button
-              [disabled]="isloading"
-              color="warn"
-              type="button"
-              routerLink="/">
-        بازگشت
-      </button>
+      <app-back-button></app-back-button>
     </form>
   </mat-step>
   <mat-step label="مرحله دوم"
