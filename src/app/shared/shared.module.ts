@@ -18,6 +18,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LightboxModule } from 'ngx-lightbox';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 @NgModule({
   declarations: [ButtonLoadingDirective, LargeLoadingDirective, BackButtonComponent, ImageUploaderComponent],
   imports: [
@@ -29,6 +31,7 @@ import { ImageUploaderComponent } from './components/image-uploader/image-upload
     FlexLayoutModule,
     MatCheckboxModule,
     MatIconModule,
+    MatProgressBarModule,
     MatSelectModule,
     MatDialogModule,
     MatListModule,
