@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1688805137111,
+  "timestamp": 1688807556654,
   "index": "/portal/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "/portal/165.16d96b2ca920361e.js",
-        "/portal/2.c080d2ae3b07cd15.js",
+        "/portal/2.d9f0e0ddc5a7752a.js",
         "/portal/222.d779973cf40a9f83.js",
         "/portal/233.8d8966fad13704ef.js",
         "/portal/268.125d7da7a87d3d69.js",
@@ -34,11 +34,11 @@
         "/portal/common.3f257a768b7e375a.js",
         "/portal/favicon.ico",
         "/portal/index.html",
-        "/portal/main.fd10d20a9fcb70c3.js",
+        "/portal/main.1db000ff89a423d7.js",
         "/portal/manifest.webmanifest",
         "/portal/polyfills.7c978ea6c48a313b.js",
-        "/portal/runtime.c3862b169dc2cc40.js",
-        "/portal/styles.413a9b1fe5cfbb1b.css"
+        "/portal/runtime.dfcaa575f14afbd6.js",
+        "/portal/styles.2106ead98bfa6072.css"
       ],
       "patterns": []
     },
@@ -64,6 +64,7 @@
         "/portal/assets/icons/ordoo.svg",
         "/portal/assets/pic/image_2023-05-04_15-36-30.jpg",
         "/portal/assets/pic/jam.webp",
+        "/portal/assets/pic/kdz.webp",
         "/portal/assets/pic/tshirtSize.jpg"
       ],
       "patterns": []
@@ -86,7 +87,7 @@
   ],
   "hashTable": {
     "/portal/165.16d96b2ca920361e.js": "9d5b5fb9cc2547214bddd8355e7ad53ce664c6c9",
-    "/portal/2.c080d2ae3b07cd15.js": "a6dea9e190325504454df58ebb23178d82673a9d",
+    "/portal/2.d9f0e0ddc5a7752a.js": "1f485b8464449085b670c71551ac7e96997296ba",
     "/portal/222.d779973cf40a9f83.js": "5dca8f2e51d394a6ffcaa9b87fa782134cd6d336",
     "/portal/233.8d8966fad13704ef.js": "6748a632332e2ba797dde1a1d4d15fd434f5e3ff",
     "/portal/268.125d7da7a87d3d69.js": "8a9a5ac34fd6c085998295ffd0182f71b73b76d7",
@@ -119,15 +120,16 @@
     "/portal/assets/icons/ordoo.svg": "1c82479e3ac394a3c4c85c67c7c7af39599c4295",
     "/portal/assets/pic/image_2023-05-04_15-36-30.jpg": "d7d93bd41d040478025b95be83d6489ef03342ec",
     "/portal/assets/pic/jam.webp": "845b373e8967c6d0ec52f327e96147229c157185",
+    "/portal/assets/pic/kdz.webp": "7d422cc64b498eaf573a76b73f80340968cb0fc6",
     "/portal/assets/pic/tshirtSize.jpg": "b0d73e10ed68dbd8b4d1e3857cd3f52a61d98fa6",
     "/portal/common.3f257a768b7e375a.js": "344d9a8cec2b043799b3a02ca19491c8eeae13c7",
     "/portal/favicon.ico": "a008f051369ce7a5c52f6a2011fa32bd4c429c4f",
-    "/portal/index.html": "e00c6968ff396d30674e4e6f00d6afcc0f0a740e",
-    "/portal/main.fd10d20a9fcb70c3.js": "b2e70a264e07edbd54bf00ae25fb62a4b9f4bc54",
+    "/portal/index.html": "c87fb0e02d13ca3dfdf901110640c629c61e8b01",
+    "/portal/main.1db000ff89a423d7.js": "7daeb1506afce4c2ac0ca78f4d22827558949831",
     "/portal/manifest.webmanifest": "c494c902771710a5112e95a6e7023c1410b9b8f9",
     "/portal/polyfills.7c978ea6c48a313b.js": "ed2d1dcd7b4eb15a2ab2d5a4ea9de6728b2310e4",
-    "/portal/runtime.c3862b169dc2cc40.js": "0102f290eb8fd0d7f75e4b53734b837e13ba8200",
-    "/portal/styles.413a9b1fe5cfbb1b.css": "9f53003646ba80c2d3cadeb6a052078483673860"
+    "/portal/runtime.dfcaa575f14afbd6.js": "53e6c2284ec8414ac82061667a7ffea910831d57",
+    "/portal/styles.2106ead98bfa6072.css": "a233ae711012a9bdfa2140004ec03df6821bbc90"
   },
   "navigationUrls": [
     {
