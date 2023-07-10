@@ -100,11 +100,13 @@
                  routerLink="9/6"
                  color="primary">سرعت</button>
          <button mat-flat-button
-                 *ngIf="gender==2"
+                 *ngIf="gender==1"
+                 routerLink="9/8"
                  color="accent">استقامت</button>
          <button mat-flat-button
-                 routerLink="double/9/7"
-                 color="accent">امدادی میکس</button>
+                 routerLink="9/10"
+                 *ngIf="gender==0"
+                 color="accent">نیمه استقامت</button>
       </div>
    </mat-expansion-panel>
    <mat-expansion-panel>
