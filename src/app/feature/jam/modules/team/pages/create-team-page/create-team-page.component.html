@@ -44,19 +44,23 @@
         </mat-label>
         <mat-select formControlName="ageRange">
             <mat-option [value]="range.value"
-                        *ngFor="let range of accessAbleAgeRange">{{
-                range.label}} </mat-option>
+                        *ngFor="let range of accessAbleAgeRange">{{range.label}} </mat-option>
         </mat-select>
     </mat-form-field>
 
     <app-profile-check-input [profileMode]="2"
                              formControlName="coach">کد ملی مربی</app-profile-check-input>
     <div>
-        <p>شما به عنوان سرپرست با ثبت تیم قبول دارید که آیین نامه اجرایی جام جان‌باختگان را خوانده و تایید میکنید.</p>
+        <small>شما به عنوان سرپرست با ثبت تیم قبول دارید که آیین نامه اجرایی جام جان‌باختگان را خوانده و تایید
+            میکنید.</small>
         <button mat-raised-button
+        [disabled]="fGroup.invalid"
                 color="accent"
                 class="w-full"
                 type="submit">ثبت تیم</button>
     </div>
-    <app-back-button class="w-full"></app-back-button>
+    <div>
+        <small>در صورت خروج از این صفحه تمام اطلاعات وارد شده و ثبت نشده غیر قابل بازیابی می‌باشد.</small>
+        <app-back-button class="w-full"></app-back-button>
+    </div>
 </form>
