@@ -34,7 +34,7 @@ export class SetMinimumProfileDialogComponent {
       family: fb.control<string>(this.profile.family, [Validators.required]),
       sex: fb.control<number>(sextypes.find(s => s.lable == this.profile.sex)?.value ?? 0, [Validators.required]),
       birthday: fb.control<moment.Moment>(moment(this.profile.birthday, 'jYYYY/jMM/jDD'), [Validators.required]),
-      IdCardPhoto: fb.control<string>(this.profile.idCardPhoto, [Validators.required]),
+      IdCardPhoto: fb.control<string>(this.profile.IdCardPhoto, [Validators.required]),
       city: fb.control<number>(cites.find(cs => cs.label == this.profile.city)?.value ?? 0, [Validators.required]),
       sportInsurance: fb.control(this.profile.sportInsurance),
       personalPhoto: fb.control(this.profile.personalPhoto, [Validators.required])

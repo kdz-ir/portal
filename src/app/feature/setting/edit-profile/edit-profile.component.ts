@@ -82,6 +82,7 @@ export class EditProfileComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this._profileReporsitory.getProfileData().subscribe(c => {
       this.loading = false;
+      console.log(c.entity);
       if (!isNil(c.entity)) {
         this.profileForm.setValue({
           name: c.entity.name,
@@ -93,7 +94,7 @@ export class EditProfileComponent implements AfterViewInit {
           birthday: moment(c.entity.birthday, 'jYYYY/jMM/jDD'),
           phone: c.entity.phone,
           postalCode: c.entity.postalCode,
-          IdCardPhoto: c.entity?.idCardPhoto ?? '',
+          IdCardPhoto: c.entity?.IdCardPhoto ?? '',
           personalPhoto: c.entity.personalPhoto ?? ''
         });
       }
