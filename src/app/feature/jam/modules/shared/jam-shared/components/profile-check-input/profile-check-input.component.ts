@@ -44,8 +44,6 @@ export class ProfileCheckInputComponent implements ControlValueAccessor, Validat
 
   }
   writeValue(obj: string): void {
-    if (isEmpty(obj))
-      return;
     this.fControl.setValue(obj);
 
   }
