@@ -7,6 +7,7 @@ import { ILabel } from 'src/app/shared/models/ILabel';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { SportField } from 'src/app/feature/jam/models/sport-field';
 import { SportSubField } from 'src/app/feature/jam/models/sub-sport-field';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-create-team-page',
   templateUrl: './create-team-page.component.html',
@@ -19,6 +20,7 @@ export class CreateTeamPageComponent {
   accessAbleAgeRange: ILabel[] = [];
   constructor (private readonly _teamRepository: TeamRepositoryService,
     private readonly _swalService: SwalService,
+    private readonly _location:Location,
     _fb: FormBuilder) {
     this.fGroup = _fb.nonNullable.group<ICreateTeamPageForm>({
       name: _fb.nonNullable.control<string>('', [Validators.required]),
@@ -75,7 +77,7 @@ export class CreateTeamPageComponent {
       gender: values.gender ?? null,
     }).subscribe(c => {
       this._swalService.successFullRegister();
-      this.fGroup.reset();
+      this._location.back();
     });
   }
 }

@@ -32,8 +32,6 @@ export class ErrorInterceptor implements HttpInterceptor {
               const message = err.error.message;
               if (!isNil(err.error.entity)) {
                 const entityError = err.error.entity;
-
-
                 if (!isNull(entityError))
                   Object.getOwnPropertyNames(entityError).forEach(pr => {
                     entityError[pr].forEach((mess: string) => {
