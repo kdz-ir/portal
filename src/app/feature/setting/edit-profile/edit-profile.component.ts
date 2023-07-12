@@ -82,7 +82,6 @@ export class EditProfileComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this._profileReporsitory.getProfileData().subscribe(c => {
       this.loading = false;
-      console.log(c.entity);
       if (!isNil(c.entity)) {
         this.profileForm.setValue({
           name: c.entity.name,
