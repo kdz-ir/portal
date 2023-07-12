@@ -327,6 +327,9 @@ SOFTWARE.
 ngx-countdown
 MIT
 
+ngx-filesaver
+MIT
+
 ngx-lightbox
 MIT
 MIT License
