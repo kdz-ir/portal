@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1689193100682,
+  "timestamp": 1689199377162,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -34,7 +34,7 @@
         "/common.1568f6aea67e0754.js",
         "/favicon.ico",
         "/index.html",
-        "/main.e2d43c594d52ef54.js",
+        "/main.999577b52bbc5899.js",
         "/manifest.webmanifest",
         "/polyfills.7c978ea6c48a313b.js",
         "/runtime.ec253a29d4d54d86.js",
@@ -83,6 +83,19 @@
         "ignoreVary": true
       },
       "version": 1
+    },
+    {
+      "name": "sportInsurance",
+      "patterns": [
+        "https:\\/\\/api\\.kdz\\.ir\\/api\\/v1\\/account\\/jam\\/single\\/sport-insurance"
+      ],
+      "strategy": "performance",
+      "maxSize": 50,
+      "maxAge": 10000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
     }
   ],
   "hashTable": {
@@ -124,8 +137,8 @@
     "/assets/pic/tshirtSize.jpg": "b0d73e10ed68dbd8b4d1e3857cd3f52a61d98fa6",
     "/common.1568f6aea67e0754.js": "9f4bf312b492dcff30323d759e3c6a7158611c5f",
     "/favicon.ico": "a008f051369ce7a5c52f6a2011fa32bd4c429c4f",
-    "/index.html": "19bd670c307e289636eceef8a1bfbe5c976dee31",
-    "/main.e2d43c594d52ef54.js": "9743d73eadd277e011bf0190bf677bea49e047d1",
+    "/index.html": "b756c215e773a4d181ccaed3259e7c950ccfd183",
+    "/main.999577b52bbc5899.js": "547f04609a56123ae3a7b82bbecc17fcf2485cdc",
     "/manifest.webmanifest": "c494c902771710a5112e95a6e7023c1410b9b8f9",
     "/polyfills.7c978ea6c48a313b.js": "ed2d1dcd7b4eb15a2ab2d5a4ea9de6728b2310e4",
     "/runtime.ec253a29d4d54d86.js": "46c24bafdf7ae1fa67533169e3a5d148f130884a",
