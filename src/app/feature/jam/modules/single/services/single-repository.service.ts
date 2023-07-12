@@ -18,12 +18,6 @@ export class SingleRepositoryService extends CoreProfileService {
   constructor () {
     super();
   }
-  public get SportInsurenceStatus() {
-    return this.checkFieldStatus(ProfileField.SportInsurance, ProgramType.jam).pipe(map(c => c.status));
-  }
-  setSportInsurance(data: { sportInsurance: string; }) {
-    return this.http.post(this._url + '/sport-insurance', data);
-  }
   public get sportInsurance() {
     return this.http.get<SportInsurance>(this._url + '/sport-insurance');
   }

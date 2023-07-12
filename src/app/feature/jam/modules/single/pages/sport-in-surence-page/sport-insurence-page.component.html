@@ -1,22 +1,22 @@
-<div class="md:win-w-full mt-10 mx-3">
-
-  <form (submit)="onSubmit()"
-        class="flex flex-col gap-3"
-        [formGroup]="fGroup">
-    <p *ngIf="!status">کارت بیمه ورزشی برای شرکت در جام جانباختگان <span class="underline">ضروری</span> میباشد.
-    </p>
-    <p>
-      برای دریافت بیمه ورزشی به آدرس <a href="http://ifsm.ir">ifsm.ir</a> مراجعه کنید.
-    </p>
-    <p>بیمه ورزشی شما در سیستم ثبت شده است. برای به روز رسانی یا اصلاح آن میتوانید دوبار آپلود و ثبت کنید.</p>
-    <app-image-uploader fileType="6"
-                        accept="image/jpeg"
-                        formControlName="sportInsurance"
-                        eventType="2"></app-image-uploader>
-    <button type="submit"
-            [disabled]="fGroup.invalid"
-            mat-flat-button
-            color="accent">ثبت</button>
-    <app-back-button></app-back-button>
-  </form>
+<div class="md:win-w-full mt-10 flex flex-col gap-2 mx-3">
+  <p class="text-justify">بیمه وزرشی معتبر برای شرکت در جام جانباختگان ضروری است. این سیستم به صورت خودکار از سامانه
+    فدراسیون بیمه وزرشی
+    استعلام اعتبار بیمه شما را میگیرد. در صورت نداشتن اعتبار شما امکان ثبت نام در پیکار های ورزشی جام جانباختگان را
+    ندارید.</p>
+  <p>برای تمدید بیمه ورزشی از سامانه <a href="http://ifsm.ir">بیمه ورزشی با ادرس ifsm.ir </a>اقدام نمایید.</p>
+  <div>
+    <span>تاریخ اعتبار بیمه ورزشی شما: </span>
+    <span [innerText]="sportInsurance?.persianExpireDate??'--'"></span>
+  </div>
+  <a mat-flat-button
+     *ngIf="!sportInsurance?.membershipIsExpired"
+     color="primary"
+     class="w-full"
+     href="http://ifsm.ir">سامانه فدراسیون بیمه ورزشی</a>
+  <button mat-flat-button
+          color="accent"
+          routerLink="/jam/register/single"
+          class="w-full"
+          *ngIf="sportInsurance?.membershipIsExpired">ادامه ثبت نام</button>
+  <app-back-button></app-back-button>
 </div>
