@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { IIndividual, SportInsurance } from '../models/CheckSportInsuranceStatus';
+import { ISportInsurance } from '../models/isport-insurance';
+import { IIndividual } from "../models/IIndividual";
 import { SingleRegisteredStatus } from "../models/SingleRegisteredStatus";
 import { CoreProfileService } from 'src/app/core/services/user/core-profile.service';
 import { ProfileField } from "src/app/core/model/ProfileField";
@@ -19,7 +20,7 @@ export class SingleRepositoryService extends CoreProfileService {
     super();
   }
   public get sportInsurance() {
-    return this.http.get<SportInsurance>(this._url + '/sport-insurance');
+    return this.http.get<ISportInsurance>(this._url + '/sport-insurance');
   }
   register(field: SportField, subField: SportSubField) {
     return this.http.post(this._url + '/register', { field, subField });

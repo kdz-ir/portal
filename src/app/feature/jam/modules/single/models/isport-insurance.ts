@@ -1,5 +1,5 @@
 
-export interface SportInsurance {
+export interface ISportInsurance {
   nationalCode:        string;
   nationalityCode:     null;
   firstName:           string;
@@ -14,7 +14,4 @@ export interface SportInsurance {
   membershipIsExpired: boolean;
 }
 
-export interface IIndividual {
-  min: number;
-  max: number;
-}
+

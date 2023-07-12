@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SingleRegisteredStatus } from '../../models/SingleRegisteredStatus';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { IIndividual } from '../../models/CheckSportInsuranceStatus';
+import { IIndividual } from "../../models/IIndividual";
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DoubleRepositoryService } from '../../services/double-repository.service';
