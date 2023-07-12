@@ -93,7 +93,7 @@ export class EditProfileComponent implements AfterViewInit {
           city: cites.find(cs => cs.label == c.entity.city)?.value ?? 0,
           birthday: moment(c.entity.birthday, 'jYYYY/jMM/jDD'),
           phone: c.entity.phone,
-          postalCode: c.entity.postalCode,
+          postalCode: c.entity?.postalCode ?? '',
           IdCardPhoto: c.entity?.IdCardPhoto ?? '',
           personalPhoto: c.entity.personalPhoto ?? ''
         });

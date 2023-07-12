@@ -10,7 +10,7 @@ export interface ProfileShowInfo {
 export interface ProfileShowEntity extends IBaseProfileShow {
     fatherName: string;
     address: string;
-    postalCode: string;
+    postalCode?: string;
     phone: string;
 }
 export interface ProfileSaveInfo extends IBaseProfileSaveInfo {
