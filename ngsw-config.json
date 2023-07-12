@@ -65,6 +65,28 @@
       }
     },
     {
+      "name": "history",
+      "urls": [
+        "https://kdz.ir/fa/?json=get_page&id=1036"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "30d",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "user-images",
+      "urls": [
+        "https://api.kdz.ir/api/v1/files/show/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "5d",
+        "strategy": "performance"
+      }
+    },
+    {
       "name": "outer-images",
       "urls": [
         "https://file.behroozbc.ir/no_logo.png"
