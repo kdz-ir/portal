@@ -49,7 +49,29 @@
       ],
       "cacheConfig": {
         "maxSize": 50,
-        "maxAge": "10s",
+        "maxAge": "5s",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "jam",
+      "urls": [
+        "https://api.kdz.ir/api/v1/account/jam/can-register"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "5m",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "outer-images",
+      "urls": [
+        "https://file.behroozbc.ir/no_logo.png"
+      ],
+      "cacheConfig": {
+        "maxSize": 120,
+        "maxAge": "50d",
         "strategy": "performance"
       }
     }
