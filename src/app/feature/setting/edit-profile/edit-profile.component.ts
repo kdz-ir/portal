@@ -34,7 +34,7 @@ export class EditProfileComponent implements AfterViewInit {
       sex: _fb.nonNullable.control(0, [Validators.required]),
       fatherName: _fb.nonNullable.control('', [Validators.required]),
       address: _fb.nonNullable.control('', [Validators.required]),
-      postalCode: _fb.nonNullable.control('', [Validators.required, Validators.maxLength(10), Validators.minLength(10), AdditionalValidators.CheckIsASCII]),
+      postalCode: _fb.nonNullable.control('', [Validators.maxLength(10), Validators.minLength(10), AdditionalValidators.CheckIsASCII]),
       city: _fb.nonNullable.control(0, [Validators.required]),
       birthday: _fb.control<moment.Moment>(null, [Validators.required]),
       phone: _fb.nonNullable.control('', [Validators.required]),
