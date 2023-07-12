@@ -36,7 +36,7 @@
     "ng-behroozbc-libraries-validators": "0.3.0",
     "ng-recaptcha": "^11.0.0",
     "ngx-countdown": "^15.0.0",
-    "ngx-lightbox": "^2.3.0",
+    "ngx-lightbox": "^3.0.0",
     "rxjs": "~6.6.6",
     "sweetalert2": "^10.16.7",
     "tslib": "^2.0.0",
