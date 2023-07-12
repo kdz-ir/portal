@@ -41,6 +41,17 @@
         "maxAge": "1d",
         "strategy": "freshness"
       }
+    },
+    {
+      "name": "sportInsurance",
+      "urls": [
+        "https://api.kdz.ir/api/v1/account/jam/single/sport-insurance"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "10s",
+        "strategy": "performance"
+      }
     }
   ]
 }
