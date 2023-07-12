@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1689200674473,
+  "timestamp": 1689201562845,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -34,7 +34,7 @@
         "/common.02d85cb85174ed59.js",
         "/favicon.ico",
         "/index.html",
-        "/main.f1a317c8b855dbc7.js",
+        "/main.baedd25d31cf4a68.js",
         "/manifest.webmanifest",
         "/polyfills.7c978ea6c48a313b.js",
         "/runtime.216168e7689c35d7.js",
@@ -111,6 +111,32 @@
       "version": 1
     },
     {
+      "name": "history",
+      "patterns": [
+        "https:\\/\\/kdz\\.ir\\/fa\\/\\?json=get_page&id=1036"
+      ],
+      "strategy": "performance",
+      "maxSize": 50,
+      "maxAge": 2592000000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    },
+    {
+      "name": "user-images",
+      "patterns": [
+        "https:\\/\\/api\\.kdz\\.ir\\/api\\/v1\\/files\\/show\\/.*"
+      ],
+      "strategy": "performance",
+      "maxSize": 100,
+      "maxAge": 432000000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    },
+    {
       "name": "outer-images",
       "patterns": [
         "https:\\/\\/file\\.behroozbc\\.ir\\/no_logo\\.png"
@@ -163,8 +189,8 @@
     "/assets/pic/tshirtSize.jpg": "b0d73e10ed68dbd8b4d1e3857cd3f52a61d98fa6",
     "/common.02d85cb85174ed59.js": "62492e9aefeebb0114020bd69df0756762717f7d",
     "/favicon.ico": "a008f051369ce7a5c52f6a2011fa32bd4c429c4f",
-    "/index.html": "a9eac9eaf0d6999448391dbb8d717557d421f24a",
-    "/main.f1a317c8b855dbc7.js": "96eb6a62c4ab0eb82a3ce85c113ef56390049b8c",
+    "/index.html": "e82e146fe5d601dda3d59ef7ddf657f47c36083e",
+    "/main.baedd25d31cf4a68.js": "3306ecb46dc01459929633e30116d2f72ab55030",
     "/manifest.webmanifest": "c494c902771710a5112e95a6e7023c1410b9b8f9",
     "/polyfills.7c978ea6c48a313b.js": "ed2d1dcd7b4eb15a2ab2d5a4ea9de6728b2310e4",
     "/runtime.216168e7689c35d7.js": "225f307d25f2f0987cc5844b82182bbe2485918c",
