@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1689200696610,
+  "timestamp": 1689201587440,
   "index": "/portal/index.html",
   "assetGroups": [
     {
@@ -34,7 +34,7 @@
         "/portal/common.02d85cb85174ed59.js",
         "/portal/favicon.ico",
         "/portal/index.html",
-        "/portal/main.f1a317c8b855dbc7.js",
+        "/portal/main.baedd25d31cf4a68.js",
         "/portal/manifest.webmanifest",
         "/portal/polyfills.7c978ea6c48a313b.js",
         "/portal/runtime.216168e7689c35d7.js",
@@ -111,6 +111,32 @@
       "version": 1
     },
     {
+      "name": "history",
+      "patterns": [
+        "https:\\/\\/kdz\\.ir\\/fa\\/\\?json=get_page&id=1036"
+      ],
+      "strategy": "performance",
+      "maxSize": 50,
+      "maxAge": 2592000000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    },
+    {
+      "name": "user-images",
+      "patterns": [
+        "https:\\/\\/api\\.kdz\\.ir\\/api\\/v1\\/files\\/show\\/.*"
+      ],
+      "strategy": "performance",
+      "maxSize": 100,
+      "maxAge": 432000000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    },
+    {
       "name": "outer-images",
       "patterns": [
         "https:\\/\\/file\\.behroozbc\\.ir\\/no_logo\\.png"
@@ -163,8 +189,8 @@
     "/portal/assets/pic/tshirtSize.jpg": "b0d73e10ed68dbd8b4d1e3857cd3f52a61d98fa6",
     "/portal/common.02d85cb85174ed59.js": "62492e9aefeebb0114020bd69df0756762717f7d",
     "/portal/favicon.ico": "a008f051369ce7a5c52f6a2011fa32bd4c429c4f",
-    "/portal/index.html": "2def506482f4da07fa005c37d325af1c7afd65b1",
-    "/portal/main.f1a317c8b855dbc7.js": "96eb6a62c4ab0eb82a3ce85c113ef56390049b8c",
+    "/portal/index.html": "ae66021b3006b12ff996c057cef313b4c899b411",
+    "/portal/main.baedd25d31cf4a68.js": "3306ecb46dc01459929633e30116d2f72ab55030",
     "/portal/manifest.webmanifest": "c494c902771710a5112e95a6e7023c1410b9b8f9",
     "/portal/polyfills.7c978ea6c48a313b.js": "ed2d1dcd7b4eb15a2ab2d5a4ea9de6728b2310e4",
     "/portal/runtime.216168e7689c35d7.js": "225f307d25f2f0987cc5844b82182bbe2485918c",
