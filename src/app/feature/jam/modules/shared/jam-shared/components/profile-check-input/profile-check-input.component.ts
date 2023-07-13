@@ -61,7 +61,7 @@ export class ProfileCheckInputComponent implements ControlValueAccessor, Validat
     this.isDisabled = isDisabled;
   }
   validate(control: AbstractControl<any, any>): ValidationErrors {
-    if (isNil(this.sportInsurance) || !this.sportInsurance.membershipIsExpired)
+    if (this.profileMode != ProgramFieldMode.base && (isNil(this.sportInsurance) || !this.sportInsurance.membershipIsExpired))
       return { sportInsurace: true };
     if (control.hasValidator(Validators.required)) {
       if (isNull(this.fControl.value))
