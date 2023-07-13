@@ -27,7 +27,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ImageUploaderComponent implements ControlValueAccessor, Validator, OnChanges {
   src: string;
-  @Input() maxSize = 500;
+  @Input() maxSize = 300;
   @Input() accept: string;
   @Input() lastImageid: string;
   @Input() fileType: string;
