@@ -5,13 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './navigation-list.component.html',
 })
 export class NavigationListComponent {
-  readonly links = [...BaseLinks,...LINKS];
+  readonly links = [...BaseLinks, ...LINKS];
 }
 export const LINKS = [
 
   {
     link: '/jam', name: 'جام‌جانباختگان', icon: 'Jam', isNative: false
   },
+  { link: '/programs/startup-weekend', name: 'استارتاپ ویکند', icon: 'Startup-weekend', isNative: false },
   { link: '/Manthra', name: 'مانتره', icon: 'Manthra', isNative: false },
 
   { link: '/ordoo', name: 'اردو', icon: 'Ordoo', isNative: false },

@@ -5,7 +5,8 @@ import { ProgramsListPageComponent } from './pages/programs-list-page/programs-l
 const routes: Routes = [{
   path: '',
   component: ProgramsListPageComponent
-}];
+},
+{ path: 'startup-weekend', loadChildren: () => import('./modules/startup-weekend/startup-weekend.module').then(c => c.StartupWeekendModule) }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
