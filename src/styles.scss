@@ -19,6 +19,7 @@ body {
     margin: 0;
     font-family: 'Vazirmatn UI FD NL', Roboto, "Helvetica Neue", sans-serif;
     overflow-y: hidden;
+    --mdc-tab-indicator-active-indicator-color: #4BDECD;
 }
 
 // @include mat.all-component-typographies($custom-typography);
@@ -41,6 +42,10 @@ $dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
 
     @include mat.all-component-themes($light-theme);
 
+    body {
+        --mdc-tab-indicator-active-indicator-color: #61C4F2;
+    }
+    
     .home-page-background {
         background-color: rgb(255, 255, 255) !important;
     }
@@ -107,4 +112,13 @@ $dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
 .home-page-background {
     height: 60vh;
     background-color: rgb(27, 27, 27);
+}
+
+.mdc-tab--active {
+    .mdc-tab__text-label {
+        color: #DEBC35 !important;
+        @media (prefers-color-scheme:light){
+            color: #F2EB49 !important;
+        }
+    }
 }
