@@ -10,7 +10,6 @@ import { sextypes } from "src/app/feature/setting/models/sex-type";
 import { IBaseProfileForm } from "../../models/IBaseProfileForm";
 import { IMinimumProfileSaveInfo } from "../../models/IMinimumProfileSaveInfo";
 import { ISetMinimumProfileDialog } from "../../models/ISetMinimumProfileDialog";
-import { ProgramFieldMode } from "src/app/core/model/ProgramFieldMode";
 
 @Component({
   selector: 'app-set-minimum-profile-dialog',
@@ -36,17 +35,15 @@ export class SetMinimumProfileDialogComponent {
       birthday: fb.control<moment.Moment>(moment(this.profile.birthday, 'jYYYY/jMM/jDD'), [Validators.required]),
       IdCardPhoto: fb.control<string>(this.profile.IdCardPhoto, [Validators.required]),
       city: fb.control<number>(cites.find(cs => cs.label == this.profile.city)?.value ?? 0, [Validators.required]),
-      sportInsurance: fb.control(this.profile.sportInsurance),
       personalPhoto: fb.control(this.profile.personalPhoto, [Validators.required])
     });
-    if (this.data.mode == ProgramFieldMode.needed)
-      this.fGroup.controls.sportInsurance.addValidators(Validators.required);
+    // if (this.data.mode == ProgramFieldMode.needed)
+    //   this.fGroup.controls.sportInsurance.addValidators(Validators.required);
   }
   onSaveProfile() {
     const rawValues = this.fGroup.value;
     const profileSave: IMinimumProfileSaveInfo = {
       nationalCode: rawValues.nationalCode,
-      sportInsurance: rawValues.sportInsurance,
       name: rawValues.name,
       family: rawValues.family,
       city: rawValues.city,

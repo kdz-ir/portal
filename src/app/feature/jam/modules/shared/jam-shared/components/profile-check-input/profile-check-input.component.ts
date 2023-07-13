@@ -8,6 +8,9 @@ import { IGetProfileRoot } from 'src/app/core/model/profile-status-info';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
 import { CoreProfileService } from 'src/app/core/services/user/core-profile.service';
 import { SetMinimumProfileDialogComponent } from 'src/app/shared/modules/shared-profile/components/set-minimum-profile-dialog/set-minimum-profile-dialog.component';
+import { SportInsuranceRepositoryService } from '../../services/sport-insurance-repository.service';
+import { ISportInsurance } from '../../models/isport-insurance';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-profile-check-input',
@@ -35,9 +38,10 @@ export class ProfileCheckInputComponent implements ControlValueAccessor, Validat
   touched = false;
 
   isDisabled = false;
+  sportInsurance: ISportInsurance;
 
-  constructor (private readonly _profileService: CoreProfileService, private readonly _dialog: MatDialog, private readonly _fb: FormBuilder) {
-    this.fControl = _fb.nonNullable.control<string>('', [ValidatorCoreService.nationalCodeChecker]);
+  constructor (private readonly _profileService: CoreProfileService, private _snackBar: MatSnackBar, private readonly _dialog: MatDialog, fb: FormBuilder, private readonly _sportInsuranceRepository: SportInsuranceRepositoryService) {
+    this.fControl = fb.nonNullable.control<string>('', [ValidatorCoreService.nationalCodeChecker]);
     this.fControl.valueChanges.subscribe(() => {
       this.markAsTouched();
     });
@@ -57,6 +61,8 @@ export class ProfileCheckInputComponent implements ControlValueAccessor, Validat
     this.isDisabled = isDisabled;
   }
   validate(control: AbstractControl<any, any>): ValidationErrors {
+    if (isNil(this.sportInsurance) || !this.sportInsurance.membershipIsExpired)
+      return { sportInsurace: true };
     if (control.hasValidator(Validators.required)) {
       if (isNull(this.fControl.value))
         return { required: true };
@@ -86,7 +92,20 @@ export class ProfileCheckInputComponent implements ControlValueAccessor, Validat
   onSearchProfile() {
     this._profileService.getProfileWithNationalCode(this.fControl.value, ProgramType.jam, this.profileMode).subscribe(c => {
       this.profile = c;
-      this.fControl.setValue(this.profile.profile.nationalCode);
+      this.fControl.updateValueAndValidity();
+    });
+    this.onRefreshSportInsurance();
+  }
+  onRefreshSportInsurance() {
+    this._sportInsuranceRepository.check(this.fControl.value).subscribe(t => {
+      this.sportInsurance = t;
+      this.fControl.updateValueAndValidity();
+      if (!t.membershipIsExpired) {
+        const message = this._snackBar.open('بیمه ورزشی بازیکن مورد نظر اعتبار ندارد. لطفا اعتبار بیمه را تمدید کنید.', 'تمدید');
+        message.onAction().subscribe(() => {
+          window.open('http://ifsm.ir', '_blank');
+        });
+      }
     });
   }
 }

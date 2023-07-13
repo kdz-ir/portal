@@ -1,9 +1,8 @@
-import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SingleRepositoryService } from '../../services/single-repository.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ISportInsurance } from '../../models/isport-insurance';
+import { ISportInsurance } from '../../../shared/jam-shared/models/isport-insurance';
 @Component({
   selector: 'app-sport-insurence-page',
   templateUrl: './sport-insurence-page.component.html',

@@ -10,5 +10,4 @@ export interface IBaseProfileForm {
     IdCardPhoto: FormControl<string>;
     personalPhoto: FormControl<string>;
     city: FormControl<number>;
-    sportInsurance: FormControl<string>;
 }

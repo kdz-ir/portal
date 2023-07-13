@@ -1,11 +1,11 @@
 import { inject } from '@angular/core';
-import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
-import { SingleRepositoryService } from '../services/single-repository.service';
-import { ISportInsurance } from '../models/isport-insurance';
+import { ResolveFn } from '@angular/router';
+import { ISportInsurance } from '../../shared/jam-shared/models/isport-insurance';
 import { map } from "rxjs/operators";
+import { SportInsuranceRepositoryService } from '../../shared/jam-shared/services/sport-insurance-repository.service';
 export const sportInsurenceStatusResolver: ResolveFn<boolean> = () => {
-    return inject(SingleRepositoryService).sportInsurance.pipe(map(t => t.membershipIsExpired));
+    return inject(SportInsuranceRepositoryService).sportInsurance.pipe(map(t => t.membershipIsExpired));
 };
 export const sportInsuranceResolver: ResolveFn<ISportInsurance> = () => {
-    return inject(SingleRepositoryService).sportInsurance;
+    return inject(SportInsuranceRepositoryService).sportInsurance;
 };

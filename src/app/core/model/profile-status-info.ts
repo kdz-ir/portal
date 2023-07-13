@@ -18,7 +18,6 @@ export interface IGetProfileRoot {
 
 export interface IGetProfile extends IBaseProfileShow {
     nationalCode: string;
-    sportInsurance: string;
     address: string;
     fatherName: string;
     phone: string;
