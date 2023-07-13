@@ -94,7 +94,8 @@ export class ProfileCheckInputComponent implements ControlValueAccessor, Validat
       this.profile = c;
       this.fControl.updateValueAndValidity();
     });
-    this.onRefreshSportInsurance();
+    if (this.profileMode != ProgramFieldMode.base)
+      this.onRefreshSportInsurance();
   }
   onRefreshSportInsurance() {
     this._sportInsuranceRepository.check(this.fControl.value).subscribe(t => {
