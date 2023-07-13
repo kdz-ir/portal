@@ -37,12 +37,12 @@ const routes: Routes = [
           {
             path: 'Manthra',
             canActivate: [CanLoadThisProgramGuard(false)],
-            loadChildren: () => import('../feature/manthra/manthra.module').then(s => s.ManthraModule)
+            loadChildren: () => import('../feature/programs/modules/manthra/manthra.module').then(s => s.ManthraModule)
           },
           {
             path: 'ordoo',
             canActivate: [CanLoadThisProgramGuard(false)],
-            loadChildren: () => import('../feature/ordoo/ordoo.module').then(s => s.OrdooModule)
+            loadChildren: () => import('../feature/programs/modules/ordoo/ordoo.module').then(s => s.OrdooModule)
           }]
       }
     ]
