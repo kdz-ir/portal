@@ -58,8 +58,9 @@
             *matHeaderCellDef> عکس </th>
         <td mat-cell
             *matCellDef="let element">
-            <a target="_blank"
-               [href]="'https://api.kdz.ir/api/v1/files/show/'+element.profile.personalPhoto">دانلود</a>
+            <img target="_blank"
+                 class="w-3 h-3"
+                 [src]="'https://api.kdz.ir/api/v1/files/show/'+element.profile.personalPhoto">
         </td>
     </ng-container>
     <ng-container matColumnDef="idCard">
@@ -68,6 +69,7 @@
         <td mat-cell
             *matCellDef="let element">
             <img target="_blank"
+                 class="w-3 h-3"
                  [src]="'https://api.kdz.ir/api/v1/files/show/'+element.profile.IdCardPhoto">
         </td>
     </ng-container>
