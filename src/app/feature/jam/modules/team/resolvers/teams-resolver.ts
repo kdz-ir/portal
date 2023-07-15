@@ -1,7 +1,6 @@
 import { inject } from "@angular/core";
 import { ActivatedRouteSnapshot, ResolveFn } from "@angular/router";
 import { TeamRepositoryService } from "../services/team-repository.service";
-import { IDataCollection } from "../models/IDataCollection";
 import { ITeamsList } from "../models/iteams-list";
 import { ITeam } from "../models/ITeam";
 

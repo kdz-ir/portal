@@ -1,5 +1,5 @@
 import { ITeamsList } from "./iteams-list";
-import { IPlayer } from "./IPlayer";
+import { IPlayer } from "../../shared/jam-shared/models/IPlayer";
 
 
 export interface ITeam {

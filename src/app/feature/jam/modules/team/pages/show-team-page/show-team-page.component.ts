@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { IPlayer } from '../../models/IPlayer';
+import { IPlayer } from '../../../shared/jam-shared/models/IPlayer';
 import { ActivatedRoute } from '@angular/router';
 import { ITeam } from '../../models/ITeam';
 import { MatSort } from '@angular/material/sort';

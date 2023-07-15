@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { CoreProfileService } from 'src/app/core/services/user/core-profile.service';
 import { environment } from 'src/environments/environment';
 import { ICreateTeam } from '../models/icreate-team';
-import { IDataCollection } from '../models/IDataCollection';
 import { ITeamsList } from '../models/iteams-list';
 import { ITeam } from "../models/ITeam";
 import { map } from 'rxjs/operators';
+import { IDataCollection } from '../../shared/jam-shared/models/IDataCollection';
 
 @Injectable({
   providedIn: 'root'
