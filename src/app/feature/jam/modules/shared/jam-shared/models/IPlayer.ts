@@ -13,6 +13,7 @@ export interface IPlayer {
     fieldName: string;
     subFieldName: string;
     ageRange: AgeRange;
+    ageRangeName: string;
     playerTypeName: string;
     profile: ProfileShowEntity;
 }
