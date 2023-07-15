@@ -1,4 +1,5 @@
 <table mat-table
+       matSort
        [dataSource]="dataSource">
     <!-- Name Column -->
     <ng-container matColumnDef="name">
@@ -33,21 +34,42 @@
     </ng-container>
     <ng-container matColumnDef="fieldName">
         <th mat-header-cell
+            mat-sort-header
             *matHeaderCellDef> رشته </th>
         <td mat-cell
             *matCellDef="let element"> {{element.fieldName}} </td>
     </ng-container>
     <ng-container matColumnDef="sex">
         <th mat-header-cell
+            mat-sort-header
             *matHeaderCellDef> جنسیت </th>
         <td mat-cell
             *matCellDef="let element"> {{element.profile.sex}} </td>
     </ng-container>
     <ng-container matColumnDef="subFieldName">
         <th mat-header-cell
+            mat-sort-header
             *matHeaderCellDef> بخش </th>
         <td mat-cell
             *matCellDef="let element"> {{element.subFieldName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="image">
+        <th mat-header-cell
+            *matHeaderCellDef> عکس </th>
+        <td mat-cell
+            *matCellDef="let element">
+            <a target="_blank"
+               [href]="'https://api.kdz.ir/api/v1/files/show/'+element.profile.personalPhoto">دانلود</a>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="idCard">
+        <th mat-header-cell
+            *matHeaderCellDef> شناسنامه </th>
+        <td mat-cell
+            *matCellDef="let element">
+            <img target="_blank"
+                 [src]="'https://api.kdz.ir/api/v1/files/show/'+element.profile.IdCardPhoto">
+        </td>
     </ng-container>
     <ng-container matColumnDef="action">
         <th mat-header-cell

@@ -12,7 +12,7 @@ import { MatSort } from '@angular/material/sort';
 export class HomePageComponent implements AfterViewInit {
   dataSource: MatTableDataSource<IPlayer>;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['name','fieldName','subFieldName','sex',  'nationalCode','ageRangeName','playerType', 'action'];
+  displayedColumns: string[] = ['name','fieldName','subFieldName','sex', 'idCard', 'nationalCode','ageRangeName','image','playerType', 'action'];
   constructor (private readonly _setadRepository: SetadRepositoryService) {
 
   }
@@ -24,6 +24,7 @@ export class HomePageComponent implements AfterViewInit {
     this._setadRepository.allPlayers.subscribe(c => {
       
       this.dataSource = new MatTableDataSource(c);
+      this.dataSource.sort=this.sort;
     });
   }
 }
