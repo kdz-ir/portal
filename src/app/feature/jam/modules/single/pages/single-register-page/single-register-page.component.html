@@ -5,7 +5,9 @@
     <div class="flex flex-col gap-2"
          *ngIf="!isRegistered.isRegistered;else elseBlock">
         <p>در حال حاظر شما در حال ثبت نام در {{sportName}} {{subFieldName}} هستید.</p>
-        <p>شما با ثبت نام در این رشته قبول کردید که <a href="bing.com">آیین نامه جام جان‌باختگان</a> و آیین نامه رشته {{sportName}} را خوانده و قبول دارید.</p>
+        <p>شما با ثبت نام در این رشته قبول کردید که <a target="_blank"
+               href="https://kdz.ir/fa/wp-content/uploads/2023/07/%D8%A7%D8%AC%D8%B1%D8%A7%DB%8C%DB%8C.pdf">آیین نامه
+                جام جان‌باختگان</a> و آیین نامه رشته {{sportName}} را خوانده و قبول دارید.</p>
         <button mat-raised-button
                 color="accent"
                 class="w-full"
