@@ -1,0 +1,54 @@
+div {
+
+  .second-body {
+
+    section:last-of-type {
+
+      a,button {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+        height: 70px;
+      }
+    }
+
+    section:first-of-type {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 380px;
+
+      .button-row {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        a, button {
+          width: 150px;
+          height: 150px;
+        }
+      }
+    }
+  }
+
+  // Media Queries for Mobile Devices
+  @media (max-width: 959px) {
+    .second-body {
+      section:first-of-type {
+
+        a,button {
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+button {
+  font-size: 20px;
+}
+
+.mdc-fab {
+  mat-icon {
+    width: auto;
+    height: auto;
+  }
+}
