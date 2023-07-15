@@ -16,19 +16,27 @@ export class SingleRegisterPageComponent {
   private _field: SportField;
   private _subField: SportSubField;
   isRegistered: SingleRegisteredStatus;
+  isLoading = false;
   sportName: string;
   subFieldName: string;
   constructor (private readonly _singleService: SingleRepositoryService, private readonly _router: Router,
-     private readonly _location: Location, 
-     private readonly _activetedRoute: ActivatedRoute, private readonly _swalService: SwalService) {
+    private readonly _location: Location,
+    private readonly _activetedRoute: ActivatedRoute, private readonly _swalService: SwalService) {
     this._field = <SportField>_activetedRoute.snapshot.params['field'];
     this._subField = <SportSubField>_activetedRoute.snapshot.params['subField'];
     this.isRegistered = <SingleRegisteredStatus>this._activetedRoute.snapshot.data['registeredStatus'];
     this.sportName = <string>this._activetedRoute.snapshot.data['sportName'];
-    this.subFieldName=<string>this._activetedRoute.snapshot.data['subFieldName']
+    this.subFieldName = <string>this._activetedRoute.snapshot.data['subFieldName'];
   }
   onWantRegister() {
-    this._singleService.register(this._field, this._subField).subscribe(c => { this._swalService.successFullRegister(); this._location.back(); });
+    if (this.isLoading == true)
+      return;
+    this.isLoading = true;
+    this._singleService.register(this._field, this._subField).subscribe(c => {
+      this._swalService.successFullRegister();
+      this.isLoading = false;
+      this._location.back();
+    });
   }
   async onWantDelete() {
     const confirm = await this._swalService.showWarnMessage();

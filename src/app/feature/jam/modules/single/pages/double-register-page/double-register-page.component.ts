@@ -25,6 +25,7 @@ export class DoubleRegisterPageComponent implements OnInit {
   subFieldName: string;
   fGroup: FormGroup<IDoubleRegisterForm>;
   individual: IIndividual;
+  isLoading = false;
   readonly profileMode = ProgramFieldMode;
   constructor (private readonly _activetedRoute: ActivatedRoute,
     private readonly _fb: FormBuilder,
@@ -48,8 +49,12 @@ export class DoubleRegisterPageComponent implements OnInit {
     });
   }
   onSubmited() {
+    if (this.isLoading == true)
+      return;
+    this.isLoading = true;
     this._doubleService.register(this._field, this._subField, this.fGroup.value.individuals).subscribe(() => {
       this._swalService.successFullRegister();
+      this.isLoading = false;
       this._location.back();
     });
   }
