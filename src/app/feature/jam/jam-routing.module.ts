@@ -5,6 +5,7 @@ import { ValidProfileGuard } from 'src/app/core/guards/valid-profile.guard';
 import { RegisterHomePageComponent } from './pages/register-home-page/register-home-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { CanRegisterGuard } from './guards/can-register-guard';
+import { adminAccessGuard } from 'src/app/shared/guards/admin-access-guard';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
         loadChildren: () => import('./modules/dormitory/dormitory.module').then(c => c.DormitoryModule)
       }
     ]
+  },
+  {
+    path: 'setad',
+    canActivate: [adminAccessGuard],
+    loadChildren: () => import('./modules/setad/setad.module').then(c => c.StetadModule)
   }
 ];
 
