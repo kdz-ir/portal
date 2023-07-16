@@ -7,6 +7,7 @@ import { SportSubField } from "../../../../models/sub-sport-field";
 
 export interface IPlayer {
     nationalCode: string;
+    id: number;
     field: SportField;
     subField: SportSubField;
     playerType: PlayerType;

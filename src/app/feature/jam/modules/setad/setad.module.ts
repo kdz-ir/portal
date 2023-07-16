@@ -5,11 +5,13 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { PlayerDetailPageComponent } from './pages/player-detail-page/player-detail-page.component';
 
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageComponent,
+    PlayerDetailPageComponent
   ],
   imports: [
     SharedModule,
