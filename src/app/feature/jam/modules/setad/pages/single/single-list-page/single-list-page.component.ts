@@ -12,18 +12,18 @@ import { SportSubField } from 'src/app/feature/jam/models/sub-sport-field';
   templateUrl: './single-list-page.component.html',
   styleUrls: ['./single-list-page.component.scss']
 })
-export class SingleListPageComponent implements AfterViewInit {
+export class SingleListPageComponent  {
   dataSource: MatTableDataSource<IPlayer>;
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['name', 'sex', 'nationalCode', 'ageRangeName', 'city', 'created', 'action'];
   private _field: SportField;
   private _subField: SportSubField;
-  constructor (private readonly _setadRepository: SetadRepositoryService, activatedRoute: ActivatedRoute) {
-    this._field = <SportField>activatedRoute.snapshot.params['field'];
-    this._subField = <SportSubField>activatedRoute.snapshot.params['subField'];
-  }
-  ngAfterViewInit(): void {
-    this.onRefreshClick();
+  constructor (private readonly _setadRepository: SetadRepositoryService, ac: ActivatedRoute) {
+    ac.params.subscribe(c => {
+      this._field = <SportField>c['field'];
+      this._subField = <SportSubField>c['subField'];
+      this.onRefreshClick();
+    });
   }
 
   onRefreshClick() {

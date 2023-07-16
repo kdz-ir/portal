@@ -12,18 +12,18 @@ import { SportSubField } from 'src/app/feature/jam/models/sub-sport-field';
   templateUrl: './double-list-page.component.html',
   styleUrls: ['./double-list-page.component.scss']
 })
-export class DoubleListPageComponent implements AfterViewInit {
+export class DoubleListPageComponent{
   dataSource: MatTableDataSource<IDoubleTeam>;
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['name', 'ageRangeName', 'created', 'action'];
   private _subField: SportSubField;
   private _field: SportField;
   constructor (private readonly _setadRepository: SetadRepositoryService, ac: ActivatedRoute) {
-    this._field = <SportField>ac.snapshot.params['field'];
-    this._subField = <SportSubField>ac.snapshot.params['subField'];
-  }
-  ngAfterViewInit(): void {
-    this.onRefreshClick();
+    ac.params.subscribe(c => {
+      this._field = <SportField>c['field'];
+      this._subField = <SportSubField>c['subField'];
+      this.onRefreshClick();
+    });
   }
   onRefreshClick() {
     this._setadRepository.doubleTeams(this._field, this._subField).subscribe(c => {
