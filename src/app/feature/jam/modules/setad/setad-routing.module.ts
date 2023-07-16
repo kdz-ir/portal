@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { PlayerDetailPageComponent } from './pages/player-detail-page/player-detail-page.component';
+import { SingleListPageComponent } from './pages/single/single-list-page/single-list-page.component';
+import { SinglePlayerDitailPageComponent } from './pages/single/single-player-ditail-page/single-player-ditail-page.component';
+import { SinglePlayerResolver } from './resolvers/single-player-resolver';
 
 const routes: Routes = [
   {
@@ -9,8 +11,17 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path: ':id',
-    component: PlayerDetailPageComponent
+    path: 'single/:field/:subField',
+    component: SingleListPageComponent,
+
+  },
+  {
+    path: 'single/:field/:subField/:id',
+    component: SinglePlayerDitailPageComponent,
+    resolve: {
+      player: SinglePlayerResolver
+    }
+
   }
 ];
 

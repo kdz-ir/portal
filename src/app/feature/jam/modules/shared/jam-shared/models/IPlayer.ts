@@ -11,10 +11,12 @@ export interface IPlayer {
     field: SportField;
     subField: SportSubField;
     playerType: PlayerType;
+    mobile:string;
     fieldName: string;
     subFieldName: string;
     ageRange: AgeRange;
     ageRangeName: string;
     playerTypeName: string;
+    created:Date;
     profile: ProfileShowEntity;
 }
