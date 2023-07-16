@@ -21,5 +21,5 @@ export const IndividualsResolver: ResolveFn<IIndividual> = (route: ActivatedRout
     return inject(DoubleRepositoryService).individuals(field, subField);
 };
 export const GenderResolver: ResolveFn<Gender> = () => {
-    return inject(CoreProfileService).profileData<IBaseProfileShow>().pipe(map(t => t.sexRaw));
+    return inject(CoreProfileService).profileData<{ entity: IBaseProfileShow; }>().pipe(map(t => t.entity.sexRaw));
 };
