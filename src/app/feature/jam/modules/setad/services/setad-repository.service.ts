@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { SportField } from '../../../models/sport-field';
 import { SportSubField } from '../../../models/sub-sport-field';
 import { IDoubleTeam } from '../models/idouble-team';
+import { IDoubleTeamDetial } from '../models/idouble-team-detial';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,5 +27,8 @@ export class SetadRepositoryService {
   doubleTeams(field: SportField, subField: SportSubField) {
     return this._httpClient.post<IDataCollection<IDoubleTeam>>(this._url + '/double-filtered', { field, subField })
       .pipe(map(t => t.data));
+  }
+  doubleTeam(id: number) {
+    return this._httpClient.get<IDoubleTeamDetial>(`${this._url}/double/${id}`);
   }
 }

@@ -10,6 +10,7 @@ import { SingleListPageComponent } from './pages/single/single-list-page/single-
 import { SinglePlayerDitailPageComponent } from './pages/single/single-player-ditail-page/single-player-ditail-page.component';
 import { AllPlayerPageComponent } from './pages/all-player-page/all-player-page.component';
 import { DoubleListPageComponent } from './pages/double/double-list-page/double-list-page.component';
+import { DoubleTeamDetailPageComponent } from './pages/double/double-team-detail-page/double-team-detail-page.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DoubleListPageComponent } from './pages/double/double-list-page/double-
     SingleListPageComponent,
     SinglePlayerDitailPageComponent,
     AllPlayerPageComponent,
-    DoubleListPageComponent
+    DoubleListPageComponent,
+    DoubleTeamDetailPageComponent
   ],
   imports: [
     SharedModule,

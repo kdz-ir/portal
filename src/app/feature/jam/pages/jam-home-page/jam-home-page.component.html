@@ -19,6 +19,10 @@
                         routerLink="register">ثبت نام</button>
                 <button mat-raised-button
                         routerLink="history">تاریخچه</button>
+                <button mat-raised-button
+                        color="accent"
+                        *ngIf="isAdmin"
+                        routerLink="setad">سامانه ستاد برگزاری جام جانباختگان</button>
                 <button disabled
                         mat-button> برنامه بازی ها</button>
         </div>

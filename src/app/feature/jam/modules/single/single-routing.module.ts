@@ -16,37 +16,37 @@ const routes: Routes = [
     resolve: { sportInsurance: sportInsuranceResolver }
   },
   {
-  path: '',
-  canActivate: [SportInsuranceGuard],
-  children: [
-    {
-      path: '', component: SingleHomePageComponent,
-      resolve: {
-        gender: GenderResolver,
-        ageRange: AgeRangeResolver,
+    path: '',
+    canActivate: [SportInsuranceGuard],
+    children: [
+      {
+        path: '', component: SingleHomePageComponent,
+        resolve: {
+          gender: GenderResolver,
+          ageRange: AgeRangeResolver,
+        }
+      },
+      {
+        path: ':field/:subField',
+        component: SingleRegisterPageComponent,
+        resolve: {
+          registeredStatus: SingleRegisteredStatusResolver,
+          sportName: FieldNameResolver,
+          subFieldName: SubFieldNameResolver
+        }
+      },
+      {
+        path: 'double/:field/:subField',
+        component: DoubleRegisterPageComponent,
+        resolve: {
+          sportName: FieldNameResolver,
+          subFieldName: SubFieldNameResolver,
+          individuals: IndividualsResolver,
+          registeredStatus: SingleRegisteredStatusResolver,
+        }
       }
-    },
-    {
-      path: ':field/:subField',
-      component: SingleRegisterPageComponent,
-      resolve: {
-        registeredStatus: SingleRegisteredStatusResolver,
-        sportName: FieldNameResolver,
-        subFieldName: SubFieldNameResolver
-      }
-    },
-    {
-      path: 'double/:field/:subField',
-      component: DoubleRegisterPageComponent,
-      resolve: {
-        sportName: FieldNameResolver,
-        subFieldName: SubFieldNameResolver,
-        individuals: IndividualsResolver,
-        registeredStatus: SingleRegisteredStatusResolver,
-      }
-    }
-  ]
-},
+    ]
+  },
 ];
 
 @NgModule({

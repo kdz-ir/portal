@@ -6,6 +6,8 @@ import { SinglePlayerDitailPageComponent } from './pages/single/single-player-di
 import { SinglePlayerResolver } from './resolvers/single-player-resolver';
 import { AllPlayerPageComponent } from './pages/all-player-page/all-player-page.component';
 import { DoubleListPageComponent } from './pages/double/double-list-page/double-list-page.component';
+import { DoubleTeamDetailPageComponent } from './pages/double/double-team-detail-page/double-team-detail-page.component';
+import { doubleTeamResolver } from './resolvers/double-team-resolver';
 
 const routes: Routes = [
   {
@@ -19,6 +21,13 @@ const routes: Routes = [
   {
     path: 'double/:field/:subField',
     component: DoubleListPageComponent,
+  },
+  {
+    path: 'double/:field/:subField/:id',
+    component: DoubleTeamDetailPageComponent,
+    resolve: {
+      team: doubleTeamResolver
+    }
   },
   {
     path: 'single/:field/:subField',

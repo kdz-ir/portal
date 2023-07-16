@@ -1,0 +1,86 @@
+<div class="grid gap-3 grid-cols-3">
+    <div>
+        <span>افراد: </span>
+        <span [innerText]="team.name"></span>
+    </div>
+    <div>
+        <span>ورزش: </span>
+        <span [innerText]="team.name"></span>
+    </div>
+    <div>
+        <span>ورزش: </span>
+        <span [innerText]="team.fieldName+'-'+team.subFieldName"></span>
+    </div>
+
+    <div>
+        <span>رده: </span>
+        <span [innerText]="team.ageRangeName"></span>
+    </div>
+    <ng-container *ngFor="let player of team.players">
+        <div>
+            <span>نام: </span>
+            <span [innerText]="player.profile.name+' '+player.profile.family"></span>
+        </div>
+        <div>
+            <span>کد ملی: </span>
+            <span [innerText]="player.nationalCode"></span>
+        </div>
+        <div>
+            <span>جنسیت: </span>
+            <span [innerText]="player.profile.sex"></span>
+        </div>
+
+        <div>
+            <span>ورزش: </span>
+            <span [innerText]="player.fieldName+'-'+player.subFieldName"></span>
+        </div>
+
+        <div>
+            <span>رده: </span>
+            <span [innerText]="player.ageRangeName"></span>
+        </div>
+
+        <div>
+            <span>شهر: </span>
+            <span [innerText]="player.profile.city"></span>
+        </div>
+
+        <div>
+            <span>شماره منزل: </span>
+            <span [innerText]="player.profile.phone"></span>
+        </div>
+
+        <div>
+            <span>آدرس: </span>
+            <span [innerText]="player.profile.address"></span>
+        </div>
+
+        <div>
+            <span>تاریخ تولد: </span>
+            <span [innerText]="player.profile.birthday"></span>
+        </div>
+
+        <div>
+            <span>شماره تلفن همراه: </span>
+            <span [innerText]="player.mobile"></span>
+        </div>
+
+        <div>
+            <span>عکس: </span>
+            <img class="w-32 h-32"
+                 [src]="'https://api.kdz.ir/api/v1/files/show/'+player.profile.personalPhoto">
+        </div>
+        <div>
+            <span>شناسنامه: </span>
+            <img class="w-32 h-32"
+                 [src]="'https://api.kdz.ir/api/v1/files/show/'+player.profile.IdCardPhoto">
+        </div>
+
+    </ng-container>
+    <div>
+        <button mat-stroked-button
+                disabled="true"
+                color="primary">تایید ثبتنام</button>
+    </div>
+    <app-back-button></app-back-button>
+</div>
