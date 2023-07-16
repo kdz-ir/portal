@@ -12,36 +12,39 @@ import { doubleTeamResolver } from './resolvers/double-team-resolver';
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
-  },
-  {
-    path: 'all',
-    component: AllPlayerPageComponent
-  },
-  {
-    path: 'double/:field/:subField',
-    component: DoubleListPageComponent,
-  },
-  {
-    path: 'double/:field/:subField/:id',
-    component: DoubleTeamDetailPageComponent,
-    resolve: {
-      team: doubleTeamResolver
-    }
-  },
-  {
-    path: 'single/:field/:subField',
-    component: SingleListPageComponent,
+    component: HomePageComponent,
+    children: [
+      {
+        path: 'all',
+        component: AllPlayerPageComponent
+      },
+      {
+        path: 'double/:field/:subField',
+        component: DoubleListPageComponent,
+      },
+      {
+        path: 'double/:field/:subField/:id',
+        component: DoubleTeamDetailPageComponent,
+        resolve: {
+          team: doubleTeamResolver
+        }
+      },
+      {
+        path: 'single/:field/:subField',
+        component: SingleListPageComponent,
 
-  },
-  {
-    path: 'single/:field/:subField/:id',
-    component: SinglePlayerDitailPageComponent,
-    resolve: {
-      player: SinglePlayerResolver
-    }
+      },
+      {
+        path: 'single/:field/:subField/:id',
+        component: SinglePlayerDitailPageComponent,
+        resolve: {
+          player: SinglePlayerResolver
+        }
 
+      }
+    ]
   }
+
 ];
 
 @NgModule({
