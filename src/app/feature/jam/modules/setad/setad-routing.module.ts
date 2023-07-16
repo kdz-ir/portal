@@ -5,6 +5,7 @@ import { SingleListPageComponent } from './pages/single/single-list-page/single-
 import { SinglePlayerDitailPageComponent } from './pages/single/single-player-ditail-page/single-player-ditail-page.component';
 import { SinglePlayerResolver } from './resolvers/single-player-resolver';
 import { AllPlayerPageComponent } from './pages/all-player-page/all-player-page.component';
+import { DoubleListPageComponent } from './pages/double/double-list-page/double-list-page.component';
 
 const routes: Routes = [
   {
@@ -12,8 +13,12 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path:'all',
-    component:AllPlayerPageComponent
+    path: 'all',
+    component: AllPlayerPageComponent
+  },
+  {
+    path: 'double/:field/:subField',
+    component: DoubleListPageComponent,
   },
   {
     path: 'single/:field/:subField',
