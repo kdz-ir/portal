@@ -4,19 +4,16 @@
         <span [innerText]="team.name"></span>
     </div>
     <div>
-        <span>ورزش: </span>
-        <span [innerText]="team.name"></span>
+        <span>رده: </span>
+        <span [innerText]="team.ageRangeName"></span>
     </div>
     <div>
         <span>ورزش: </span>
         <span [innerText]="team.fieldName+'-'+team.subFieldName"></span>
     </div>
 
-    <div>
-        <span>رده: </span>
-        <span [innerText]="team.ageRangeName"></span>
-    </div>
-    <ng-container *ngFor="let player of team.players">
+    
+    <!-- <ng-container *ngFor="let player of team.players">
         <div>
             <span>نام: </span>
             <span [innerText]="player.profile.name+' '+player.profile.family"></span>
@@ -76,7 +73,7 @@
                  [src]="'https://api.kdz.ir/api/v1/files/show/'+player.profile.IdCardPhoto">
         </div>
 
-    </ng-container>
+    </ng-container> -->
     <div>
         <button mat-stroked-button
                 disabled="true"
