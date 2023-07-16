@@ -8,13 +8,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import { SingleListPageComponent } from './pages/single/single-list-page/single-list-page.component';
 import { SinglePlayerDitailPageComponent } from './pages/single/single-player-ditail-page/single-player-ditail-page.component';
+import { AllPlayerPageComponent } from './pages/all-player-page/all-player-page.component';
 
 
 @NgModule({
   declarations: [
     HomePageComponent,
     SingleListPageComponent,
-    SinglePlayerDitailPageComponent
+    SinglePlayerDitailPageComponent,
+    AllPlayerPageComponent
   ],
   imports: [
     SharedModule,

@@ -9,35 +9,48 @@
 <button mat-button
         [matMenuTriggerFor]="menuRunning">دو میدانی</button>
 <button mat-button
-        [matMenuTriggerFor]="menuByc" >دوچرخه سواری</button>
-
+        [matMenuTriggerFor]="menuByc">دوچرخه سواری</button>
+<button mat-button
+        routerLink="all">همه افراد</button>
 <mat-menu #menuBadminton="matMenu">
-    <button mat-menu-item
-            routerLink="single/4/1">انفرادی</button>
-    <button mat-menu-item>دوبل میکس</button>
+        <button mat-menu-item
+                routerLink="single/4/1">انفرادی</button>
+        <button mat-menu-item>دوبل میکس</button>
 </mat-menu>
 <mat-menu #menuPingPong>
-    <button mat-menu-item routerLink="single/5/1">انفرادی</button>
-    <button mat-menu-item>دوبل</button>
-    <button mat-menu-item>دوبل میکس</button>
+        <button mat-menu-item
+                routerLink="single/5/1">انفرادی</button>
+        <button mat-menu-item>دوبل</button>
+        <button mat-menu-item>دوبل میکس</button>
 </mat-menu>
 <mat-menu #menuChess>
-    <button mat-menu-item routerLink="single/6/1">انفرادی</button>
-    <button mat-menu-item>دوبل</button>
-    <button mat-menu-item routerLink="single/6/9">مطرنج</button>
-    <button mat-menu-item routerLink="single/6/5">بلیتس</button>
+        <button mat-menu-item
+                routerLink="single/6/1">انفرادی</button>
+        <button mat-menu-item>دوبل</button>
+        <button mat-menu-item
+                routerLink="single/6/9">مطرنج</button>
+        <button mat-menu-item
+                routerLink="single/6/5">بلیتس</button>
 </mat-menu>
 <mat-menu #menuSwimming>
-    <button mat-menu-item routerLink="single/7/11">کرال سینه</button>
-    <button mat-menu-item routerLink="single/7/12">قورباغه</button>
-    <button mat-menu-item routerLink="single/7/13">مختلط</button>
+        <button mat-menu-item
+                routerLink="single/7/11">کرال سینه</button>
+        <button mat-menu-item
+                routerLink="single/7/12">قورباغه</button>
+        <button mat-menu-item
+                routerLink="single/7/13">مختلط</button>
 </mat-menu>
 <mat-menu #menuRunning>
-    <button mat-menu-item routerLink="single/9/6">سرعت</button>
-    <button mat-menu-item routerLink="single/9/8">استقامت</button>
-    <button mat-menu-item routerLink="single/9/10">نیمه استقامت</button>
+        <button mat-menu-item
+                routerLink="single/9/6">سرعت</button>
+        <button mat-menu-item
+                routerLink="single/9/8">استقامت</button>
+        <button mat-menu-item
+                routerLink="single/9/10">نیمه استقامت</button>
 </mat-menu>
 <mat-menu #menuByc>
-    <button mat-menu-item routerLink="single/8/8">استقامت</button>
-    <button mat-menu-item routerLink="single/8/6">تایم تریل سرعت</button>
+        <button mat-menu-item
+                routerLink="single/8/8">استقامت</button>
+        <button mat-menu-item
+                routerLink="single/8/6">تایم تریل سرعت</button>
 </mat-menu>
