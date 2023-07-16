@@ -10,6 +10,6 @@ import { IDoubleTeamDetial } from '../../../models/idouble-team-detial';
 export class DoubleTeamDetailPageComponent {
   team: IDoubleTeamDetial;
   constructor (ac: ActivatedRoute) {
-    this.team = <IDoubleTeamDetial>ac.data['team'];
+    this.team = <IDoubleTeamDetial>ac.snapshot.data['team'];
   }
 }
