@@ -11,7 +11,6 @@ export class SinglePlayerDitailPageComponent {
   player: IPlayer;
   constructor (ac: ActivatedRoute) {
     this.player = <IPlayer>ac.snapshot.data['player'];
-    console.log(this.player);
 
   }
 }
