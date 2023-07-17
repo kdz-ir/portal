@@ -25,7 +25,10 @@ export class SingleListPageComponent  {
       this.onRefreshClick();
     });
   }
-
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   onRefreshClick() {
     this._setadRepository.singlePlayers(this._field, this._subField).subscribe(c => {
       this.dataSource = new MatTableDataSource(c);
