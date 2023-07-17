@@ -8,6 +8,9 @@ import { AllPlayerPageComponent } from './pages/all-player-page/all-player-page.
 import { DoubleListPageComponent } from './pages/double/double-list-page/double-list-page.component';
 import { DoubleTeamDetailPageComponent } from './pages/double/double-team-detail-page/double-team-detail-page.component';
 import { doubleTeamResolver } from './resolvers/double-team-resolver';
+import { TeamListPageComponent } from './pages/teams/team-list-page/team-list-page.component';
+import { TeamDetailPageComponent } from './pages/teams/team-detail-page/team-detail-page.component';
+import { teamResolver } from './resolvers/team-resolver';
 
 const routes: Routes = [
   {
@@ -15,8 +18,15 @@ const routes: Routes = [
     component: HomePageComponent,
     children: [
       {
-        path: 'all',
-        component: AllPlayerPageComponent
+        path: 'team/:field/:subField',
+        component: TeamListPageComponent
+      },
+      {
+        path: 'team/:field/:subField/:id',
+        component: TeamDetailPageComponent,
+        resolve: {
+          team: teamResolver
+        }
       },
       {
         path: 'double/:field/:subField',
@@ -32,7 +42,6 @@ const routes: Routes = [
       {
         path: 'single/:field/:subField',
         component: SingleListPageComponent,
-
       },
       {
         path: 'single/:field/:subField/:id',
@@ -40,8 +49,12 @@ const routes: Routes = [
         resolve: {
           player: SinglePlayerResolver
         }
+      },
+      {
+        path: 'all',
+        component: AllPlayerPageComponent
+      },
 
-      }
     ]
   }
 

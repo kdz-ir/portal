@@ -1,4 +1,10 @@
 <button mat-button
+        routerLink="team/1/1">فوتسال</button>
+<button mat-button
+        routerLink="team/2/1">والیبال</button>
+<button mat-button
+        [matMenuTriggerFor]="menuBasketball">بسکتبال</button>
+<button mat-button
         [matMenuTriggerFor]="menuBadminton">بدمینتون</button>
 <button mat-button
         [matMenuTriggerFor]="menuPingPong">تنیس روی میز</button>
@@ -13,21 +19,31 @@
 <button mat-button
         routerLink="all">همه افراد</button>
 <router-outlet></router-outlet>
+<mat-menu #menuBasketball="matMenu">
+        <button mat-menu-item
+                routerLink="team/4/1">تیمی</button>
+        <button mat-menu-item
+                routerLink="team/3/4">سه نفره</button>
+</mat-menu>
 <mat-menu #menuBadminton="matMenu">
         <button mat-menu-item
                 routerLink="single/4/1">انفرادی</button>
-        <button mat-menu-item routerLink="double/4/4" >دوبل میکس</button>
+        <button mat-menu-item
+                routerLink="double/4/4">دوبل میکس</button>
 </mat-menu>
 <mat-menu #menuPingPong>
         <button mat-menu-item
                 routerLink="single/5/1">انفرادی</button>
-        <button mat-menu-item routerLink="double/5/2">دوبل</button>
-        <button mat-menu-item routerLink="double/5/4">دوبل میکس</button>
+        <button mat-menu-item
+                routerLink="double/5/2">دوبل</button>
+        <button mat-menu-item
+                routerLink="double/5/4">دوبل میکس</button>
 </mat-menu>
 <mat-menu #menuChess>
         <button mat-menu-item
                 routerLink="single/6/1">انفرادی</button>
-        <button mat-menu-item routerLink="double/6/2">دوبل</button>
+        <button mat-menu-item
+                routerLink="double/6/2">دوبل</button>
         <button mat-menu-item
                 routerLink="single/6/9">مطرنج</button>
         <button mat-menu-item

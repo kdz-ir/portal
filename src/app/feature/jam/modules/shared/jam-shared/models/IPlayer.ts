@@ -18,5 +18,6 @@ export interface IPlayer {
     ageRangeName: string;
     playerTypeName: string;
     created:Date;
+    registerStatus:number;
     profile: ProfileShowEntity;
 }
