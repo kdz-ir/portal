@@ -21,7 +21,7 @@ export class SetadRepositoryService {
     return this._httpClient.get<IDataCollection<IPlayer>>(this._url + '/all').pipe(map(c => c.data));
   }
   get totalAnalysis() {
-    return timer(300, 5000).pipe(switchMap(t => this._httpClient.get<{ total: number, unChecked: number; }>(this._url + '/analysis')));
+    return timer(300, 15000).pipe(switchMap(t => this._httpClient.get<{ total: number, unChecked: number; }>(this._url + '/analysis')));
   }
   singlePlayers(field: SportField, subField: SportSubField) {
     return this._httpClient.post<IDataCollection<IPlayer>>(`${this._url}/single-filtered`, { field, subField })
