@@ -1,8 +1,5 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { SetadRepositoryService } from '../../services/setad-repository.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { IPlayer } from '../../../shared/jam-shared/models/IPlayer';
-import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +7,11 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent  {
-
-
+  totalAnalysis: { total: number; unChecked: number; };
+  
+  constructor (private readonly _setadRepository: SetadRepositoryService) {
+    _setadRepository.totalAnalysis.subscribe(c=>{
+      this.totalAnalysis=c;
+    })
+  }
 }

@@ -18,6 +18,16 @@
         [matMenuTriggerFor]="menuByc">دوچرخه سواری</button>
 <button mat-button
         routerLink="all">همه افراد</button>
+<div class="inline-block">
+        <div class="inline-block">
+                <span>تعداد کل: </span>
+                <span [innerText]="totalAnalysis?.total"></span>
+        </div>
+        <div class="inline-block mr-2">
+                <span>بررسی نشده: </span>
+                <span [innerText]="totalAnalysis?.unChecked"></span>
+        </div>
+</div>
 <router-outlet></router-outlet>
 <mat-menu #menuBasketball="matMenu">
         <button mat-menu-item
