@@ -11,6 +11,7 @@ import { doubleTeamResolver } from './resolvers/double-team-resolver';
 import { TeamListPageComponent } from './pages/teams/team-list-page/team-list-page.component';
 import { TeamDetailPageComponent } from './pages/teams/team-detail-page/team-detail-page.component';
 import { teamResolver } from './resolvers/team-resolver';
+import { DormitoryListPageComponent } from './pages/dormitory/dormitory-list-page/dormitory-list-page.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
         resolve: {
           player: SinglePlayerResolver
         }
+      },
+      {
+        path: 'dormitory',
+        component: DormitoryListPageComponent
       },
       {
         path: 'all',

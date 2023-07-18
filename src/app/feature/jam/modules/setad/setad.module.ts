@@ -13,6 +13,8 @@ import { DoubleListPageComponent } from './pages/double/double-list-page/double-
 import { DoubleTeamDetailPageComponent } from './pages/double/double-team-detail-page/double-team-detail-page.component';
 import { TeamListPageComponent } from './pages/teams/team-list-page/team-list-page.component';
 import { TeamDetailPageComponent } from './pages/teams/team-detail-page/team-detail-page.component';
+import { DormitoryListPageComponent } from './pages/dormitory/dormitory-list-page/dormitory-list-page.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
@@ -24,13 +26,15 @@ import { TeamDetailPageComponent } from './pages/teams/team-detail-page/team-det
     DoubleListPageComponent,
     DoubleTeamDetailPageComponent,
     TeamListPageComponent,
-    TeamDetailPageComponent
+    TeamDetailPageComponent,
+    DormitoryListPageComponent
   ],
   imports: [
     SharedModule,
     MatTableModule,
     MatSortModule,
     MatMenuModule,
+    MatBadgeModule,
     SetadRoutingModule
   ]
 })

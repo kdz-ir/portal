@@ -44,7 +44,7 @@ export class CreateTeamPageComponent {
   }
   private detecetAgeRange(gender: Gender = this.fGroup.value.gender, field: SportField = this.fGroup.value.field, subField: SportSubField = this.fGroup.value.subField) {
     if (field == SportField.BasketBall)
-      if (subField == SportSubField.X3 && gender == Gender.man)
+      if (subField == SportSubField.X3)
         this.accessAbleAgeRange = [NojavanLabel, NonahalLabel];
       else
         this.accessAbleAgeRange = [BozorgsalLabel];
@@ -60,7 +60,7 @@ export class CreateTeamPageComponent {
   private detecetsubFields(gender: Gender = this.fGroup.value.gender, field: SportField = this.fGroup.value.field) {
     let tempTeam = [this.teamconst];
 
-    if (field == SportField.BasketBall && gender == Gender.man)
+    if (field == SportField.BasketBall)
       tempTeam = [...tempTeam, { label: 'سه نفره', value: SportSubField.X3 }];
     if (this.accessAbleSubFields.length != tempTeam.length)
       this.fGroup.controls.subField.setValue(null);

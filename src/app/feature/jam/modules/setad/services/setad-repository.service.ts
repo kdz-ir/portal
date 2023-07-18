@@ -11,6 +11,7 @@ import { IDoubleTeamDetial } from '../models/idouble-team-detial';
 import { ITeamsList } from '../models/iteams-list';
 import { ITeamDetail } from '../models/iteam-detail';
 import { timer } from 'rxjs';
+import { IDormitories } from '../models/idormitories';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +23,9 @@ export class SetadRepositoryService {
   }
   get totalAnalysis() {
     return timer(300, 15000).pipe(switchMap(t => this._httpClient.get<{ total: number, unChecked: number; }>(this._url + '/analysis')));
+  }
+  get dormitories(){
+    return this._httpClient.get<IDataCollection<IDormitories>>(this._url+'/dormitory').pipe(map(t=>t.data));
   }
   singlePlayers(field: SportField, subField: SportSubField) {
     return this._httpClient.post<IDataCollection<IPlayer>>(`${this._url}/single-filtered`, { field, subField })
@@ -43,5 +47,5 @@ export class SetadRepositoryService {
   doubleTeam(id: number) {
     return this._httpClient.get<IDoubleTeamDetial>(`${this._url}/double/${id}`);
   }
-
+  
 }

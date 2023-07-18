@@ -1,32 +1,43 @@
-<button mat-button
-        routerLink="team/1/1">فوتسال</button>
-<button mat-button
-        routerLink="team/2/1">والیبال</button>
-<button mat-button
-        [matMenuTriggerFor]="menuBasketball">بسکتبال</button>
-<button mat-button
-        [matMenuTriggerFor]="menuBadminton">بدمینتون</button>
-<button mat-button
-        [matMenuTriggerFor]="menuPingPong">تنیس روی میز</button>
-<button mat-button
-        [matMenuTriggerFor]="menuChess">شطرنج</button>
-<button mat-button
-        [matMenuTriggerFor]="menuSwimming">شنا</button>
-<button mat-button
-        [matMenuTriggerFor]="menuRunning">دو میدانی</button>
-<button mat-button
-        [matMenuTriggerFor]="menuByc">دوچرخه سواری</button>
-<button mat-button
-        routerLink="all">همه افراد</button>
-<div class="inline-block">
-        <div class="inline-block">
-                <span>تعداد کل: </span>
-                <span [innerText]="totalAnalysis?.total"></span>
-        </div>
-        <div class="inline-block mr-2">
-                <span>بررسی نشده: </span>
-                <span [innerText]="totalAnalysis?.unChecked"></span>
-        </div>
+<div class="flex flex-row flex-wrap justify-center">
+        <button mat-button
+                routerLink="team/1/1">فوتسال</button>
+        <button mat-button
+                routerLink="team/2/1">والیبال</button>
+        <button mat-button
+                [matMenuTriggerFor]="menuBasketball">بسکتبال</button>
+        <button mat-button
+                [matMenuTriggerFor]="menuBadminton">بدمینتون</button>
+        <button mat-button
+                [matMenuTriggerFor]="menuPingPong">تنیس روی میز</button>
+        <button mat-button
+                [matMenuTriggerFor]="menuChess">شطرنج</button>
+        <button mat-button
+                [matMenuTriggerFor]="menuSwimming">شنا</button>
+        <button mat-button
+                [matMenuTriggerFor]="menuRunning">دو میدانی</button>
+        <button mat-button
+                [matMenuTriggerFor]="menuByc">دوچرخه سواری</button>
+        <button mat-button
+                routerLink="dormitory">خوابگاه</button>
+        <button mat-button
+                routerLink="all">همه افراد</button>
+        <button mat-icon-button
+                [matBadge]="totalAnalysis?.unChecked"
+                matBadgePosition="after"
+                matBadgeColor="accent"
+                [matMenuTriggerFor]="menuAnalize">
+                <mat-icon>notifications</mat-icon>
+        </button>
+        <!-- <div class="flex flex-row gap-3 content-center">
+                <div class="">
+                        <span>تعداد کل: </span>
+                        <span [innerText]="totalAnalysis?.total"></span>
+                </div>
+                <div class="">
+                        <span>بررسی نشده: </span>
+                        <span [innerText]="totalAnalysis?.unChecked"></span>
+                </div>
+        </div> -->
 </div>
 <router-outlet></router-outlet>
 <mat-menu #menuBasketball="matMenu">
@@ -80,4 +91,8 @@
                 routerLink="single/8/8">استقامت</button>
         <button mat-menu-item
                 routerLink="single/8/6">تایم تریل سرعت</button>
+</mat-menu>
+<mat-menu #menuAnalize>
+        <button mat-menu-item><span [innerText]="'کلی: '+totalAnalysis?.total"> </span>
+        </button>
 </mat-menu>
