@@ -62,9 +62,9 @@
              [src]="'https://api.kdz.ir/api/v1/files/show/'+player.profile.IdCardPhoto">
     </div>
 </div>
-<div class="flex flex-col gap-3">
+<div class="flex flex-col gap-5">
 
-    <button mat-stroked-button
+    <button mat-raised-button
             class="w-full"
             (click)="onVerifyRegister()"
             [disabled]="player.registerStatus!=1"
