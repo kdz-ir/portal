@@ -18,6 +18,7 @@ export class AuthenticationGuard implements CanActivate
   {
     if (!this._authService.isAuthenticated)
     {
+      // this part is added:{redirect:state.url
       this._router.navigate(['/Authentication'],{queryParams:{redirect:state.url}});
     }
     return this._authService.isAuthenticated;
