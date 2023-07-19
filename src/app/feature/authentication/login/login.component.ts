@@ -33,7 +33,7 @@ export class LoginComponent {
     this.isLoading = true;
     this._repositoryService.Login({ nationalCode: formValue.nationalCode, password: formValue.password, token: formValue.captcha })
       .subscribe(t => {
-        // this part is added
+        // this part is added.
         if(this._activedRoute.snapshot.queryParamMap.has('redirect')){
           this._router.navigateByUrl(this._activedRoute.snapshot.queryParamMap.get('redirect'));
         }
