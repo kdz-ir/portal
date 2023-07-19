@@ -101,6 +101,7 @@
 
         </tr>
         <tr mat-row
+            [ngClass]="{'!bg-green-500':row.registerStatus==2}"
             *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     <div>
