@@ -24,8 +24,8 @@ export class SetadRepositoryService {
   get totalAnalysis() {
     return timer(300, 15000).pipe(switchMap(t => this._httpClient.get<{ total: number, unChecked: number; }>(this._url + '/analysis')));
   }
-  get dormitories(){
-    return this._httpClient.get<IDataCollection<IDormitories>>(this._url+'/dormitory').pipe(map(t=>t.data));
+  get dormitories() {
+    return this._httpClient.get<IDataCollection<IDormitories>>(this._url + '/dormitory').pipe(map(t => t.data));
   }
   singlePlayers(field: SportField, subField: SportSubField) {
     return this._httpClient.post<IDataCollection<IPlayer>>(`${this._url}/single-filtered`, { field, subField })
@@ -47,5 +47,9 @@ export class SetadRepositoryService {
   doubleTeam(id: number) {
     return this._httpClient.get<IDoubleTeamDetial>(`${this._url}/double/${id}`);
   }
-  
+
+  verifySingle(id: number, field: SportField, subField: SportSubField) {
+    return this._httpClient.post(this._url + '/verify/single', { id, field, subField });
+  }
+
 }

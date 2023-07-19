@@ -26,6 +26,10 @@
         <span>شهر: </span>
         <span [innerText]="player.profile.city"></span>
     </div>
+    <div>
+        <span>وضعیت ثبت نام: </span>
+        <span [innerText]="player.registerStatus"></span>
+    </div>
 
     <div>
         <span>شماره منزل: </span>
@@ -57,10 +61,14 @@
         <img class="w-32 h-32 hover:scale-150"
              [src]="'https://api.kdz.ir/api/v1/files/show/'+player.profile.IdCardPhoto">
     </div>
-    <div>
-        <button mat-stroked-button
-                disabled="true"
-                color="primary">تایید ثبتنام</button>
-    </div>
 </div>
-<app-back-button></app-back-button>
+<div class="flex flex-col gap-3">
+
+    <button mat-stroked-button
+            class="w-full"
+            (click)="onVerifyRegister()"
+            [disabled]="player.registerStatus!=1"
+            color="primary">تایید ثبت نام</button>
+
+    <app-back-button></app-back-button>
+</div>
