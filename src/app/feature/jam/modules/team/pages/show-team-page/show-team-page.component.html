@@ -6,6 +6,9 @@
             <p><span>رده سنی: </span><span [innerText]="teamInfo.team.ageRangeName"></span></p>
             <p><span>جنسیت: </span><span [innerText]="teamInfo.team.genderName"></span></p>
         </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button color="warn" (click)="onDeleteTeam()">حذف تیم</button>
+        </mat-card-actions>
     </mat-card>
     <form [formGroup]="fGroup"
           (submit)="onNewPlayerAdded()">
