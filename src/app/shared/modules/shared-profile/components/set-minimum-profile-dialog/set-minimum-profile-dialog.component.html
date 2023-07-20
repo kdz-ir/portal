@@ -1,0 +1,75 @@
+<h2 mat-dialog-title>اضافه کردن پروفایل جدید</h2>
+<mat-dialog-content>
+  <form class="flex flex-col"
+        [formGroup]="fGroup">
+    <mat-form-field>
+      <mat-label>
+        نام
+      </mat-label>
+      <input formControlName="name"
+             matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        نام خانوادگی
+      </mat-label>
+      <input formControlName="family"
+             matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>تاریخ تولد</mat-label>
+      <input [matDatepicker]="picker"
+             formControlName="birthday"
+             [disabled]
+             matInput>
+      <mat-datepicker-toggle matSuffix
+                             [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker disabled="false"
+                      #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>شهر</mat-label>
+      <mat-select formControlName="city">
+        <mat-option *ngFor="let op of cites"
+                    [value]="op.value">
+          {{op.label}}
+        </mat-option>
+      </mat-select>
+      <mat-hint align="start">شهر محل زندگی</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>جنسیت</mat-label>
+      <mat-select formControlName="sex">
+        <mat-option *ngFor="let op of sexTypes"
+                    [value]="op.value">
+          {{op.lable}}
+        </mat-option>
+      </mat-select>
+      <!-- <mat-hint align="start"></mat-hint> -->
+    </mat-form-field>
+    <app-image-uploader fileType="0"
+                        eventType="-1"
+                        accept="image/jpeg"
+                        [nationalCode]="data.profile.nationalCode"
+                        formControlName="personalPhoto"> عکس پرسنلی</app-image-uploader>
+    <app-image-uploader fileType="1"
+                        [nationalCode]="data.profile.nationalCode"
+                        eventType="-1"
+                        accept="image/jpeg"
+                        formControlName="IdCardPhoto"> عکس شناسنامه</app-image-uploader>
+    <!-- <app-image-uploader fileType="6"
+                        [nationalCode]="data.profile.nationalCode"
+                        accept="image/jpeg"
+                        formControlName="sportInsurance"
+                        eventType="2">بیمه ورزشی</app-image-uploader> -->
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button
+          [mat-dialog-close]="false">بستن</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-raised-button
+          [disabled]="fGroup.invalid"
+          (click)="onSaveProfile()"
+          color="accent">ذخیره</button>
+</mat-dialog-actions>

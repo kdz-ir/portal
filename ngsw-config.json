@@ -11,7 +11,10 @@
           "/index.html",
           "/manifest.webmanifest",
           "/*.css",
-          "/*.js"
+          "/*.js",
+          "https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/misc/UI-Farsi-Digits-Non-Latin/Vazirmatn-UI-FD-NL-font-face.css",
+          "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap",
+          "https://fonts.googleapis.com/icon?family=Material+Icons"
         ]
       }
     },
@@ -24,6 +27,74 @@
           "/assets/**",
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "news",
+      "urls": [
+        "https://kdz.ir/fa/?json=get_posts"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "1d",
+        "strategy": "freshness"
+      }
+    },
+    {
+      "name": "sportInsurance",
+      "urls": [
+        "https://api.kdz.ir/api/v1/account/jam/single/sport-insurance"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "5s",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "jam",
+      "urls": [
+        "https://api.kdz.ir/api/v1/account/jam/can-register"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "5m",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "history",
+      "urls": [
+        "https://kdz.ir/fa/?json=get_page&id=1036"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "30d",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "user-images",
+      "urls": [
+        "https://api.kdz.ir/api/v1/files/show/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "5d",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "outer-images",
+      "urls": [
+        "https://file.behroozbc.ir/no_logo.png"
+      ],
+      "cacheConfig": {
+        "maxSize": 120,
+        "maxAge": "50d",
+        "strategy": "performance"
       }
     }
   ]

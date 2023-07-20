@@ -17,6 +17,7 @@ import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
   declarations: [ToolBarComponent, NavigationListComponent, NavigationBarComponent],

@@ -24,10 +24,10 @@ export class SwService {
             })));
         updatesAvailable.subscribe(async (event) => {
             await this.swalService.swal.fire({
-                title: 'New Update !',
+                title: 'به روز رسانی جدید',
                 icon: 'question',
                 allowOutsideClick: false,
-                confirmButtonText: 'Do It.'
+                confirmButtonText: 'انجام به روز رسانی'
             });
             await this.updates.activateUpdate();
             document.location.reload();

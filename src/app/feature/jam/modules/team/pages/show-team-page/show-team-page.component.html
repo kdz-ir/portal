@@ -1,0 +1,90 @@
+<div class="flex flex-col gap-3 mx-3">
+    <mat-card>
+        <mat-card-title>مشخصات کلی تیم</mat-card-title>
+        <mat-card-content class="flex flex-row gap-1">
+            <p><span>نام: </span><span [innerText]="teamInfo.team.name"></span></p>
+            <p><span>رده سنی: </span><span [innerText]="teamInfo.team.ageRangeName"></span></p>
+            <p><span>جنسیت: </span><span [innerText]="teamInfo.team.genderName"></span></p>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button color="warn" (click)="onDeleteTeam()">حذف تیم</button>
+        </mat-card-actions>
+    </mat-card>
+    <form [formGroup]="fGroup"
+          (submit)="onNewPlayerAdded()">
+        <mat-card>
+            <mat-card-title>افزودن بازیکن جدید</mat-card-title>
+            <mat-card-content>
+                <app-profile-check-input [profileMode]="1"
+                                         formControlName="player">کد ملی</app-profile-check-input>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button
+                        [disabled]="fGroup.invalid"
+                        color="accent"><mat-icon>save</mat-icon> ثبت</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+    <mat-card>
+        <mat-card-title>اعضای تیم</mat-card-title>
+        <mat-card-content>
+            <table mat-table
+                   matSort
+                   [dataSource]="dataSource"
+                   class="mat-elevation-z8">
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell
+                        mat-sort-header
+                        *matHeaderCellDef> نام </th>
+                    <td mat-cell
+                        *matCellDef="let element"> {{element.profile.name+' '+element.profile.family}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="playerType">
+                    <th mat-header-cell
+                        mat-sort-header
+                        *matHeaderCellDef>نقش </th>
+                    <td mat-cell
+                        *matCellDef="let element"> {{element.playerTypeName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="nationalCode">
+                    <th mat-header-cell
+                        mat-sort-header
+                        *matHeaderCellDef> کد ملی </th>
+                    <td mat-cell
+                        *matCellDef="let element"> {{element.nationalCode}} </td>
+                </ng-container>
+                <ng-container matColumnDef="ageRangeName">
+                    <th mat-header-cell
+                        *matHeaderCellDef> گروه سنی </th>
+                    <td mat-cell
+                        *matCellDef="let element"> {{element.ageRangeName}} </td>
+                </ng-container>
+                <ng-container matColumnDef="players">
+                    <th mat-header-cell
+                        *matHeaderCellDef> تعداد بازیکن </th>
+                    <td mat-cell
+                        *matCellDef="let element"> {{element.players}} </td>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell
+                        *matHeaderCellDef></th>
+                    <td mat-cell
+                        *matCellDef="let element"> <button *ngIf="element.playerType==1"
+                                (click)="onDeletePlayer(element.nationalCode)"
+                                mat-icon-button><mat-icon>
+                                delete</mat-icon></button> </td>
+                </ng-container>
+
+                <tr mat-header-row
+                    *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row
+                    *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+    <app-back-button></app-back-button>
+</div>

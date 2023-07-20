@@ -1,0 +1,42 @@
+<div class="flex flex-row flex-warp gap-1 max-md:flex-col items-center">
+    <mat-form-field>
+        <mat-label>
+            <ng-content></ng-content>
+        </mat-label>
+        <input [formControl]="fControl"
+               matInput>
+        <div matSuffix>
+            <button color="accent"
+                    matSuffix
+                    type="button"
+                    (click)="onSearchProfile()"
+                    [disabled]="fControl.invalid||fControl.untouched"
+                    mat-icon-button>
+                <mat-icon>search</mat-icon></button>
+            <mat-icon matSuffix
+                      *ngIf="profile?.isCompleted">check</mat-icon>
+            <mat-icon matSuffix
+                      *ngIf="!profile?.isCompleted">error</mat-icon>
+        </div>
+    </mat-form-field>
+    <button mat-icon-button
+            type="button"
+            color="accent"
+            (click)="onEditProfileClick()"
+            *ngIf="profile?.editable"><mat-icon>edit</mat-icon></button>
+    <span [innerText]="(profile?.profile?.name??'-')+' '+(profile?.profile?.family??'-')"></span>
+    <div class="md:mr-3 flex flex-row flex-warp max-md:flex-col items-center"
+         *ngIf="sportInsurance!=null">
+        <div class="flex flex-row items-center">
+            <span>تاریخ اعتبار بیمه ورزشی: </span>
+            <span [innerText]="sportInsurance?.persianExpireDate??'-'"></span>
+            <button mat-icon-button
+                    (click)="onRefreshSportInsurance()"><mat-icon>refresh</mat-icon></button>
+        </div>
+        <a mat-flat-button
+           color="warn"
+           *ngIf="!sportInsurance?.membershipIsExpired"
+           target="_blank"
+           href="http://ifsm.ir">تمدید اعتبار بیمه ورزشی</a>
+    </div>
+</div>

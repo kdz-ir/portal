@@ -27,7 +27,7 @@ export class RegisterComponent {
   constructor (readonly fb: FormBuilder,
     private readonly _repository: RepositoryService,
     public readonly validatorCoreService: ValidatorCoreService,
-    private readonly _snackBar: MatSnackBar,
+    private readonly _swalService: SwalService,
     private readonly _router: Router,
     public readonly _timer: TimerService,
     private readonly _swal: SwalService,
@@ -51,7 +51,10 @@ export class RegisterComponent {
     this._repository.sendSms(this.sendSmsForm.value.phoneNumber, this.sendSmsForm.value.captcha).subscribe(() => {
       this.stepper.next();
       this._setIsloadingFalse();
-    }, () => this._setIsloadingFalse());
+    }, (error) =>{
+      this._swalService.showErrorMessage(error.error.message);
+      this._setIsloadingFalse();
+    });
   }
   onCheckCodeFromSubmit(stepper: MatStepper) {
     this.isloading = true;

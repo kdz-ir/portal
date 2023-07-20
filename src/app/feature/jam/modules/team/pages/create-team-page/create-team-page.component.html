@@ -1,0 +1,66 @@
+<form class="flex md:grid md:grid-cols-2 flex-col gap-4 flex-wrap"
+      [formGroup]="fGroup"
+      (submit)="onSubmit()">
+    <mat-form-field>
+        <mat-label>
+            نام تیم
+        </mat-label>
+        <input formControlName="name"
+               matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            ورزش
+        </mat-label>
+        <mat-select formControlName="field">
+            <mat-option value="1">فوتبال</mat-option>
+            <mat-option value="2">والیبال</mat-option>
+            <mat-option value="3">بسکتبال</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            جنسیت
+        </mat-label>
+        <mat-select formControlName="gender">
+            <mat-option value="0">بانوان</mat-option>
+            <mat-option value="1">آقایان</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            نوع
+        </mat-label>
+        <mat-select formControlName="subField">
+            <mat-option [value]="subField.value"
+                        *ngFor="let subField of accessAbleSubFields">
+                {{subField.label}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            رده سنی
+        </mat-label>
+        <mat-select formControlName="ageRange">
+            <mat-option [value]="range.value"
+                        *ngFor="let range of accessAbleAgeRange">{{range.label}} </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <app-profile-check-input [profileMode]="2"
+                             formControlName="coach">کد ملی مربی</app-profile-check-input>
+    <div>
+        <small>شما به عنوان سرپرست با ثبت تیم قبول دارید که آیین نامه اجرایی جام جان‌باختگان را خوانده و تایید
+            میکنید.</small>
+        <button mat-raised-button
+        [disabled]="fGroup.invalid"
+                color="accent"
+                class="w-full"
+                type="submit">ثبت تیم</button>
+    </div>
+    <div>
+        <small>در صورت خروج از این صفحه تمام اطلاعات وارد شده و ثبت نشده غیر قابل بازیابی می‌باشد.</small>
+        <app-back-button class="w-full"></app-back-button>
+    </div>
+</form>

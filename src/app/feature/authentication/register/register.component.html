@@ -31,13 +31,7 @@
               [disabled]="sendSmsForm.invalid">
         ثبت
       </button>
-      <button mat-raised-button
-              [disabled]="isloading"
-              color="warn"
-              type="button"
-              routerLink="/">
-        بازگشت
-      </button>
+      <app-back-button></app-back-button>
     </form>
   </mat-step>
   <mat-step label="مرحله دوم"
@@ -82,6 +76,7 @@
     <form [formGroup]="userInformationForm"
           fxLayout="column"
           fxLayoutAlign="center center">
+          <span>اعداد کد ملی را با کیبورد انگلیسی وارد کنید.</span>
       <mat-form-field>
         <mat-label> کد ملی </mat-label>
         <input matInput

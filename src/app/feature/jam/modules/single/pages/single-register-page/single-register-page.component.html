@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-title>
+        {{sportName}} {{subFieldName}}
+    </mat-card-title>
+    <div class="flex flex-col gap-2"
+         *ngIf="!isRegistered.isRegistered;else elseBlock">
+        <p>در حال حاظر شما در حال ثبت نام در {{sportName}} {{subFieldName}} هستید.</p>
+        <p>شما با ثبت نام در این رشته قبول کردید که <a target="_blank"
+               href="https://kdz.ir/fa/wp-content/uploads/2023/07/%D8%A7%D8%AC%D8%B1%D8%A7%DB%8C%DB%8C.pdf">آیین نامه
+                جام جان‌باختگان</a> و آیین نامه رشته {{sportName}} را خوانده و قبول دارید.</p>
+        <button mat-raised-button
+                color="accent"
+                class="w-full"
+                (click)="onWantRegister()">ثبت نام</button>
+    </div>
+    <ng-template #elseBlock>
+        <p>
+            شما در {{sportName}} {{subFieldName}} ثبت نام کرده اید.
+        </p>
+        <button mat-raised-button
+                class="w-full"
+                (click)="onWantDelete()"
+                color="warn">حذف ثبت نام</button>
+    </ng-template>
+    <mat-card-actions>
+        <app-back-button></app-back-button>
+    </mat-card-actions>
+</mat-card>

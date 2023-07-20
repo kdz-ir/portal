@@ -1,0 +1,91 @@
+<table mat-table
+       matSort
+       [dataSource]="dataSource"
+       class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef> نام </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="index">
+        <th mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef> </th>
+        <td mat-cell
+            *matCellDef="let element;index as i;"> {{i+1}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="fieldName">
+        <th mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef> رشته </th>
+        <td mat-cell
+            *matCellDef="let element">
+            <mat-icon>
+                <ng-container [ngSwitch]="element.field">
+                    <ng-container *ngSwitchCase="1">sports_soccer</ng-container>
+                    <ng-container *ngSwitchCase="2">sports_volleyball</ng-container>
+                    <ng-container *ngSwitchCase="3">sports_basketball</ng-container>
+                </ng-container>
+            </mat-icon>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subFieldName">
+        <th mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef> رده </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.subFieldName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ageRangeName">
+        <th mat-header-cell
+            *matHeaderCellDef> گروه سنی </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.ageRangeName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="players">
+        <th mat-header-cell
+            *matHeaderCellDef> تعداد بازیکن </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.players}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th mat-header-cell
+            *matHeaderCellDef></th>
+        <td mat-cell
+            *matCellDef="let element"> <button [routerLink]="element.id"
+                    mat-icon-button><mat-icon>
+                    visibility</mat-icon></button> </td>
+    </ng-container>
+    <tr class="mat-row"
+        *matNoDataRow>
+        <td class="mat-cell"
+            colspan="7">تیمی به سرپرستی شما تعریف نشده است.</td>
+    </tr>
+
+    <tr mat-header-row
+        *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row
+        [routerLink]="[row.id]"
+        class="cursor-pointer"
+        *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<a mat-flat-button
+   class="mat-elevation-z8"
+   routerLink="create"
+   fxLayoutAlign="center"
+   aria-label="Add new">
+    <mat-icon>add</mat-icon>
+    <span>افزودن تیم</span>
+
+</a>

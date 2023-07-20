@@ -1,32 +1,21 @@
+import { IBaseProfileSaveInfo } from "src/app/shared/modules/shared-profile/models/IBaseProfileSaveInfo";
+import { IBaseProfileShow } from "src/app/shared/modules/shared-profile/models/IBaseProfileShow";
+
 export interface ProfileShowInfo {
-    status:  boolean;
+    status: boolean;
     message: string;
-    entity:  ProfileShowEntity;
+    entity: ProfileShowEntity;
 }
 
-export interface ProfileShowEntity {
-    name:          string;
-    sex:           string;
-    birthday:      string;
-    fatherName:    string;
-    address:       string;
-    postalCode:    string;
-    city:          string;
-    phone:         string;
-    personalPhoto: string;
-    IdCardPhoto:   string;
-    family:        string;
+export interface ProfileShowEntity extends IBaseProfileShow {
+    fatherName: string;
+    address: string;
+    postalCode?: string;
+    phone: string;
 }
-export interface ProfileSaveInfo{
-    name:          string;
-    sex:           number;
-    birthday:      string;
-    fatherName:    string;
-    address:       string;
-    postalCode:    string;
-    city:          number;
-    phone:         string;
-    personalPhoto: string;
-    IdCardPhoto:   string;
-    family:        string;
+export interface ProfileSaveInfo extends IBaseProfileSaveInfo {
+    fatherName: string;
+    address: string;
+    postalCode: string;
+    phone: string;
 }

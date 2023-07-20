@@ -5,7 +5,8 @@
         <mat-icon>menu</mat-icon>
     </button>
     <span [innerText]="name"></span>
-
+    <span class="spacer"></span>
+    <button mat-icon-button *ngIf="authService.isAuthenticated" routerLink="/Settings" aria-label="مشخصات کاربری"><mat-icon>account_circle </mat-icon></button>
 </mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav #snav

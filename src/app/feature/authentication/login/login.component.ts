@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RepositoryService } from '../Services/repository.service';
 import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ValidatorCoreService } from 'src/app/core/services/forms/validator-core.service';
-import { MatDialog } from '@angular/material/dialog';
-import { environment } from '../../../../environments/environment';
 import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 import { ILoginForm } from './ILoginForm';
+import { SwalService } from 'src/app/core/services/swal/swal.service';
 @Component({
   selector: 'kdz-login',
   templateUrl: './login.component.html',
@@ -18,8 +17,8 @@ export class LoginComponent {
   isLoading = false;
   constructor (fb: FormBuilder,
     private readonly _repositoryService: RepositoryService,
-    private readonly _authService: AuthenticationService,
     public readonly validatorCoreService: ValidatorCoreService,
+    private readonly _swalService: SwalService,
     private readonly _router: Router,private readonly _activedRoute:ActivatedRoute) {
     this.loginForm = fb.group<ILoginForm>({
       nationalCode: fb.nonNullable.control('', [Validators.required, ValidatorCoreService.nationalCodeChecker, AdditionalValidators.CheckIsASCII]),
@@ -41,6 +40,10 @@ export class LoginComponent {
           this._router.navigate(['/']);
           }
         this._router.navigate(['/']);
-      }, () => this.isLoading = false);
+      }, (error) => {
+        this._swalService.showErrorMessage(error.error.message);
+
+        this.isLoading = false;
+      });
   }
 }

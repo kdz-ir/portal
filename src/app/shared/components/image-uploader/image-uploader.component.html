@@ -1,12 +1,13 @@
-<div [largeLoading]="isUploading"
-     class="upload-btn-wrapper">
-    <label><ng-content></ng-content></label>
-    <input type="file"
-           name="myfile"
-           (change)="onSelectedFile($event)"
-           [accept]="accept" />
+<div class="upload-btn-wrapper">
+     <label><ng-content></ng-content></label>
+     <input type="file"
+            name="myfile"
+            (change)="onSelectedFile($event)"
+            [accept]="accept" />
 </div>
 <img [src]="src"
      (click)="onOpenImage($event)"
      onError="this.src= 'https://file.behroozbc.ir/no_logo.png'"
      alt="">
+<mat-progress-bar *ngIf="isUploading"
+                  mode="query"></mat-progress-bar>

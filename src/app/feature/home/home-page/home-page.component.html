@@ -1,26 +1,23 @@
-<div fxLayout="column "
-     fxLayoutAlign="center center"
-     class="home-page-background"
-     fxLayoutGap="10px">
-        <h2>
-                به پنل کاربری کانون دانشجویان زرتشتی خوش آمدید.
-        </h2>
-        <h3>
-                برنامه هایی که اکنون ثبت نام دارند.
-        </h3>
-        <div fxLayoutAlign="center"
-             fxLayout="row wrap"
-             fxLayout.lt-sm="column wrap">
-                <button class="pulse"
-                        disabled>پیکارهای ورزشی جام جان‌باختگان</button>
-                <button class="pulse"
-                        routerLink="/ordoo">اردو دانش‌آموزان زرتشتی سراسر کشور</button>
-                <button class="pulse"
-                        disabled>همایش علمی زرتشتیان</button>
-                <button class="pulse"
-                        disabled>جشنواره موسیقی زرتشتیان</button>
-                <button class="pulse"
-                        disabled
-                        routerLink="/Manthra">همایش اوستاخوانی و گاتاشناسی مانتره</button>
+<div class="md:mt-24">
+        <div
+             class="flex flex-row justify-center max-md:flex-col max-md:justify-items-center gap-4 justify-items-start second-body">
+                <section>
+                        <div class="button-row">
+                                <button class="w-14 h-14"
+                                        mat-fab
+                                        routerLink="/jam"
+                                        color="primary">
+                                        <mat-icon svgIcon="Jam"></mat-icon>
+                                </button>
+                        </div>
+                </section>
+                <section class="flex flex-col justify-items-center gap-6">
+                        <button routerLink="/news"
+                                mat-raised-button
+                                class="md:w-80 w-full">اخبار</button>
+                        <a target="_blank" href="https://kdz.ir/fa/?page_id=1120"
+                           mat-raised-button
+                           class="md:w-80 w-full">درباره ما</a>
+                </section>
         </div>
 </div>

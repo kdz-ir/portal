@@ -1,0 +1,23 @@
+<div class="md:win-w-full mt-10 flex flex-col gap-2 mx-3">
+  <p class="text-justify">بیمه وزرشی معتبر برای شرکت در جام جانباختگان ضروری است. این سیستم به صورت خودکار از سامانه
+    فدراسیون بیمه وزرشی
+    استعلام اعتبار بیمه شما را میگیرد. در صورت نداشتن اعتبار شما امکان ثبت نام در پیکار های ورزشی جام جانباختگان را
+    ندارید.</p>
+  <p>برای تمدید بیمه ورزشی از سامانه <a href="http://ifsm.ir">بیمه ورزشی با ادرس ifsm.ir </a>اقدام نمایید.</p>
+  <div>
+    <span>تاریخ اعتبار بیمه ورزشی شما: </span>
+    <span [innerText]="sportInsurance?.persianExpireDate??'--'"></span>
+  </div>
+  <a mat-flat-button
+     *ngIf="!sportInsurance?.membershipIsExpired"
+     color="primary"
+     class="w-full"
+     target="_blank"
+     href="http://ifsm.ir">سامانه فدراسیون بیمه ورزشی</a>
+  <button mat-flat-button
+          color="accent"
+          routerLink="/jam/register/single"
+          class="w-full"
+          *ngIf="sportInsurance?.membershipIsExpired">ادامه ثبت نام</button>
+  <app-back-button></app-back-button>
+</div>

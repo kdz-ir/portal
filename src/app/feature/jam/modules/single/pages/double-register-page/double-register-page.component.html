@@ -1,0 +1,43 @@
+<mat-card>
+        <mat-card-title>
+                {{sportName}} {{subFieldName}}
+        </mat-card-title>
+        <mat-card-content>
+                <div *ngIf="!isRegistered.isRegistered;else elseBlock">
+                        <h3>در حال حاظر شما در حال ثبتنام در {{sportName}} {{subFieldName}} هستید.</h3>
+                        <form [formGroup]="fGroup"
+                              (submit)="onSubmited()">
+                                <div class="flex m-3 flex-col md:max-w-md"
+                                     formArrayName="individuals">
+                                        <ng-container
+                                                      *ngFor="let member of fGroup.controls.individuals.controls; let i=index">
+                                                <app-profile-check-input [formControlName]="i"
+                                                                         [profileMode]="profileMode.needed">کد ملی یار
+                                                        {{i+1}}</app-profile-check-input>
+                                        </ng-container>
+                                </div>
+                                <p>تمام افراد تیم شما با ثبت نام در این رشته قبول کردید اند که <a target="_blank" href="https://kdz.ir/fa/wp-content/uploads/2023/07/%D8%A7%D8%AC%D8%B1%D8%A7%DB%8C%DB%8C.pdf">آیین نامه جام
+                                                جان‌باختگان</a> و آیین نامه رشته
+                                        {{sportName}} را خونده و 
+                                        قبول دارند.</p>
+                                <button type="submit"
+                                        class="w-full"
+                                        color="accent"
+                                        [disabled]="fGroup.invalid"
+                                        mat-raised-button>ثبت</button>
+                        </form>
+                </div>
+                <ng-template #elseBlock>
+                        <p>
+                                شما در {{sportName}} {{subFieldName}} ثبت نام کرده اید.
+                        </p>
+                        <button mat-button
+                                (click)="onWantDelete()"
+                                class="w-full"
+                                color="warn">حذف ثبت نام</button>
+                </ng-template>
+        </mat-card-content>
+        <mat-card-actions>
+                <app-back-button></app-back-button>
+        </mat-card-actions>
+</mat-card>

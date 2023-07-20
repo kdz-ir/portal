@@ -1,6 +1,8 @@
 <form [formGroup]="loginForm"
-      fxLayout="column"
-      fxLayoutAlign="center center">
+      class="flex flex-col content-center justify-center gap-3 flex-wrap">
+    <img src="assets/pic/kdz.webp"
+         class="h-40 w-40 mx-auto"
+         alt="کانون">
     <mat-form-field>
         <mat-label>کد ملی</mat-label>
         <input type="tel"
@@ -43,7 +45,7 @@
                 type="button"
                 color="accent"
                 routerLink="register">
-            ثبت نام
+            ثبت نام در اپلیکشن کانون دانشجویان زرتشتی
         </button>
     </div>
 </form>
