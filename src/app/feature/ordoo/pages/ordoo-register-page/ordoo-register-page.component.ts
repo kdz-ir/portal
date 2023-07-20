@@ -10,6 +10,7 @@ import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { OrdooService } from '../../services/ordoo.service';
 import { Router } from '@angular/router';
 import { invalid } from 'jalali-moment';
+import { AdditionalValidators } from 'ng-behroozbc-libraries-validators';
 
 @Component({
   selector: 'app-ordoo-register-page',
@@ -48,7 +49,7 @@ export class OrdooRegisterPageComponent implements OnInit, AfterViewInit {
       familyHeadName: _fb.control<string>('', [Validators.required]),
       familyHeadLastName: _fb.control<string>('', [Validators.required]),
       familyHeadRealtion: _fb.control<string>('', [Validators.required]),
-      familyHeadDependents: _fb.control<number>(null, [Validators.required]),
+      familyHeadDependents: _fb.control<number>(null, [Validators.required,AdditionalValidators.OnlyIntegerNumber]),
       familyHeadMarigeStatus: _fb.control<string>('', [Validators.required]),
       familyHeadOld: _fb.control<number>(null, [Validators.required]),
       familyHeadJob: _fb.control<string>('', [Validators.required]),
