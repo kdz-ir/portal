@@ -8,8 +8,7 @@ import { AuthenticationService } from '../services/authentication/authentication
 })
 export class AuthenticationGuard implements CanActivate
 {
-  //
-
+  
   constructor(private _authService: AuthenticationService, private _router: Router)
   {
   }
