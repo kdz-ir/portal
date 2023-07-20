@@ -5,7 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 import { SharedModule } from 'src/app/shared/shared.module';
 import {MatDividerModule} from '@angular/material/divider';
 import { RelativeDatePipe } from './pipes/relative-date.pipe'; 
-//
+
 @NgModule({
   declarations: [
     NewsListComponent,
