@@ -31,9 +31,13 @@ export class IndexPageComponent implements OnInit {
     }
   }
   onSubmit() {
+    const dormslist:IDormRegister[]=[];
+    for (const dorm of this.dorms.filter(c => isNil(c.dormitory?.refId))) {
+      if(!isNil(this.fRecord.value[dorm.profile.nationalCode]))
+      dormslist.push({ nationalCode: dorm.profile.nationalCode, type: this.fRecord.value[dorm.profile.nationalCode] })
+    }
     const dormsRegister: IDormsRegister = {
-      dorms: this.dorms.filter(c => isNil(c.dormitory?.refId))
-        .map(c => ({ nationalCode: c.profile.nationalCode, type: this.fRecord.value[c.profile.nationalCode] }))
+      dorms: dormslist
     };
     this._dormRepository.register(dormsRegister).subscribe(c => window.location.replace(c.action));
   }
