@@ -17,7 +17,7 @@ export class TeamListPageComponent {
 
   dataSource: MatTableDataSource<ITeamsList>;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['name', 'ageRangeName', 'created','playersCount', 'action'];
+  displayedColumns: string[] = ['name', 'ageRangeName','genderName', 'created','playersCount', 'action'];
   private _subField: SportSubField;
   private _field: SportField;
   constructor (private readonly _setadRepository: SetadRepositoryService, ac: ActivatedRoute) {
