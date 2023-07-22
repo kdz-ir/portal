@@ -31,8 +31,7 @@ export class LoginComponent {
     const formValue = this.loginForm.value;
     this.isLoading = true;
     this._repositoryService.Login({ nationalCode: formValue.nationalCode, password: formValue.password, token: formValue.captcha })
-      .subscribe(t => {
-        // this part is added.
+      .subscribe(t =>{
         if(this._activedRoute.snapshot.queryParamMap.has('redirect')){
           this._router.navigateByUrl(this._activedRoute.snapshot.queryParamMap.get('redirect'));
         }
@@ -42,8 +41,7 @@ export class LoginComponent {
         this._router.navigate(['/']);
       }, (error) => {
         this._swalService.showErrorMessage(error.error.message);
-
-        this.isLoading = false;
+       this.isLoading = false;
       });
   }
 }

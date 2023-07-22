@@ -8,8 +8,7 @@ import { AuthenticationService } from '../services/authentication/authentication
 })
 export class AuthenticationGuard implements CanActivate
 {
-  
-  constructor(private _authService: AuthenticationService, private _router: Router)
+   constructor(private _authService: AuthenticationService, private _router: Router)
   {
   }
   canActivate(
@@ -18,7 +17,6 @@ export class AuthenticationGuard implements CanActivate
   {
     if (!this._authService.isAuthenticated)
     {
-      // this part is added:{redirect:state.url
       this._router.navigate(['/Authentication'],{queryParams:{redirect:state.url}});
     }
     return this._authService.isAuthenticated;
