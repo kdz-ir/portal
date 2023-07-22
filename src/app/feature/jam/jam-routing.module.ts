@@ -27,7 +27,7 @@ const routes: Routes = [
     children: [
       {
         path: 'single',
-        canActivate:[CanRegisterGuard,CanLoadThisProgramGuard(false)],
+        canActivate:[CanRegisterGuard],
         loadChildren: () => import('./modules/single/single.module').then(c => c.SingleModule)
       },
       {
