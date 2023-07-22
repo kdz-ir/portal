@@ -51,5 +51,7 @@ export class SetadRepositoryService {
   verifySingle(id: number, field: SportField, subField: SportSubField) {
     return this._httpClient.post(this._url + '/verify/single', { id, field, subField });
   }
-
+  verifyDouble(id: number, field: SportField, subField: SportSubField) {
+    return this._httpClient.post(this._url + '/verify/double', { id, field, subField });
+  }
 }

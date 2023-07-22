@@ -74,11 +74,15 @@
         </div>
 
     </ng-container>
-    <div>
-        <button mat-stroked-button
-                disabled="true"
-                color="primary">تایید ثبتنام</button>
-    </div>
+
 
 </div>
-<app-back-button></app-back-button>
+<div class="grid grid-cols-3 gap-3">
+    <button mat-raised-button
+            (click)="onVerify()"
+            color="primary">تایید ثبت نام</button>
+    <button mat-raised-button
+            color="warn"
+            disabled="true"> حذف</button>
+    <app-back-button></app-back-button>
+</div>

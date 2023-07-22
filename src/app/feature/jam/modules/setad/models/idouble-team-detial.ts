@@ -4,7 +4,7 @@ import { IPlayer } from "../../shared/jam-shared/models/IPlayer";
 
 export interface IDoubleTeamDetial {
     name: string;
-    id: string;
+    id: number;
     ageRangeName: string;
     created: Date;
     fieldName:string;
