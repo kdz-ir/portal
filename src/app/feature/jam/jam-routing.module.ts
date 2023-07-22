@@ -6,6 +6,7 @@ import { RegisterHomePageComponent } from './pages/register-home-page/register-h
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { CanRegisterGuard } from './guards/can-register-guard';
 import { adminAccessGuard } from 'src/app/shared/guards/admin-access-guard';
+import { CanLoadThisProgramGuard } from 'src/app/core/guards/can-load-this-program.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,6 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    canActivate: [CanRegisterGuard],
     component: RegisterHomePageComponent,
   },
   {
@@ -23,10 +23,11 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    canActivate: [ValidProfileGuard, CanRegisterGuard],
+    canActivate: [ValidProfileGuard],
     children: [
       {
         path: 'single',
+        canActivate:[CanRegisterGuard,CanLoadThisProgramGuard(false)],
         loadChildren: () => import('./modules/single/single.module').then(c => c.SingleModule)
       },
       {
