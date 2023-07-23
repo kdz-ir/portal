@@ -26,7 +26,8 @@
                 mat-sort-header
                 *matHeaderCellDef>نقش </th>
             <td mat-cell
-                *matCellDef="let element"> {{element.playerTypeName}} </td>
+                *matCellDef="let element"
+                [innerText]="element.playerTypeName"> </td>
         </ng-container>
 
         <ng-container matColumnDef="nationalCode">
