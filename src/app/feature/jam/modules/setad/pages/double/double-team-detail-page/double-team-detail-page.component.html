@@ -79,6 +79,7 @@
 </div>
 <div class="grid grid-cols-3 gap-3">
     <button mat-raised-button
+            [disabled]="isVerify"
             (click)="onVerify()"
             color="primary">تایید ثبت نام</button>
     <button mat-raised-button

@@ -12,11 +12,14 @@ import { SwalService } from 'src/app/core/services/swal/swal.service';
 })
 export class DoubleTeamDetailPageComponent {
   team: IDoubleTeamDetial;
+  public get isVerify(): boolean {
+    return this.team?.players?.every(c => c.registerStatus != 1);
+  }
   constructor (ac: ActivatedRoute, private readonly _location: Location, private readonly _swalService: SwalService, private readonly _setadRepository: SetadRepositoryService) {
     this.team = <IDoubleTeamDetial>ac.snapshot.data['team'];
   }
   onVerify() {
-    if (this.team.players.every(c => c.registerStatus != 1)) {
+    if (this.isVerify) {
       return;
     }
     this._setadRepository.verifyDouble(this.team.id, this.team.field, this.team.subField).subscribe(c => {
