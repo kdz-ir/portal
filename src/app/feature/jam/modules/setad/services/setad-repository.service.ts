@@ -12,6 +12,7 @@ import { ITeamsList } from '../models/iteams-list';
 import { ITeamDetail } from '../models/iteam-detail';
 import { timer } from 'rxjs';
 import { IDormitories } from '../models/idormitories';
+import { ProfileShowEntity } from 'src/app/feature/setting/models/profile-info';
 @Injectable({
   providedIn: 'root'
 })
@@ -53,5 +54,8 @@ export class SetadRepositoryService {
   }
   verifyDouble(id: number, field: SportField, subField: SportSubField) {
     return this._httpClient.post(this._url + '/verify/double', { id, field, subField });
+  }
+  get shanavarPlayers() {
+    return this._httpClient.get<ProfileShowEntity[]>(this._url + '/shenavar');
   }
 }

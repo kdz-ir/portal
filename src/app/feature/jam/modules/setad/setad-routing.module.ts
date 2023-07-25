@@ -12,6 +12,7 @@ import { TeamListPageComponent } from './pages/teams/team-list-page/team-list-pa
 import { TeamDetailPageComponent } from './pages/teams/team-detail-page/team-detail-page.component';
 import { teamResolver } from './resolvers/team-resolver';
 import { DormitoryListPageComponent } from './pages/dormitory/dormitory-list-page/dormitory-list-page.component';
+import { ShenavarPlayersPageComponent } from './pages/shenavar-players-page/shenavar-players-page.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
       {
         path: 'dormitory',
         component: DormitoryListPageComponent
+      },
+      {
+        path: 'shenavar',
+        component: ShenavarPlayersPageComponent
       },
       {
         path: 'all',
