@@ -15,6 +15,7 @@ import { TeamListPageComponent } from './pages/teams/team-list-page/team-list-pa
 import { TeamDetailPageComponent } from './pages/teams/team-detail-page/team-detail-page.component';
 import { DormitoryListPageComponent } from './pages/dormitory/dormitory-list-page/dormitory-list-page.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatTableModule,
     MatSortModule,
     MatMenuModule,
-    MatBadgeModule,
+    MatBadgeModule,MatButtonToggleModule,
     SetadRoutingModule
   ]
 })

@@ -5,6 +5,11 @@
                (keyup)="applyFilter($event)"
                #input>
     </mat-form-field>
+    <mat-button-toggle-group [formControl]="fControl" >
+        <mat-button-toggle [value]="1"><mat-icon>man</mat-icon></mat-button-toggle>
+        <mat-button-toggle [value]="0"><mat-icon>woman</mat-icon></mat-button-toggle>
+        <mat-button-toggle [value]="-1"><mat-icon>person</mat-icon></mat-button-toggle>
+    </mat-button-toggle-group>
     <button mat-icon-button
             class="refbutton"
             (click)="onRefreshClick()"><mat-icon>refresh</mat-icon></button>
