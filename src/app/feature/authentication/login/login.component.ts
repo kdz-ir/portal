@@ -26,6 +26,7 @@ export class LoginComponent {
       captcha: fb.control<string>(null)
     });
   }
+  
   onSubmit() {
     const formValue = this.loginForm.value;
     this.isLoading = true;
