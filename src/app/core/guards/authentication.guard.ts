@@ -6,18 +6,13 @@ import { AuthenticationService } from '../services/authentication/authentication
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationGuard implements CanActivate
-{
-   constructor(private _authService: AuthenticationService, private _router: Router)
-  {
-  }
+export class AuthenticationGuard implements CanActivate {
+  constructor(private _authService: AuthenticationService, private _router: Router) { }
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
-  {
-    if (!this._authService.isAuthenticated)
-    {
-      this._router.navigate(['/Authentication'],{queryParams:{redirect:state.url}});
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (!this._authService.isAuthenticated) {
+      this._router.navigate(['/Authentication'], { queryParams: { redirect: state.url } });
     }
     return this._authService.isAuthenticated;
   }

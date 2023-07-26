@@ -15,11 +15,11 @@ import { SwalService } from 'src/app/core/services/swal/swal.service';
 export class LoginComponent {
   loginForm: FormGroup<ILoginForm>;
   isLoading = false;
-  constructor (fb: FormBuilder,
+  constructor(fb: FormBuilder,
     private readonly _repositoryService: RepositoryService,
     public readonly validatorCoreService: ValidatorCoreService,
     private readonly _swalService: SwalService,
-    private readonly _router: Router,private readonly _activedRoute:ActivatedRoute) {
+    private readonly _router: Router, private readonly _activedRoute: ActivatedRoute) {
     this.loginForm = fb.group<ILoginForm>({
       nationalCode: fb.nonNullable.control('', [Validators.required, ValidatorCoreService.nationalCodeChecker, AdditionalValidators.CheckIsASCII]),
       password: fb.nonNullable.control('', [Validators.minLength(6)]),
@@ -31,17 +31,17 @@ export class LoginComponent {
     const formValue = this.loginForm.value;
     this.isLoading = true;
     this._repositoryService.Login({ nationalCode: formValue.nationalCode, password: formValue.password, token: formValue.captcha })
-      .subscribe(t =>{
-        if(this._activedRoute.snapshot.queryParamMap.has('redirect')){
+      .subscribe(t => {
+        if (this._activedRoute.snapshot.queryParamMap.has('redirect')) {
           this._router.navigateByUrl(this._activedRoute.snapshot.queryParamMap.get('redirect'));
         }
-        else{
+        else {
           this._router.navigate(['/']);
-          }
+        }
         this._router.navigate(['/']);
       }, (error) => {
         this._swalService.showErrorMessage(error.error.message);
-       this.isLoading = false;
+        this.isLoading = false;
       });
   }
 }
