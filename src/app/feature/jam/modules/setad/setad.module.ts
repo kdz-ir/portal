@@ -16,6 +16,7 @@ import { TeamDetailPageComponent } from './pages/teams/team-detail-page/team-det
 import { DormitoryListPageComponent } from './pages/dormitory/dormitory-list-page/dormitory-list-page.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ShenavarPlayersPageComponent } from './pages/shenavar-players-page/shenavar-players-page.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     DoubleTeamDetailPageComponent,
     TeamListPageComponent,
     TeamDetailPageComponent,
-    DormitoryListPageComponent
+    DormitoryListPageComponent,
+    ShenavarPlayersPageComponent
   ],
   imports: [
     SharedModule,
