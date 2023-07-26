@@ -1,14 +1,18 @@
-<div [largeLoading]="isLoading"
-     *ngIf="status;then successBlock else failBlock"></div>
-<ng-template #successBlock>
-    <div>
-        <h1 class="text-emerald-500	text-2xl">پرداخت شما با موفقیت انجام شد.</h1>
-        <span>شماره پیگیری: </span>
-        <span>{{refId}}</span>
-    </div>
-</ng-template>
-<ng-template #failBlock>
-    <div>
-        <h1 class="text-red-600	text-2xl">عملیات پرداخت با شکست رو به رو گشت لطفا دوباره تلاش کنید.</h1>
-    </div>
+<div *ngIf="!isLoading;else loading">
+    <div *ngIf="status;then successBlock else failBlock"></div>
+    <ng-template #successBlock>
+        <div>
+            <h1 class="text-emerald-500	text-2xl">پرداخت شما با موفقیت انجام شد.</h1>
+            <span>شماره پیگیری: </span>
+            <span>{{refId}}</span>
+        </div>
+    </ng-template>
+    <ng-template #failBlock>
+        <div>
+            <h1 class="text-red-600	text-2xl">عملیات پرداخت با شکست رو به رو گشت لطفا دوباره تلاش کنید.</h1>
+        </div>
+    </ng-template>
+</div>
+<ng-template #loading>
+    <span>لطفا منتظر باشید.</span>
 </ng-template>
