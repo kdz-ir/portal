@@ -30,6 +30,7 @@
     "@sweetalert2/theme-material-ui": "^4.0.5",
     "@w11k/git-info": "^1.1.2",
     "angular2-text-mask": "^9.0.0",
+    "exceljs": "^4.3.0",
     "file-saver": "^2.0.5",
     "jalali-moment": "^3.3.8",
     "lodash-es": "^4.17.21",
