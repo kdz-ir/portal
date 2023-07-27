@@ -16,7 +16,7 @@ import { FormBuilder, FormControl } from '@angular/forms';
 export class SingleListPageComponent {
   dataSource: MatTableDataSource<IPlayer>;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['name', 'sex', 'nationalCode', 'ageRangeName', 'city', 'created', 'action'];
+  displayedColumns: string[] = ['name', 'sex','mobile', 'nationalCode', 'ageRangeName', 'city', 'created', 'action'];
   private _field: SportField;
   private _subField: SportSubField;
   private data: IPlayer[];
