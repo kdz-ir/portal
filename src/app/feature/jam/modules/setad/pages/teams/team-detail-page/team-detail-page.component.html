@@ -69,13 +69,18 @@
 
         <div>
             <span>عکس: </span>
-            <img class="w-32 h-32"
-                 [src]="'https://api.kdz.ir/api/v1/files/show/'+player.profile.personalPhoto">
+            <jam-image-viewer [imageId]="player.profile.personalPhoto"
+                              [family]="player.profile.family"
+                              [nationalCode]="player.nationalCode"
+                              [name]="player.profile.name"></jam-image-viewer>
         </div>
         <div>
             <span>شناسنامه: </span>
-            <img class="w-32 h-32"
-                 [src]="'https://api.kdz.ir/api/v1/files/show/'+player.profile.IdCardPhoto">
+
+            <jam-image-viewer [imageId]="player.profile.IdCardPhoto"
+                              [family]="player.profile.family"
+                              [nationalCode]="player.nationalCode"
+                              [name]="player.profile.name"></jam-image-viewer>
         </div>
         <button mat-stroked-button
                 disabled="true"

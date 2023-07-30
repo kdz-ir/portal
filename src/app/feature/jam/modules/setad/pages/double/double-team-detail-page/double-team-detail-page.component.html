@@ -64,21 +64,17 @@
 
         <div>
             <span>عکس: </span>
-            <div class="flex flex-row">
-                <img class="w-32 h-32"
-                     [src]="'https://api.kdz.ir/api/v1/files/show/'+player.profile.personalPhoto">
-                <button (click)="onDownloadImage(player.profile.personalPhoto,player.profile.name,player.profile.family,player.nationalCode)"
-                        mat-icon-button><mat-icon>download</mat-icon></button>
-            </div>
+            <jam-image-viewer [imageId]="player.profile.personalPhoto"
+                              [family]="player.profile.family"
+                              [nationalCode]="player.nationalCode"
+                              [name]="player.profile.name"></jam-image-viewer>
         </div>
         <div>
             <span>شناسنامه: </span>
-            <div class="flex flex-row">
-                <img class="w-32 h-32"
-                     [src]="'https://api.kdz.ir/api/v1/files/show/'+player.profile.IdCardPhoto">
-                     <button (click)="onDownloadImage(player.profile.IdCardPhoto,player.profile.name,player.profile.family,player.nationalCode)"
-                        mat-icon-button><mat-icon>download</mat-icon></button>
-            </div>
+            <jam-image-viewer [imageId]="player.profile.IdCardPhoto"
+                              [family]="player.profile.family"
+                              [nationalCode]="player.nationalCode"
+                              [name]="player.profile.name"></jam-image-viewer>
         </div>
 
     </ng-container>

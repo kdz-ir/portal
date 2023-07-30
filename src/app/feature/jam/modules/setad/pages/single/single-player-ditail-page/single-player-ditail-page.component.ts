@@ -23,9 +23,5 @@ export class SinglePlayerDitailPageComponent {
       this._location.back();
     });
   }
-  onDownloadImage(imageId: string) {
-    this._setadRepository.getImage(imageId).subscribe(c => {
-      saveAs(new Blob([c]), `${this.player.profile.name}-${this.player.profile.family}-${this.player.nationalCode}-${imageId}.jpg`);
-    });
-  }
+
 }
