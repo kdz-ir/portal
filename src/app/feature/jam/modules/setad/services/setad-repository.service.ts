@@ -58,4 +58,7 @@ export class SetadRepositoryService {
   get shanavarPlayers() {
     return this._httpClient.get<ProfileShowEntity[]>(this._url + '/shenavar');
   }
+  getImage(imageId: string) {
+    return this._httpClient.get(environment.url+'/api/v1/files/show/' + imageId,{responseType:'arraybuffer'});
+  }
 }

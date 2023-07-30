@@ -4,6 +4,7 @@ import { IPlayer } from '../../../../shared/jam-shared/models/IPlayer';
 import { SetadRepositoryService } from '../../../services/setad-repository.service';
 import { Location } from '@angular/common';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
+import * as saveAs from 'file-saver';
 
 @Component({
   selector: 'app-single-player-ditail-page',
@@ -13,13 +14,18 @@ import { SwalService } from 'src/app/core/services/swal/swal.service';
 export class SinglePlayerDitailPageComponent {
   player: IPlayer;
   constructor (ac: ActivatedRoute, private readonly _setadRepository: SetadRepositoryService,
-     private readonly _location: Location, private readonly _swal: SwalService) {
+    private readonly _location: Location, private readonly _swal: SwalService) {
     this.player = <IPlayer>ac.snapshot.data['player'];
   }
   onVerifyRegister() {
     this._setadRepository.verifySingle(this.player.id, this.player.field, this.player.subField).subscribe(t => {
       this._swal.successFullSubmited();
       this._location.back();
+    });
+  }
+  onDownloadImage(imageId: string) {
+    this._setadRepository.getImage(imageId).subscribe(c => {
+      saveAs(new Blob([c]), `${this.player.profile.name}-${this.player.profile.family}-${this.player.nationalCode}-${imageId}.jpg`);
     });
   }
 }
