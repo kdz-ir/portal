@@ -29,8 +29,8 @@ export class DormitoryListPageComponent implements AfterViewInit {
     const wb = new Workbook();
     const ws = wb.addWorksheet('dormitory');
     const cols = [{ name: 'نام و نام خانوادگی' }, { name: 'امکانات' },
-    { name: 'جنسیت' }, { name: 'شهر' }, { name: 'کد ملی' }, { name: 'شماره پرداخت' }, { name: 'زمان ثبت' }];
-    const row = this.data.filter(c => !isEmpty(c.refId)).map(d => ([d.profile.name + ' ' + d.profile.family, d.type, d.profile.sex, d.profile.city, d.nationalCode, d.refId,moment(d.created).format('jDD HH:mm:ss')]));
+    { name: 'جنسیت' }, { name: 'شهر' }, { name: 'کد ملی' }, { name: 'شماره پرداخت' }, { name: 'شناسه پرداخت' }, { name: 'زمان ثبت' }];
+    const row = this.data.map(d => ([d.profile.name + ' ' + d.profile.family, d.type, d.profile.sex, d.profile.city, d.nationalCode, d?.refId, d.authority, moment(d.created).format('jDD HH:mm:ss')]));
     ws.addTable({ name: 'mytable', headerRow: true, ref: 'A1', rows: row, columns: cols });
     ws.columns?.forEach(c => c.width = 25);
     saveAs(new Blob([await wb.xlsx.writeBuffer()]), `dormitory-${jalaliMoment().format('jYYYYjMMjDD-HHmm')}.xlsx`);
