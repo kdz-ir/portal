@@ -27,7 +27,7 @@ export class DormitoryListPageComponent implements AfterViewInit {
   }
   async onDownloadExport() {
     const wb = new Workbook();
-    const ws = wb.addWorksheet('dormitory');
+    const ws = wb.addWorksheet('dormitory', { views: [{ rightToLeft: true }] });
     const cols = [{ name: 'نام و نام خانوادگی' }, { name: 'امکانات' },
     { name: 'جنسیت' }, { name: 'شهر' }, { name: 'کد ملی' }, { name: 'شماره پرداخت' }, { name: 'شناسه پرداخت' }, { name: 'زمان ثبت' }];
     const row = this.data.map(d => ([d.profile.name + ' ' + d.profile.family, d.type, d.profile.sex, d.profile.city, d.nationalCode, d?.refId, d.authority, moment(d.created).format('jDD HH:mm:ss')]));
