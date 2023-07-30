@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ITeamDetail } from '../../../models/iteam-detail';
+import { saveAs } from 'file-saver';
+import * as moment from 'jalali-moment';
 
 @Component({
   selector: 'app-team-detail-page',
@@ -8,10 +10,12 @@ import { ITeamDetail } from '../../../models/iteam-detail';
   styleUrls: ['./team-detail-page.component.scss']
 })
 export class TeamDetailPageComponent {
-team: ITeamDetail;
+  team: ITeamDetail;
 
-constructor(ac:ActivatedRoute) {
-  this.team=<ITeamDetail>ac.snapshot.data['team'];
-  
-}
+  constructor (ac: ActivatedRoute) {
+    this.team = <ITeamDetail>ac.snapshot.data['team'];
+  }
+  onExportList(){
+    saveAs(new Blob([JSON.stringify(this.team)]),`${this.team.name}-${this.team.id}-${moment().format('jDD-HH-mm-ss')}.json`)
+  }
 }
