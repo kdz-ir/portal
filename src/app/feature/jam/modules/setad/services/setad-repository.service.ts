@@ -19,6 +19,9 @@ import { ProfileShowEntity } from 'src/app/feature/setting/models/profile-info';
 export class SetadRepositoryService {
   private readonly _url = environment.url + '/api/v1/account/jam/setad';
   constructor (private readonly _httpClient: HttpClient) { }
+  get imageUrl():string {
+    return environment.url + '/api/v1/files/show/';
+  }
   get allPlayers() {
     return this._httpClient.get<IDataCollection<IPlayer>>(this._url + '/all').pipe(map(c => c.data));
   }
@@ -59,6 +62,6 @@ export class SetadRepositoryService {
     return this._httpClient.get<ProfileShowEntity[]>(this._url + '/shenavar');
   }
   getImage(imageId: string) {
-    return this._httpClient.get(environment.url+'/api/v1/files/show/' + imageId,{responseType:'arraybuffer'});
+    return this._httpClient.get(this.imageUrl + imageId, { responseType: 'arraybuffer' });
   }
 }
