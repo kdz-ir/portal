@@ -4,7 +4,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SingleListPageComponent } from './pages/single/single-list-page/single-list-page.component';
 import { SinglePlayerDitailPageComponent } from './pages/single/single-player-ditail-page/single-player-ditail-page.component';
 import { SinglePlayerResolver } from './resolvers/single-player-resolver';
-import { AllPlayerPageComponent } from './pages/all-player-page/all-player-page.component';
+import { AllPlayerPageComponent } from './pages/tools/all-player-page/all-player-page.component';
 import { DoubleListPageComponent } from './pages/double/double-list-page/double-list-page.component';
 import { DoubleTeamDetailPageComponent } from './pages/double/double-team-detail-page/double-team-detail-page.component';
 import { doubleTeamResolver } from './resolvers/double-team-resolver';
@@ -12,7 +12,7 @@ import { TeamListPageComponent } from './pages/teams/team-list-page/team-list-pa
 import { TeamDetailPageComponent } from './pages/teams/team-detail-page/team-detail-page.component';
 import { teamResolver } from './resolvers/team-resolver';
 import { DormitoryListPageComponent } from './pages/dormitory/dormitory-list-page/dormitory-list-page.component';
-import { ShenavarPlayersPageComponent } from './pages/shenavar-players-page/shenavar-players-page.component';
+import { ShenavarPlayersPageComponent } from './pages/tools/shenavar-players-page/shenavar-players-page.component';
 
 const routes: Routes = [
   {
@@ -57,12 +57,17 @@ const routes: Routes = [
         component: DormitoryListPageComponent
       },
       {
-        path: 'shenavar',
-        component: ShenavarPlayersPageComponent
-      },
-      {
-        path: 'all',
-        component: AllPlayerPageComponent
+        path: 'tools',
+        children: [
+          {
+            path: 'shenavar',
+            component: ShenavarPlayersPageComponent
+          },
+          {
+            path: 'all',
+            component: AllPlayerPageComponent
+          }
+        ],
       },
 
     ]

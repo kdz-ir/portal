@@ -1,8 +1,8 @@
 import { AfterContentInit, AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { IPlayer } from '../../../shared/jam-shared/models/IPlayer';
-import { SetadRepositoryService } from '../../services/setad-repository.service';
+import { IPlayer } from '../../../../shared/jam-shared/models/IPlayer';
+import { SetadRepositoryService } from '../../../services/setad-repository.service';
 
 @Component({
   selector: 'app-all-player-page',

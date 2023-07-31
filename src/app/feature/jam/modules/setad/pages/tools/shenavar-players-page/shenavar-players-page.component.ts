@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { SetadRepositoryService } from '../../services/setad-repository.service';
+import { SetadRepositoryService } from '../../../services/setad-repository.service';
 import { ProfileShowEntity } from 'src/app/feature/setting/models/profile-info';
 
 @Component({
