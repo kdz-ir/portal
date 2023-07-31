@@ -13,13 +13,14 @@ import { ITeamDetail } from '../models/iteam-detail';
 import { timer } from 'rxjs';
 import { IDormitories } from '../models/idormitories';
 import { ProfileShowEntity } from 'src/app/feature/setting/models/profile-info';
+import { ICard } from '../models/icard';
 @Injectable({
   providedIn: 'root'
 })
 export class SetadRepositoryService {
   private readonly _url = environment.url + '/api/v1/account/jam/setad';
   constructor (private readonly _httpClient: HttpClient) { }
-  get imageUrl():string {
+  get imageUrl(): string {
     return environment.url + '/api/v1/files/show/';
   }
   get allPlayers() {
@@ -60,6 +61,9 @@ export class SetadRepositoryService {
   }
   get shanavarPlayers() {
     return this._httpClient.get<ProfileShowEntity[]>(this._url + '/tools/shenavar');
+  }
+  get cards() {
+    return this._httpClient.get<IDataCollection<ICard>>(this._url + '/tools/cards').pipe(map(t=>t.data));
   }
   getImage(imageId: string) {
     return this._httpClient.get(this.imageUrl + imageId, { responseType: 'arraybuffer' });

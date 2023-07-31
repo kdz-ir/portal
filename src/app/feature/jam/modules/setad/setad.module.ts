@@ -18,6 +18,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ShenavarPlayersPageComponent } from './pages/tools/shenavar-players-page/shenavar-players-page.component';
 import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
+import { CardsListPageComponent } from './pages/tools/cards-list-page/cards-list-page.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ImageViewerComponent } from './components/image-viewer/image-viewer.com
     TeamDetailPageComponent,
     DormitoryListPageComponent,
     ShenavarPlayersPageComponent,
-    ImageViewerComponent
+    ImageViewerComponent,
+    CardsListPageComponent
   ],
   imports: [
     SharedModule,
