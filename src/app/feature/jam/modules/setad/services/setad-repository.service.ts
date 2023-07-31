@@ -27,7 +27,7 @@ export class SetadRepositoryService {
     return this._httpClient.get<IDataCollection<IPlayer>>(this._url + '/all').pipe(map(c => c.data));
   }
   get totalAnalysis() {
-    return timer(300, 15000).pipe(switchMap(t => this._httpClient.get<{ total: number, unChecked: number; }>(this._url + '/analysis')));
+    return timer(300, 50000).pipe(switchMap(t => this._httpClient.get<{ total: number, unChecked: number; }>(this._url + '/analysis')));
   }
   get dormitories() {
     return this._httpClient.get<IDataCollection<IDormitories>>(this._url + '/dormitory').pipe(map(t => t.data));
