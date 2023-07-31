@@ -7,5 +7,6 @@ export interface IDormitories {
     type: number;
     nationalCode: string;
     userCode: string;
+    userCodeProfile:ProfileShowEntity;
     created:Date;
 }

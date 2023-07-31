@@ -59,7 +59,7 @@ export class SetadRepositoryService {
     return this._httpClient.post(this._url + '/verify/double', { id, field, subField });
   }
   get shanavarPlayers() {
-    return this._httpClient.get<ProfileShowEntity[]>(this._url + '/shenavar');
+    return this._httpClient.get<ProfileShowEntity[]>(this._url + '/tools/shenavar');
   }
   getImage(imageId: string) {
     return this._httpClient.get(this.imageUrl + imageId, { responseType: 'arraybuffer' });

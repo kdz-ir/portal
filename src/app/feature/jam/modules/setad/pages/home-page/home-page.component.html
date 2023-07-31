@@ -19,10 +19,8 @@
                 [matMenuTriggerFor]="menuByc">دوچرخه سواری</button>
         <button mat-button
                 routerLink="dormitory">خوابگاه</button>
-        <button mat-button
-                routerLink="tools/shenavar">شناور</button>
-        <button mat-button
-                routerLink="tools/all">همه افراد</button>
+        <button mat-icon-button
+                [matMenuTriggerFor]="meunTools"><mat-icon>construction</mat-icon></button>
         <button mat-icon-button
                 [matBadge]="totalAnalysis?.unChecked"
                 matBadgePosition="after"
@@ -97,4 +95,12 @@
 <mat-menu #menuAnalize>
         <button mat-menu-item><span [innerText]="'کلی: '+totalAnalysis?.total"> </span>
         </button>
+</mat-menu>
+<mat-menu #meunTools>
+        <button mat-menu-item
+                routerLink="tools/card">کارت ساز</button>
+        <button mat-menu-item
+                routerLink="tools/shenavar">شناور</button>
+        <button mat-menu-item
+                routerLink="tools/all">همه افراد</button>
 </mat-menu>

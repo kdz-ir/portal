@@ -7,6 +7,8 @@ export interface IBaseProfileShow {
     birthday: string;
     city: string;
     personalPhoto: string;
+    personalPhotoUrl: string;
     IdCardPhoto: string;
+    IdCardPhotoUrl: string;
     family: string;
 }

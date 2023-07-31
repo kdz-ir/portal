@@ -54,6 +54,13 @@
             <td mat-cell
                 *matCellDef="let element"> {{element.profile.city}} </td>
         </ng-container>
+        <ng-container matColumnDef="userCode">
+            <th mat-header-cell
+                mat-sort-header
+                *matHeaderCellDef> ثبت کننده </th>
+            <td mat-cell
+                *matCellDef="let element"> {{element.userCodeProfile.name+' '+ element.userCodeProfile.family}} </td>
+        </ng-container>
         <ng-container matColumnDef="nationalCode">
             <th mat-header-cell
                 mat-sort-header
