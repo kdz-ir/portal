@@ -1,6 +1,12 @@
 <div class="grid grid-cols-2">
     <div *ngFor="let shenavar of players">
-        <span>اسم: </span>
-        <span> {{shenavar.name+' '+shenavar.family}}</span>
+        <div>
+            <span>اسم: </span>
+            <span> {{shenavar.profile.name+' '+shenavar.profile.family}}</span>
+        </div>
+        <div>
+            <span>تیم ها: </span>
+            <span [innerText]="shenavar.teams"></span>
+        </div>
     </div>
 </div>

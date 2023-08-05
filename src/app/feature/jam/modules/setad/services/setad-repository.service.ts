@@ -27,7 +27,7 @@ export class SetadRepositoryService {
     return this._httpClient.get<IDataCollection<IPlayer>>(this._url + '/all').pipe(map(c => c.data));
   }
   get totalAnalysis() {
-    return timer(300, 15000).pipe(switchMap(t => this._httpClient.get<{ total: number, unChecked: number; }>(this._url + '/analysis')));
+    return timer(300, 50000).pipe(switchMap(t => this._httpClient.get<{ total: number, unChecked: number; }>(this._url + '/analysis')));
   }
   get dormitories() {
     return this._httpClient.get<IDataCollection<IDormitories>>(this._url + '/dormitory').pipe(map(t => t.data));
@@ -60,10 +60,10 @@ export class SetadRepositoryService {
     return this._httpClient.post(this._url + '/verify/double', { id, field, subField });
   }
   get shanavarPlayers() {
-    return this._httpClient.get<ProfileShowEntity[]>(this._url + '/tools/shenavar');
+    return this._httpClient.get<{ profile: ProfileShowEntity, teams: string; }[]>(this._url + '/tools/shenavar');
   }
   get cards() {
-    return this._httpClient.get<IDataCollection<ICard>>(this._url + '/tools/cards').pipe(map(t=>t.data));
+    return this._httpClient.get<IDataCollection<ICard>>(this._url + '/tools/cards').pipe(map(t => t.data));
   }
   getImage(imageId: string) {
     return this._httpClient.get(this.imageUrl + imageId, { responseType: 'arraybuffer' });

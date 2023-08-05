@@ -8,7 +8,8 @@ import { ProfileShowEntity } from 'src/app/feature/setting/models/profile-info';
   styleUrls: ['./shenavar-players-page.component.scss']
 })
 export class ShenavarPlayersPageComponent implements AfterViewInit {
-  players: ProfileShowEntity[];
+  players: { profile: ProfileShowEntity; teams: string; }[];
+
   constructor (private readonly _setadRepository: SetadRepositoryService) { }
   ngAfterViewInit(): void {
     this._setadRepository.shanavarPlayers.subscribe(c => this.players = c);
