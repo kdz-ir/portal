@@ -2,26 +2,36 @@
         <div
              class="flex flex-row justify-center max-md:flex-col max-md:justify-items-center gap-4 justify-items-start second-body">
                 <section>
-                        <div class="button-row">
+                        <div class="button-row flex gap-2">
                                 <button class="w-14 h-14"
                                         mat-fab
                                         routerLink="/jam"
                                         color="primary">
                                         <mat-icon svgIcon="Jam"></mat-icon>
                                 </button>
+
+                                <a class="w-14 h-14"
+                                   mat-fab
+                                   href="https://live.kdz.ir"
+                                   color="primary">
+                                        <mat-icon> live_tv</mat-icon>
+                                </a>
+
                         </div>
                 </section>
                 <section class="flex flex-col justify-items-center gap-6">
-                        <a target="_blank" href="https://live.kdz.ir"
+                        <a target="_blank"
+                           href="https://live.kdz.ir"
                            mat-raised-button
                            class="md:w-80 w-full">پخش زنده</a>
                         <button routerLink="/news"
                                 mat-raised-button
                                 class="md:w-80 w-full">اخبار</button>
-                        <a target="_blank" href="https://kdz.ir/fa/?page_id=1120"
+                        <a target="_blank"
+                           href="https://kdz.ir/fa/?page_id=1120"
                            mat-raised-button
                            class="md:w-80 w-full">درباره ما</a>
-                        
+
                 </section>
         </div>
 </div>
