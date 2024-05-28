@@ -1,4 +1,5 @@
-export type Root = Root2[]
+
+export type Root = NewsList[]
 
 export interface NewsList {
   id: number
