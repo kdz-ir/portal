@@ -1,6 +1,4 @@
-
 export type Root = NewsList[]
-
 export interface NewsList {
   id: number
   date: string
