@@ -7,6 +7,8 @@ import { HistoryPageComponent } from './pages/history-page/history-page.componen
 import { CanRegisterGuard } from './guards/can-register-guard';
 import { adminAccessGuard } from 'src/app/shared/guards/admin-access-guard';
 import { CanLoadThisProgramGuard } from 'src/app/core/guards/can-load-this-program.guard';
+import { PreRegisterHomePageComponent } from './pre-register/pages/pre-register-home-page/pre-register-home-page.component';
+
 
 const routes: Routes = [
   {
@@ -16,6 +18,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterHomePageComponent,
+  },
+  {
+    path: 'preregister',
+    component: PreRegisterHomePageComponent,
   },
   {
     path: 'history',
