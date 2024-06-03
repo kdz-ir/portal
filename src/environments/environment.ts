@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://api.kdz.ir',
+  url: 'http://localhost:8000',
   recaptcha: '6Ld4QIoaAAAAAHuPD4u18Ht4-tH0gMourrcHbdiv',
   accessToken: 'access_token',
   refreshToken: 'refresh_token',
