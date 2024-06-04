@@ -20,7 +20,7 @@ const routes: Routes = [
     component: RegisterHomePageComponent,
   },
   {
-    path: 'preregister',
+    path: 'pre-registerion/:id',
     component: PreRegisterHomePageComponent,
   },
   {
