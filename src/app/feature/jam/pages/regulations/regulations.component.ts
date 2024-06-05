@@ -7,14 +7,20 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./regulations.component.scss']
 })
 export class RegulationsComponent {
-fieldId!:string;
+  fieldId!: string;
+  acceptedRules: boolean = false;
 
-constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router) {
 
-  this.route.params.subscribe((params) => {
-    this.fieldId = params['id'];
+    this.route.params.subscribe((params) => {
+      this.fieldId = params['id'];
     })
-    
- }
+
+  }
+
+
+  onCheckboxChange(event: any) {
+    this.acceptedRules = event.checked;
+  }
 
 }
