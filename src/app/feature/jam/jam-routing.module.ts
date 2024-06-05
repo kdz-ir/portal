@@ -25,7 +25,7 @@ const routes: Routes = [
     component: PreRegisterHomePageComponent,
   },
   {
-    path: 'Regulations/:id',
+    path: 'pre-registerion/Regulations/:id',
     component: RegulationsComponent,
   },
   {
