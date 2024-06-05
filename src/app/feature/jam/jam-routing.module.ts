@@ -8,6 +8,7 @@ import { CanRegisterGuard } from './guards/can-register-guard';
 import { adminAccessGuard } from 'src/app/shared/guards/admin-access-guard';
 import { CanLoadThisProgramGuard } from 'src/app/core/guards/can-load-this-program.guard';
 import { PreRegisterHomePageComponent } from './pre-register/pages/pre-register-home-page/pre-register-home-page.component';
+import { RegulationsComponent } from './pages/regulations/regulations.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'pre-registerion/:id',
     component: PreRegisterHomePageComponent,
+  },
+  {
+    path: 'Regulations/:id',
+    component: RegulationsComponent,
   },
   {
     path: 'history',
