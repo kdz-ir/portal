@@ -21,7 +21,7 @@ const routes: Routes = [
     component: RegisterHomePageComponent,
   },
   {
-    path: 'pre-registerion/:id',
+    path: 'pre-registerion',
     component: PreRegisterHomePageComponent,
   },
   {
