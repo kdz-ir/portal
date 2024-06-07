@@ -23,7 +23,7 @@ export class JamRepositoryService {
     return this._http.post<ISportSubFieldName>(this._url + '/subField-name', { subField }).pipe(map(c => c.subFieldName));
   }
 
-  PostSportFielId(field: PreRegisterSportId) {
+  postSportFielId(field: PreRegisterSportId) {
     return this._http.post(this._url + '/pre-register/submit', { field });
   }
 

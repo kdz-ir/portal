@@ -39,7 +39,7 @@ export class RegulationsComponent {
     const fieldId = {
       field: Number(this.fieldId)
     };
-    this._JamRepository.PostSportFielId(fieldId).subscribe(() => {
+    this._JamRepository.postSportFielId(fieldId).subscribe(() => {
       this.loading = false
       this._swal.swal.fire({
         title: 'پیش ثبت‌‌نام شما با موفقیت انجام شد.',
