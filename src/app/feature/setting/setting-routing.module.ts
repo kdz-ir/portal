@@ -6,7 +6,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { CanRegisterGuard } from '../jam/guards/can-register-guard';
 
 const routes: Routes = [
-  { path: '', component: EditProfileComponent ,canActivate: [CanRegisterGuard],},
+  { path: '', component: EditProfileComponent },
   { path: 'zoroastrianCard', component: GetZoroastrianCardComponent },
   { path: 'logout', component: LogoutComponent }
 ];

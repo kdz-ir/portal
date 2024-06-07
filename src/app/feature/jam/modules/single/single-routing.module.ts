@@ -12,7 +12,6 @@ import { AgeRangeResolver, FieldNameResolver, SubFieldNameResolver } from '../..
 const routes: Routes = [
   {
     path: 'sport-insurence',
-    canActivate: [SportInsuranceGuard],
     component: SportInsurencePageComponent,
     resolve: { sportInsurance: sportInsuranceResolver }
   },
