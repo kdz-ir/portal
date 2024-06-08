@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: 'pre-registerion/:id',
     component: RegulationsComponent,
-    canActivate: [SportInsuranceGuard,CanRegisterGuard],
+    canActivate: [CanRegisterGuard],//SportInsuranceGuard بعدا دوباره اضافه بشه
   },
   {
     path: 'history',
