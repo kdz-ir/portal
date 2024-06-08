@@ -44,6 +44,7 @@ export class RegulationsComponent {
         icon: 'success',
         confirmButtonText: 'بستن'
       });
+      this.router.navigate(['home']);
     }, () => {
       this.loading = false;
     });
