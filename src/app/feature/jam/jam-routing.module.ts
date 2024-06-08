@@ -4,13 +4,8 @@ import { JamHomePageComponent } from './pages/jam-home-page/jam-home-page.compon
 import { ValidProfileGuard } from 'src/app/core/guards/valid-profile.guard';
 import { RegisterHomePageComponent } from './pages/register-home-page/register-home-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
-import { CanRegisterGuard } from './guards/can-register-guard';
 import { adminAccessGuard } from 'src/app/shared/guards/admin-access-guard';
 import { CanLoadThisProgramGuard } from 'src/app/core/guards/can-load-this-program.guard';
-import { PreRegisterHomePageComponent } from './pre-register/pages/pre-register-home-page/pre-register-home-page.component';
-import { RegulationsComponent } from './pages/regulations/regulations.component';
-import { SportInsuranceGuard } from './modules/single/guards/sport-insurance.guard';
-
 
 const routes: Routes = [
   {
@@ -22,17 +17,12 @@ const routes: Routes = [
     component: RegisterHomePageComponent,
   },
   {
-    path: 'pre-registerion',
-    component: PreRegisterHomePageComponent,
-  },
-  {
-    path: 'pre-registerion/:id',
-    component: RegulationsComponent,
-    canActivate: [CanRegisterGuard],//SportInsuranceGuard بعدا دوباره اضافه بشه
-  },
-  {
     path: 'history',
     component: HistoryPageComponent
+  },
+  {
+    path: 'pre-registerion',
+    loadChildren: () => import('./modules/per-register/per-register.module').then(c => c.PerRegisterModule)
   },
   {
     path: 'register',
@@ -49,7 +39,7 @@ const routes: Routes = [
       {
         path: 'dormitory',
         loadChildren: () => import('./modules/dormitory/dormitory.module').then(c => c.DormitoryModule),
-        canActivate:[CanLoadThisProgramGuard(false)]
+        canActivate: [CanLoadThisProgramGuard(false)]
       }
     ]
   },

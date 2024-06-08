@@ -8,18 +8,13 @@ import { RegisterHomePageComponent } from './pages/register-home-page/register-h
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { CountdownComponent } from './components/countdown/countdown.component';
 import { CountdownModule } from 'ngx-countdown';
-import { PreRegisterHomePageComponent } from './pre-register/pages/pre-register-home-page/pre-register-home-page.component';
-import { RegulationsComponent } from './pages/regulations/regulations.component';
-
 
 @NgModule({
   declarations: [
     JamHomePageComponent,
     RegisterHomePageComponent,
     HistoryPageComponent,
-    CountdownComponent,
-    PreRegisterHomePageComponent,
-    RegulationsComponent
+    CountdownComponent
   ],
   imports: [
     SharedModule,

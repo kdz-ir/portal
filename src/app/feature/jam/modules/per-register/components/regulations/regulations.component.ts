@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JamRepositoryService } from '../../services/jam-repository.service';
+import { JamRepositoryService } from '../../../../services/jam-repository.service';
 import { SwalService } from 'src/app/core/services/swal/swal.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { IProfileForm } from 'src/app/feature/setting/edit-profile/IProfileForm';
-
 @Component({
   selector: 'app-regulations',
   templateUrl: './regulations.component.html',
