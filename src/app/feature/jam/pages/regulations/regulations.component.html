@@ -1,0 +1,19 @@
+<div class="flex flex-col items-center justify-center " [largeLoading]="loading">
+
+    <form fxLayout="column" [formGroup]="regulationsForm" [largeLoading]="loading" (submit)="onSubmit()"
+        fxLayoutAlign.lt-sm="center center" fxLayoutGap="20px">
+
+
+        <mat-checkbox class="mr-2" (change)="onCheckboxChange($event)" formControlName="fieldId"> اینجانب <a
+                href="https://www.google.com/" class="text-blue-500 hover:text-blue-700">آئین‌نامه</a> را بطور کامل
+            مطالعه کرده و تائید
+            می‌کنم.</mat-checkbox>
+
+
+        <button mat-raised-button type="submit" color="primary" [disabled]="regulationsForm.invalid">ثبت‌نام</button>
+        <app-back-button></app-back-button>
+    </form>
+
+
+
+</div>

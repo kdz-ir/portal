@@ -8,6 +8,8 @@ import { CanRegisterGuard } from './guards/can-register-guard';
 import { adminAccessGuard } from 'src/app/shared/guards/admin-access-guard';
 import { CanLoadThisProgramGuard } from 'src/app/core/guards/can-load-this-program.guard';
 import { PreRegisterHomePageComponent } from './pre-register/pages/pre-register-home-page/pre-register-home-page.component';
+import { RegulationsComponent } from './pages/regulations/regulations.component';
+import { SportInsuranceGuard } from './modules/single/guards/sport-insurance.guard';
 
 
 const routes: Routes = [
@@ -20,8 +22,13 @@ const routes: Routes = [
     component: RegisterHomePageComponent,
   },
   {
-    path: 'preregister',
+    path: 'pre-registerion',
     component: PreRegisterHomePageComponent,
+  },
+  {
+    path: 'pre-registerion/:id',
+    component: RegulationsComponent,
+    canActivate: [SportInsuranceGuard,CanRegisterGuard],
   },
   {
     path: 'history',

@@ -9,6 +9,7 @@ import { HistoryPageComponent } from './pages/history-page/history-page.componen
 import { CountdownComponent } from './components/countdown/countdown.component';
 import { CountdownModule } from 'ngx-countdown';
 import { PreRegisterHomePageComponent } from './pre-register/pages/pre-register-home-page/pre-register-home-page.component';
+import { RegulationsComponent } from './pages/regulations/regulations.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PreRegisterHomePageComponent } from './pre-register/pages/pre-register-
     RegisterHomePageComponent,
     HistoryPageComponent,
     CountdownComponent,
-    PreRegisterHomePageComponent
+    PreRegisterHomePageComponent,
+    RegulationsComponent
   ],
   imports: [
     SharedModule,

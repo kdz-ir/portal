@@ -8,6 +8,7 @@ import { ISportSubFieldName } from "../models/ISportSubFieldName";
 import { map } from 'rxjs/operators';
 import { IWordPressPageRoot } from '../models/iword-press-page';
 import { AgeRange } from '../modules/shared/jam-shared/models/age-range';
+import { PreRegisterSportId } from '../models/pre-register-sport-id';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,12 @@ export class JamRepositoryService {
   getSubSportName(subField: SportSubField) {
     return this._http.post<ISportSubFieldName>(this._url + '/subField-name', { subField }).pipe(map(c => c.subFieldName));
   }
+
+  postSportFielId(field: PreRegisterSportId) {
+    return this._http.post(this._url + '/pre-register/submit', { field });
+  }
+
+
   get history() {
     return this._http.get<IWordPressPageRoot>('https://kdz.ir/fa/?json=get_page&id=1036').pipe(map(c => c.page));
   }
