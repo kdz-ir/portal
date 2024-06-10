@@ -24,7 +24,7 @@ export class JamRepositoryService {
   }
 
   postSportFielId(field: PreRegisterSportId) {
-    return this._http.post(this._url + '/pre-register/submit', { field });
+    return this._http.post(this._url + '/pre-register/submit', { field:field.field });
   }
 
 
