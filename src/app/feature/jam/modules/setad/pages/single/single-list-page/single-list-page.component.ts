@@ -62,3 +62,5 @@ export class SingleListPageComponent {
     saveAs(new Blob([await wb.xlsx.writeBuffer()]),`${jalaliMoment().format('jYYYYjMMjDD-HHmm')}.xlsx`)
   }
 }
+
+
