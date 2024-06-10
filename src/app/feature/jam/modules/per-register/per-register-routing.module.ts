@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegulationsComponent } from './components/regulations/regulations.component';
 import { CanRegisterGuard } from '../../guards/can-register-guard';
 import { PreRegisterHomePageComponent } from './components/pre-register-home-page/pre-register-home-page.component';
+import { SetadReportComponent } from './components/setad-report/setad-report.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,12 @@ const routes: Routes = [
     component: RegulationsComponent,
     canActivate: [CanRegisterGuard],//SportInsuranceGuard بعدا دوباره اضافه بشه
   },
+
+  {
+    path: 'setad/report',
+    component: SetadReportComponent,
+     },
+  
 ];
 
 @NgModule({

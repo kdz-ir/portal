@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 import { IWordPressPageRoot } from '../models/iword-press-page';
 import { AgeRange } from '../modules/shared/jam-shared/models/age-range';
 import { PreRegisterSportId } from '../models/pre-register-sport-id';
+import { Profile } from '../modules/per-register/models/report';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,11 @@ export class JamRepositoryService {
   postSportFielId(field: PreRegisterSportId) {
     return this._http.post(this._url + '/pre-register/submit', { field });
   }
+
+  preRegisterReport() {  
+    return this._http.get<Profile>(this._url + `/pre-register/report`);
+  }
+
 
 
   get history() {
