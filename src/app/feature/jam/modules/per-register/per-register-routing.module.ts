@@ -4,6 +4,7 @@ import { RegulationsComponent } from './components/regulations/regulations.compo
 import { CanRegisterGuard } from '../../guards/can-register-guard';
 import { PreRegisterHomePageComponent } from './components/pre-register-home-page/pre-register-home-page.component';
 import { SetadReportComponent } from './components/setad-report/setad-report.component';
+import { adminAccessGuard } from 'src/app/shared/guards/admin-access-guard';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
 
   {
     path: 'setad/report',
+    canActivate: [adminAccessGuard],
     component: SetadReportComponent,
      },
   
