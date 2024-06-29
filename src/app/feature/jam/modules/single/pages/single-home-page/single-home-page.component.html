@@ -93,7 +93,7 @@
    <mat-expansion-panel>
       <mat-expansion-panel-header>
          <mat-panel-title>
-            دو میدانی
+            آمادگی جسمانی
          </mat-panel-title>
          <mat-panel-description>
 
@@ -101,16 +101,9 @@
       </mat-expansion-panel-header>
       <div class="grid grid-cols-2 gap-4">
          <button mat-flat-button
-                 routerLink="9/6"
-                 color="primary">سرعت</button>
-         <button mat-flat-button
-                 *ngIf="gender==1"
-                 routerLink="9/8"
-                 color="accent">استقامت</button>
-         <button mat-flat-button
-                 routerLink="9/10"
-                 *ngIf="gender==0"
-                 color="accent">نیمه استقامت</button>
+                 routerLink="9/1"
+                 *ngIf="gender==1&&ageRange==1"
+                 color="primary">انفرادی</button>
       </div>
    </mat-expansion-panel>
    <mat-expansion-panel>
