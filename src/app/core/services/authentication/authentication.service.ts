@@ -6,13 +6,15 @@ import { HttpClient, HttpErrorResponse, HttpHandler, HttpRequest } from '@angula
 import { catchError, filter, switchMap, take, tap } from 'rxjs/operators';
 import { TokenResultDto } from '../../model/token-result-dto';
 import { BehaviorSubject, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   private _isRefreshing = false;
   private _refreshTokenSubject: BehaviorSubject<TokenResultDto>;
-  constructor (private _jwtService: JwtHelperService, private _http: HttpClient) {
+  constructor (private _jwtService: JwtHelperService, private _http: HttpClient, private _router: Router) {
     this._refreshTokenSubject = new BehaviorSubject<TokenResultDto>(null);
   }
   public getTokenItem<T>(key: string): T {
@@ -47,7 +49,7 @@ export class AuthenticationService {
   }
   private _systemLogout() {
     localStorage.clear();
-    window.location.reload();
+    this._router.navigate(['/login']);
   }
   refreshToken() {
     if (this._isRefreshing) {
