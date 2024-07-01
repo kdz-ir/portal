@@ -1,3 +1,5 @@
+import { AgeType } from './age-type-enum';
+
 export interface gataHaRegisterFilledInfo {
     status:  boolean;
     message: string;
@@ -8,7 +10,7 @@ export interface gataHaRegisterFilledEntity {
     registerFiled:   number[];
     subject:         string;
     isOrdooHamayesh: string;
-    ageType:         string;
+    ageType:         AgeType;
     state:           string;
     oordoHamayesh:   OordoHamayesh;
 }
