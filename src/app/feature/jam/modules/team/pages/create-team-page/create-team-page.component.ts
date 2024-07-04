@@ -54,7 +54,7 @@ export class CreateTeamPageComponent {
       else
         this.accessAbleAgeRange = [BozorgsalLabel, NojavanLabel, NonahalLabel];
     else if (field == SportField.Volleyball)
-      this.accessAbleAgeRange = [BozorgsalLabel];
+      this.accessAbleAgeRange = [BozorgsalLabel,NojavanLabel,NonahalLabel];
     this.fGroup.controls.ageRange.setValue(null);
   }
   private detecetsubFields(gender: Gender = this.fGroup.value.gender, field: SportField = this.fGroup.value.field) {
