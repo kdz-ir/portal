@@ -15,6 +15,10 @@
      target="_blank"
      href="http://ifsm.ir">سامانه فدراسیون بیمه ورزشی</a>
   <button mat-flat-button
+          [largeLoading]="isLoading"
+          (click)="onRefreshClicked()"
+          class="w-full">به روز رسانی اطلاعات بیمه ورزشی</button>
+  <button mat-flat-button
           color="accent"
           routerLink="/jam/register/single"
           class="w-full"
