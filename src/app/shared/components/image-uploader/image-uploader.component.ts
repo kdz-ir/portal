@@ -81,7 +81,7 @@ export class ImageUploaderComponent implements ControlValueAccessor, Validator, 
     this.markAsTouched();
     const file = (<HTMLInputElement>event.target).files[0] as File;
     if (this.maxSize <= (file.size / 1024)) {
-      this._swalService.showErrorMessage(`حجم فایل بیشتر از حد مجاز می باشد. حجم فایل شما: ${file.size/1024} kb| حجم سایز مورد تایید: ${this.maxSize}`);
+      this._swalService.showErrorMessage(`حجم فایل بیشتر از حد مجاز می باشد.`);
       return;
     }
     this.isUploading = true;
