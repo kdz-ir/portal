@@ -38,8 +38,7 @@ const routes: Routes = [
       },
       {
         path: 'dormitory',
-        loadChildren: () => import('./modules/dormitory/dormitory.module').then(c => c.DormitoryModule),
-        canActivate: [CanLoadThisProgramGuard(false)]
+        loadChildren: () => import('./modules/dormitory/dormitory.module').then(c => c.DormitoryModule)
       }
     ]
   },
