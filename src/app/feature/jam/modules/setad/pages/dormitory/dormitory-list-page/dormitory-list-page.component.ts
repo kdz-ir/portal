@@ -14,7 +14,7 @@ import * as moment from 'jalali-moment';
 })
 export class DormitoryListPageComponent implements AfterViewInit {
   dataSource: MatTableDataSource<IDormitories>;
-  displayedColumns: string[] = ['name', 'sex', 'nationalCode', 'userCode', 'city', 'refId', 'type', 'authority', 'created', 'action'];
+  displayedColumns: string[] = ['name', 'sex', 'nationalCode', 'userCode', 'city', 'refId', 'type', 'authority','isPaied', 'created', 'action'];
   data: IDormitories[];
   constructor (private readonly _setadRepository: SetadRepositoryService) {
 
