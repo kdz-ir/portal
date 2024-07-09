@@ -19,6 +19,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ShenavarPlayersPageComponent } from './pages/tools/shenavar-players-page/shenavar-players-page.component';
 import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
 import { CardsListPageComponent } from './pages/tools/cards-list-page/cards-list-page.component';
+import { SportInSurenceCheckButtonComponent } from './components/sport-in-surence-check-button/sport-in-surence-check-button.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CardsListPageComponent } from './pages/tools/cards-list-page/cards-list
     DormitoryListPageComponent,
     ShenavarPlayersPageComponent,
     ImageViewerComponent,
-    CardsListPageComponent
+    CardsListPageComponent,
+    SportInSurenceCheckButtonComponent
   ],
   imports: [
     SharedModule,
