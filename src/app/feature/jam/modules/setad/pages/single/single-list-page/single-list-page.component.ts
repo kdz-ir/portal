@@ -8,8 +8,6 @@ import { SportField } from 'src/app/feature/jam/models/sport-field';
 import { SportSubField } from 'src/app/feature/jam/models/sub-sport-field';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Workbook } from 'exceljs';
-import { AgeRange } from '../../../../shared/jam-shared/models/age-range';
-import { Gender } from '../../../../team/models/gender';
 import { saveAs } from 'file-saver';
 import * as jalaliMoment from 'jalali-moment';
 
