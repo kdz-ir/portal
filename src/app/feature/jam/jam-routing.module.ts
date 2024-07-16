@@ -30,8 +30,7 @@ const routes: Routes = [
     children: [
       {
         path: 'single',
-        loadChildren: () => import('./modules/single/single.module').then(c => c.SingleModule),
-        canActivate: [CanLoadThisProgramGuard(false)]
+        loadChildren: () => import('./modules/single/single.module').then(c => c.SingleModule)
       },
       {
         path: 'team',
