@@ -4,6 +4,7 @@ import { IndexPageComponent } from './pages/index-page/index-page.component';
 import { CreateTeamPageComponent } from './pages/create-team-page/create-team-page.component';
 import { TeamResolver, TeamsResolver } from './resolvers/teams-resolver';
 import { ShowTeamPageComponent } from './pages/show-team-page/show-team-page.component';
+import { CanLoadThisProgramGuard } from 'src/app/core/guards/can-load-this-program.guard';
 
 const routes: Routes = [{
   path: '',
@@ -14,7 +15,8 @@ const routes: Routes = [{
 },
 {
   path: 'create',
-  component: CreateTeamPageComponent
+  component: CreateTeamPageComponent,
+  canActivate: [CanLoadThisProgramGuard(false)]
 },
 {
   path: ':id', component: ShowTeamPageComponent, resolve: {
