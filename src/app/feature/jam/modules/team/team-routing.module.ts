@@ -16,7 +16,7 @@ const routes: Routes = [{
 {
   path: 'create',
   component: CreateTeamPageComponent,
-  canActivate: [CanLoadThisProgramGuard(false)]
+  // canActivate: [CanLoadThisProgramGuard(false)]
 },
 {
   path: ':id', component: ShowTeamPageComponent, resolve: {
