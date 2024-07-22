@@ -14,6 +14,7 @@ import { teamResolver } from './resolvers/team-resolver';
 import { DormitoryListPageComponent } from './pages/dormitory/dormitory-list-page/dormitory-list-page.component';
 import { ShenavarPlayersPageComponent } from './pages/tools/shenavar-players-page/shenavar-players-page.component';
 import { CardsListPageComponent } from './pages/tools/cards-list-page/cards-list-page.component';
+import { DormitoryInfoPageComponent } from './pages/dormitory/dormitory-info-page/dormitory-info-page.component';
 
 const routes: Routes = [
   {
@@ -55,7 +56,16 @@ const routes: Routes = [
       },
       {
         path: 'dormitory',
-        component: DormitoryListPageComponent
+        children: [
+          {
+            path: '',
+            component: DormitoryListPageComponent
+          },
+          {
+            path: ':id',
+            component: DormitoryInfoPageComponent
+          }
+        ]
       },
       {
         path: 'tools',

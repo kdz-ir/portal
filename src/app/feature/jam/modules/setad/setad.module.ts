@@ -20,6 +20,7 @@ import { ShenavarPlayersPageComponent } from './pages/tools/shenavar-players-pag
 import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
 import { CardsListPageComponent } from './pages/tools/cards-list-page/cards-list-page.component';
 import { SportInSurenceCheckButtonComponent } from './components/sport-in-surence-check-button/sport-in-surence-check-button.component';
+import { DormitoryInfoPageComponent } from './pages/dormitory/dormitory-info-page/dormitory-info-page.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SportInSurenceCheckButtonComponent } from './components/sport-in-surenc
     ShenavarPlayersPageComponent,
     ImageViewerComponent,
     CardsListPageComponent,
-    SportInSurenceCheckButtonComponent
+    SportInSurenceCheckButtonComponent,
+    DormitoryInfoPageComponent
   ],
   imports: [
     SharedModule,
