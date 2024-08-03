@@ -26,12 +26,12 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    canActivate: [ValidProfileGuard],
+    canActivate: [ValidProfileGuard,CanLoadThisProgramGuard(false)],
     children: [
       {
         path: 'single',
         loadChildren: () => import('./modules/single/single.module').then(c => c.SingleModule),
-        canActivate:[CanLoadThisProgramGuard(false)]
+        
       },
       {
         path: 'team',
