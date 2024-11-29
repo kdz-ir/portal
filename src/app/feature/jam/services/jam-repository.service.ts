@@ -35,7 +35,7 @@ export class JamRepositoryService {
 
 
   get history() {
-    return this._http.get<IWordPressPageRoot>('https://kdz.ir/fa/?json=get_page&id=1036').pipe(map(c => c.page));
+    return this._http.get<IWordPressPageRoot>('https://kdz.ir/wp-json/wp/v2/posts/10680').pipe(map(c => c.page));
   }
   get canRegister() {
     return this._http.get<{ access: boolean; }>(this._url + '/can-register');
