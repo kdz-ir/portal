@@ -9,5 +9,6 @@ export interface IDormitories {
     nationalCode: string;
     userCode: string;
     userCodeProfile:ProfileShowEntity;
-    created:Date;
+    created: Date;
+    mobile: string;
 }
